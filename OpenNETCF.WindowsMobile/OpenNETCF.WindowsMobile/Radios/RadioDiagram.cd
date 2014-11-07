@@ -1,0 +1,94 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ClassDiagram MajorVersion="1" MinorVersion="1">
+  <Class Name="OpenNETCF.WindowsMobile.Radios" BaseTypeListCollapsed="true">
+    <Position X="1.75" Y="0.5" Width="1.5" />
+    <Members>
+      <Method Name="ChangeRadioState" Hidden="true" />
+      <Field Name="FREE_DEVICE_LIST_ORDINAL" Hidden="true" />
+      <Method Name="FreeDeviceList" Hidden="true" />
+      <Field Name="GET_DEVICE_LIST_ORDINAL" Hidden="true" />
+      <Method Name="GetDeviceList" Hidden="true" />
+      <Field Name="m_instance" Hidden="true" />
+      <Field Name="m_radios" Hidden="true" />
+      <Method Name="Radios" Hidden="true" />
+      <Field Name="SET_RADIO_STATE_ORDINAL" Hidden="true" />
+      <Method Name="SetState" Hidden="true" />
+      <Method Name="System.Collections.IEnumerable.GetEnumerator" Hidden="true" />
+    </Members>
+    <NestedTypes>
+      <Enum Name="OpenNETCF.WindowsMobile.Radios.SaveAction" Collapsed="true">
+        <TypeIdentifier>
+          <NewMemberFileName>Radios.cs</NewMemberFileName>
+        </TypeIdentifier>
+      </Enum>
+    </NestedTypes>
+    <TypeIdentifier>
+      <HashCode>ACAABAACAQBCEBACAAAAAAQAAAAAAAAIAAAQQCAAAAA=</HashCode>
+      <FileName>Radios.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Class Name="OpenNETCF.WindowsMobile.BaseRadio">
+    <Position X="4.5" Y="0.5" Width="1.5" />
+    <Members>
+      <Method Name="BaseRadio" Hidden="true" />
+      <Field Name="m_parent" Hidden="true" />
+      <Field Name="m_state" Hidden="true" />
+    </Members>
+    <TypeIdentifier>
+      <HashCode>AEAAEAAAAAABAAAAAAAAAAIAAAAAIAAAAAAIAAAAAAA=</HashCode>
+      <FileName>BaseRadio.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" />
+  </Class>
+  <Class Name="OpenNETCF.WindowsMobile.WiFiRadio" Collapsed="true">
+    <Position X="3.5" Y="3" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AEAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>WiFiRadio.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="OpenNETCF.WindowsMobile.PhoneRadio" Collapsed="true">
+    <Position X="5.25" Y="3" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AEAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>PhoneRadio.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="OpenNETCF.WindowsMobile.UnknownRadio" Collapsed="true">
+    <Position X="7" Y="3" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AEAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>UnknownRadio.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="OpenNETCF.WindowsMobile.BluetoothRadio" Collapsed="true">
+    <Position X="1.75" Y="3" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AEAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>BluetoothRadio.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Interface Name="OpenNETCF.WindowsMobile.IRadio">
+    <Position X="7" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AEAAEAAAAAAAAAAAAAAAAAIAAAAAAAAAAAAIAAAAAAA=</HashCode>
+      <FileName>IRadio.cs</FileName>
+    </TypeIdentifier>
+  </Interface>
+  <Enum Name="OpenNETCF.WindowsMobile.RadioState">
+    <Position X="9" Y="0.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAIA=</HashCode>
+      <FileName>RadioState.cs</FileName>
+    </TypeIdentifier>
+  </Enum>
+  <Enum Name="OpenNETCF.WindowsMobile.RadioType">
+    <Position X="9" Y="2" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAEAAAAAAAAAAAAAAAAAACAIAAAABA=</HashCode>
+      <FileName>RadioType.cs</FileName>
+    </TypeIdentifier>
+  </Enum>
+  <Font Name="Tahoma" Size="8.25" />
+</ClassDiagram>

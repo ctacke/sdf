@@ -1,0 +1,414 @@
+﻿<Project DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003" ToolsVersion="3.5">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>9.0.21022</ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{C0B13564-B6A8-4706-8972-E213203C399B}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>OpenNETCF.Windows.Forms</RootNamespace>
+    <AssemblyName>OpenNETCF.Windows.Forms.v35</AssemblyName>
+    <ProjectTypeGuids>{4D628B5B-2FBC-4AA6-8C16-197242AEB884};{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}</ProjectTypeGuids>
+    <PlatformFamilyName>PocketPC</PlatformFamilyName>
+    <PlatformID>4118C335-430C-497f-BE48-11C3316B135E</PlatformID>
+    <OSVersion>5.1</OSVersion>
+    <DeployDirSuffix>OpenNETCF.Windows.Forms.v3._5</DeployDirSuffix>
+    <TargetFrameworkVersion>v3.5</TargetFrameworkVersion>
+    <NativePlatformName>Windows Mobile 5.0 Pocket PC SDK</NativePlatformName>
+    <SccProjectName>SAK</SccProjectName>
+    <SccLocalPath>SAK</SccLocalPath>
+    <SccAuxPath>SAK</SccAuxPath>
+    <SccProvider>SAK</SccProvider>
+    <FormFactorID>
+    </FormFactorID>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\v35</OutputPath>
+    <DefineConstants>DEBUG;TRACE;$(PlatformFamilyName)</DefineConstants>
+    <NoStdLib>true</NoStdLib>
+    <NoConfig>true</NoConfig>
+    <ErrorReport>prompt</ErrorReport>
+    <FileAlignment>512</FileAlignment>
+    <WarningLevel>4</WarningLevel>
+    <GenerateSerializationAssemblies>Off</GenerateSerializationAssemblies>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\v35</OutputPath>
+    <DefineConstants>TRACE;PocketPC</DefineConstants>
+    <NoStdLib>true</NoStdLib>
+    <NoConfig>true</NoConfig>
+    <ErrorReport>prompt</ErrorReport>
+    <FileAlignment>512</FileAlignment>
+    <WarningLevel>4</WarningLevel>
+    <GenerateSerializationAssemblies>Off</GenerateSerializationAssemblies>
+    <DocumentationFile>bin\Release\v35\OpenNETCF.Windows.Forms.v35.XML</DocumentationFile>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="Microsoft.WindowsCE.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=969db8053d3322ac, processorArchitecture=MSIL">
+      <HintPath>..\..\..\..\..\..\..\Program Files\Microsoft.NET\SDK\CompactFramework\v2.0\WindowsCE\Microsoft.WindowsCE.Forms.dll</HintPath>
+      <SpecificVersion>False</SpecificVersion>
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="mscorlib" />
+    <Reference Include="System" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="..\OpenNETCF.Windows.Forms\AnimateCtl.cs">
+      <Link>AnimateCtl.cs</Link>
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="..\OpenNETCF.Windows.Forms\AnimateCtl.designer.cs">
+      <Link>AnimateCtl.designer.cs</Link>
+      <DependentUpon>AnimateCtl.cs</DependentUpon>
+    </Compile>
+    <Compile Include="..\OpenNETCF.Windows.Forms\Application2.cs">
+      <Link>Application2.cs</Link>
+    </Compile>
+    <Compile Include="..\OpenNETCF.Windows.Forms\BatteryChargeStatus.cs">
+      <Link>BatteryChargeStatus.cs</Link>
+    </Compile>
+    <Compile Include="..\OpenNETCF.Windows.Forms\BatteryChemistry.cs">
+      <Link>BatteryChemistry.cs</Link>
+    </Compile>
+    <Compile Include="..\OpenNETCF.Windows.Forms\BatteryLife.cs">
+      <Link>BatteryLife.cs</Link>
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="..\OpenNETCF.Windows.Forms\BatteryMonitor.cs">
+      <Link>BatteryMonitor.cs</Link>
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="..\OpenNETCF.Windows.Forms\Button2.cs">
+      <Link>Button2.cs</Link>
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="..\OpenNETCF.Windows.Forms\ButtonBase2.cs">
+      <Link>ButtonBase2.cs</Link>
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="..\OpenNETCF.Windows.Forms\CharacterCasing.cs">
+      <Link>CharacterCasing.cs</Link>
+    </Compile>
+    <Compile Include="..\OpenNETCF.Windows.Forms\CheckBox2.cs">
+      <Link>CheckBox2.cs</Link>
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="..\OpenNETCF.Windows.Forms\CheckBox2.designer.cs">
+      <Link>CheckBox2.designer.cs</Link>
+      <DependentUpon>CheckBox2.cs</DependentUpon>
+    </Compile>
+    <Compile Include="..\OpenNETCF.Windows.Forms\CheckBox2_SDF21.cs">
+      <Link>CheckBox2_SDF21.cs</Link>
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="..\OpenNETCF.Windows.Forms\Clipboard.cs">
+      <Link>Clipboard.cs</Link>
+    </Compile>
+    <Compile Include="..\OpenNETCF.Windows.Forms\ColorDialog.cs">
+      <Link>ColorDialog.cs</Link>
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="..\OpenNETCF.Windows.Forms\ComboBox2.cs">
+      <Link>ComboBox2.cs</Link>
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="..\OpenNETCF.Windows.Forms\ComboBox2.designer.cs">
+      <Link>ComboBox2.designer.cs</Link>
+      <DependentUpon>ComboBox2.cs</DependentUpon>
+    </Compile>
+    <Compile Include="..\OpenNETCF.Windows.Forms\Control2.cs">
+      <Link>Control2.cs</Link>
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="..\OpenNETCF.Windows.Forms\CreateParams.cs">
+      <Link>CreateParams.cs</Link>
+    </Compile>
+    <Compile Include="..\OpenNETCF.Windows.Forms\CurrentFormMessageFilter.cs">
+      <Link>CurrentFormMessageFilter.cs</Link>
+    </Compile>
+    <Compile Include="..\OpenNETCF.Windows.Forms\Cursor2.cs">
+      <Link>Cursor2.cs</Link>
+    </Compile>
+    <Compile Include="..\OpenNETCF.Windows.Forms\DateTimePicker2.cs">
+      <Link>DateTimePicker2.cs</Link>
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="..\OpenNETCF.Windows.Forms\DEVMODE.cs">
+      <Link>DEVMODE.cs</Link>
+    </Compile>
+    <Compile Include="..\OpenNETCF.Windows.Forms\DrawDirection.cs">
+      <Link>DrawDirection.cs</Link>
+    </Compile>
+    <Compile Include="..\OpenNETCF.Windows.Forms\DrawItemEventArgs.cs">
+      <Link>DrawItemEventArgs.cs</Link>
+    </Compile>
+    <Compile Include="..\OpenNETCF.Windows.Forms\DrawItemState.cs">
+      <Link>DrawItemState.cs</Link>
+    </Compile>
+    <Compile Include="..\OpenNETCF.Windows.Forms\DrawMode.cs">
+      <Link>DrawMode.cs</Link>
+    </Compile>
+    <Compile Include="..\OpenNETCF.Windows.Forms\DrawStyle.cs">
+      <Link>DrawStyle.cs</Link>
+    </Compile>
+    <Compile Include="..\OpenNETCF.Windows.Forms\Enums.cs">
+      <Link>Enums.cs</Link>
+    </Compile>
+    <Compile Include="..\OpenNETCF.Windows.Forms\GradiantStyle.cs">
+      <Link>GradiantStyle.cs</Link>
+    </Compile>
+    <Compile Include="..\OpenNETCF.Windows.Forms\GroupBox.cs">
+      <Link>GroupBox.cs</Link>
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="..\OpenNETCF.Windows.Forms\Help2.cs">
+      <Link>Help2.cs</Link>
+    </Compile>
+    <Compile Include="..\OpenNETCF.Windows.Forms\HelpNavigator.cs">
+      <Link>HelpNavigator.cs</Link>
+    </Compile>
+    <Compile Include="..\OpenNETCF.Windows.Forms\IButtonControl.cs">
+      <Link>IButtonControl.cs</Link>
+    </Compile>
+    <Compile Include="..\OpenNETCF.Windows.Forms\ImageViewer.cs">
+      <Link>ImageViewer.cs</Link>
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="..\OpenNETCF.Windows.Forms\ImageViewer.designer.cs">
+      <Link>ImageViewer.designer.cs</Link>
+    </Compile>
+    <Compile Include="..\OpenNETCF.Windows.Forms\IMessageFilter.cs">
+      <Link>IMessageFilter.cs</Link>
+    </Compile>
+    <Compile Include="..\OpenNETCF.Windows.Forms\ItemCollection.cs">
+      <Link>ItemCollection.cs</Link>
+    </Compile>
+    <Compile Include="..\OpenNETCF.Windows.Forms\IWin32Window.cs">
+      <Link>IWin32Window.cs</Link>
+    </Compile>
+    <Compile Include="..\OpenNETCF.Windows.Forms\KeyboardHook.cs">
+      <Link>KeyboardHook.cs</Link>
+    </Compile>
+    <Compile Include="..\OpenNETCF.Windows.Forms\Lamp.cs">
+      <Link>Lamp.cs</Link>
+    </Compile>
+    <Compile Include="..\OpenNETCF.Windows.Forms\LinkLabel2.cs">
+      <Link>LinkLabel2.cs</Link>
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="..\OpenNETCF.Windows.Forms\ListBox2.cs">
+      <Link>ListBox2.cs</Link>
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="..\OpenNETCF.Windows.Forms\ListItem.cs">
+      <Link>ListItem.cs</Link>
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="..\OpenNETCF.Windows.Forms\MonthCalendar2.cs">
+      <Link>MonthCalendar2.cs</Link>
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="..\OpenNETCF.Windows.Forms\NativeMethods.cs">
+      <Link>NativeMethods.cs</Link>
+    </Compile>
+    <Compile Include="..\OpenNETCF.Windows.Forms\NativeWindow.cs">
+      <Link>NativeWindow.cs</Link>
+    </Compile>
+    <Compile Include="..\OpenNETCF.Windows.Forms\Needle.cs">
+      <Link>Needle.cs</Link>
+    </Compile>
+    <Compile Include="..\OpenNETCF.Windows.Forms\NotifyIcon.cs">
+      <Link>NotifyIcon.cs</Link>
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="..\OpenNETCF.Windows.Forms\OwnerDrawnList.cs">
+      <Link>OwnerDrawnList.cs</Link>
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="..\OpenNETCF.Windows.Forms\PictureBox2.cs">
+      <Link>PictureBox2.cs</Link>
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="..\OpenNETCF.Windows.Forms\PictureBox2.designer.cs">
+      <Link>PictureBox2.designer.cs</Link>
+    </Compile>
+    <Compile Include="..\OpenNETCF.Windows.Forms\Point2.cs">
+      <Link>Point2.cs</Link>
+    </Compile>
+    <Compile Include="..\OpenNETCF.Windows.Forms\PowerLineStatus.cs">
+      <Link>PowerLineStatus.cs</Link>
+    </Compile>
+    <Compile Include="..\OpenNETCF.Windows.Forms\PowerStatus.cs">
+      <Link>PowerStatus.cs</Link>
+    </Compile>
+    <Compile Include="..\OpenNETCF.Windows.Forms\ProgressBar2.cs">
+      <Link>ProgressBar2.cs</Link>
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="..\OpenNETCF.Windows.Forms\ProgressBar2.designer.cs">
+      <Link>ProgressBar2.designer.cs</Link>
+    </Compile>
+    <Compile Include="..\OpenNETCF.Windows.Forms\RoundGauge.cs">
+      <Link>RoundGauge.cs</Link>
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="..\OpenNETCF.Windows.Forms\SendKeys.cs">
+      <Link>SendKeys.cs</Link>
+    </Compile>
+    <Compile Include="..\OpenNETCF.Windows.Forms\Signature.cs">
+      <Link>Signature.cs</Link>
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="..\OpenNETCF.Windows.Forms\SmartList.cs">
+      <Link>SmartList.cs</Link>
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="..\OpenNETCF.Windows.Forms\StaticMethods.cs">
+      <Link>StaticMethods.cs</Link>
+    </Compile>
+    <Compile Include="..\OpenNETCF.Windows.Forms\SystemInformation2.cs">
+      <Link>SystemInformation2.cs</Link>
+    </Compile>
+    <Compile Include="..\OpenNETCF.Windows.Forms\TextBox2.cs">
+      <Link>TextBox2.cs</Link>
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="..\OpenNETCF.Windows.Forms\ThreadWindow.cs">
+      <Link>ThreadWindow.cs</Link>
+    </Compile>
+    <Compile Include="..\OpenNETCF.Windows.Forms\Win32\CB.cs">
+      <Link>Win32\CB.cs</Link>
+    </Compile>
+    <Compile Include="..\OpenNETCF.Windows.Forms\Win32\CBS.cs">
+      <Link>Win32\CBS.cs</Link>
+    </Compile>
+    <Compile Include="..\OpenNETCF.Windows.Forms\Win32\DTM.cs">
+      <Link>Win32\DTM.cs</Link>
+    </Compile>
+    <Compile Include="..\OpenNETCF.Windows.Forms\Win32\DTN.cs">
+      <Link>Win32\DTN.cs</Link>
+    </Compile>
+    <Compile Include="..\OpenNETCF.Windows.Forms\Win32\DTS.cs">
+      <Link>Win32\DTS.cs</Link>
+    </Compile>
+    <Compile Include="..\OpenNETCF.Windows.Forms\Win32\EM.cs">
+      <Link>Win32\EM.cs</Link>
+    </Compile>
+    <Compile Include="..\OpenNETCF.Windows.Forms\Win32\ES.cs">
+      <Link>Win32\ES.cs</Link>
+    </Compile>
+    <Compile Include="..\OpenNETCF.Windows.Forms\Win32\GDTR.cs">
+      <Link>Win32\GDTR.cs</Link>
+    </Compile>
+    <Compile Include="..\OpenNETCF.Windows.Forms\Win32\GW.cs">
+      <Link>Win32\GW.cs</Link>
+    </Compile>
+    <Compile Include="..\OpenNETCF.Windows.Forms\Win32\GWL.cs">
+      <Link>Win32\GWL.cs</Link>
+    </Compile>
+    <Compile Include="..\OpenNETCF.Windows.Forms\Win32\HS.cs">
+      <Link>Win32\HS.cs</Link>
+    </Compile>
+    <Compile Include="..\OpenNETCF.Windows.Forms\Win32\HWND.cs">
+      <Link>Win32\HWND.cs</Link>
+    </Compile>
+    <Compile Include="..\OpenNETCF.Windows.Forms\Win32\LBS.cs">
+      <Link>Win32\LBS.cs</Link>
+    </Compile>
+    <Compile Include="..\OpenNETCF.Windows.Forms\Win32\LVM.cs">
+      <Link>Win32\LVM.cs</Link>
+    </Compile>
+    <Compile Include="..\OpenNETCF.Windows.Forms\Win32\MCM.cs">
+      <Link>Win32\MCM.cs</Link>
+    </Compile>
+    <Compile Include="..\OpenNETCF.Windows.Forms\Win32\MCN.cs">
+      <Link>Win32\MCN.cs</Link>
+    </Compile>
+    <Compile Include="..\OpenNETCF.Windows.Forms\Win32\MCS.cs">
+      <Link>Win32\MCS.cs</Link>
+    </Compile>
+    <Compile Include="..\OpenNETCF.Windows.Forms\Win32\MCSC.cs">
+      <Link>Win32\MCSC.cs</Link>
+    </Compile>
+    <Compile Include="..\OpenNETCF.Windows.Forms\Win32\NMHDR.cs">
+      <Link>Win32\NMHDR.cs</Link>
+    </Compile>
+    <Compile Include="..\OpenNETCF.Windows.Forms\Win32\SW.cs">
+      <Link>Win32\SW.cs</Link>
+    </Compile>
+    <Compile Include="..\OpenNETCF.Windows.Forms\Win32\SWP.cs">
+      <Link>Win32\SWP.cs</Link>
+    </Compile>
+    <Compile Include="..\OpenNETCF.Windows.Forms\Win32\TCN.cs">
+      <Link>Win32\TCN.cs</Link>
+    </Compile>
+    <Compile Include="..\OpenNETCF.Windows.Forms\Win32\WA.cs">
+      <Link>Win32\WA.cs</Link>
+    </Compile>
+    <Compile Include="..\OpenNETCF.Windows.Forms\Win32\Win32Window.cs">
+      <Link>Win32\Win32Window.cs</Link>
+    </Compile>
+    <Compile Include="..\OpenNETCF.Windows.Forms\Win32\WM.cs">
+      <Link>Win32\WM.cs</Link>
+    </Compile>
+    <Compile Include="..\OpenNETCF.Windows.Forms\Win32\WS.cs">
+      <Link>Win32\WS.cs</Link>
+    </Compile>
+    <Compile Include="..\OpenNETCF.Windows.Forms\Win32\WS_EX.cs">
+      <Link>Win32\WS_EX.cs</Link>
+    </Compile>
+    <Compile Include="Properties\AssemblyInfo.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\..\OpenNETCF.Drawing\OpenNETCF.Drawing\OpenNETCF.Drawing.csproj">
+      <Project>{FA15C437-D0AA-4C99-A1F2-5581CAB8F7B8}</Project>
+      <Name>OpenNETCF.Drawing %28OpenNETCF.Drawing\OpenNETCF.Drawing%29</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\OpenNETCF\OpenNETCF\OpenNETCF.csproj">
+      <Project>{ED420160-D2FD-4437-9D28-F10C55E4DB28}</Project>
+      <Name>OpenNETCF %28OpenNETCF\OpenNETCF%29</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="..\OpenNETCF.Windows.Forms\AnimateCtl.resx">
+      <Link>AnimateCtl.resx</Link>
+      <DependentUpon>AnimateCtl.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="..\OpenNETCF.Windows.Forms\CheckBox2.resx">
+      <Link>CheckBox2.resx</Link>
+      <DependentUpon>CheckBox2.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="..\OpenNETCF.Windows.Forms\ComboBox2.resx">
+      <Link>ComboBox2.resx</Link>
+      <DependentUpon>ComboBox2.cs</DependentUpon>
+    </EmbeddedResource>
+  </ItemGroup>
+  <Import Project="$(MSBuildBinPath)\Microsoft.CompactFramework.CSharp.targets" />
+  <ProjectExtensions>
+    <VisualStudio>
+      <FlavorProperties GUID="{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}">
+        <HostingProcess disable="1" />
+      </FlavorProperties>
+    </VisualStudio>
+  </ProjectExtensions>
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

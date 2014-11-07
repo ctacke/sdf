@@ -1,0 +1,415 @@
+<html>
+	<head>
+		<title>/cfAES: Compact Framework and Rijndael / AES</title>
+	</head>
+	<body>
+		<TABLE id="Table2" cellSpacing="1" cellPadding="1" width="100%" border="0">
+			<TR>
+				<TD><H1>/cfAES</H1>
+				</TD>
+				<TD align="right"><A href="javascript:window.open('http://www.brains-N-brawn.com/Comment/default.aspx?article=cfaes','','scrollbars=yes,width=550,height=550');void('');"><FONT size="2">comment(s)</FONT></A>&nbsp;</TD>
+			</TR>
+		</TABLE>
+		<H2>Compact Framework and Rijndael / AES</H2>
+		<P><A href="http://www.brains-N-brawn.com/cfAES">http://www.brains-N-brawn.com/cfAES</A>
+			7/19/2004 <IMG alt="casey chesnut" src="mailtoCaseyChesnut.png" border="0"></P>
+		<H3>Introduction</H3>
+		<P>the main limitation of my last article (<A href="http://www.brains-N-brawn.com/cfWSE2">/cfWSE2</A>)&nbsp;was 
+			a lack of the AES symmetric encryption for the Compact Framework (CF). the 
+			problem was that WSE 2.0 uses AES encryption by default, which is not available 
+			through the CryptoAPI&nbsp;in Windows CE current. to make a WSE 2.0 web service 
+			callable by a device, it would have to be modified to use TripleDES instead ... 
+			which is not practical in real world scenarios (unless you own the web service 
+			too). as soon as i had finished that article, i found the following article on 
+			CodeProject.com: <A href="http://www.codeproject.com/dotnet/csstreamcipher.asp">A 
+				CBC Stream Cipher in C#</A>. the article provided a wrapper 
+			around&nbsp;some open source implementations&nbsp;of AES. ended up porting that 
+			code to CF as well as adding some more open source gems to further fill out the 
+			System.Security.Cryptography namespace for CF.&nbsp;finally, i've taken a look 
+			at what <A href="http://pages.infinit.net/ctech/200310.html">Whidbey Beta 1 adds</A>
+			, and have added a number of those algorithms as well. the algorithms with 
+			corresponding implementations on the full framework have been tested for 
+			interoperability. this is real short and will just give a brief overview of the 
+			new functionality. this is also an extension to the library originating from <A href="http://www.brains-N-brawn.com/spCrypt">
+				/spCrypt</A>, which is a part of <A href="http://www.opennetcf.org">OpenNETCF.org</A></P>
+		<P>the table below shows the different crypto algorithms listed on the left, and 
+			where they live. X means that it is supported, 0 means partial support. you can 
+			see that System.Security.Cryptography for CFv2 is going to lack many algorithms 
+			compared to the desktop. OpenNETCF 1.2 and the /cfAes library are intended to 
+			be used together, to provide almost all of the crypto functionality of .NET 
+			2005 (desktop)</P>
+		<STRONG>
+			<P align="center">
+				<TABLE id="Table1" height="598" cellSpacing="1" cellPadding="1" width="141" border="1">
+					<TR>
+						<TD width="133" vAlign="top" bgColor="#cccccc"><U><STRONG>Crytpo Algorithm</STRONG></U></TD>
+						<TD width="48" vAlign="top" align="center" bgColor="#cccccc"><U><STRONG>.NET 2003</STRONG></U></TD>
+						<TD width="94" vAlign="top" align="center" bgColor="#cccccc"><U><STRONG>OpenNETCF 1.2</STRONG></U></TD>
+						<TD width="45" vAlign="top" align="center" bgColor="#cccccc"><U><STRONG><FONT color="#ff0000">/cfAES</FONT></STRONG></U></TD>
+						<TD width="72" vAlign="top" align="center" bgColor="#cccccc"><U><STRONG>WSE 2.0</STRONG></U></TD>
+						<TD width="72" vAlign="top" align="center" bgColor="#cccccc"><U><STRONG>CF 2.0</STRONG></U></TD>
+						<TD width="72" vAlign="top" align="center" bgColor="#cccccc"><U><STRONG>.NET 2005</STRONG></U></TD>
+					</TR>
+					<TR>
+						<TD width="133" align="left">MD5</TD>
+						<TD width="48" align="center">X</TD>
+						<TD width="94" align="center">X</TD>
+						<TD width="45" align="center">X</TD>
+						<TD width="72" align="center">&nbsp;</TD>
+						<TD width="72" align="center">X</TD>
+						<TD width="72" align="center">X</TD>
+					</TR>
+					<TR>
+						<TD width="133">SHA1</TD>
+						<TD width="48" align="center">X</TD>
+						<TD width="94" align="center">X</TD>
+						<TD width="45" align="center">X</TD>
+						<TD width="72" align="center">&nbsp;</TD>
+						<TD width="72" align="center">X</TD>
+						<TD width="72" align="center">X</TD>
+					</TR>
+					<TR>
+						<TD width="133">SHA256</TD>
+						<TD width="48" align="center">X</TD>
+						<TD width="94" align="center">&nbsp;</TD>
+						<TD width="45" align="center">X</TD>
+						<TD width="72" align="center">&nbsp;</TD>
+						<TD width="72" align="center">&nbsp;</TD>
+						<TD width="72" align="center">X</TD>
+					</TR>
+					<TR>
+						<TD width="133" height="22">SHA384</TD>
+						<TD width="48" height="22" align="center">X</TD>
+						<TD width="94" height="22" align="center">&nbsp;</TD>
+						<TD width="45" height="22" align="center">X</TD>
+						<TD width="72" height="22" align="center">&nbsp;</TD>
+						<TD width="72" height="22" align="center">&nbsp;</TD>
+						<TD width="72" height="22" align="center">X</TD>
+					</TR>
+					<TR>
+						<TD width="133">SHA512</TD>
+						<TD width="48" align="center">X</TD>
+						<TD width="94" align="center">&nbsp;</TD>
+						<TD width="45" align="center">X</TD>
+						<TD width="72" align="center">&nbsp;</TD>
+						<TD width="72" align="center">&nbsp;</TD>
+						<TD width="72" align="center">X</TD>
+					</TR>
+					<TR>
+						<TD width="133" height="22">MACTripleDES</TD>
+						<TD width="48" align="center" height="22">X</TD>
+						<TD width="94" align="center" height="22">0</TD>
+						<TD width="45" align="center" height="22">X</TD>
+						<TD width="72" align="center" height="22">&nbsp;</TD>
+						<TD width="72" align="center" height="22">&nbsp;</TD>
+						<TD width="72" align="center" height="22">X</TD>
+					</TR>
+					<TR>
+						<TD width="133">HMACSHA1</TD>
+						<TD width="48" align="center">X</TD>
+						<TD width="94" align="center">X</TD>
+						<TD width="45" align="center">X</TD>
+						<TD width="72" align="center">X</TD>
+						<TD width="72" align="center">&nbsp;</TD>
+						<TD width="72" align="center">X</TD>
+					</TR>
+					<TR>
+						<TD width="133">PasswordDeriveBytes</TD>
+						<TD width="48" align="center">X</TD>
+						<TD width="94" align="center">0</TD>
+						<TD width="45" align="center">X</TD>
+						<TD width="72" align="center">&nbsp;</TD>
+						<TD width="72" align="center">&nbsp;</TD>
+						<TD width="72" align="center">X</TD>
+					</TR>
+					<TR>
+						<TD width="133" height="23">RC2</TD>
+						<TD width="48" height="23" align="center">X</TD>
+						<TD width="94" height="23" align="center">X</TD>
+						<TD width="45" height="23" align="center">X</TD>
+						<TD width="72" height="23" align="center">&nbsp;</TD>
+						<TD width="72" height="23" align="center">X</TD>
+						<TD width="72" height="23" align="center">X</TD>
+					</TR>
+					<TR>
+						<TD width="133">DES</TD>
+						<TD width="48" align="center">X</TD>
+						<TD width="94" align="center">X</TD>
+						<TD width="45" align="center">X</TD>
+						<TD width="72" align="center">&nbsp;</TD>
+						<TD width="72" align="center">X</TD>
+						<TD width="72" align="center">X</TD>
+					</TR>
+					<TR>
+						<TD width="133">TripleDES</TD>
+						<TD width="48" align="center">X</TD>
+						<TD width="94" align="center">X</TD>
+						<TD width="45" align="center">X</TD>
+						<TD width="72" align="center">X</TD>
+						<TD width="72" align="center">X</TD>
+						<TD width="72" align="center">X</TD>
+					</TR>
+					<TR>
+						<TD width="133">Rijndeal</TD>
+						<TD width="48" align="center">X</TD>
+						<TD width="94" align="center">&nbsp;</TD>
+						<TD width="45" align="center">X</TD>
+						<TD width="72" align="center">&nbsp;</TD>
+						<TD width="72" align="center">X</TD>
+						<TD width="72" align="center">X</TD>
+					</TR>
+					<TR>
+						<TD width="133">RSA</TD>
+						<TD width="48" align="center">X</TD>
+						<TD width="94" align="center">X</TD>
+						<TD width="45" align="center">X</TD>
+						<TD width="72" align="center">X</TD>
+						<TD width="72" align="center">X</TD>
+						<TD width="72" align="center">X</TD>
+					</TR>
+					<TR>
+						<TD width="133">DSA</TD>
+						<TD width="48" align="center">X</TD>
+						<TD width="94" align="center">X</TD>
+						<TD width="45" align="center">X</TD>
+						<TD width="72" align="center">&nbsp;</TD>
+						<TD width="72" align="center">X</TD>
+						<TD width="72" align="center">X</TD>
+					</TR>
+					<TR>
+						<TD width="133" height="22">RIPEMD160</TD>
+						<TD width="48" align="center" height="22">&nbsp;</TD>
+						<TD width="94" align="center" height="22">&nbsp;</TD>
+						<TD width="45" align="center" height="22">X</TD>
+						<TD width="72" align="center" height="22">&nbsp;</TD>
+						<TD width="72" align="center" height="22">&nbsp;</TD>
+						<TD width="72" align="center" height="22">X</TD>
+					</TR>
+					<TR>
+						<TD width="133">HMACMD5</TD>
+						<TD width="48" align="center">&nbsp;</TD>
+						<TD width="94" align="center">&nbsp;</TD>
+						<TD width="45" align="center">X</TD>
+						<TD width="72" align="center">&nbsp;</TD>
+						<TD width="72" align="center">&nbsp;</TD>
+						<TD width="72" align="center">X</TD>
+					</TR>
+					<TR>
+						<TD width="133">HMACSHA256</TD>
+						<TD width="48" align="center">&nbsp;</TD>
+						<TD width="94" align="center">&nbsp;</TD>
+						<TD width="45" align="center">X</TD>
+						<TD width="72" align="center">&nbsp;</TD>
+						<TD width="72" align="center">&nbsp;</TD>
+						<TD width="72" align="center">X</TD>
+					</TR>
+					<TR>
+						<TD width="133">HMACSHA384</TD>
+						<TD width="48" align="center">&nbsp;</TD>
+						<TD width="94" align="center">&nbsp;</TD>
+						<TD width="45" align="center">X</TD>
+						<TD width="72" align="center">&nbsp;</TD>
+						<TD width="72" align="center">&nbsp;</TD>
+						<TD width="72" align="center">X</TD>
+					</TR>
+					<TR>
+						<TD width="133">HMACSHA512</TD>
+						<TD width="48" align="center">&nbsp;</TD>
+						<TD width="94" align="center">&nbsp;</TD>
+						<TD width="45" align="center">X</TD>
+						<TD width="72" align="center">&nbsp;</TD>
+						<TD width="72" align="center">&nbsp;</TD>
+						<TD width="72" align="center">X</TD>
+					</TR>
+					<TR>
+						<TD width="133">HMACRIPEMD160</TD>
+						<TD width="48" align="center">&nbsp;</TD>
+						<TD width="94" align="center">&nbsp;</TD>
+						<TD width="45" align="center">X</TD>
+						<TD width="72" align="center">&nbsp;</TD>
+						<TD width="72" align="center">&nbsp;</TD>
+						<TD width="72" align="center">X</TD>
+					</TR>
+					<TR>
+						<TD width="133">Rfc2898DeriveBytes</TD>
+						<TD width="48" align="center">&nbsp;</TD>
+						<TD width="94" align="center">&nbsp;</TD>
+						<TD width="45" align="center">X</TD>
+						<TD width="72" align="center">&nbsp;</TD>
+						<TD width="72" align="center">&nbsp;</TD>
+						<TD width="72" align="center">X</TD>
+					</TR>
+					<TR>
+						<TD width="133">ProtectedData</TD>
+						<TD width="48" align="center">&nbsp;</TD>
+						<TD width="94" align="center">&nbsp;</TD>
+						<TD width="45" align="center">X</TD>
+						<TD width="72" align="center">&nbsp;</TD>
+						<TD width="72" align="center">&nbsp;</TD>
+						<TD width="72" align="center">X</TD>
+					</TR>
+					<TR>
+						<TD width="133">ProtectedMemory</TD>
+						<TD width="48" align="center">&nbsp;</TD>
+						<TD width="94" align="center">&nbsp;</TD>
+						<TD width="45" align="center">X</TD>
+						<TD width="72" align="center">&nbsp;</TD>
+						<TD width="72" align="center">&nbsp;</TD>
+						<TD width="72" align="center">X</TD>
+					</TR>
+					<TR>
+						<TD width="133" height="22">PSHA1</TD>
+						<TD width="48" height="22" align="center">&nbsp;</TD>
+						<TD width="94" height="22" align="center">&nbsp;</TD>
+						<TD width="45" height="22" align="center">X</TD>
+						<TD width="72" height="22" align="center">X</TD>
+						<TD width="72" height="22" align="center">&nbsp;</TD>
+						<TD width="72" height="22" align="center">&nbsp;</TD>
+					</TR>
+					<TR>
+						<TD width="133">AESKeyExchangeFormatter</TD>
+						<TD width="48" align="center">&nbsp;</TD>
+						<TD width="94" align="center">&nbsp;</TD>
+						<TD width="45" align="center">X</TD>
+						<TD width="72" align="center">X</TD>
+						<TD width="72" align="center">&nbsp;</TD>
+						<TD width="72" align="center">&nbsp;</TD>
+					</TR>
+					<TR>
+						<TD width="133">TripleDesKeyExchangeFormatter</TD>
+						<TD width="48" align="center">&nbsp;</TD>
+						<TD width="94" align="center">&nbsp;</TD>
+						<TD width="45" align="center">X</TD>
+						<TD width="72" align="center">X</TD>
+						<TD width="72" align="center">&nbsp;</TD>
+						<TD width="72" align="center">&nbsp;</TD>
+					</TR>
+					<TR>
+						<TD width="133">SecureString</TD>
+						<TD align="center" width="48">&nbsp;</TD>
+						<TD align="center" width="94">&nbsp;</TD>
+						<TD align="center" width="45">X</TD>
+						<TD align="center" width="72">&nbsp;</TD>
+						<TD align="center" width="72">&nbsp;</TD>
+						<TD align="center" width="72">X</TD>
+					</TR>
+				</TABLE>
+			</P>
+		</STRONG>
+		<P><STRONG>RijndaelManaged, RijndaelCryptoServiceProvider</STRONG></P>
+		<P>1st off, i think it is pronounced 'rain doll' :) i'm not certain of the history, 
+			but Rijndael and AES are related. something to the effect of Rijndael being the 
+			candidate for what is now known as AES. AES is the preferred standard for DOD 
+			symmetric encryption, replacing TripleDES. TripleDES&nbsp;superseded DES (by 
+			doing DES three times),&nbsp;because DES is no longer seen as secure. i even 
+			own a book that shows how to build hardware to crack DES in a short amount of 
+			time. this implementation is from the CodeProject article linked above, which 
+			wraps a C#&nbsp;AES implementation from an MSDN magazine <A href="http://msdn.microsoft.com/msdnmag/issues/03/11/AES/default.aspx">
+				article</A>. it does CBC padding by default, but can be changed to do ECB 
+			as well</P>
+		<P>the full framework does provide a RijndaelManaged class, but not a native one. 
+			this native implementation is from the CodeProject article linked above, which 
+			wraps a C AES implementation from this <A href="http://fp.gladman.plus.com/AES/index.htm">
+				article</A>. all i did was build the C code using eVC to create a 
+			pInvoke-able DLL. that DLL has to be deployed to the device for the managed 
+			call to work, otherwise you will get a MissingMethodException. it is worth 
+			noting that the native implementation is about 4 to 5X faster than the managed</P>
+		<P><STRONG>AES, EBC, NoPadding, KeyWrap</STRONG></P>
+		<P>the Rijndeal implementations above were tested against WSE 2.0. WSE 2.0 was able 
+			to decrypt&nbsp;the messages from the device, as well as the device being able 
+			to decrypt messages from WSE 2.0.&nbsp;WSE 2.0 has a 
+			Microsoft.Web.Services2.Security.Cryptography namespace where it extends 
+			System.Security.Cryptography. the new additions i am most familiar with are the 
+			TripleDESKeyExchangeFormatter and the AESKeyExchangeFormatter. these algorithms 
+			are from the Xml-Encryption specification, and specify how symmetric keys 
+			should be encrypted before they are passed between endpoints. my version of 
+			AESKeyExchangeFormatter is called AesKeyWrap. it has also been tested against 
+			WSE 2.0. finally, the next version of CE is supposed to get an AES 
+			implementation in the CryptoApi</P>
+		<P><STRONG>TripleDesEx, NoPadding, KeyWrap</STRONG></P>
+		<P>the TripleDES KeyWrap implementation was brought over from the WSE bits (where 
+			it was tested). WSE 2.0 adds&nbsp;this algorithm&nbsp;through its own 
+			Cryptography namespace</P>
+		<P><STRONG>SHA256Managed, SHA384Managed, SHA512Managed, SHA1Managed</STRONG></P>
+		<P>these implementations were found from this <A href="http://islab.oregonstate.edu/koc/ece575/04Project/Nelson/NetSHA.htm">
+				article</A>. SHA1Managed is included for completeness (use 
+			SHA1CryptoServiceProvider instead). SHA256/384/512 are missing from the 
+			CryptoApi as well. SHA256 is particulary important, because it is considered a 
+			RECOMMENDED Message Digest algorithm for Xml-Encryption</P>
+		<P><STRONG>MD5Managed, MD2CryptoServiceProvider, MD4CryptoServiceProvider</STRONG></P>
+		<P>MD5Managed&nbsp;is from an implementation found on the web. it is included for 
+			completeness (use&nbsp;MD5CryptoServiceProvider instead). MD2 and MD4 wrap the 
+			CryptoApi and are included for kicks. MD2 and MD4 have not been tested for 
+			interop since the full framework does not expose them</P>
+		<P><STRONG>HMACMD5, HMACSHA256, HMACSHA384, HMACSHA512</STRONG></P>
+		<P>
+			these just do an HMAC with the corresponding HashAlgorithms. they have been 
+			tested for interop with Whidbey</P>
+		<P><STRONG>RIPEMD160, HMACRIPEMD160</STRONG></P>
+		<P>this was ported over from the <A href="http://www.mentalis.org/soft/projects/seclib/">
+				Mentalis.org Security Library</A>. it has been tested to work against 
+			Whidbey</P>
+		<P>
+		<P><STRONG>Rfc2898DeriveBytes, PSHA1</STRONG></P>
+		<P>Rfc2898DeriveBytes is added from VS 2005. it is used for key derivation. i wrote 
+			this one using the RSA spec and my HMACSHA1 wrapper. the RSA spec reccommends 
+			using 1000 iterations, but this is really slow on a PocketPC, so try something 
+			like 100 instead. use this algorithm instead of PasswordDeriveBytes</P>
+		<P>PSHA1 is a key derivation that is used by the WS-* specs, and is implemented in 
+			WSE 2.0. i brought this code over from my WSE bits</P>
+		<P><STRONG>ProtectedData, ProtectedMemory</STRONG></P>
+		<P><A href="http://blogs.msdn.com/shawnfa/archive/2004/05/05/126825.aspx">ProtectedData</A>just 
+			wraps the DPAPI. it provides 2 static methods to Protect() and Unprotect() the 
+			data. it accepts entropy, which i only have partially working right now</P>
+		<P>
+			i'm not sure how <A href="http://blogs.msdn.com/shawnfa/archive/2004/05/17/133650.aspx">
+				ProtectedMemory</A> works underneath the covers on the desktop. using 
+			Reflector i can see that it calls pInvokes SystemFunction040&nbsp;and 041 of 
+			advapi32.dll&nbsp;... whatever those methods are?&nbsp;regardless, i doubt 
+			those functions exist in CE. as a black blox, all it does is somehow encrypt 
+			the memory you passed in. for CE, i have it use DES internally, and it manages 
+			the key using DPAPI. it does require the memory that is to be protected to be 
+			in 16 byte blocks, which does not seem that useful</P>
+		<P><STRONG>SecureString</STRONG></P>
+		<P>this is a port&nbsp;of <A href="http://weblogs.asp.net/HernanDL/archive/2004/07/07/174736.aspx">
+				Hernan de Lahitte's code</A>&nbsp;for the Security.Cryptography namespace. 
+			its implementation relies on the ProtectedMemory code</P>
+		<P>NOTE that neither ProtectedData, ProtectedMemory, or SecureString&nbsp;should 
+			interop between the desktop and device. they are for use on the device only to 
+			store connection strings, keys, and such</P>
+		<P><STRONG>PasswordDeriveBytes, MACTripleDES</STRONG></P>
+		<P>
+			these were not working great in the OpenNETCF 
+			implementation.&nbsp;PasswordDeriveBytes.CryptDeriveKey() just barely works. it 
+			calls into the CryptoApi, so i dont have much visibility as to what is going 
+			on. for .DeriveBytes() i used some code from Mono, which is working much 
+			better. the code is now in PasswordDeriveBytes2</P>
+		<P>MACTripleDES&nbsp;was originally calling into the CyrptoApi, which seems to have 
+			a bug in CE. MS was looking into it, but i never heard back. what i have done 
+			is created a MACTripleDES2 implementation, and just performed a MAC on top of 
+			TripleDESCryptoServiceProvider. this now works as expected.</P>
+		<H3>Conclusion</H3>
+		<P>these additions complete and extend the algorithms provided by the 
+			System.Security.Cryptography namespace (on the desktop) for the Compact 
+			Framework. Rijndeal / AES was critical for CF to call WSE 2.0, and that has 
+			already been integrated into the CF WSE codebase. this also gives CFv1 almost 
+			all of the same crypto algorithms that the desktop has for VS 2005.</P>
+		<H3>Source</H3>
+		<P>
+			remember that&nbsp;alot of this code is not my own. it is code that others have 
+			graciously shared. all i did was port it to CF, give it the right name 
+			/&nbsp;interface, and make sure it was compatible with the full framework</P>
+		<P>TODO link</P>
+		<H3>Updates</H3>
+		<P>the only planned updates would involve swapping out the Rijndael / AES 
+			implementation to use the CryptoApi implementation in the next version of CE. 
+			also, would make this build off of the CFv2 Crypto namespace, once that gets 
+			closer to release (and deprecate a chunk of my CryptoApi wrapper, in favor of 
+			MS supported code). finally, there might be license issues, but i'll try to get 
+			this code pushed into OpenNETCF</P>
+		<H3>Future</H3>
+		<P>i can tell you that i do NOT plan on writing the X509Certificate code&nbsp;for 
+			CF to use with WSE anytime soon. too painful. what i really need to do is break 
+			out of this Crypto / WSE rut</P>
+	</body>
+</html>

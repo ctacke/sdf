@@ -1,0 +1,27 @@
+Microsoft Visual Studio Solution File, Format Version 8.00
+Project("{20D4826A-C6FA-45DB-90F4-C717570B9F32}") = "cfAes", "cfAes.csdproj", "{0CB9FBD3-1948-497A-8A2D-7FD5938D024C}"
+	ProjectSection(ProjectDependencies) = postProject
+	EndProjectSection
+EndProject
+Global
+	GlobalSection(SolutionConfiguration) = preSolution
+		Debug = Debug
+		NDoc = NDoc
+		Release = Release
+	EndGlobalSection
+	GlobalSection(ProjectConfiguration) = postSolution
+		{0CB9FBD3-1948-497A-8A2D-7FD5938D024C}.Debug.ActiveCfg = Debug|Windows CE
+		{0CB9FBD3-1948-497A-8A2D-7FD5938D024C}.Debug.Build.0 = Debug|Windows CE
+		{0CB9FBD3-1948-497A-8A2D-7FD5938D024C}.Debug.Deploy.0 = Debug|Windows CE
+		{0CB9FBD3-1948-497A-8A2D-7FD5938D024C}.NDoc.ActiveCfg = Release|Windows CE
+		{0CB9FBD3-1948-497A-8A2D-7FD5938D024C}.NDoc.Build.0 = Release|Windows CE
+		{0CB9FBD3-1948-497A-8A2D-7FD5938D024C}.NDoc.Deploy.0 = Release|Windows CE
+		{0CB9FBD3-1948-497A-8A2D-7FD5938D024C}.Release.ActiveCfg = Release|Windows CE
+		{0CB9FBD3-1948-497A-8A2D-7FD5938D024C}.Release.Build.0 = Release|Windows CE
+		{0CB9FBD3-1948-497A-8A2D-7FD5938D024C}.Release.Deploy.0 = Release|Windows CE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+	EndGlobalSection
+	GlobalSection(ExtensibilityAddIns) = postSolution
+	EndGlobalSection
+EndGlobal

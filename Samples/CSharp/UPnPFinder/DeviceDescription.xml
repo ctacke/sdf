@@ -1,0 +1,26 @@
+﻿<?xml version="1.0"?>
+<root xmlns="urn:schemas-upnp-org:device-1-0">
+  <specVersion>
+    <major>1</major>
+    <minor>0</minor>
+  </specVersion>
+
+  <device>
+    <deviceType>urn:livingpicture-com:device:pictureFrame:1</deviceType>
+    <friendlyName>Picture Frame</friendlyName>
+    <manufacturer>Living Picture LLC</manufacturer>
+    <manufacturerURL>http://www.microsoft.com/</manufacturerURL>
+    <modelDescription>Picture Frame Device 1.0 </modelDescription>
+    <modelName>PictureFrame1.0</modelName>
+    <modelNumber>1-00-00</modelNumber>
+    <modelURL>http://www.alivingpicture.com/</modelURL>
+    <serialNumber>0000001</serialNumber>
+    <UDN>uuid:RootDevice</UDN>
+    <UPC>00000-00001</UPC>
+
+    <serviceList>
+    </serviceList>
+
+    <presentationURL></presentationURL>
+  </device>
+</root>

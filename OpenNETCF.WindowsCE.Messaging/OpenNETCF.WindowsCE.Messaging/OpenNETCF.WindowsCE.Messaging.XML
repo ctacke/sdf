@@ -1,0 +1,284 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>OpenNETCF.WindowsCE.Messaging</name>
+    </assembly>
+    <members>
+        <member name="T:OpenNETCF.WindowsCE.Messaging.P2PMessageQueue">
+            <summary>
+            This class encapsulates a point to point message queue, which can be used for on-device interprocess communication
+            </summary>
+        </member>
+        <member name="F:OpenNETCF.WindowsCE.Messaging.P2PMessageQueue.TimeoutInfinite">
+            <summary>
+            When waiting, sending or receiving, wait forever
+            </summary>
+        </member>
+        <member name="F:OpenNETCF.WindowsCE.Messaging.P2PMessageQueue.InfiniteQueueSize">
+            <summary>
+            Used in construction for unlimited queue length
+            </summary>
+        </member>
+        <member name="M:OpenNETCF.WindowsCE.Messaging.P2PMessageQueue.#ctor(System.Boolean)">
+            <summary>
+            Creates an unnamed queue with unlimited messages and message length.
+            </summary>
+            <param name="forReading">true for a read only queue; false for writing queue</param>
+        </member>
+        <member name="M:OpenNETCF.WindowsCE.Messaging.P2PMessageQueue.#ctor(System.Boolean,System.String)">
+            <summary>
+            Creates a named queue with unlimited messages and message length.
+            </summary>
+            <param name="forReading">true for a read only queue; false for writing queue</param>
+            <param name="name">Name of queue</param>
+        </member>
+        <member name="M:OpenNETCF.WindowsCE.Messaging.P2PMessageQueue.#ctor(System.Boolean,System.String,System.Int32,System.Int32)">
+            <summary>
+            Creates a named queue.
+            </summary>
+            <param name="forReading">true for a read only queue; false for writing queue</param>
+            <param name="name">Name of queue</param>
+            <param name="maxMessageLength">Maximum length of a message in bytes.</param>
+            <param name="maxMessages">Maximum number of messages allowed in queue, if it is zero, then no restriction on the number of messages.</param>
+        </member>
+        <member name="M:OpenNETCF.WindowsCE.Messaging.P2PMessageQueue.#ctor(System.Boolean,System.String,System.Int32,System.Int32,System.Boolean@)">
+            <summary>
+            Creates a named queue.
+            </summary>
+            <param name="forReading">true for a read only queue; false for writing queue</param>
+            <param name="name">Name of queue</param>
+            <param name="maxMessageLength">Maximum length of a message in bytes.</param>
+            <param name="maxMessages">Maximum number of messages allowed in queue, if it is zero, then no restriction on the number of messages.</param>
+            <param name="createdNew">true, if named queue already existed, otherwise false</param>
+        </member>
+        <member name="M:OpenNETCF.WindowsCE.Messaging.P2PMessageQueue.Close">
+            <summary>
+            Frees all resources allocated by the queue. Do not use the object after this
+            </summary>
+        </member>
+        <member name="M:OpenNETCF.WindowsCE.Messaging.P2PMessageQueue.Finalize">
+            <summary>
+            Finalizer for the P2PMessageQueue
+            </summary>
+        </member>
+        <member name="M:OpenNETCF.WindowsCE.Messaging.P2PMessageQueue.OpenExisting(System.Boolean,System.IntPtr,System.IntPtr)">
+            <summary>
+            Creates a new P2PMessageQueue based on the input parameters
+            </summary>
+            <param name="forReading">true for a read only queue; false for writing queue</param>
+            <param name="processHandle">Native handle to a source process that owns the queueHandle message queue handle.</param>
+            <param name="queueHandle">Native handle to a message queue returned by the CreateMsgQueue function or a P2PMessageQueue object.</param>
+            <returns>a new P2PMessageQueue or null if the queue could not be opened</returns>
+        </member>
+        <member name="M:OpenNETCF.WindowsCE.Messaging.P2PMessageQueue.Receive(OpenNETCF.WindowsCE.Messaging.Message)">
+            <summary>
+            Reads the next message from the queue. Blocks until there is a message available.
+            The queue must have been created with forReading = true.
+            </summary>
+            <param name="msg">The Message from the queue. Read its bytes if the result is OK.</param>
+            <returns>a value from the ReadWriteResult enumeration</returns>
+        </member>
+        <member name="M:OpenNETCF.WindowsCE.Messaging.P2PMessageQueue.Receive(OpenNETCF.WindowsCE.Messaging.Message,System.TimeSpan)">
+            <summary>
+            Reads the next message from the queue.
+            The queue must have been created with forReading = true.
+            </summary>
+            <param name="msg">The Message from the queue. Read its bytes if the result is OK.</param>
+            <param name="ts">A timespan for which to wait for a message on the queue</param>
+            <returns></returns>
+        </member>
+        <member name="M:OpenNETCF.WindowsCE.Messaging.P2PMessageQueue.Receive(OpenNETCF.WindowsCE.Messaging.Message,System.Int32)">
+            <summary>
+            Reads the next message from the queue.
+            The queue must have been created with forReading = true.
+            </summary>
+            <param name="msg">The Message from the queue. Read its bytes if the result is OK.</param>
+            <param name="timeoutMilliseconds">a timeout in milliseconds for which to block (0 not to block at all). Use TimeoutInfinite to block until the queue has a message.</param>
+            <returns>a value from the ReadWriteResult enumeration</returns>
+        </member>
+        <member name="M:OpenNETCF.WindowsCE.Messaging.P2PMessageQueue.Send(OpenNETCF.WindowsCE.Messaging.Message)">
+            <summary>
+            Adds a message to the queue (blocking if the queue is full).
+            The queue must have been created with forReading = false.
+            </summary>
+            <param name="msg">The Message to send (contains the bytes)</param>
+            <returns>a value from the ReadWriteResult enumeration</returns>
+        </member>
+        <member name="M:OpenNETCF.WindowsCE.Messaging.P2PMessageQueue.Send(OpenNETCF.WindowsCE.Messaging.Message,System.TimeSpan)">
+            <summary>
+            Adds a message to the queue.
+            The queue must have been created with forReading = false.
+            </summary>
+            <param name="msg">The Message to send (contains the bytes)</param>
+            <param name="ts">The TimeSpan for which to wait until the queue is not full</param>
+            <returns>a value from the ReadWriteResult enumeration</returns>
+        </member>
+        <member name="M:OpenNETCF.WindowsCE.Messaging.P2PMessageQueue.Send(OpenNETCF.WindowsCE.Messaging.Message,System.Int32)">
+            <summary>
+            Adds a message to the queue.
+            The queue must have been created with forReading = false.
+            </summary>
+            <param name="msg">The Message to send (contains the bytes)</param>
+            <param name="timeoutMilliseconds">a timeout in milliseconds for which to block (0 not to block at all). Use TimeoutInfinite to block until the queue is not full.</param>
+            <returns>a value from the ReadWriteResult enumeration</returns>
+        </member>
+        <member name="M:OpenNETCF.WindowsCE.Messaging.P2PMessageQueue.Purge">
+            <summary>
+            Deletes all the messages contained in the queue.
+            Applicable only for read queues (CanRead = true)
+            </summary>
+        </member>
+        <member name="M:OpenNETCF.WindowsCE.Messaging.P2PMessageQueue.StartEventThread">
+            <summary>
+            Starts the thread that is responsible for raising the DataOnQueueChanged event
+            For efficiency, if the client is not going to be catching events, create a 
+            subclass and override thie method with an empty body
+            </summary>
+        </member>
+        <member name="M:OpenNETCF.WindowsCE.Messaging.P2PMessageQueue.GetBehaviourFlag">
+            <summary>
+            Sets the MsgQueueInfo.dwFlags. See the MSDN documentation for a detailed description.
+            Inherit and override to change the hardcoded behaviour. Default MSGQUEUE_ALLOW_BROKEN
+            </summary>
+            <returns>0, MSGQUEUE_ALLOW_BROKEN or MSGQUEUE_NOPRECOMMIT</returns>
+        </member>
+        <member name="E:OpenNETCF.WindowsCE.Messaging.P2PMessageQueue.DataOnQueueChanged">
+            <summary>
+            For a read queue, raised when it is not empty
+            For a write queue, raised when it is not full
+            NOTE: Not applicable for Alert Messages!
+            </summary>
+        </member>
+        <member name="P:OpenNETCF.WindowsCE.Messaging.P2PMessageQueue.Handle">
+            <summary>
+            Native handle to the queue.
+            </summary>
+        </member>
+        <member name="P:OpenNETCF.WindowsCE.Messaging.P2PMessageQueue.CanRead">
+            <summary>
+            true denotes a reading queue. 
+            The return value will not change throught the lifetime of the object
+            </summary>
+        </member>
+        <member name="P:OpenNETCF.WindowsCE.Messaging.P2PMessageQueue.CanWrite">
+            <summary>
+            true denotes a writing queue. 
+            The return value will not change throught the lifetime of the object
+            </summary>
+        </member>
+        <member name="P:OpenNETCF.WindowsCE.Messaging.P2PMessageQueue.QueueName">
+            <summary>
+            Null or the name of a named queue 
+            The return value will not change throught the lifetime of the object
+            </summary>
+        </member>
+        <member name="P:OpenNETCF.WindowsCE.Messaging.P2PMessageQueue.MaxMessagesAllowed">
+            <summary>
+            Maximum number of messages allowed in queue, if it is zero, then no restriction on the number of messages.
+            The return value will not change throught the lifetime of the object.
+            </summary>
+        </member>
+        <member name="P:OpenNETCF.WindowsCE.Messaging.P2PMessageQueue.MaxMessageLength">
+            <summary>
+            Maximum length of a message in bytes.
+            The return value will not change throught the lifetime of the object.
+            </summary>
+        </member>
+        <member name="P:OpenNETCF.WindowsCE.Messaging.P2PMessageQueue.MostMessagesSoFar">
+            <summary>
+            Maximum number of messages that have ever been in the queue at one time.
+            </summary>
+        </member>
+        <member name="P:OpenNETCF.WindowsCE.Messaging.P2PMessageQueue.MessagesInQueueNow">
+            <summary>
+            Number of messages currently existing in the queue.
+            Alert messages are not included in this count.
+            </summary>
+        </member>
+        <member name="P:OpenNETCF.WindowsCE.Messaging.P2PMessageQueue.CurrentReaders">
+            <summary>
+            Number of readers attached to the queue for reading.
+            </summary>
+        </member>
+        <member name="P:OpenNETCF.WindowsCE.Messaging.P2PMessageQueue.CurrentWriters">
+            <summary>
+            Number of writers attached to the queue for writing.
+            </summary>
+        </member>
+        <member name="T:OpenNETCF.WindowsCE.Messaging.ReadWriteResult">
+            <summary>
+            Returned by Send and Read methods of P2PMessageQueue
+            If OK, the message was sent/read
+            </summary>
+        </member>
+        <member name="F:OpenNETCF.WindowsCE.Messaging.ReadWriteResult.OK">
+            <summary>
+            The Message was read from the queue OR added tot he queue succesfully
+            </summary>
+        </member>
+        <member name="F:OpenNETCF.WindowsCE.Messaging.ReadWriteResult.Timeout">
+            <summary>
+            Receive: no message on the queue
+            Send: the queue is full
+            </summary>
+        </member>
+        <member name="F:OpenNETCF.WindowsCE.Messaging.ReadWriteResult.Disconnected">
+            <summary>
+            There is no reader/writer on the other end
+            </summary>
+        </member>
+        <member name="F:OpenNETCF.WindowsCE.Messaging.ReadWriteResult.BufferFail">
+            <summary>
+            Message on queue larger than the buffer allocated
+            </summary>
+        </member>
+        <member name="F:OpenNETCF.WindowsCE.Messaging.ReadWriteResult.OutOfMemory">
+            <summary>
+            Not enough memory to allocate buffer for message
+            </summary>
+        </member>
+        <member name="F:OpenNETCF.WindowsCE.Messaging.ReadWriteResult.InvalidHandle">
+            <summary>
+            Returned if you block on a Receive/Send and the queue is closed
+            </summary>
+        </member>
+        <member name="T:OpenNETCF.WindowsCE.Messaging.Message">
+            <summary>
+            Base class for messages sent through a P2PMessageQueue
+            </summary>
+        </member>
+        <member name="M:OpenNETCF.WindowsCE.Messaging.Message.#ctor">
+            <summary>
+            Creates a new Message (where IsAlert=false).
+            Do not send a message with no bytes over a queue or an exception is raised
+            </summary>
+        </member>
+        <member name="M:OpenNETCF.WindowsCE.Messaging.Message.#ctor(System.Byte[])">
+            <summary>
+            Creates a new Message (where IsAlert=false)
+            </summary>
+            <param name="bytes">the bytes making up the message</param>
+        </member>
+        <member name="M:OpenNETCF.WindowsCE.Messaging.Message.#ctor(System.Byte[],System.Boolean)">
+            <summary>
+            Creates a new Message
+            </summary>
+            <param name="bytes">the bytes making up the message</param>
+            <param name="isAlert">whether the message is a higher priority than existing ones in the queue</param>
+        </member>
+        <member name="P:OpenNETCF.WindowsCE.Messaging.Message.IsAlert">
+            <summary>
+            Whether the message is an alert message or not
+            When sending an alert message it is moved to the top of the queue 
+            (overtaking existing messages in the queue that have not been read already)
+            NOTE: If setting this property to true causes a native exception when sending, change the name of the queue. It can be an issue with some devices (nothing to do with this wrapper).
+            </summary>
+        </member>
+        <member name="P:OpenNETCF.WindowsCE.Messaging.Message.MessageBytes">
+            <summary>
+            Gets|sets the bytes for this message.
+            Your own types can inherit from Message and override this member for sending them over queues
+            </summary>
+        </member>
+    </members>
+</doc>

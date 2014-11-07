@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<opml>
+  <head />
+  <body>
+    <outline title="Microsoft Mobile Dev Team Blog" description="Microsoft Mobile Dev Team Blog" xmlUrl="http://blogs.msdn.com/mobiledev/rss.xml" htmlUrl="http://blogs.msdn.com/mobiledev" />
+<!--
+    <outline title="Alex Yakhnin" description=".NET Compact Framework MVP" xmlUrl="http://blog.opennetcf.org/ayakhnin/SyndicationService.asmx/GetRss" htmlUrl="http://blog.opennetcf.org/ayakhnin/" />
+    <outline title="Of Kings and Cabbage" description="Compact Framework Musings. Alex Feinman's web log" xmlUrl="http://blog.opennetcf.org/afeinman/SyndicationService.asmx/GetRss" htmlUrl="http://blog.opennetcf.org/afeinman/" />
+    <outline title="Neil Cowburn" description="Co-Founder, OpenNETCF.org" xmlUrl="http://blog.opennetcf.org/ncowburn/blogxbrowsing.asmx/GetRss?" htmlUrl="http://blog.opennetcf.org/ncowburn/" />
+    <outline title="Peter Foot" description=".NET Compact Framework MVP" xmlUrl="http://blog.opennetcf.org/pfoot/SyndicationService.asmx/GetRss" htmlUrl="http://blog.opennetcf.org/pfoot/" />
+    <outline title="Nino.Mobile" description="Mobility stuff that's swell!" xmlUrl="http://nino.net/CS/blogs/nino/rss.aspx" htmlUrl="http://nino.net/CS/blogs/nino/default.aspx" />
+    <outline title="David Kline" description=".NET Compact Framework" xmlUrl="http://blogs.msdn.com/davidklinems/Rss.aspx" htmlUrl="http://blogs.msdn.com/davidklinems/default.aspx" />
+    <outline title="IEBlog" description="the Microsoft Internet Explorer Weblog" xmlUrl="http://blogs.msdn.com/ie/rss.aspx" htmlUrl="http://blogs.msdn.com/ie/default.aspx" />
+-->
+  </body>
+</opml>

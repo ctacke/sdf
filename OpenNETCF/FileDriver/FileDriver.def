@@ -1,0 +1,15 @@
+LIBRARY	"FileDriver"
+
+EXPORTS FIL_Init
+		FIL_Deinit
+		FIL_Open
+		FIL_Close
+		FIL_Read
+		FIL_Write
+		FIL_Seek
+		FIL_PowerDown
+		FIL_PowerUp
+		FIL_IOControl
+		Register
+		Load
+		Unload

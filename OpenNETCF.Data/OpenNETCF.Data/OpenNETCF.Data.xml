@@ -1,0 +1,168 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>OpenNETCF.Data</name>
+    </assembly>
+    <members>
+        <member name="T:OpenNETCF.Data.Text.TextDataAdapter">
+            <summary>
+            Supports the reading and writing of delimited text into a <see cref="T:System.Data.DataSet"/>.
+            </summary>
+        </member>
+        <member name="F:OpenNETCF.Data.Text.TextDataAdapter.m_filename">
+            <summary>
+            name of file
+            </summary>
+        </member>
+        <member name="F:OpenNETCF.Data.Text.TextDataAdapter.m_tablename">
+            <summary>
+            faux tablename
+            </summary>
+        </member>
+        <member name="F:OpenNETCF.Data.Text.TextDataAdapter.m_reader">
+            <summary>
+            stream reader
+            </summary>
+        </member>
+        <member name="F:OpenNETCF.Data.Text.TextDataAdapter.m_writer">
+            <summary>
+            stream writer (for updates)
+            </summary>
+        </member>
+        <member name="F:OpenNETCF.Data.Text.TextDataAdapter.m_hasheader">
+            <summary>
+            file contains header row?
+            </summary>
+        </member>
+        <member name="F:OpenNETCF.Data.Text.TextDataAdapter.m_headers">
+            <summary>
+            store header names (if applicable)
+            </summary>
+        </member>
+        <member name="F:OpenNETCF.Data.Text.TextDataAdapter.m_delimiter">
+            <summary>
+            character used for delimiting
+            </summary>
+        </member>
+        <member name="F:OpenNETCF.Data.Text.TextDataAdapter.m_forcewrite">
+            <summary>
+            if true ignore if no changes and write anyway
+            </summary>
+        </member>
+        <member name="M:OpenNETCF.Data.Text.TextDataAdapter.#ctor(System.String,System.Boolean,System.Char)">
+            <summary>
+            Creates a new instance of the TextDataAdapter class
+            </summary>
+            <param name="filename">Filename of a valid delimited-text data file.</param>
+            <param name="hasHeader">True if first row is a header row naming the columns contained in the data, False if first row is a data row.</param>
+            <param name="delimiter">Character used to separate fields.</param>
+        </member>
+        <member name="M:OpenNETCF.Data.Text.TextDataAdapter.#ctor(System.String,System.Boolean)">
+            <summary>
+            Creates a new instance of the CSVDataAdapter class from a file with no header row.
+            </summary>
+            <param name="filename">Filename of a valid CSV data file.</param>
+            <param name="hasHeader">True if first row is a header row naming the columns contained in the data, False if first row is a data row.</param>
+        </member>
+        <member name="M:OpenNETCF.Data.Text.TextDataAdapter.#ctor(System.String)">
+            <summary>
+            Creates a new instance of the CSVDataAdapter class from a file with no header row.
+            </summary>
+            <param name="filename">Filename of a valid CSV data file.</param>
+        </member>
+        <member name="M:OpenNETCF.Data.Text.TextDataAdapter.Fill(System.Data.DataSet)">
+            <summary>
+            Adds or refreshes rows in the DataSet to match those in the data source
+            </summary>
+            <param name="dataSet">A DataSet to fill with records and, if necessary, schema.</param>
+            <returns>The number of rows successfully added to or refreshed in the DataSet. This does not include rows affected by statements that do not return rows.</returns>
+        </member>
+        <member name="M:OpenNETCF.Data.Text.TextDataAdapter.Fill(System.Data.DataSet,System.String)">
+            <summary>
+             using the DataSet and DataTable names.
+            </summary>
+            <param name="dataSet">A DataSet to fill with records and, if necessary, schema.</param>
+            <param name="tableName">The name of the source table to use for table mapping.</param>
+            <returns>The number of rows successfully added to or refreshed in the DataSet. This does not include rows affected by statements that do not return rows.</returns>
+        </member>
+        <member name="M:OpenNETCF.Data.Text.TextDataAdapter.System#Data#IDataAdapter#GetFillParameters">
+            <summary>
+            Not Supported
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:OpenNETCF.Data.Text.TextDataAdapter.System#Data#IDataAdapter#FillSchema(System.Data.DataSet,System.Data.SchemaType)">
+            <summary>
+            Not Supported
+            </summary>
+            <param name="dataSet"></param>
+            <param name="schemaType"></param>
+            <returns></returns>
+        </member>
+        <member name="M:OpenNETCF.Data.Text.TextDataAdapter.Update(System.Data.DataSet)">
+            <summary>
+            Writes out the updated DataSet contents to CSV File.
+            </summary>
+            <param name="dataSet">The DataSet used to update the data source.</param>
+            <returns>The number of rows successfully updated from the DataSet.</returns>
+        </member>
+        <member name="M:OpenNETCF.Data.Text.TextDataAdapter.Update(System.Data.DataSet,System.String)">
+            <summary>
+            Writes out the updated named DataTable from the DataSet to CSV File.
+            </summary>
+            <param name="dataSet">The DataSet used to update the data source.</param>
+            <param name="srcTable">The DataTable.Name to be written.</param>
+            <returns>The number of rows successfully updated from the DataSet.</returns>
+        </member>
+        <member name="M:OpenNETCF.Data.Text.TextDataAdapter.QuoteString(System.Object)">
+            <summary>
+            Add quotes to a string if it contains a space or carriage return
+            </summary>
+            <param name="inString"></param>
+            <returns></returns>
+        </member>
+        <member name="M:OpenNETCF.Data.Text.TextDataAdapter.BuildRow(System.Object[])">
+            <summary>
+            Builds a row into a single string with delimiting characters
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="P:OpenNETCF.Data.Text.TextDataAdapter.FileName">
+            <summary>
+            Full path to the delimited-text file name
+            </summary>
+        </member>
+        <member name="P:OpenNETCF.Data.Text.TextDataAdapter.ForceWrite">
+            <summary>
+            If set true Update method will always write to file, even if DataSet has no changes.
+            </summary>
+        </member>
+        <member name="P:OpenNETCF.Data.Text.TextDataAdapter.HasHeaderRow">
+            <summary>
+            Flag indicating if first row of files indicates column headers for the table.
+            </summary>
+            <value>True if first row of file contains column headers, else False (Default is False).</value>
+        </member>
+        <member name="P:OpenNETCF.Data.Text.TextDataAdapter.DelimitingCharacter">
+            <summary>
+            Character used to separate fields.
+            </summary>
+            <remarks>Default is the comma ','. Quotes cannot be used as a delimiter.</remarks>
+        </member>
+        <member name="P:OpenNETCF.Data.Text.TextDataAdapter.System#Data#IDataAdapter#TableMappings">
+            <summary>
+            Not Supported
+            </summary>
+        </member>
+        <member name="P:OpenNETCF.Data.Text.TextDataAdapter.System#Data#IDataAdapter#MissingSchemaAction">
+            <summary>
+            Not Supported
+            </summary>
+        </member>
+        <member name="P:OpenNETCF.Data.Text.TextDataAdapter.System#Data#IDataAdapter#MissingMappingAction">
+            <summary>
+            Not Supported
+            </summary>
+        </member>
+    </members>
+</doc>

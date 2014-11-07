@@ -1,0 +1,119 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>OpenNETCF.Core</name>
+    </assembly>
+    <members>
+        <member name="T:OpenNETCF.Extensions">
+            <summary>
+            Provides Extension Methods for commonly used base classes
+            </summary>
+        </member>
+        <member name="M:OpenNETCF.Extensions.Implements``1(System.Type)">
+            <summary>
+            Determines if a type implements a particular interface
+            </summary>
+            <typeparam name="TInterface">The interface type to check for.</typeparam>
+            <returns>True: if the type implements the interface, otherwise False.</returns>
+        </member>
+        <member name="M:OpenNETCF.Extensions.ToBCD(System.Int32)">
+            <summary>
+            Converts an int to IEEE standard binary-coded decimal (BCD) format
+            </summary>
+            <param name="value">integer value</param>
+            <returns>BCD encoded value</returns>
+        </member>
+        <member name="M:OpenNETCF.Extensions.FromBCD(System.Int32)">
+            <summary>
+            Converts an int to IEEE standard binary-coded decimal (BCD) format
+            </summary>
+            <param name="bcdValue">BCD encoded value</param>
+            <returns>integer value</returns>
+        </member>
+        <member name="M:OpenNETCF.Extensions.IsWritable(System.IO.FileInfo)">
+            <summary>
+            Determines if the file is writable or not
+            </summary>
+            <param name="fi">A FileInfo instance</param>
+            <returns><b>true</b> if the ReadObly attribute flag is cleared, otherwise <b>false</b></returns>
+        </member>
+        <member name="M:OpenNETCF.Extensions.MakeWritable(System.IO.FileInfo)">
+            <summary>
+            Clears a FileInfo's ReadOnly attribute flag
+            </summary>
+            <param name="fi">A FileInfo instance</param>
+        </member>
+        <member name="M:OpenNETCF.Extensions.IsNullOrEmpty(System.String)">
+            <summary>
+            Determines if the string is null or empty. 
+            </summary>
+            <returns>True: if null or empty, otherwise False.</returns>
+        </member>
+        <member name="M:OpenNETCF.Extensions.Pluralize(System.String)">
+            <summary>
+            Pluralizes the last word in the string. 
+            Transforms "apple" into "apples" and "spy" into "spies".
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:OpenNETCF.Extensions.CapitalizeWords(System.String)">
+            <summary>
+            Transforms the casing of the first character 
+            of each word in the string to upper-case.
+            </summary>
+            <returns>A title-cased string.</returns>
+        </member>
+        <member name="M:OpenNETCF.Extensions.Capitalize(System.String)">
+            <summary>
+            Transforms the casing of the first character to upper-case.
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:OpenNETCF.Extensions.ForEach(System.String,System.Action{System.Char})">
+            <summary>
+            Performs the specified Action for each character 
+            in the string.
+            </summary>
+            <param name="action">The Action to perform for each character in the string.</param>
+        </member>
+        <member name="M:OpenNETCF.Extensions.IsMatch(System.String,System.String)">
+            <summary>
+            Determines if a regular expression pattern matches the specified string.
+            </summary>
+            <param name="pattern">The regular expression to match against the string.</param>
+            <returns></returns>
+        </member>
+        <member name="M:OpenNETCF.Extensions.LuhnCheck(System.String)">
+            <summary>
+            Luhn Checks a credit card number to see if it's valid.
+            </summary>
+            <remarks>
+            This method does not verify that the number is an actual valid credit card, it simply verifies the number itself it self is valid.
+            </remarks>
+            <param name="creditCardNumber">The credit card number, in all digits (no dashes or spaces)</param>
+            <returns><b>true</b> if the number is valid, else <b>false</b></returns>
+        </member>
+        <member name="M:OpenNETCF.Extensions.NormalizeNewlines(System.String)">
+            <summary>
+            Normalizes all "new lines" to the "\r\n" form
+            </summary>
+            <param name="input">string to normalize</param>
+            <returns>The normalized string</returns>
+        </member>
+        <member name="M:OpenNETCF.Extensions.NormalizeNewlines(System.String,System.String)">
+            <summary>
+            Normalizes all "new lines" to the provided form
+            </summary>
+            <param name="input">string to normalize</param>
+            <param name="newline">The newline form of choice (e.g. "\r\n")</param>
+            <returns>The normalized string</returns>
+        </member>
+        <member name="M:OpenNETCF.Extensions.IsDigit(System.Char)">
+            <summary>
+            Determines if a character is a digit
+            </summary>
+            <param name="c">character to test</param>
+            <returns><b>true</b> if the character is a digit, otherwise <b>false</b></returns>
+        </member>
+    </members>
+</doc>

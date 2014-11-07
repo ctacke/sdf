@@ -1,0 +1,35 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ClassDiagram MajorVersion="1" MinorVersion="1">
+  <Font Name="Tahoma" Size="8.25" />
+  <Class Name="OpenNETCF.WindowsCE.Services.ServiceCollection">
+    <Position X="2" Y="1.25" Width="1.5" />
+    <TypeIdentifier>
+      <FileName>ServiceCollection.cs</FileName>
+      <HashCode>ACIAAAAABAAAABAACAAABAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+    </TypeIdentifier>
+    <Members>
+      <Method Name="Add" Hidden="true" />
+      <Field Name="m_services" Hidden="true" />
+      <Method Name="Remove" Hidden="true" />
+      <Method Name="System.Collections.IEnumerable.GetEnumerator" Hidden="true" />
+    </Members>
+    <Lollipop Position="0.2" />
+  </Class>
+  <Class Name="OpenNETCF.WindowsCE.Services.Service">
+    <Position X="3.75" Y="0.5" Width="2" />
+    <TypeIdentifier>
+      <FileName>Service.cs</FileName>
+      <HashCode>AAAAgACAACBBAAAAAAQABEACBEAAYAJCIAAABAAAAAg=</HashCode>
+    </TypeIdentifier>
+    <Members>
+      <Method Name="CallIOCTL" Hidden="true" />
+      <Method Name="GetServiceKey" Hidden="true" />
+      <Field Name="m_dll" Hidden="true" />
+      <Field Name="m_handle" Hidden="true" />
+      <Field Name="m_parent" Hidden="true" />
+      <Field Name="m_prefix" Hidden="true" />
+      <Field Name="m_state" Hidden="true" />
+      <Method Name="Service" Hidden="true" />
+    </Members>
+  </Class>
+</ClassDiagram>

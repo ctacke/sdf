@@ -1,0 +1,1396 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>OpenNETCF.Phone</name>
+    </assembly>
+    <members>
+        <member name="T:OpenNETCF.Phone.Sim.Sim">
+            <summary>
+            Provides access to the SIM card and its data on Pocket PC Phone Edition and Smartphone 2003 devices.
+            </summary>
+        </member>
+        <member name="F:OpenNETCF.Phone.Sim.Sim.Length">
+            <summary>
+            Length of capabilties data in bytes
+            </summary>
+        </member>
+        <member name="F:OpenNETCF.Phone.Sim.Sim.SIM_NUMLOCKFACILITIES">
+            <summary>
+            Number of supported locking facilities
+            </summary>
+        </member>
+        <member name="F:OpenNETCF.Phone.Sim.Sim.SIM_CAPSTYPE_ALL">
+            <summary>
+            Used to retrieve all capabilities.
+            </summary>
+        </member>
+        <member name="F:OpenNETCF.Phone.Sim.Sim.hsim">
+            <summary>
+            Handle to the SIM.
+            </summary>
+        </member>
+        <member name="F:OpenNETCF.Phone.Sim.Sim.m_data">
+            <summary>
+            Store raw capabilities data
+            </summary>
+        </member>
+        <member name="M:OpenNETCF.Phone.Sim.Sim.#ctor">
+            <summary>
+            Create a new instance of SIM.
+            It is not recommended that you have more than one SIM object open in your application at one time.
+            </summary>
+        </member>
+        <member name="M:OpenNETCF.Phone.Sim.Sim.Finalize">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="M:OpenNETCF.Phone.Sim.Sim.Close">
+            <summary>
+            Closes the connection to the SIM releasing the handle.
+            </summary>
+        </member>
+        <member name="P:OpenNETCF.Phone.Sim.Sim.Handle">
+            <summary>
+            The Sim Handle from SimInitialize.
+            </summary>
+        </member>
+        <member name="P:OpenNETCF.Phone.Sim.Sim.LockedState">
+            <summary>
+            Gets a value indicating whether the SIM is currently awaiting a password.
+            </summary>
+        </member>
+        <member name="P:OpenNETCF.Phone.Sim.Sim.PhonebookStorage">
+            <summary>
+            Gets the number of supported phonebook storages.
+            </summary>
+        </member>
+        <member name="P:OpenNETCF.Phone.Sim.Sim.MinimumPhonebookIndex">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:OpenNETCF.Phone.Sim.Sim.MaximumPhonebookIndex">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:OpenNETCF.Phone.Sim.Sim.MaximumPhonebookAddressLength">
+            <summary>
+            Gets the maximum address length of phonebook entries.
+            </summary>
+        </member>
+        <member name="P:OpenNETCF.Phone.Sim.Sim.MaximumPhonebookTextLength">
+            <summary>
+            Gets the maximum text length of phonebook entries.
+            </summary>
+        </member>
+        <member name="P:OpenNETCF.Phone.Sim.Sim.LockFacilitiesCount">
+            <summary>
+            Gets the number of supported locking facilities.
+            </summary>
+        </member>
+        <member name="P:OpenNETCF.Phone.Sim.Sim.ReadMessageStoresCount">
+            <summary>
+            Gets the number of supported read message stores.
+            </summary>
+        </member>
+        <member name="P:OpenNETCF.Phone.Sim.Sim.WriteMessageStoresCount">
+            <summary>
+            Gets the number of supported write message stores.
+            </summary>
+        </member>
+        <member name="T:OpenNETCF.Phone.Sim.Sim.LockingPassword">
+            <summary>
+            Describes the minimum password length for the SIM.
+            </summary>
+        </member>
+        <member name="F:OpenNETCF.Phone.Sim.Sim.LockingPassword.Facility">
+            <summary>
+            The locking facility.
+            </summary>
+        </member>
+        <member name="F:OpenNETCF.Phone.Sim.Sim.LockingPassword.PasswordLength">
+            <summary>
+            The minimum password length.
+            </summary>
+        </member>
+        <member name="T:OpenNETCF.Phone.Sim.Sim.CapabilityFlags">
+            <summary>
+            Specifies which capabilities are valid.
+            </summary>
+        </member>
+        <member name="T:OpenNETCF.Phone.Sim.LockingFacility">
+            <summary>
+            Specifies the phones locking behavior.
+            </summary>
+        </member>
+        <member name="F:OpenNETCF.Phone.Sim.LockingFacility.Control">
+            <summary>
+            Lock control surface
+            </summary>
+        </member>
+        <member name="F:OpenNETCF.Phone.Sim.LockingFacility.PhoneToSim">
+            <summary>
+            Lock phone to SIM card
+            </summary>
+        </member>
+        <member name="F:OpenNETCF.Phone.Sim.LockingFacility.PhoneToFirstSim">
+            <summary>
+            Lock phone to first SIM card
+            </summary>
+        </member>
+        <member name="F:OpenNETCF.Phone.Sim.LockingFacility.Sim">
+            <summary>
+            Lock SIM card
+            </summary>
+        </member>
+        <member name="F:OpenNETCF.Phone.Sim.LockingFacility.SimPin2">
+            <summary>
+            Lock SIM card
+            </summary>
+        </member>
+        <member name="F:OpenNETCF.Phone.Sim.LockingFacility.SimFixedDialing">
+            <summary>
+            SIM fixed dialing memory
+            </summary>
+        </member>
+        <member name="F:OpenNETCF.Phone.Sim.LockingFacility.NetworkPersonalization">
+            <summary>
+            Network personalization
+            </summary>
+        </member>
+        <member name="F:OpenNETCF.Phone.Sim.LockingFacility.NetworkSubsetPersonalization">
+            <summary>
+            Network subset personalization
+            </summary>
+        </member>
+        <member name="F:OpenNETCF.Phone.Sim.LockingFacility.ServiceProviderPersonalization">
+            <summary>
+            Service provider personalization
+            </summary>
+        </member>
+        <member name="F:OpenNETCF.Phone.Sim.LockingFacility.CorporatePersonalization">
+            <summary>
+            Corporate personalization
+            </summary>
+        </member>
+        <member name="T:OpenNETCF.Phone.Sms.DataEncoding">
+            <summary>
+            The data encoding that is primarily used for outgoing text message types.
+            </summary>
+            <preliminary/>
+        </member>
+        <member name="F:OpenNETCF.Phone.Sms.DataEncoding.Optimal">
+            <summary>
+            Chooses the data encoding that fully represents all of the characters in the least amount of space.
+            </summary>
+        </member>
+        <member name="F:OpenNETCF.Phone.Sms.DataEncoding.Gsm">
+            <summary>
+            Use the default GSM 7-bit encoding specified in GSM specification 03.38 "Digital cellular telecommunications system (Phase 2+); Alphabets and language-specific information." Characters that cannot be represented by this encoding will not be transmitted correctly.
+            </summary>
+        </member>
+        <member name="F:OpenNETCF.Phone.Sms.DataEncoding.Ucs2">
+            <summary>
+            Use the Unicode UCS2 encoding.
+            </summary>
+        </member>
+        <member name="T:OpenNETCF.Phone.Sms.SmsMode">
+            <summary>
+            Specifies mode of the SMS object.
+            </summary>
+            <preliminary/>
+        </member>
+        <member name="F:OpenNETCF.Phone.Sms.SmsMode.Receive">
+            <summary>
+            Sms is opened for receiving incoming messages.
+            </summary>
+        </member>
+        <member name="F:OpenNETCF.Phone.Sms.SmsMode.Send">
+            <summary>
+            Sms is opened for sending outgoing messages.
+            </summary>
+        </member>
+        <member name="T:OpenNETCF.Phone.Sms.DeliveryOptions">
+            <summary>
+            Specifies options for delivery of an SMS Message.
+            </summary>
+            <preliminary/>
+        </member>
+        <member name="F:OpenNETCF.Phone.Sms.DeliveryOptions.None">
+            <summary>
+            No special options
+            </summary>
+        </member>
+        <member name="F:OpenNETCF.Phone.Sms.DeliveryOptions.NoRetry">
+            <summary>
+            Unless this option is specified, the router will retry sending the SMS message according to a pre-defined short-term retry schedule.
+            If this option is specified, no retries will be attempted.
+            </summary>
+        </member>
+        <member name="T:OpenNETCF.Phone.Sms.MessageStatus">
+            <summary>
+            Specifies the state of an SMS Message.
+            </summary>
+            <preliminary/>
+        </member>
+        <member name="T:OpenNETCF.Phone.Sms.BroadcastLanguage">
+            <summary>
+            Indicates the languages that the mobile device provides.
+            </summary>
+            <preliminary/>
+        </member>
+        <member name="T:OpenNETCF.Phone.Sms.MessageClass">
+            <summary>
+            Determines the class of the SMS Message.
+            </summary>
+            <preliminary/>
+        </member>
+        <member name="F:OpenNETCF.Phone.Sms.MessageClass.Class0">
+            <summary>
+            The message should be displayed immediately but not stored.
+            </summary>
+        </member>
+        <member name="F:OpenNETCF.Phone.Sms.MessageClass.Class1">
+            <summary>
+            The message should be stored and an acknowledgement should be sent to the Service Center when it is stored.
+            </summary>
+        </member>
+        <member name="F:OpenNETCF.Phone.Sms.MessageClass.Class2">
+            <summary>
+            The message should be transferred to the SMS data field in the subscriber identity module (SIM) before an acknowledgement is sent to the Service Center.
+            If the message cannot be stored in the SIM and there is other short message storage available, an unspecified protocol error message is returned to the Service Center.
+            See GSM specification 04.11 "Digital cellular telecommunications system (Phase 2+); Point-to-Point (PP) Short Message Service (SMS) support on mobile radio interface" for more detail.
+            If all the short message storage is already in use, a memory error message is returned to the Service Center.
+            </summary>
+        </member>
+        <member name="F:OpenNETCF.Phone.Sms.MessageClass.Class3">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="F:OpenNETCF.Phone.Sms.MessageClass.ClassUnspecified">
+            <summary>
+            When the message has successfully reached the destination and can be stored, an acknowledgement is sent to the Service Center.
+            See GSM specification 07.05 "Digital cellular telecommunications system (Phase 2+); Use of Data Terminal Equipment - Data Circuit terminating; Equipment (DTE - DCE) interface for Short Message Service (SMS) and Cell Broadcast Service (CBS)" for more detail.
+            </summary>
+        </member>
+        <member name="T:OpenNETCF.Phone.Sms.ReplaceOption">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="T:OpenNETCF.Phone.Sms.MessageOptions">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="F:OpenNETCF.Phone.Sms.MessageOptions.None">
+            <summary>
+            No options are specified.
+            </summary>
+        </member>
+        <member name="F:OpenNETCF.Phone.Sms.MessageOptions.ReplyPath">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="F:OpenNETCF.Phone.Sms.MessageOptions.StatusReport">
+            <summary>
+            Requests a delivery status report.
+            </summary>
+        </member>
+        <member name="F:OpenNETCF.Phone.Sms.MessageOptions.Discard">
+            <summary>
+            Sets the Discard bit for the message.
+            </summary>
+        </member>
+        <member name="T:OpenNETCF.Phone.Sms.NotificationMessageWaitingType">
+            <summary>
+            </summary>
+        </member>
+        <member name="T:OpenNETCF.Phone.Sms.NotificationIndicatorType">
+            <summary>
+            </summary>
+        </member>
+        <member name="T:OpenNETCF.Phone.Sms.MessageProtocol">
+            <summary>
+            SMS Protocol Identifier (PID) constants.
+            </summary>
+        </member>
+        <member name="T:OpenNETCF.Phone.Sim.Record">
+            <summary>
+            Describes a single record in the SIM card storage.
+            </summary>
+        </member>
+        <member name="F:OpenNETCF.Phone.Sim.Record.Length">
+            <summary>
+            Length of the SimRecord data.
+            </summary>
+        </member>
+        <member name="F:OpenNETCF.Phone.Sim.Record.m_data">
+            <summary>
+            Raw binary data
+            </summary>
+        </member>
+        <member name="M:OpenNETCF.Phone.Sim.Record.#ctor">
+            <summary>
+            Creates a new <see cref="T:OpenNETCF.Phone.Sim.Record"/>.
+            </summary>
+        </member>
+        <member name="P:OpenNETCF.Phone.Sim.Record.Flags">
+            <summary>
+            Defines which fields are valid.
+            </summary>
+        </member>
+        <member name="P:OpenNETCF.Phone.Sim.Record.Type">
+            <summary>
+            Gets or Sets the type of record.
+            </summary>
+            <seealso cref="T:OpenNETCF.Phone.Sim.RecordType"/>
+        </member>
+        <member name="P:OpenNETCF.Phone.Sim.Record.ItemCount">
+            <summary>
+            Gets or Sets the number of items contained in the record.
+            </summary>
+        </member>
+        <member name="P:OpenNETCF.Phone.Sim.Record.Size">
+            <summary>
+            Gets or Sets the size, in bytes, of each item.
+            </summary>
+        </member>
+        <member name="F:OpenNETCF.Phone.Sim.Record.RecordFlags.RecordType">
+            <summary>
+            RecordType field is valid.
+            </summary>
+        </member>
+        <member name="F:OpenNETCF.Phone.Sim.Record.RecordFlags.ItemCount">
+            <summary>
+            ItemCount field is valid.
+            </summary>
+        </member>
+        <member name="F:OpenNETCF.Phone.Sim.Record.RecordFlags.Size">
+            <summary>
+            Size field is valid.
+            </summary>
+        </member>
+        <member name="F:OpenNETCF.Phone.Sim.Record.RecordFlags.All">
+            <summary>
+            All fields are valid.
+            </summary>
+        </member>
+        <member name="T:OpenNETCF.Phone.Phone">
+            <summary>
+            Creates new voice calls on the Pocket PC Phone Edition or Smartphone device.
+            </summary>
+        </member>
+        <member name="M:OpenNETCF.Phone.Phone.MakeCall(System.String)">
+            <summary>
+            Make a voice call to the specified number.
+            </summary>
+            <param name="destination">A valid phone number to be dialled.</param>
+            <returns>True if successful else False</returns>
+        </member>
+        <member name="M:OpenNETCF.Phone.Phone.MakeCall(System.String,System.Boolean)">
+            <summary>
+            Make a voice call to the specified number optionally prompting the user before dialling.
+            </summary>
+            <param name="destination">A valid phone number to be dialled.</param>
+            <param name="prompt">If True user will be prompted before call is made, else call will be made without user intervention.</param>
+            <returns>True if successful else False</returns>
+        </member>
+        <member name="M:OpenNETCF.Phone.Phone.MakeCall(System.String,System.Boolean,System.String)">
+            <summary>
+            Make a voice call to the specified number optionally prompting the user before dialling.
+            </summary>
+            <param name="destination">A valid phone number to be dialled.</param>
+            <param name="prompt">If True user will be prompted before call is made, else call will be made without user intervention.</param>
+            <param name="calledParty">A display name for the party being called.</param>
+            <returns>True if successful else False</returns>
+        </member>
+        <member name="T:OpenNETCF.Phone.Phone.CallFlags">
+            <summary>
+            Flags which determine the behaviour of the <see cref="M:OpenNETCF.Phone.Phone.MakeCall"/> function.
+            </summary>
+        </member>
+        <member name="F:OpenNETCF.Phone.Phone.CallFlags.Default">
+            <summary>
+            Do not prompt, dial the supplied number.
+            </summary>
+        </member>
+        <member name="F:OpenNETCF.Phone.Phone.CallFlags.PromptBeforeCalling">
+            <summary>
+            Prompt the user whether to dial the supplied number.
+            </summary>
+        </member>
+        <member name="T:OpenNETCF.Phone.Sms.Sms">
+            <summary>
+            Provides access to the SMS functionality on Pocket PC Phone Edition and Smartphone devices.
+            </summary>
+        </member>
+        <member name="F:OpenNETCF.Phone.Sms.Sms.m_handle">
+            <summary>
+            SMS Handle
+            </summary>
+        </member>
+        <member name="F:OpenNETCF.Phone.Sms.Sms.m_eventhandle">
+            <summary>
+            Event Handle
+            </summary>
+        </member>
+        <member name="M:OpenNETCF.Phone.Sms.Sms.#ctor">
+            <summary>
+            Creates a new instance of SmsSender for sending.
+            </summary>
+        </member>
+        <member name="M:OpenNETCF.Phone.Sms.Sms.#ctor(OpenNETCF.Phone.Sms.SmsMode)">
+            <summary>
+            Creates a new instance of Sms with specified mode.
+            </summary>
+            <param name="mode">SmsMode (Send  and/or Receive)</param>
+        </member>
+        <member name="M:OpenNETCF.Phone.Sms.Sms.#ctor(System.String,OpenNETCF.Phone.Sms.SmsMode)">
+            <summary>
+            Creates a new instance of Sms with specified mode and provider.
+            </summary>
+            <param name="provider">Message provider to use.</param>
+            <param name="mode">SmsMode (Send  and/or Receive)</param>
+        </member>
+        <member name="M:OpenNETCF.Phone.Sms.Sms.SendMessage(OpenNETCF.Phone.Sms.SmsAddress,System.Byte[])">
+            <summary>
+            Sends a binary SMS message to the specified address.
+            </summary>
+            <param name="destination">Address of recipient.</param>
+            <param name="message">Binary representation of message contents.</param>
+            <returns>An identifier for the message which can be used to check the status.</returns>
+        </member>
+        <member name="M:OpenNETCF.Phone.Sms.Sms.SendMessage(OpenNETCF.Phone.Sms.SmsAddress,System.Byte[],OpenNETCF.Phone.Sms.ProviderSpecificData)">
+            <summary>
+            Sends a binary SMS message to the specified address with the specified provider specific options.
+            </summary>
+            <param name="destination">Address of recipient.</param>
+            <param name="message">Binary representation of message contents.</param>
+            <param name="providerData"></param>
+            <returns>An identifier for the message which can be used to check the status.</returns>
+        </member>
+        <member name="M:OpenNETCF.Phone.Sms.Sms.SendMessage(OpenNETCF.Phone.Sms.SmsAddress,System.String,OpenNETCF.Phone.Sms.ProviderSpecificData)">
+            <summary>
+            Sends a text SMS message to the specified address with the specified provider specific options.
+            </summary>
+            <param name="destination">Address of recipient.</param>
+            <param name="message">Message body as a string.</param>
+            <param name="providerData">Provider specific options.</param>
+            <returns>An identifier for the message which can be used to check the status.</returns>
+        </member>
+        <member name="M:OpenNETCF.Phone.Sms.Sms.SendMessage(OpenNETCF.Phone.Sms.SmsAddress,System.String)">
+            <summary>
+            Sends a text SMS message to the specified address.
+            </summary>
+            <param name="destination">Address of recipient.</param>
+            <param name="message">Message body as a string.</param>
+            <returns>An identifier for the message which can be used to check the status.</returns>
+        </member>
+        <member name="M:OpenNETCF.Phone.Sms.Sms.GetStatus(System.Int32)">
+            <summary>
+            Retrieves the status of a given SMS message.
+            </summary>
+            <param name="messageid">The message id, retrieved from the SendMessage method.</param>
+            <returns>An SmsMessageStatus structure containing status information, or null (Nothing in VB) if unavailable.</returns>
+        </member>
+        <member name="M:OpenNETCF.Phone.Sms.Sms.GetStatus(System.Int32,System.Int32)">
+            <summary>
+            Retrieves the status of a given SMS message, waiting within a specified timeout.
+            </summary>
+            <param name="messageid">The message id, retrieved from the SendMessage method.</param>
+            <param name="timeout">Timeout in milliseconds to wait for a response.</param>
+            <returns>An SmsMessageStatus structure containing status information, or null (Nothing in VB) if unavailable.</returns>
+        </member>
+        <member name="M:OpenNETCF.Phone.Sms.Sms.Close">
+            <summary>
+            Closes the Sms system releasing system resources.
+            </summary>
+        </member>
+        <member name="P:OpenNETCF.Phone.Sms.Sms.Time">
+            <summary>
+            Returns an estimate of the current time from the SMSC clock.
+            </summary>
+            <returns>Estimated current time</returns>
+        </member>
+        <member name="P:OpenNETCF.Phone.Sms.Sms.PhoneNumber">
+            <summary>
+            Retrieves the devices phone number.
+            </summary>
+        </member>
+        <member name="P:OpenNETCF.Phone.Sms.Sms.ServiceCentre">
+            <summary>
+            Retrieves the default SMSC
+            </summary>
+        </member>
+        <member name="T:OpenNETCF.Phone.AddressType">
+            <summary>
+            Identifies the phone number type specified in the <see cref="T:OpenNETCF.Phone.Sms.SmsAddress"/> structure.
+            </summary>
+        </member>
+        <member name="F:OpenNETCF.Phone.AddressType.Unknown">
+            <summary>
+            Unknown phone number type.
+            </summary>
+        </member>
+        <member name="F:OpenNETCF.Phone.AddressType.International">
+            <summary>
+            Number is expressed in full with country code.
+            </summary>
+        </member>
+        <member name="F:OpenNETCF.Phone.AddressType.National">
+            <summary>
+            Number is expressed without country code.
+            </summary>
+        </member>
+        <member name="F:OpenNETCF.Phone.AddressType.NetworkSpecific">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="F:OpenNETCF.Phone.AddressType.Subscriber">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="F:OpenNETCF.Phone.AddressType.Alphanumeric">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="F:OpenNETCF.Phone.AddressType.Abbreviated">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="T:OpenNETCF.Phone.Sms.SmsAddress">
+            <summary>
+            SMS Addressing information.
+            </summary>
+            <remarks>Equivalent to native <b>sms_address_tag</b> structure</remarks>
+        </member>
+        <member name="F:OpenNETCF.Phone.Sms.SmsAddress.Length">
+            <summary>
+            Length, in Bytes,  of SmsAddress structure.
+            </summary>
+        </member>
+        <member name="M:OpenNETCF.Phone.Sms.SmsAddress.#ctor">
+            <summary>
+            Create a new instance of SmsAddress.
+            </summary>
+        </member>
+        <member name="M:OpenNETCF.Phone.Sms.SmsAddress.#ctor(System.Byte[])">
+            <summary>
+            Create a new instance of SmsAddress from a Byte array.
+            </summary>
+            <param name="data">SmsAddress data in a Byte array.</param>
+        </member>
+        <member name="M:OpenNETCF.Phone.Sms.SmsAddress.#ctor(System.String)">
+            <summary>
+            Create a new instance of SmsAddress with a specified address.
+            </summary>
+            <param name="address">Address e.g. +447890123456</param>
+        </member>
+        <member name="M:OpenNETCF.Phone.Sms.SmsAddress.#ctor(System.String,OpenNETCF.Phone.AddressType)">
+            <summary>
+            Create a new instance of SmsAddress with a specified address and type.
+            </summary>
+            <param name="address">Address e.g. +447890123456</param>
+            <param name="type">A member of the SmsAddressType Enumeration</param>
+        </member>
+        <member name="M:OpenNETCF.Phone.Sms.SmsAddress.ToByteArray">
+            <summary>
+            Returns a flat Byte Array of the Sms Address data
+            </summary>
+            <returns>Byte array containing SmsAddress data.</returns>
+        </member>
+        <member name="M:OpenNETCF.Phone.Sms.SmsAddress.op_Implicit(OpenNETCF.Phone.Sms.SmsAddress)~System.Byte[]">
+            <summary>
+            Cast SmsAddress object to a byte array
+            </summary>
+            <param name="sa">SmsAddress object</param>
+            <returns>Byte array containing SmsAddress data.</returns>
+        </member>
+        <member name="M:OpenNETCF.Phone.Sms.SmsAddress.op_Implicit(System.Byte[])~OpenNETCF.Phone.Sms.SmsAddress">
+            <summary>
+            Cast byte array to SmsAddress object.
+            </summary>
+            <param name="b">Byte array containing SmsAddress data</param>
+            <returns>SmsAddress version of the data.</returns>
+        </member>
+        <member name="P:OpenNETCF.Phone.Sms.SmsAddress.Type">
+            <summary>
+            The address type.
+            </summary>
+        </member>
+        <member name="P:OpenNETCF.Phone.Sms.SmsAddress.Address">
+            <summary>
+            The address in string format. For example, "127.0.0.1" or "+1.800.123.4567".
+            </summary>
+        </member>
+        <member name="T:OpenNETCF.Phone.Sim.LockedState">
+            <summary>
+            Describes the current state of the SIM card.
+            </summary>
+        </member>
+        <member name="F:OpenNETCF.Phone.Sim.LockedState.Unknown">
+            <summary>
+            Locking state is unknown.
+            </summary>
+        </member>
+        <member name="F:OpenNETCF.Phone.Sim.LockedState.Ready">
+            <summary>
+            Not awaiting a password (unlocked).
+            </summary>
+        </member>
+        <member name="F:OpenNETCF.Phone.Sim.LockedState.SimPIN">
+            <summary>
+            Awaiting the SIM PIN.
+            </summary>
+        </member>
+        <member name="F:OpenNETCF.Phone.Sim.LockedState.SimPUK">
+            <summary>
+            Awaiting the SIM PUK.
+            </summary>
+        </member>
+        <member name="F:OpenNETCF.Phone.Sim.LockedState.PhoneSimPIN">
+            <summary>
+            Awaiting the Phone to SIM Personalization PIN
+            </summary>
+        </member>
+        <member name="F:OpenNETCF.Phone.Sim.LockedState.PhoneFirstSimPIN">
+            <summary>
+            Awaiting the Phone to first SIM Personalization PIN
+            </summary>
+        </member>
+        <member name="F:OpenNETCF.Phone.Sim.LockedState.PhoneFirstSimPUK">
+            <summary>
+            Awaiting the Phone to first SIM Personalization PUK
+            </summary>
+        </member>
+        <member name="F:OpenNETCF.Phone.Sim.LockedState.SimPIN2">
+            <summary>
+            Awaiting the SIM PIN2
+            </summary>
+        </member>
+        <member name="F:OpenNETCF.Phone.Sim.LockedState.SimPUK2">
+            <summary>
+            Awaiting the SIM PUK2
+            </summary>
+        </member>
+        <member name="F:OpenNETCF.Phone.Sim.LockedState.NetworkPIN">
+            <summary>
+            Awaiting the Network Personalization PIN
+            </summary>
+        </member>
+        <member name="F:OpenNETCF.Phone.Sim.LockedState.NetworkPUK">
+            <summary>
+            Awaiting the Network Personalization PUK
+            </summary>
+        </member>
+        <member name="F:OpenNETCF.Phone.Sim.LockedState.NetworkSubsetPIN">
+            <summary>
+            Awaiting the Network Subset Personalization PIN
+            </summary>
+        </member>
+        <member name="F:OpenNETCF.Phone.Sim.LockedState.NetworkSubsetPUK">
+            <summary>
+            Awaiting the Network Subset Personalization PUK
+            </summary>
+        </member>
+        <member name="F:OpenNETCF.Phone.Sim.LockedState.ServiceProviderPIN">
+            <summary>
+            Awaiting the Service Provider Personalization PIN
+            </summary>
+        </member>
+        <member name="F:OpenNETCF.Phone.Sim.LockedState.ServiceProviderPUK">
+            <summary>
+            Awaiting the Service Provider Personalization PUK
+            </summary>
+        </member>
+        <member name="F:OpenNETCF.Phone.Sim.LockedState.CorporatePIN">
+            <summary>
+            Awaiting the Corporate Personalization PIN
+            </summary>
+        </member>
+        <member name="F:OpenNETCF.Phone.Sim.LockedState.CorporatePUK">
+            <summary>
+            Awaiting the Corporate Personalization PUK
+            </summary>
+        </member>
+        <member name="T:OpenNETCF.Phone.CallLog">
+            <summary>
+            Provides access to the Call Log on the device which records incoming and outgoing calls made.
+            </summary>
+        </member>
+        <member name="M:OpenNETCF.Phone.CallLog.#ctor">
+            <summary>
+            Initialize a new instance of <see cref="T:OpenNETCF.Phone.CallLog"/>.
+            </summary>
+        </member>
+        <member name="M:OpenNETCF.Phone.CallLog.GetEntry">
+            <summary>
+            Retrieves the current <see cref="T:OpenNETCF.Phone.CallLogEntry"/> from the call log.
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:OpenNETCF.Phone.CallLog.Seek(OpenNETCF.Phone.CallLogSeek,System.Int32)">
+            <summary>
+            Initiates a search that ends at a given entry in a call log.
+            </summary>
+            <param name="seek">Location within the call log where the search will begin.</param>
+            <param name="iRecord">The zero-based index value of an entry in the call log, starting at the beginning of the log if seek is CallLogSeek.Beginning and at the end if seek = CallLogSeek.End. </param>
+            <returns>zero-based index value from the beginning of the seek pointer after the search is completed.</returns>
+        </member>
+        <member name="M:OpenNETCF.Phone.CallLog.Close">
+            <summary>
+            Closes the Call Log
+            </summary>
+        </member>
+        <member name="P:OpenNETCF.Phone.CallLog.Item(System.Int32)">
+            <summary>
+            Returns the <see cref="T:OpenNETCF.Phone.CallLogEntry"/> at the specified zero-based index
+            </summary>
+        </member>
+        <member name="T:OpenNETCF.Phone.Sms.SmsMessage">
+            <summary>
+            Represents an individual SMS message.
+            </summary>
+            <preliminary/>
+        </member>
+        <member name="T:OpenNETCF.Phone.Sim.MessageStorage">
+            <summary>
+            Represents a collection of <see cref="T:OpenNETCF.Phone.Sim.Message"/> items on the SIM card.
+            </summary>
+        </member>
+        <member name="P:OpenNETCF.Phone.Sim.MessageStorage.Capacity">
+            <summary>
+            Returns the maximum number of Messages which can be stored in the collection.
+            </summary>
+        </member>
+        <member name="P:OpenNETCF.Phone.Sim.MessageStorage.Item(System.Int32)">
+            <summary>
+            Returns the <see cref="T:OpenNETCF.Phone.Sim.Message"/> at the specified index.
+            </summary>
+        </member>
+        <member name="P:OpenNETCF.Phone.Sim.MessageStorage.Count">
+            <summary>
+            Returns the number of Messages contained in the collection.
+            </summary>
+        </member>
+        <member name="T:OpenNETCF.Phone.Sim.MessageStorageType">
+            <summary>
+            Specifies the types of <see cref="T:OpenNETCF.Phone.Sim.MessageStorage"/> available.
+            </summary>
+        </member>
+        <member name="F:OpenNETCF.Phone.Sim.MessageStorageType.Broadcast">
+            <summary>
+            Broadcast message storage location.
+            </summary>
+        </member>
+        <member name="F:OpenNETCF.Phone.Sim.MessageStorageType.Sim">
+            <summary>
+            SIM storage location.
+            </summary>
+        </member>
+        <member name="T:OpenNETCF.Phone.Sim.Message">
+            <summary>
+            Represents a single Message item on the SIM card.
+            </summary>
+        </member>
+        <member name="F:OpenNETCF.Phone.Sim.Message.Length">
+            <summary>
+            Length of the SimRecord data.
+            </summary>
+        </member>
+        <member name="F:OpenNETCF.Phone.Sim.Message.MAX_LENGTH_ADDRESS">
+            <summary>
+            Maximum length of an address in bytes.
+            </summary>
+        </member>
+        <member name="F:OpenNETCF.Phone.Sim.Message.MAX_LENGTH_MESSAGE">
+            <summary>
+            Maximum length of message in bytes.
+            </summary>
+        </member>
+        <member name="F:OpenNETCF.Phone.Sim.Message.m_data">
+            <summary>
+            Raw binary data
+            </summary>
+        </member>
+        <member name="M:OpenNETCF.Phone.Sim.Message.#ctor">
+            <summary>
+            Create a new instance of SimMessage.
+            </summary>
+        </member>
+        <member name="P:OpenNETCF.Phone.Sim.Message.Address">
+            <summary>
+            The actual phone number.
+            </summary>
+        </member>
+        <member name="P:OpenNETCF.Phone.Sim.Message.AddressType">
+            <summary>
+            The numbering system used for this <see cref="T:OpenNETCF.Phone.Sim.Message"/>.
+            </summary>
+        </member>
+        <member name="P:OpenNETCF.Phone.Sim.Message.Plan">
+            <summary>
+            The numbering system used for this <see cref="T:OpenNETCF.Phone.Sim.Message"/>.
+            </summary>
+        </member>
+        <member name="P:OpenNETCF.Phone.Sim.Message.ReceiveTime">
+            <summary>
+            Gets or Sets the timestamp for the incoming message.
+            </summary>
+        </member>
+        <member name="P:OpenNETCF.Phone.Sim.Message.HeaderLength">
+            <summary>
+            Gets or Sets the actual Header length in bytes.
+            </summary>
+        </member>
+        <member name="P:OpenNETCF.Phone.Sim.Message.Header">
+            <summary>
+            Gets or Sets the Header data for this message.
+            </summary>
+        </member>
+        <member name="P:OpenNETCF.Phone.Sim.Message.MessageText">
+            <summary>
+            The message text.
+            </summary>
+        </member>
+        <member name="T:OpenNETCF.Phone.Sim.Message.MessageFlags">
+            <summary>
+            Specifies which fields are valid.
+            </summary>
+        </member>
+        <member name="F:OpenNETCF.Phone.Sim.Message.MessageFlags.Address">
+            <summary>
+            Address field is valid.
+            </summary>
+        </member>
+        <member name="F:OpenNETCF.Phone.Sim.Message.MessageFlags.AddressType">
+            <summary>
+            AddressType field is valid.
+            </summary>
+        </member>
+        <member name="F:OpenNETCF.Phone.Sim.Message.MessageFlags.NumPlan">
+            <summary>
+            NumPlan field is valid.
+            </summary>
+        </member>
+        <member name="F:OpenNETCF.Phone.Sim.Message.MessageFlags.ReceiveTime">
+            <summary>
+            ReceiveTime field is valid.
+            </summary>
+        </member>
+        <member name="F:OpenNETCF.Phone.Sim.Message.MessageFlags.Header">
+            <summary>
+            Header field is valid.
+            </summary>
+        </member>
+        <member name="F:OpenNETCF.Phone.Sim.Message.MessageFlags.HeaderLength">
+            <summary>
+            HdrLength field is valid.
+            </summary>
+        </member>
+        <member name="F:OpenNETCF.Phone.Sim.Message.MessageFlags.Message">
+            <summary>
+            Message field is valid.
+            </summary>
+        </member>
+        <member name="F:OpenNETCF.Phone.Sim.Message.MessageFlags.All">
+            <summary>
+            All fields are valid.
+            </summary>
+        </member>
+        <member name="T:OpenNETCF.Phone.Sms.NotificationProviderSpecificData">
+            <summary>
+            Summary description for NotificationProviderSpecificData.
+            </summary>
+        </member>
+        <member name="T:OpenNETCF.Phone.Sms.ProviderSpecificData">
+            <summary>
+            Summary description for ProviderSpecificData.
+            </summary>
+        </member>
+        <member name="P:OpenNETCF.Phone.Sms.NotificationProviderSpecificData.MessageClass">
+            <summary>
+            Sets the message class.
+            </summary>
+        </member>
+        <member name="P:OpenNETCF.Phone.Sms.NotificationProviderSpecificData.ReplaceOption">
+            <summary>
+            Text SMS messages with the appropriate flag can replace previously received notifications with a similar flag and originating address.
+            </summary>
+        </member>
+        <member name="P:OpenNETCF.Phone.Sms.NotificationProviderSpecificData.WaitingType">
+            <summary>
+            The type of the notification message.
+            </summary>
+        </member>
+        <member name="P:OpenNETCF.Phone.Sms.NotificationProviderSpecificData.NumberOfMessagesWaiting">
+            <summary>
+            The number of waiting messages.
+            </summary>
+        </member>
+        <member name="P:OpenNETCF.Phone.Sms.NotificationProviderSpecificData.IndicatorType">
+            <summary>
+            The cellular line that a notification is for.
+            </summary>
+        </member>
+        <member name="T:OpenNETCF.Phone.CallType">
+            <summary>
+            The type of call represented in the <see cref="T:OpenNETCF.Phone.CallLogEntry"/>.
+            </summary>
+        </member>
+        <member name="F:OpenNETCF.Phone.CallType.Missed">
+            <summary>
+            An unanswered (missed) incoming call.
+            </summary>
+        </member>
+        <member name="F:OpenNETCF.Phone.CallType.Incoming">
+            <summary>
+            An answered incoming call.
+            </summary>
+        </member>
+        <member name="F:OpenNETCF.Phone.CallType.Outgoing">
+            <summary>
+            An outgoing call.
+            </summary>
+        </member>
+        <member name="T:OpenNETCF.Phone.CallerIDType">
+            <summary>
+            Specifies the availability of Caller ID.
+            </summary>
+        </member>
+        <member name="F:OpenNETCF.Phone.CallerIDType.Unavailable">
+            <summary>
+            The Caller ID is unavailable.
+            </summary>
+        </member>
+        <member name="F:OpenNETCF.Phone.CallerIDType.Blocked">
+            <summary>
+            The Caller ID is blocked.
+            </summary>
+        </member>
+        <member name="F:OpenNETCF.Phone.CallerIDType.Available">
+            <summary>
+            The Caller ID is available.
+            </summary>
+        </member>
+        <member name="T:OpenNETCF.Phone.CallLogSeek">
+            <summary>
+            Specifies the location within the <see cref="T:OpenNETCF.Phone.CallLog"/> where a search will begin.
+            </summary>
+        </member>
+        <member name="F:OpenNETCF.Phone.CallLogSeek.Beginning">
+            <summary>
+            The search will begin at the start of the call log.
+            </summary>
+        </member>
+        <member name="F:OpenNETCF.Phone.CallLogSeek.End">
+            <summary>
+            The search will begin at the end of the call log.
+            </summary>
+        </member>
+        <member name="T:OpenNETCF.Phone.Sim.MessageCollection">
+            <summary>
+            Represents a collection of Messages on the SIM card.
+            </summary>
+        </member>
+        <member name="P:OpenNETCF.Phone.Sim.MessageCollection.Capacity">
+            <summary>
+            Returns the maximum number of Messages which can be stored in the collection.
+            </summary>
+        </member>
+        <member name="P:OpenNETCF.Phone.Sim.MessageCollection.Item(System.Int32)">
+            <summary>
+            Returns the <see cref="T:OpenNETCF.Phone.Sim.Message"/> at the specified index.
+            </summary>
+        </member>
+        <member name="P:OpenNETCF.Phone.Sim.MessageCollection.Count">
+            <summary>
+            Returns the number of Messages contained in the collection.
+            </summary>
+        </member>
+        <member name="F:OpenNETCF.Phone.Sim.MessageCollection.SmsStorage.Broadcast">
+            <summary>
+            Broadcast message storage location.
+            </summary>
+        </member>
+        <member name="F:OpenNETCF.Phone.Sim.MessageCollection.SmsStorage.Sim">
+            <summary>
+            SIM storage location.
+            </summary>
+        </member>
+        <member name="T:OpenNETCF.Phone.Sms.TextProviderSpecificData">
+            <summary>
+            Summary description for TextProviderSpecificData.
+            </summary>
+        </member>
+        <member name="P:OpenNETCF.Phone.Sms.TextProviderSpecificData.MessageClass">
+            <summary>
+            Sets the message class.
+            </summary>
+        </member>
+        <member name="P:OpenNETCF.Phone.Sms.TextProviderSpecificData.ReplaceOption">
+            <summary>
+            Text SMS messages with the appropriate flag can replace previously received notifications with a similar flag and originating address.
+            </summary>
+        </member>
+        <member name="P:OpenNETCF.Phone.Sms.TextProviderSpecificData.HeaderData">
+            <summary>
+            The information contained in the header.
+            For multi-part messages, only the header from the first segment is returned.
+            </summary>
+        </member>
+        <member name="P:OpenNETCF.Phone.Sms.TextProviderSpecificData.ContainsEMSHeaders">
+            <summary>
+            Flag that indicates that at least one segment of this message contains EMS headers.
+            Only set this flag if the EMS handler installed.
+            </summary>
+        </member>
+        <member name="P:OpenNETCF.Phone.Sms.TextProviderSpecificData.ProtocolID">
+            <summary>
+            The Protocol Identifier (PID) of an invoming message, or the desired PID of an outgoing message.
+            This applies to GSM only.
+            </summary>
+        </member>
+        <member name="T:OpenNETCF.Phone.Sms.SmsMessageStatus">
+            <summary>
+            Describes the status of an SMS message.
+            </summary>
+            <preliminary/>
+        </member>
+        <member name="P:OpenNETCF.Phone.Sms.SmsMessageStatus.MessageID">
+            <summary>
+            A message identifier returned when calling SmsSendMessage.
+            </summary>
+            <preliminary/>
+        </member>
+        <member name="P:OpenNETCF.Phone.Sms.SmsMessageStatus.Status">
+            <summary>
+            The status of the message.
+            </summary>
+            <preliminary/>
+        </member>
+        <member name="P:OpenNETCF.Phone.Sms.SmsMessageStatus.RecipientAddress">
+            <summary>
+            The destination address of the message.
+            </summary>
+            <preliminary/>
+        </member>
+        <member name="P:OpenNETCF.Phone.Sms.SmsMessageStatus.ServiceCenterTimeStamp">
+            <summary>
+            The time when the service center received the sent message.
+            </summary>
+            <remarks>For a status information response resulting from a multipart message, this field contains the most recent timestamp of all the multipart messages.</remarks>
+            <preliminary/>
+        </member>
+        <member name="P:OpenNETCF.Phone.Sms.SmsMessageStatus.DischargeTime">
+            <summary>
+            The time pertaining to the particular outcome defined in <see cref="P:OpenNETCF.Phone.Sms.SmsMessageStatus.MessageStatus">MessageStatus</see>.
+            </summary>
+            <remarks>For a status information response resulting from a multipart message, this field contains the most recent discharge timestamp of all the multipart messages.</remarks>
+            <preliminary/>
+        </member>
+        <member name="T:OpenNETCF.Phone.CallLogEntry">
+            <summary>
+            Contains details of a specific call log entry.
+            </summary>
+        </member>
+        <member name="P:OpenNETCF.Phone.CallLogEntry.StartTime">
+            <summary>
+            The start time of the logged call.
+            </summary>
+        </member>
+        <member name="P:OpenNETCF.Phone.CallLogEntry.EndTime">
+            <summary>
+            The end time of the logged call.
+            </summary>
+        </member>
+        <member name="P:OpenNETCF.Phone.CallLogEntry.CallType">
+            <summary>
+            Indicates whether the call was missed (incoming), answered (incoming), or outgoing.
+            </summary>
+        </member>
+        <member name="P:OpenNETCF.Phone.CallLogEntry.Outgoing">
+            <summary>
+            Indicates the direction of the call (missed calls are incoming).
+            </summary>
+        </member>
+        <member name="P:OpenNETCF.Phone.CallLogEntry.Connected">
+            <summary>
+            Indicates whether the call connected (as opposed to a busy signal or no answer).
+            </summary>
+        </member>
+        <member name="P:OpenNETCF.Phone.CallLogEntry.Ended">
+            <summary>
+            Indicates whether the call ended (as opposed to being dropped).
+            </summary>
+        </member>
+        <member name="P:OpenNETCF.Phone.CallLogEntry.Roaming">
+            <summary>
+            Indicates whether the call was made while roaming (as opposed to a call made within the home service area).
+            </summary>
+        </member>
+        <member name="P:OpenNETCF.Phone.CallLogEntry.CallerIDType">
+            <summary>
+            The caller ID type.
+            </summary>
+        </member>
+        <member name="P:OpenNETCF.Phone.CallLogEntry.Number">
+            <summary>
+            The telephone number of the call.
+            </summary>
+        </member>
+        <member name="P:OpenNETCF.Phone.CallLogEntry.Name">
+            <summary>
+            The name associated with the call.
+            </summary>
+        </member>
+        <member name="P:OpenNETCF.Phone.CallLogEntry.NameType">
+            <summary>
+            The name type associated with the call. For example, "w" would correspond with the work telephone number, "h" would correspond with the home telephone number, and so on.
+            </summary>
+        </member>
+        <member name="P:OpenNETCF.Phone.CallLogEntry.Note">
+            <summary>
+            File name of the Notes file associated with the call (if a Notes file exists).
+            </summary>
+        </member>
+        <member name="T:OpenNETCF.Phone.Sim.SimCapabilities">
+            <summary>
+            Summary description for SimCapabilities.
+            </summary>
+        </member>
+        <member name="T:OpenNETCF.Phone.Sim.RecordType">
+            <summary>
+            Specifies different SIM file types.
+            </summary>
+        </member>
+        <member name="F:OpenNETCF.Phone.Sim.RecordType.Unknown">
+            <summary>
+            An unknown record type.
+            </summary>
+        </member>
+        <member name="F:OpenNETCF.Phone.Sim.RecordType.Transparent">
+            <summary>
+            A single veriable lengthed record.
+            </summary>
+        </member>
+        <member name="F:OpenNETCF.Phone.Sim.RecordType.Cyclic">
+            <summary>
+            A cyclic set of records, each of the same length.
+            </summary>
+        </member>
+        <member name="F:OpenNETCF.Phone.Sim.RecordType.Linear">
+            <summary>
+            A linear set of records, each of the same length.
+            </summary>
+        </member>
+        <member name="F:OpenNETCF.Phone.Sim.RecordType.Master">
+            <summary>
+            Every SIM has a single master record, effectively the head node.
+            </summary>
+        </member>
+        <member name="F:OpenNETCF.Phone.Sim.RecordType.Dedicated">
+            <summary>
+            Effectively a "directory" file which is a parent of other records.
+            </summary>
+        </member>
+        <member name="T:OpenNETCF.Phone.Sim.NumberPlan">
+            <summary>
+            Specifies the numbering plan used in the <see cref="P:OpenNETCF.Phone.Sim.PhonebookEntry.Address"/>.
+            </summary>
+        </member>
+        <member name="F:OpenNETCF.Phone.Sim.NumberPlan.Unknown">
+            <summary>
+            Unknown numbering.
+            </summary>
+        </member>
+        <member name="F:OpenNETCF.Phone.Sim.NumberPlan.Telephone">
+            <summary>
+            ISDN/telephone numbering plan (E.164/E.163)
+            </summary>
+        </member>
+        <member name="F:OpenNETCF.Phone.Sim.NumberPlan.Data">
+            <summary>
+            Data numbering plan (X.121)
+            </summary>
+        </member>
+        <member name="F:OpenNETCF.Phone.Sim.NumberPlan.Telex">
+            <summary>
+            Telex numbering plan
+            </summary>
+        </member>
+        <member name="F:OpenNETCF.Phone.Sim.NumberPlan.National">
+            <summary>
+            National numbering plan
+            </summary>
+        </member>
+        <member name="F:OpenNETCF.Phone.Sim.NumberPlan.Private">
+            <summary>
+            Private numbering plan
+            </summary>
+        </member>
+        <member name="F:OpenNETCF.Phone.Sim.NumberPlan.Ermes">
+            <summary>
+            ERMES numbering plan (ETSI DE/PS 3 01-3)
+            </summary>
+        </member>
+        <member name="T:OpenNETCF.Phone.Sim.PhonebookEntry">
+            <summary>
+            Represents a single entry in the SIM Phonebook.
+            </summary>
+        </member>
+        <member name="F:OpenNETCF.Phone.Sim.PhonebookEntry.length">
+            <summary>
+            Length of the SimPhonebookEntry data.
+            </summary>
+        </member>
+        <member name="F:OpenNETCF.Phone.Sim.PhonebookEntry.MAX_LENGTH_ADDRESS">
+            <summary>
+            Maximum length of an address
+            </summary>
+        </member>
+        <member name="F:OpenNETCF.Phone.Sim.PhonebookEntry.MAX_LENGTH_PHONEBOOKENTRYTEXT">
+            <summary>
+            Maximum length of text in a phonebook entry
+            </summary>
+        </member>
+        <member name="M:OpenNETCF.Phone.Sim.PhonebookEntry.#ctor">
+            <summary>
+            Creates a new <see cref="T:OpenNETCF.Phone.Sim.PhonebookEntry"/>.
+            </summary>
+        </member>
+        <member name="M:OpenNETCF.Phone.Sim.PhonebookEntry.ToByteArray">
+            <summary>
+            Returns the binary data held in this structure.
+            </summary>
+            <returns>A byte array for this <see cref="T:OpenNETCF.Phone.Sim.PhonebookEntry"/>.</returns>
+        </member>
+        <member name="P:OpenNETCF.Phone.Sim.PhonebookEntry.Flags">
+            <summary>
+            Indicates which fields are valid in this entry.
+            </summary>
+        </member>
+        <member name="P:OpenNETCF.Phone.Sim.PhonebookEntry.Address">
+            <summary>
+            The actual phone number.
+            </summary>
+        </member>
+        <member name="P:OpenNETCF.Phone.Sim.PhonebookEntry.AddressType">
+            <summary>
+            The numbering system used for this <see cref="T:OpenNETCF.Phone.Sim.PhonebookEntry"/>.
+            </summary>
+        </member>
+        <member name="P:OpenNETCF.Phone.Sim.PhonebookEntry.Plan">
+            <summary>
+            The numbering system used for this <see cref="T:OpenNETCF.Phone.Sim.PhonebookEntry"/>.
+            </summary>
+        </member>
+        <member name="P:OpenNETCF.Phone.Sim.PhonebookEntry.Text">
+            <summary>
+            The text associated.
+            </summary>
+        </member>
+        <member name="T:OpenNETCF.Phone.Sim.PhonebookEntry.PhonebookEntryFlags">
+            <summary>
+            Specifies which fields of the <see cref="T:OpenNETCF.Phone.Sim.PhonebookEntry"/> are valid.
+            </summary>
+        </member>
+        <member name="F:OpenNETCF.Phone.Sim.PhonebookEntry.PhonebookEntryFlags.Address">
+            <summary>
+            Address field is valid.
+            </summary>
+        </member>
+        <member name="F:OpenNETCF.Phone.Sim.PhonebookEntry.PhonebookEntryFlags.AddressType">
+            <summary>
+            AddressType field is valid.
+            </summary>
+        </member>
+        <member name="F:OpenNETCF.Phone.Sim.PhonebookEntry.PhonebookEntryFlags.Plan">
+            <summary>
+            Plan field is valid.
+            </summary>
+        </member>
+        <member name="F:OpenNETCF.Phone.Sim.PhonebookEntry.PhonebookEntryFlags.Text">
+            <summary>
+            Text field is valid.
+            </summary>
+        </member>
+        <member name="F:OpenNETCF.Phone.Sim.PhonebookEntry.PhonebookEntryFlags.All">
+            <summary>
+            All fields are valid.
+            </summary>
+        </member>
+        <member name="F:OpenNETCF.Phone.Sim.PhonebookStorage.Emergency">
+            <summary>
+            Emergency dial list
+            </summary>
+        </member>
+        <member name="F:OpenNETCF.Phone.Sim.PhonebookStorage.FixedDialing">
+            <summary>
+            Fixed dialing list
+            </summary>
+        </member>
+        <member name="F:OpenNETCF.Phone.Sim.PhonebookStorage.LastDialing">
+            <summary>
+            Last dialing list
+            </summary>
+        </member>
+        <member name="F:OpenNETCF.Phone.Sim.PhonebookStorage.OwnNumbers">
+            <summary>
+            Own numbers lists
+            </summary>
+        </member>
+        <member name="F:OpenNETCF.Phone.Sim.PhonebookStorage.SIM">
+            <summary>
+            General SIM Storage
+            </summary>
+        </member>
+        <member name="T:OpenNETCF.Phone.Sim.Phonebook">
+            <summary>
+            Supports working with the phonebook entries on a Sim.
+            </summary>
+        </member>
+        <member name="M:OpenNETCF.Phone.Sim.Phonebook.#ctor(OpenNETCF.Phone.Sim.Sim,OpenNETCF.Phone.Sim.PhonebookStorage)">
+            <summary>
+            Create a new instance of Phonebook
+            </summary>
+            <param name="sim">Parent Sim</param>
+            <param name="storage">Storage identifier</param>
+        </member>
+        <member name="M:OpenNETCF.Phone.Sim.Phonebook.RemoveAt(System.Int32)">
+            <summary>
+            Removes the PhonebookEntry at the specified zero-based index.
+            </summary>
+            <param name="index">zero-based index of the entry to delete.</param>
+        </member>
+        <member name="P:OpenNETCF.Phone.Sim.Phonebook.Sim">
+            <summary>
+            Gets the <see cref="P:OpenNETCF.Phone.Sim.Phonebook.Sim"/> object to which this Phonebook belongs.
+            </summary>
+        </member>
+        <member name="P:OpenNETCF.Phone.Sim.Phonebook.Item(System.Int32)">
+            <summary>
+            Returns the <see cref="T:OpenNETCF.Phone.Sim.PhonebookEntry"/> at the specified index.
+            </summary>
+        </member>
+        <member name="P:OpenNETCF.Phone.Sim.Phonebook.Capacity">
+            <summary>
+            Gets the maximum number of slots in the Phonebook storage.
+            </summary>
+        </member>
+        <member name="P:OpenNETCF.Phone.Sim.Phonebook.Count">
+            <summary>
+            Returns the total number of <see cref="T:OpenNETCF.Phone.Sim.PhonebookEntry"/> items contain in this <see cref="T:OpenNETCF.Phone.Sim.Phonebook"/>.
+            </summary>
+        </member>
+    </members>
+</doc>

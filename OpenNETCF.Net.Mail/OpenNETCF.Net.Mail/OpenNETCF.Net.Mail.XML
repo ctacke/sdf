@@ -1,0 +1,279 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>OpenNETCF.Net.Mail</name>
+    </assembly>
+    <members>
+        <member name="T:OpenNETCF.Net.Mail.AttachmentCollection">
+            <summary>
+            Stores attachments to be sent as part of an e-mail message.
+            </summary>
+        </member>
+        <member name="M:OpenNETCF.Net.Mail.AttachmentCollection.Dispose">
+            <summary>
+            Releases all resources used by the AttachmentCollection. 
+            </summary>
+        </member>
+        <member name="T:OpenNETCF.Net.Mail.DeliveryNotificationOptions">
+            <summary>
+            Describes the delivery notification options for e-mail.  This enumeration has a FlagsAttribute attribute that allows a bitwise combination of its member values.
+            </summary>
+        </member>
+        <member name="F:OpenNETCF.Net.Mail.DeliveryNotificationOptions.None">
+            <summary>
+            No notification.
+            </summary>
+        </member>
+        <member name="F:OpenNETCF.Net.Mail.DeliveryNotificationOptions.OnFailure">
+            <summary>
+            Notify if the delivery is unsuccessful.
+            </summary>
+        </member>
+        <member name="F:OpenNETCF.Net.Mail.DeliveryNotificationOptions.OnSuccess">
+            <summary>
+            Notify if the delivery is successful.
+            </summary>
+        </member>
+        <member name="F:OpenNETCF.Net.Mail.DeliveryNotificationOptions.Delay">
+            <summary>
+            Notify if the delivery is delayed
+            </summary>
+        </member>
+        <member name="F:OpenNETCF.Net.Mail.DeliveryNotificationOptions.Never">
+            <summary>
+            Never notify.
+            </summary>
+        </member>
+        <member name="T:OpenNETCF.Net.Mime.TransferEncoding">
+            <summary>
+            Specifies the Content-Transfer-Encoding header information for an e-mail message attachment.
+            </summary>
+        </member>
+        <member name="T:OpenNETCF.Net.Mail.SendCompletedEventHandler">
+            <summary>
+            Represents the method that will handle the SendCompleted event.
+            </summary>
+            <param name="sender"></param>
+            <param name="e"></param>
+        </member>
+        <member name="T:OpenNETCF.Net.Mail.SmtpDeliveryMethod">
+            <summary>
+            Specifies how email messages are delivered.
+            </summary>
+        </member>
+        <member name="F:OpenNETCF.Net.Mail.SmtpDeliveryMethod.Network">
+            <summary>
+            An Smtp server availble to send mail messages.
+            </summary>
+        </member>
+        <member name="T:OpenNETCF.Net.Mail.Resources">
+            <summary>
+              A strongly-typed resource class, for looking up localized strings, etc.
+            </summary>
+        </member>
+        <member name="P:OpenNETCF.Net.Mail.Resources.ResourceManager">
+            <summary>
+              Returns the cached ResourceManager instance used by this class.
+            </summary>
+        </member>
+        <member name="P:OpenNETCF.Net.Mail.Resources.Culture">
+            <summary>
+              Overrides the current thread's CurrentUICulture property for all
+              resource lookups using this strongly typed resource class.
+            </summary>
+        </member>
+        <member name="P:OpenNETCF.Net.Mail.Resources.Async_OperationCancelled">
+            <summary>
+              Looks up a localized string similar to Async operation cancelled..
+            </summary>
+        </member>
+        <member name="P:OpenNETCF.Net.Mail.Resources.SmtpClientFromNotValid">
+            <summary>
+              Looks up a localized string similar to Message must contain a From sender address..
+            </summary>
+        </member>
+        <member name="P:OpenNETCF.Net.Mail.Resources.SmtpClientHostConnectionTimeout">
+            <summary>
+              Looks up a localized string similar to Unable to connect to host {0}..
+            </summary>
+        </member>
+        <member name="P:OpenNETCF.Net.Mail.Resources.SmtpClientHostErrorGetResponse">
+            <summary>
+              Looks up a localized string similar to Error getting response from host {0}. Error: {1}.
+            </summary>
+        </member>
+        <member name="P:OpenNETCF.Net.Mail.Resources.SmtpClientHostErrorRxing">
+            <summary>
+              Looks up a localized string similar to Error receiving data from host {0}. 	SmtpClientHostErrorTxing	Error sending data to host {0}. Error: {1}.
+            </summary>
+        </member>
+        <member name="P:OpenNETCF.Net.Mail.Resources.SmtpClientHostErrorTxing">
+            <summary>
+              Looks up a localized string similar to Error sending data to host {0}. Error: {1}.
+            </summary>
+        </member>
+        <member name="P:OpenNETCF.Net.Mail.Resources.SmtpClientHostValueEmpty">
+            <summary>
+              Looks up a localized string similar to Host value cannot be empty string..
+            </summary>
+        </member>
+        <member name="P:OpenNETCF.Net.Mail.Resources.SmtpClientHostValueInvalid">
+            <summary>
+              Looks up a localized string similar to Invalid host specified..
+            </summary>
+        </member>
+        <member name="P:OpenNETCF.Net.Mail.Resources.SmtpClientHostValueNull">
+            <summary>
+              Looks up a localized string similar to Host value cannot be null..
+            </summary>
+        </member>
+        <member name="P:OpenNETCF.Net.Mail.Resources.SmtpClientInAsyncCall">
+            <summary>
+              Looks up a localized string similar to An asynchronous call is already in progress. It must be completed before you can call this method..
+            </summary>
+        </member>
+        <member name="P:OpenNETCF.Net.Mail.Resources.SmtpClientInvalidOperationDuringSend">
+            <summary>
+              Looks up a localized string similar to This operation cannot be performed while a message is being sent..
+            </summary>
+        </member>
+        <member name="P:OpenNETCF.Net.Mail.Resources.SmtpClientInvalidPortNumber">
+            <summary>
+              Looks up a localized string similar to Port cannot be less than zero..
+            </summary>
+        </member>
+        <member name="P:OpenNETCF.Net.Mail.Resources.SmtpClientMessageNull">
+            <summary>
+              Looks up a localized string similar to Message cannot be null..
+            </summary>
+        </member>
+        <member name="P:OpenNETCF.Net.Mail.Resources.SmtpClientNetCredsDomainInvalid">
+            <summary>
+              Looks up a localized string similar to Domain {0} supplied for SmtpCredentials is not valid..
+            </summary>
+        </member>
+        <member name="P:OpenNETCF.Net.Mail.Resources.SmtpClientToNotValid">
+            <summary>
+              Looks up a localized string similar to Message must contain a valid to address..
+            </summary>
+        </member>
+        <member name="T:OpenNETCF.Net.Mail.SmtpClient">
+            <summary>
+            Allows applications to send e-mail by using the Simple Mail Transfer Protocol (SMTP).
+            </summary>
+        </member>
+        <member name="M:OpenNETCF.Net.Mail.SmtpClient.#ctor">
+            <summary>
+            Initializes a new instance of the SmtpClient class.
+            </summary>
+        </member>
+        <member name="M:OpenNETCF.Net.Mail.SmtpClient.#ctor(System.String)">
+            <summary>
+            Initializes a new instance of the SmtpClient class that sends e-mail by using the specified SMTP server.
+            </summary>
+            <param name="host">A String that contains the name or IP address of the host used for SMTP transactions.</param>
+        </member>
+        <member name="M:OpenNETCF.Net.Mail.SmtpClient.#ctor(System.String,System.Int32)">
+            <summary>
+            Initializes a new instance of the SmtpClient class that sends e-mail by using the specified SMTP server and port.
+            </summary>
+            <param name="host">A String that contains the name or IP address of the host used for SMTP transactions.</param>
+            <param name="port">An Int32 greater than zero that contains the port to be used on host</param>
+            <exception cref="T:System.ArgumentOutOfRangeException">port cannot be less than zero.</exception>
+        </member>
+        <member name="E:OpenNETCF.Net.Mail.SmtpClient.SendCompleted">
+            <summary>
+            Occurs when an asynchronous e-mail send operation completes.
+            </summary>
+        </member>
+        <member name="P:OpenNETCF.Net.Mail.SmtpClient.Host">
+            <summary>
+            Gets or sets the name or IP address of the host used for SMTP transactions.
+            </summary>
+            <exception cref="T:System.ArgumentOutOfRangeException">The value specified for a set operation is less than or equal to zero.</exception>
+            <exception cref="T:System.InvalidOperationException">The value specified for a set operation is equal to Empty ("").</exception>
+            <exception cref="T:System.ArgumentNullException">The value specified for a set operation is null.</exception>
+        </member>
+        <member name="P:OpenNETCF.Net.Mail.SmtpClient.Port">
+            <summary>
+            An Int32 that contains the port number on the SMTP host. The default value is 25.
+            </summary>
+            <exception cref="T:System.ArgumentOutOfRangeException">The value specified for a set operation is less than or equal to zero.</exception>
+            <exception cref="T:System.InvalidOperationException">You cannot change the value of this property when an email is being sent.</exception>
+        </member>
+        <member name="P:OpenNETCF.Net.Mail.SmtpClient.Credentials">
+            <summary>
+            Gets or sets the credentials used to authenticate the sender.
+            </summary>
+        </member>
+        <member name="P:OpenNETCF.Net.Mail.SmtpClient.DeliveryMethod">
+            <summary>
+            Specifies how outgoing email messages will be handled.
+            </summary>
+        </member>
+        <member name="P:OpenNETCF.Net.Mail.SmtpClient.InCall">
+            <summary>
+            Determines if a send operation is in progress.
+            </summary>
+        </member>
+        <member name="T:OpenNETCF.Net.Mail.SmtpCredential">
+            <summary>
+            Credentials to use for SmtpClient
+            </summary>
+        </member>
+        <member name="M:OpenNETCF.Net.Mail.SmtpCredential.#ctor(System.String,System.String,System.String)">
+            <summary>
+            Creates a new instance of the SmtpCredential class
+            </summary>
+            <param name="userName"></param>
+            <param name="password"></param>
+            <param name="domain"></param>
+        </member>
+        <member name="M:OpenNETCF.Net.Mail.MailAddressCollection.Add(System.String)">
+            <summary>
+            Add a list of e-mail addresses to the collection.
+            </summary>
+            <param name="addresses">The e-mail addresses to add to the MailAddressCollection. Multiple e-mail addresses must be separated with a comma character (",").</param>
+        </member>
+        <member name="M:OpenNETCF.Net.Mail.MailAddressCollection.InsertItem(System.Int32,OpenNETCF.Net.Mail.MailAddress)">
+            <summary>
+            Inserts an e-mail address into the MailAddressCollection, at the specified location.
+            </summary>
+            <param name="index">The e-mail address to be inserted into the collection.</param>
+            <param name="item">The location at which to insert the e-mail address that is specified by item.</param>
+            <exception cref="T:System.ArgumentNullException">The item parameter is null.</exception>
+        </member>
+        <!-- Badly formed XML comment ignored for member "M:OpenNETCF.Net.Mail.MailAddressCollection.SetItem(System.Int32,OpenNETCF.Net.Mail.MailAddress)" -->
+        <member name="M:OpenNETCF.Net.Mail.MailAddressCollection.ToString">
+            <summary>
+            Returns a string representation of the e-mail addresses in this MailAddressCollection object.
+            </summary>
+            <returns>A String containing the e-mail addresses in this collection.</returns>
+        </member>
+        <member name="T:OpenNETCF.Net.Mail.Attachment">
+            <summary>
+            Represents an attachment to an e-mail.
+            </summary>
+        </member>
+        <member name="T:OpenNETCF.Net.Mail.MailPriority">
+            <summary>
+            Specifies the priority of a MailMessage.
+            </summary>
+        </member>
+        <member name="F:OpenNETCF.Net.Mail.MailPriority.Normal">
+            <summary>
+            Sends the message with normal priority
+            </summary>
+        </member>
+        <member name="F:OpenNETCF.Net.Mail.MailPriority.Low">
+            <summary>
+            Sends the message with low priority
+            </summary>
+        </member>
+        <member name="F:OpenNETCF.Net.Mail.MailPriority.High">
+            <summary>
+            Sends the message with high priority
+            </summary>
+        </member>
+    </members>
+</doc>

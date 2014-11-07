@@ -1,0 +1,100 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ClassDiagram MajorVersion="1" MinorVersion="1" GroupingSetting="Access">
+  <Font Name="Tahoma" Size="8.25" />
+  <Class Name="OpenNETCF.ComponentModel.License">
+    <Position X="0.5" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <FileName>ComponentModel\License.cs</FileName>
+      <HashCode>CAAAAAAAACAAAAAAAAgAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="OpenNETCF.ComponentModel.LicenseException">
+    <Position X="4.75" Y="1.75" Width="2.25" />
+    <TypeIdentifier>
+      <FileName>ComponentModel\LicenseException.cs</FileName>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAEAAA=</HashCode>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="OpenNETCF.ComponentModel.LicenseManager">
+    <Position X="2.25" Y="2.75" Width="1.75" />
+    <TypeIdentifier>
+      <FileName>ComponentModel\LicenseManager.cs</FileName>
+      <HashCode>AAAAAIAAAACAAAAAAAgAAYAAAAAAAAAAAACAAAAAAAA=</HashCode>
+    </TypeIdentifier>
+    <Members>
+      <Field Name="assemblies" Hidden="true" />
+      <Method Name="CacheAssembly" Hidden="true" />
+      <Field Name="typeAssembly" Hidden="true" />
+    </Members>
+  </Class>
+  <Class Name="OpenNETCF.ComponentModel.LicenseProvider">
+    <Position X="0.5" Y="2.75" Width="1.5" />
+    <TypeIdentifier>
+      <FileName>ComponentModel\LicenseProvider.cs</FileName>
+      <HashCode>AAAAAAAAAAAAgAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="OpenNETCF.ComponentModel.LicenseProviderAttribute">
+    <Position X="2.25" Y="0.5" Width="2.25" />
+    <TypeIdentifier>
+      <FileName>ComponentModel\LicenseProviderAttribute.cs</FileName>
+      <HashCode>AAAAAAAAIAAAAABCAACAYAAAAAAAAAAgAAAAAAAAAAA=</HashCode>
+    </TypeIdentifier>
+    <Members>
+      <Method Name="LicenseProviderAttribute" Hidden="true" />
+      <Field Name="licenseProviderName" Hidden="true" />
+      <Field Name="licenseProviderType" Hidden="true" />
+      <Field Name="resourceType" Hidden="true" />
+    </Members>
+    <Compartments>
+      <Compartment Name="Private" Collapsed="true" />
+    </Compartments>
+  </Class>
+  <Class Name="OpenNETCF.ComponentModel.PublicKeyLicenseProvider">
+    <Position X="2.25" Y="4.5" Width="2.75" />
+    <TypeIdentifier>
+      <FileName>ComponentModel\PublicKeyLicenseProvider.cs</FileName>
+      <HashCode>AAAAAAAAAgAAgABAAAAAQCAAAAAAAAAAAACAAAAAAAA=</HashCode>
+    </TypeIdentifier>
+    <Members>
+      <Field Name="allowExceptions" Hidden="true" />
+      <Field Name="resourceType" Hidden="true" />
+      <Field Name="typeAssembly" Hidden="true" />
+    </Members>
+    <Compartments>
+      <Compartment Name="Nested Types" Collapsed="false" />
+    </Compartments>
+    <NestedTypes>
+      <Class Name="OpenNETCF.ComponentModel.PublicKeyLicenseProvider.PublicKeyLicense">
+        <TypeIdentifier>
+          <NewMemberFileName>ComponentModel\PublicKeyLicenseProvider.cs</NewMemberFileName>
+        </TypeIdentifier>
+        <Members>
+          <Field Name="customerEmail" Hidden="true" />
+          <Field Name="customerName" Hidden="true" />
+          <Field Name="key" Hidden="true" />
+          <Field Name="licenseVersion" Hidden="true" />
+          <Method Name="LoadLicenseKey" Hidden="true" />
+          <Method Name="LoadPublicKey" Hidden="true" />
+          <Field Name="owner" Hidden="true" />
+          <Method Name="ProcessXml" Hidden="true" />
+          <Field Name="productName" Hidden="true" />
+          <Field Name="productVersion" Hidden="true" />
+          <Field Name="publicKey" Hidden="true" />
+          <Field Name="publicKeyResourceName" Hidden="true" />
+          <Field Name="sha1Provider" Hidden="true" />
+          <Property Name="SignatureData" Hidden="true" />
+          <Field Name="type" Hidden="true" />
+          <Field Name="xmlLicenseKey" Hidden="true" />
+        </Members>
+      </Class>
+    </NestedTypes>
+  </Class>
+  <Enum Name="OpenNETCF.ComponentModel.LicenseResourceType">
+    <Position X="4.75" Y="0.5" Width="2.25" />
+    <TypeIdentifier>
+      <FileName>ComponentModel\LicenseResourceType.cs</FileName>
+      <HashCode>AAAAAAAAAAAAAAABAAAAAAAAAAAEAAAAAAAAAAAAAAA=</HashCode>
+    </TypeIdentifier>
+  </Enum>
+</ClassDiagram>
