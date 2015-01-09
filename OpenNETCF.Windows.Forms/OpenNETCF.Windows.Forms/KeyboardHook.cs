@@ -79,7 +79,15 @@ namespace OpenNETCF.Windows.Forms
                     // only unhook if we're hooked
                     if (m_hHook != IntPtr.Zero)
                     {
-                        NativeMethods.UnhookWindowsHookEx(m_hHook);
+                         bool result = NativeMethods.UnhookWindowsHookEx(m_hHook);
+                        if (!result)
+                        {
+                            // failure
+                            System.Diagnostics.Debugger.Break();
+                            throw new System.ComponentModel.Win32Exception(Marshal.GetLastWin32Error());
+                        }
+
+                        m_hHook = IntPtr.Zero;
                     }
                 }
             }
