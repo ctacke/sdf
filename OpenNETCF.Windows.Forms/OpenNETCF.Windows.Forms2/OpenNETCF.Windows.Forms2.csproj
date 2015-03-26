@@ -20,10 +20,14 @@
     </FormFactorID>
     <SignAssembly>true</SignAssembly>
     <AssemblyOriginatorKeyFile>..\..\SDFkeypair.snk</AssemblyOriginatorKeyFile>
-    <SccProjectName>SAK</SccProjectName>
-    <SccLocalPath>SAK</SccLocalPath>
-    <SccAuxPath>SAK</SccAuxPath>
-    <SccProvider>SAK</SccProvider>
+    <SccProjectName>
+    </SccProjectName>
+    <SccLocalPath>
+    </SccLocalPath>
+    <SccAuxPath>
+    </SccAuxPath>
+    <SccProvider>
+    </SccProvider>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <DebugSymbols>true</DebugSymbols>
@@ -101,7 +105,7 @@
   <ItemGroup>
     <ProjectReference Include="..\OpenNETCF.Windows.Forms\OpenNETCF.Windows.Forms.csproj">
       <Project>{EB28E2E6-CE24-4D4A-8F38-C892D09783C2}</Project>
-      <Name>OpenNETCF.Windows.Forms</Name>
+      <Name>OpenNETCF.Windows.Forms %28OpenNETCF.Windows.Forms\OpenNETCF.Windows.Forms%29</Name>
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>

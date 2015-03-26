@@ -2,7 +2,7 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProductVersion>9.0.21022</ProductVersion>
+    <ProductVersion>9.0.30729</ProductVersion>
     <SchemaVersion>2.0</SchemaVersion>
     <ProjectGuid>{80C51EA4-799E-4666-B0A4-70D6E9DCED79}</ProjectGuid>
     <OutputType>WinExe</OutputType>
@@ -22,10 +22,14 @@
     </FileUpgradeFlags>
     <OldToolsVersion>2.0</OldToolsVersion>
     <NativePlatformName>Windows Mobile 5.0 Pocket PC SDK</NativePlatformName>
-    <SccProjectName>SAK</SccProjectName>
-    <SccLocalPath>SAK</SccLocalPath>
-    <SccAuxPath>SAK</SccAuxPath>
-    <SccProvider>SAK</SccProvider>
+    <SccProjectName>
+    </SccProjectName>
+    <SccLocalPath>
+    </SccLocalPath>
+    <SccAuxPath>
+    </SccAuxPath>
+    <SccProvider>
+    </SccProvider>
     <UpgradeBackupLocation>
     </UpgradeBackupLocation>
   </PropertyGroup>
@@ -83,6 +87,7 @@
       <DependentUpon>Main.cs</DependentUpon>
     </Compile>
     <Compile Include="MSNSearchResultsList.cs">
+      <SubType>Component</SubType>
     </Compile>
     <Compile Include="MSNSearchResultsList.Designer.cs">
       <DependentUpon>MSNSearchResultsList.cs</DependentUpon>

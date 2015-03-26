@@ -3,7 +3,7 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProductVersion>9.0.21022</ProductVersion>
+    <ProductVersion>9.0.30729</ProductVersion>
     <SchemaVersion>2.0</SchemaVersion>
     <ProjectGuid>{A21F1F93-3B53-4DE8-A8B9-F64E5952E795}</ProjectGuid>
     <OutputType>Library</OutputType>
@@ -19,10 +19,14 @@
     <WarningLevel>4</WarningLevel>
     <ProjectTypeGuids>{73A5A715-AF05-47af-9C33-47A864AF9AE7};{3AC096D0-A1C2-E12C-1390-A8335801FDAB};{4D628B5B-2FBC-4AA6-8C16-197242AEB884};{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}</ProjectTypeGuids>
     <NativePlatformName>Pocket PC 2003</NativePlatformName>
-    <SccProjectName>SAK</SccProjectName>
-    <SccLocalPath>SAK</SccLocalPath>
-    <SccAuxPath>SAK</SccAuxPath>
-    <SccProvider>SAK</SccProvider>
+    <SccProjectName>
+    </SccProjectName>
+    <SccLocalPath>
+    </SccLocalPath>
+    <SccAuxPath>
+    </SccAuxPath>
+    <SccProvider>
+    </SccProvider>
     <SignAssembly>false</SignAssembly>
     <AssemblyOriginatorKeyFile>..\..\SDFkeypair.snk</AssemblyOriginatorKeyFile>
   </PropertyGroup>
@@ -83,10 +87,6 @@
       <Private>False</Private>
     </Reference>
     <Reference Include="mscorlib" />
-    <Reference Include="OpenNETCF.Testing.Support.SmartDevice, Version=1.0.1.2, Culture=neutral, PublicKeyToken=a757e209dc5983d5, processorArchitecture=MSIL">
-      <SpecificVersion>False</SpecificVersion>
-      <HintPath>..\..\..\secondparty\OpenNETCF.Testing.Support.SmartDevice\OpenNETCF.Testing.Support.SmartDevice.dll</HintPath>
-    </Reference>
     <Reference Include="System" />
     <Reference Include="System.Data" />
     <Reference Include="System.Windows.Forms" />
@@ -105,6 +105,10 @@
     <ProjectReference Include="..\..\OpenNETCF.Net\OpenNETCF.Net\OpenNETCF.Net.csproj">
       <Project>{39DC4301-E4CC-4C4E-9579-336E2B993F51}</Project>
       <Name>OpenNETCF.Net %28OpenNETCF.Net\OpenNETCF.Net%29</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\OpenNETCF.Testing\Support\OpenNETCF.Testing.Support.SmartDevice\OpenNETCF.Testing.Support.SmartDevice.csproj">
+      <Project>{4F8D951A-0583-41DB-AE4C-5C6054248A4E}</Project>
+      <Name>OpenNETCF.Testing.Support.SmartDevice</Name>
     </ProjectReference>
     <ProjectReference Include="..\..\OpenNETCF.WindowsCE.Messaging\OpenNETCF.WindowsCE.Messaging\OpenNETCF.WindowsCE.Messaging.csproj">
       <Project>{17822A8F-AFA7-4AB7-A568-E4F93DAC99D3}</Project>

@@ -4,9 +4,12 @@
     <ProductVersion>9.0.30729</ProductVersion>
     <SchemaVersion>2.0</SchemaVersion>
     <ProjectGuid>{ED420160-D2FD-4437-9D28-F10C55E4DB28}</ProjectGuid>
-    <SccProjectName>SAK</SccProjectName>
-    <SccLocalPath>SAK</SccLocalPath>
-    <SccProvider>SAK</SccProvider>
+    <SccProjectName>
+    </SccProjectName>
+    <SccLocalPath>
+    </SccLocalPath>
+    <SccProvider>
+    </SccProvider>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
     <ProjectTypeGuids>{4D628B5B-2FBC-4AA6-8C16-197242AEB884};{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}</ProjectTypeGuids>
@@ -26,7 +29,8 @@
     </FileUpgradeFlags>
     <FormFactorID>
     </FormFactorID>
-    <SccAuxPath>SAK</SccAuxPath>
+    <SccAuxPath>
+    </SccAuxPath>
     <OSVersion>5.00</OSVersion>
     <SignAssembly>true</SignAssembly>
     <OldToolsVersion>2.0</OldToolsVersion>
@@ -509,7 +513,7 @@
   <ItemGroup>
     <ProjectReference Include="..\..\OpenNETCF.Configuration\OpenNETCF.Configuration\OpenNETCF.Configuration.csproj">
       <Project>{C9C83714-D202-49D3-9033-73FC3E88691B}</Project>
-      <Name>OpenNETCF.Configuration</Name>
+      <Name>OpenNETCF.Configuration %28OpenNETCF.Configuration\OpenNETCF.Configuration%29</Name>
       <Private>False</Private>
     </ProjectReference>
   </ItemGroup>

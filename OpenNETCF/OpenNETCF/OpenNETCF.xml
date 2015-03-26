@@ -390,20 +390,6 @@
             Gets a value indicating whether a handle is invalid.
             </summary>
         </member>
-        <member name="T:OpenNETCF.Diagnostics.DiagnosticsConfigurationHandler">
-            <summary>
-            Summary description for DiagnosticsConfigurationHandler.
-            </summary>
-        </member>
-        <member name="M:OpenNETCF.Diagnostics.DiagnosticsConfigurationHandler.Create(System.Object,System.Object,System.Xml.XmlNode)">
-            <summary>
-            
-            </summary>
-            <param name="parent"></param>
-            <param name="configContext"></param>
-            <param name="section"></param>
-            <returns></returns>
-        </member>
         <member name="T:sc.KeyGen">
             <summary>
             make a key out of a password

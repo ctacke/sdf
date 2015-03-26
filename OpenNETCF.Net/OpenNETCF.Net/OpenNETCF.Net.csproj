@@ -4,9 +4,12 @@
     <ProductVersion>9.0.30729</ProductVersion>
     <SchemaVersion>2.0</SchemaVersion>
     <ProjectGuid>{39DC4301-E4CC-4C4E-9579-336E2B993F51}</ProjectGuid>
-    <SccProjectName>SAK</SccProjectName>
-    <SccLocalPath>SAK</SccLocalPath>
-    <SccProvider>SAK</SccProvider>
+    <SccProjectName>
+    </SccProjectName>
+    <SccLocalPath>
+    </SccLocalPath>
+    <SccProvider>
+    </SccProvider>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
     <ProjectTypeGuids>{4D628B5B-2FBC-4AA6-8C16-197242AEB884};{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}</ProjectTypeGuids>
@@ -26,7 +29,8 @@
     </FileUpgradeFlags>
     <FormFactorID>
     </FormFactorID>
-    <SccAuxPath>SAK</SccAuxPath>
+    <SccAuxPath>
+    </SccAuxPath>
     <SignAssembly>true</SignAssembly>
     <OldToolsVersion>2.0</OldToolsVersion>
     <NativePlatformName>Windows CE</NativePlatformName>
@@ -319,7 +323,7 @@
   <ItemGroup>
     <ProjectReference Include="..\..\OpenNETCF.WindowsCE.Messaging\OpenNETCF.WindowsCE.Messaging\OpenNETCF.WindowsCE.Messaging.csproj">
       <Project>{17822A8F-AFA7-4AB7-A568-E4F93DAC99D3}</Project>
-      <Name>OpenNETCF.WindowsCE.Messaging</Name>
+      <Name>OpenNETCF.WindowsCE.Messaging %28OpenNETCF.WindowsCE.Messaging\OpenNETCF.WindowsCE.Messaging%29</Name>
       <Private>False</Private>
     </ProjectReference>
     <ProjectReference Include="..\..\OpenNETCF\OpenNETCF\OpenNETCF.csproj">

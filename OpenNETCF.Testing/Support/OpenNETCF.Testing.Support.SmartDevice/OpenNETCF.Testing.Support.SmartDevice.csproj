@@ -5,20 +5,20 @@
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
     <ProductVersion>9.0.30729</ProductVersion>
     <SchemaVersion>2.0</SchemaVersion>
-    <ProjectGuid>{78550F76-43C0-4E50-A6E4-ECFDF4F763E5}</ProjectGuid>
+    <ProjectGuid>{4F8D951A-0583-41DB-AE4C-5C6054248A4E}</ProjectGuid>
     <OutputType>Library</OutputType>
-    <RootNamespace>OpenNETCF.Integration.Test</RootNamespace>
-    <AssemblyName>OpenNETCF.Integration.Test</AssemblyName>
-    <PlatformFamilyName>PocketPC</PlatformFamilyName>
-    <PlatformID>4118C335-430C-497f-BE48-11C3316B135E</PlatformID>
-    <OSVersion>5.01</OSVersion>
-    <DeployDirSuffix>OpenNETCF.Integration.Test</DeployDirSuffix>
-    <TargetFrameworkVersion>v3.5</TargetFrameworkVersion>
+    <RootNamespace>OpenNETCF.Testing.Support.SmartDevice</RootNamespace>
+    <AssemblyName>OpenNETCF.Testing.Support.SmartDevice</AssemblyName>
+    <PlatformFamilyName>WindowsCE</PlatformFamilyName>
+    <PlatformID>E2BECB1F-8C8C-41ba-B736-9BE7D946A398</PlatformID>
+    <OSVersion>5.00</OSVersion>
+    <DeployDirSuffix>OpenNETCF.Testing.Support.SmartDevice</DeployDirSuffix>
+    <TargetFrameworkVersion>v2.0</TargetFrameworkVersion>
     <FormFactorID>
     </FormFactorID>
     <WarningLevel>4</WarningLevel>
     <ProjectTypeGuids>{73A5A715-AF05-47af-9C33-47A864AF9AE7};{3AC096D0-A1C2-E12C-1390-A8335801FDAB};{4D628B5B-2FBC-4AA6-8C16-197242AEB884};{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}</ProjectTypeGuids>
-    <NativePlatformName>Windows Mobile 5.0 Pocket PC SDK</NativePlatformName>
+    <NativePlatformName>Windows CE</NativePlatformName>
     <SccProjectName>
     </SccProjectName>
     <SccLocalPath>
@@ -27,6 +27,9 @@
     </SccAuxPath>
     <SccProvider>
     </SccProvider>
+    <SignAssembly>false</SignAssembly>
+    <AssemblyOriginatorKeyFile>
+    </AssemblyOriginatorKeyFile>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <DebugSymbols>true</DebugSymbols>
@@ -57,54 +60,20 @@
     <Reference Include="Microsoft.VisualStudio.SmartDevice.UnitTestFramework, Version=9.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
       <Private>False</Private>
     </Reference>
-    <Reference Include="Microsoft.WindowsCE.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=969db8053d3322ac, processorArchitecture=MSIL">
-      <SpecificVersion>False</SpecificVersion>
-      <HintPath>..\..\..\..\..\Program Files\Microsoft.NET\SDK\CompactFramework\v2.0\WindowsCE\Microsoft.WindowsCE.Forms.dll</HintPath>
-      <Private>False</Private>
-    </Reference>
     <Reference Include="mscorlib" />
-    <Reference Include="OpenNETCF.Testing.Support.SmartDevice, Version=1.0.1.2, Culture=neutral, PublicKeyToken=a757e209dc5983d5, processorArchitecture=MSIL">
-      <SpecificVersion>False</SpecificVersion>
-      <HintPath>..\..\..\secondparty\OpenNETCF.Testing.Support.SmartDevice\OpenNETCF.Testing.Support.SmartDevice.dll</HintPath>
-    </Reference>
     <Reference Include="System" />
     <Reference Include="System.Data" />
-    <Reference Include="System.Drawing" />
-    <Reference Include="System.Windows.Forms" />
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="ComponentModel\BackgroundWorkerTest.cs" />
-    <Compile Include="IO\FileSystemWatcherTest.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="IO\StreamInterfaceDriverTest.cs" />
-    <Compile Include="RecorderTest.cs" />
-    <Compile Include="Timers\Timer2Subclass.cs">
-      <SubType>Component</SubType>
-    </Compile>
-    <Compile Include="Timers\Timer2Test.cs">
-    </Compile>
-  </ItemGroup>
-  <ItemGroup>
-    <Content Include="FileDriver\FileDriver.dll">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Content>
-  </ItemGroup>
-  <ItemGroup>
-    <ProjectReference Include="..\..\OpenNETCF.Windows.Forms\OpenNETCF.Windows.Forms\OpenNETCF.Windows.Forms.csproj">
-      <Project>{EB28E2E6-CE24-4D4A-8F38-C892D09783C2}</Project>
-      <Name>OpenNETCF.Windows.Forms %28OpenNETCF.Windows.Forms\OpenNETCF.Windows.Forms%29</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\OpenNETCF\OpenNETCF.csproj">
-      <Project>{ED420160-D2FD-4437-9D28-F10C55E4DB28}</Project>
-      <Name>OpenNETCF %28OpenNETCF\OpenNETCF%29</Name>
-    </ProjectReference>
+    <Compile Include="TestBase.cs" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Test References\" />
   </ItemGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CompactFramework.CSharp.targets" />
-  <PropertyGroup Condition="'$(BuildingInsideVisualStudio)'=='true' ">
+  <PropertyGroup>
     <DeviceTestAssemblySearchPath>$(DevEnvDir)PublicAssemblies</DeviceTestAssemblySearchPath>
   </PropertyGroup>
   <PropertyGroup>

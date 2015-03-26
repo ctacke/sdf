@@ -4,6 +4,57 @@
         <name>OpenNETCF.WindowsCE.Services</name>
     </assembly>
     <members>
+        <member name="F:OpenNETCF.WindowsCE.Services.ServiceState.Stopped">
+            <summary>
+            The service is turned off. 
+            </summary>
+        </member>
+        <member name="F:OpenNETCF.WindowsCE.Services.ServiceState.Running">
+            <summary>
+            The service is turned on.
+            </summary>
+        </member>
+        <member name="F:OpenNETCF.WindowsCE.Services.ServiceState.Starting">
+            <summary>
+            The service is in the process of starting up. 
+            </summary>
+        </member>
+        <member name="F:OpenNETCF.WindowsCE.Services.ServiceState.Stopping">
+            <summary>
+            The service is in the process of shutting down. 
+            </summary>
+        </member>
+        <member name="F:OpenNETCF.WindowsCE.Services.ServiceState.Unloading">
+            <summary>
+            The service is in the process of unloading. 
+            </summary>
+        </member>
+        <member name="F:OpenNETCF.WindowsCE.Services.ServiceState.NotInitialized">
+            <summary>
+            The service is not initialized. 
+            </summary>
+        </member>
+        <member name="F:OpenNETCF.WindowsCE.Services.ServiceState.Unknown">
+            <summary>
+            The state of the service is unknown. 
+            </summary>
+        </member>
+        <member name="M:OpenNETCF.WindowsCE.Services.ServiceCollection.GetServices">
+            <summary>
+            Gets a collection of Services supported on the device
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:OpenNETCF.WindowsCE.Services.ServiceCollection.Dispose">
+            <summary>
+            Disposes internally allocated resources
+            </summary>
+        </member>
+        <member name="M:OpenNETCF.WindowsCE.Services.ServiceCollection.Finalize">
+            <summary>
+            Finalizes the ServiceCollection instance
+            </summary>
+        </member>
         <member name="M:OpenNETCF.WindowsCE.Services.Service.Load">
             <summary>
             Loads the service
@@ -63,57 +114,6 @@
         <member name="P:OpenNETCF.WindowsCE.Services.Service.ConsoleEnabled">
             <summary>
             Set the service's console (if it has one) on or off 
-            </summary>
-        </member>
-        <member name="F:OpenNETCF.WindowsCE.Services.ServiceState.Stopped">
-            <summary>
-            The service is turned off. 
-            </summary>
-        </member>
-        <member name="F:OpenNETCF.WindowsCE.Services.ServiceState.Running">
-            <summary>
-            The service is turned on.
-            </summary>
-        </member>
-        <member name="F:OpenNETCF.WindowsCE.Services.ServiceState.Starting">
-            <summary>
-            The service is in the process of starting up. 
-            </summary>
-        </member>
-        <member name="F:OpenNETCF.WindowsCE.Services.ServiceState.Stopping">
-            <summary>
-            The service is in the process of shutting down. 
-            </summary>
-        </member>
-        <member name="F:OpenNETCF.WindowsCE.Services.ServiceState.Unloading">
-            <summary>
-            The service is in the process of unloading. 
-            </summary>
-        </member>
-        <member name="F:OpenNETCF.WindowsCE.Services.ServiceState.NotInitialized">
-            <summary>
-            The service is not initialized. 
-            </summary>
-        </member>
-        <member name="F:OpenNETCF.WindowsCE.Services.ServiceState.Unknown">
-            <summary>
-            The state of the service is unknown. 
-            </summary>
-        </member>
-        <member name="M:OpenNETCF.WindowsCE.Services.ServiceCollection.GetServices">
-            <summary>
-            Gets a collection of Services supported on the device
-            </summary>
-            <returns></returns>
-        </member>
-        <member name="M:OpenNETCF.WindowsCE.Services.ServiceCollection.Dispose">
-            <summary>
-            Disposes internally allocated resources
-            </summary>
-        </member>
-        <member name="M:OpenNETCF.WindowsCE.Services.ServiceCollection.Finalize">
-            <summary>
-            Finalizes the ServiceCollection instance
             </summary>
         </member>
     </members>

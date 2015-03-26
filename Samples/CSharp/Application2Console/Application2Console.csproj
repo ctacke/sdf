@@ -2,7 +2,7 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProductVersion>9.0.21022</ProductVersion>
+    <ProductVersion>9.0.30729</ProductVersion>
     <SchemaVersion>2.0</SchemaVersion>
     <ProjectGuid>{6F9EB4B1-4F56-4D4C-A4B4-03495D185995}</ProjectGuid>
     <OutputType>WinExe</OutputType>
@@ -17,10 +17,14 @@
     </DeployDirSuffix>
     <TargetFrameworkVersion>v2.0</TargetFrameworkVersion>
     <NativePlatformName>Windows CE</NativePlatformName>
-    <SccProjectName>SAK</SccProjectName>
-    <SccLocalPath>SAK</SccLocalPath>
-    <SccAuxPath>SAK</SccAuxPath>
-    <SccProvider>SAK</SccProvider>
+    <SccProjectName>
+    </SccProjectName>
+    <SccLocalPath>
+    </SccLocalPath>
+    <SccAuxPath>
+    </SccAuxPath>
+    <SccProvider>
+    </SccProvider>
     <FormFactorID>
     </FormFactorID>
     <DeployDirPrefix>%25CSIDL_WINDOWS%25</DeployDirPrefix>
@@ -86,7 +90,7 @@
   <ItemGroup>
     <ProjectReference Include="..\..\..\OpenNETCF.Windows.Forms\OpenNETCF.Windows.Forms\OpenNETCF.Windows.Forms.csproj">
       <Project>{EB28E2E6-CE24-4D4A-8F38-C892D09783C2}</Project>
-      <Name>OpenNETCF.Windows.Forms</Name>
+      <Name>OpenNETCF.Windows.Forms %28OpenNETCF.Windows.Forms\OpenNETCF.Windows.Forms%29</Name>
     </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CompactFramework.CSharp.targets" />
