@@ -200,7 +200,7 @@
   <ItemGroup>
     <ProjectReference Include="..\..\OpenNETCF\OpenNETCF\OpenNETCF.csproj">
       <Project>{ED420160-D2FD-4437-9D28-F10C55E4DB28}</Project>
-      <Name>OpenNETCF %28OpenNETCF\OpenNETCF%29</Name>
+      <Name>OpenNETCF</Name>
       <Private>False</Private>
     </ProjectReference>
   </ItemGroup>

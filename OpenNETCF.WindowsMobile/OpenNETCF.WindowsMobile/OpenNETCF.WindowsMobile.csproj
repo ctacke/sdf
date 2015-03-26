@@ -125,10 +125,10 @@
   <ItemGroup>
     <ProjectReference Include="..\..\OpenNETCF.Windows.Forms\OpenNETCF.Windows.Forms\OpenNETCF.Windows.Forms.csproj">
       <Project>{EB28E2E6-CE24-4D4A-8F38-C892D09783C2}</Project>
-      <Name>OpenNETCF.Windows.Forms %28OpenNETCF.Windows.Forms\OpenNETCF.Windows.Forms%29</Name>
+      <Name>OpenNETCF.Windows.Forms</Name>
     </ProjectReference>
     <ProjectReference Include="..\..\OpenNETCF\OpenNETCF\OpenNETCF.csproj">
-      <Name>OpenNETCF %28OpenNETCF\OpenNETCF%29</Name>
+      <Name>OpenNETCF</Name>
       <Project>{ED420160-D2FD-4437-9D28-F10C55E4DB28}</Project>
       <Private>False</Private>
     </ProjectReference>

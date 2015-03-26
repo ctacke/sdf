@@ -10,9 +10,9 @@
     <RootNamespace>OpenNETCF.WindowsCE.Messaging</RootNamespace>
     <AssemblyName>OpenNETCF.WindowsCE.Messaging</AssemblyName>
     <ProjectTypeGuids>{4D628B5B-2FBC-4AA6-8C16-197242AEB884};{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}</ProjectTypeGuids>
-    <PlatformFamilyName>PocketPC</PlatformFamilyName>
-    <PlatformID>3C41C503-53EF-4c2a-8DD4-A8217CAD115E</PlatformID>
-    <OSVersion>4.20</OSVersion>
+    <PlatformFamilyName>WindowsCE</PlatformFamilyName>
+    <PlatformID>E2BECB1F-8C8C-41ba-B736-9BE7D946A398</PlatformID>
+    <OSVersion>5.00</OSVersion>
     <DeployDirSuffix>OpenNETCF.WindowsCE</DeployDirSuffix>
     <TargetFrameworkVersion>v2.0</TargetFrameworkVersion>
     <FormFactorID>
@@ -30,7 +30,7 @@
     <FileUpgradeFlags>
     </FileUpgradeFlags>
     <OldToolsVersion>2.0</OldToolsVersion>
-    <NativePlatformName>Pocket PC 2003</NativePlatformName>
+    <NativePlatformName>Windows CE</NativePlatformName>
     <UpgradeBackupLocation>
     </UpgradeBackupLocation>
   </PropertyGroup>
@@ -108,7 +108,7 @@
   <ItemGroup>
     <ProjectReference Include="..\..\OpenNETCF\OpenNETCF\OpenNETCF.csproj">
       <Project>{ED420160-D2FD-4437-9D28-F10C55E4DB28}</Project>
-      <Name>OpenNETCF %28OpenNETCF\OpenNETCF%29</Name>
+      <Name>OpenNETCF</Name>
       <Private>False</Private>
     </ProjectReference>
   </ItemGroup>

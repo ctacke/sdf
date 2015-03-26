@@ -105,7 +105,7 @@
   <ItemGroup>
     <ProjectReference Include="..\OpenNETCF.Windows.Forms\OpenNETCF.Windows.Forms.csproj">
       <Project>{EB28E2E6-CE24-4D4A-8F38-C892D09783C2}</Project>
-      <Name>OpenNETCF.Windows.Forms %28OpenNETCF.Windows.Forms\OpenNETCF.Windows.Forms%29</Name>
+      <Name>OpenNETCF.Windows.Forms</Name>
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>

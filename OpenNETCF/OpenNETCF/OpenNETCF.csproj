@@ -513,7 +513,7 @@
   <ItemGroup>
     <ProjectReference Include="..\..\OpenNETCF.Configuration\OpenNETCF.Configuration\OpenNETCF.Configuration.csproj">
       <Project>{C9C83714-D202-49D3-9033-73FC3E88691B}</Project>
-      <Name>OpenNETCF.Configuration %28OpenNETCF.Configuration\OpenNETCF.Configuration%29</Name>
+      <Name>OpenNETCF.Configuration</Name>
       <Private>False</Private>
     </ProjectReference>
   </ItemGroup>
