@@ -20,6 +20,42 @@ namespace OpenNETCF.Net.NetworkInformation
         private Thread m_notifyWatchThread;
         private List<IPForwardEntry> m_routeList;
         private static IPRoutingTable m_singleton;
+        private uint _IpTableRefreshRate = 1000;
+
+        /// <summary>
+        /// Get sets the IP table refresh rate in mili seconds - 0 is never i.e. call refresh manually
+        ///     Default is 1000 ms
+        /// </summary>
+        public uint IpTableRefreshRate
+        {
+            get
+            {
+                // If set to infinite
+                if (_IpTableRefreshRate == 0xFFFFFFFF)
+                {
+                    return 0; // translate 0xFFFFFFFF to 0
+                }
+                else
+                {
+                    return _IpTableRefreshRate;
+                }
+            }
+            set
+            {
+                // If set to infinite
+                if (value == 0)
+                {
+                    _IpTableRefreshRate = 0xFFFFFFFF; // translate 0 to 0xFFFFFFFF
+                }
+                else
+                {
+                    _IpTableRefreshRate = value;
+                }
+
+            }
+        }
+
+
 
         /// <summary>
         /// Gets the local device's IP Routing Table
@@ -56,7 +92,7 @@ namespace OpenNETCF.Net.NetworkInformation
 
             while (true)
             {
-                if (NativeMethods.WaitForSingleObject(waitHandle, 1000) == 0)
+                if (NativeMethods.WaitForSingleObject(waitHandle, _IpTableRefreshRate) == 0)
                 {
                     Refresh();
 
@@ -108,7 +144,7 @@ namespace OpenNETCF.Net.NetworkInformation
         /// <summary>
         /// repopulates the internal route table
         /// </summary>
-        internal void Refresh()
+        public void Refresh()
         {
             byte[] data;
             int size = 0;
