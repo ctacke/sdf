@@ -93,9 +93,15 @@ namespace OpenNETCF.Net.NetworkInformation
             {
                 retVal = WZC.WZCQueryInterface(null, INTF_FLAGS.INTF_ALL, ref entry, out flags);
             }
-            catch
+            catch(Exception ex)
             {
-                WZC.WZCDeleteIntfObj(ref entry);
+                // on a throw, the return value needs to get set to a non-zero
+                try
+                {
+                    WZC.WZCDeleteIntfObj(ref entry);
+                }
+                catch { }
+                return -1;
             }
 
             return retVal;
