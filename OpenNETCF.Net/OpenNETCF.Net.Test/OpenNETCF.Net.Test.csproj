@@ -27,7 +27,7 @@
     </SccAuxPath>
     <SccProvider>
     </SccProvider>
-    <SignAssembly>true</SignAssembly>
+    <SignAssembly>false</SignAssembly>
     <AssemblyOriginatorKeyFile>..\..\SDFkeypair.snk</AssemblyOriginatorKeyFile>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
@@ -77,9 +77,6 @@
   <ItemGroup>
     <Reference Include="Microsoft.VisualStudio.SmartDevice.UnitTestFramework, Version=9.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL" />
     <Reference Include="mscorlib" />
-    <Reference Include="OpenNETCF.Testing.Support.SmartDevice">
-      <HintPath>..\..\..\secondparty\OpenNETCF.Testing.Support.SmartDevice\OpenNETCF.Testing.Support.SmartDevice.dll</HintPath>
-    </Reference>
     <Reference Include="System" />
     <Reference Include="System.Data" />
     <Reference Include="System.Windows.Forms" />
@@ -93,6 +90,10 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\..\OpenNETCF.Testing\Support\OpenNETCF.Testing.Support.SmartDevice\OpenNETCF.Testing.Support.SmartDevice.csproj">
+      <Project>{4F8D951A-0583-41DB-AE4C-5C6054248A4E}</Project>
+      <Name>OpenNETCF.Testing.Support.SmartDevice</Name>
+    </ProjectReference>
     <ProjectReference Include="..\..\OpenNETCF.WindowsCE.Messaging\OpenNETCF.WindowsCE.Messaging\OpenNETCF.WindowsCE.Messaging.csproj">
       <Project>{17822A8F-AFA7-4AB7-A568-E4F93DAC99D3}</Project>
       <Name>OpenNETCF.WindowsCE.Messaging %28OpenNETCF.WindowsCE.Messaging\OpenNETCF.WindowsCE.Messaging%29</Name>
@@ -105,11 +106,6 @@
       <Project>{39DC4301-E4CC-4C4E-9579-336E2B993F51}</Project>
       <Name>OpenNETCF.Net %28OpenNETCF.Net\OpenNETCF.Net%29</Name>
     </ProjectReference>
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="..\..\SDFkeypair.snk">
-      <Link>SDFkeypair.snk</Link>
-    </None>
   </ItemGroup>
   <ItemGroup>
     <Folder Include="FTP\" />

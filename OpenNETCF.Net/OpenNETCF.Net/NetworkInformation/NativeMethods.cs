@@ -24,6 +24,9 @@ namespace OpenNETCF.Net.NetworkInformation
         [DllImport("coredll.dll", SetLastError = true)]
         internal static unsafe extern int WaitForSingleObject(IntPtr hHandle, int dwMilliseconds);
 
+        [DllImport("coredll.dll", SetLastError = true)]
+        internal static unsafe extern int WaitForSingleObject(IntPtr hHandle, uint dwMilliseconds);
+
         [DllImport("iphlpapi.dll", SetLastError = true)]
         internal static unsafe extern int NotifyRouteChange(ref IntPtr Handle, IntPtr overlapped);
 
