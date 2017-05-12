@@ -31,7 +31,7 @@
     </FormFactorID>
     <SccAuxPath>
     </SccAuxPath>
-    <SignAssembly>true</SignAssembly>
+    <SignAssembly>false</SignAssembly>
     <OldToolsVersion>2.0</OldToolsVersion>
     <NativePlatformName>Windows CE</NativePlatformName>
     <UpgradeBackupLocation>
@@ -132,7 +132,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="..\..\AssemblyVersion.cs">
-      <Link>AssemblyVersion.cs</Link>
+      <Link>Properties\AssemblyVersion.cs</Link>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs">
       <SubType>Code</SubType>
@@ -248,11 +248,6 @@
       <Project>{ED420160-D2FD-4437-9D28-F10C55E4DB28}</Project>
       <Private>False</Private>
     </ProjectReference>
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="..\..\SDFkeypair.snk">
-      <Link>SDFkeypair.snk</Link>
-    </None>
   </ItemGroup>
   <ProjectExtensions>
     <VisualStudio>

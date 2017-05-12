@@ -31,7 +31,7 @@
     </FormFactorID>
     <SccAuxPath>
     </SccAuxPath>
-    <SignAssembly>true</SignAssembly>
+    <SignAssembly>false</SignAssembly>
     <OldToolsVersion>2.0</OldToolsVersion>
     <NativePlatformName>Windows CE</NativePlatformName>
     <UpgradeBackupLocation>
@@ -128,7 +128,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="..\..\AssemblyVersion.cs">
-      <Link>AssemblyVersion.cs</Link>
+      <Link>Properties\AssemblyVersion.cs</Link>
     </Compile>
     <Compile Include="AddressType.cs">
       <SubType>Code</SubType>
@@ -211,11 +211,6 @@
     <Compile Include="Sms\TextProviderSpecificData.cs">
       <SubType>Code</SubType>
     </Compile>
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="..\..\SDFkeypair.snk">
-      <Link>SDFkeypair.snk</Link>
-    </None>
   </ItemGroup>
   <ProjectExtensions>
     <VisualStudio>

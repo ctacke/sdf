@@ -41,7 +41,7 @@
     <PlatformID>E2BECB1F-8C8C-41ba-B736-9BE7D946A398</PlatformID>
     <PlatformFamilyName>WindowsCE</PlatformFamilyName>
     <DeployDirSuffix>$(AssemblyName)</DeployDirSuffix>
-    <TargetFrameworkVersion>v3.5</TargetFrameworkVersion>
+    <TargetFrameworkVersion>v2.0</TargetFrameworkVersion>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <OutputPath>bin\Debug\</OutputPath>
@@ -140,7 +140,6 @@
       <Name>System</Name>
       <Private>False</Private>
     </Reference>
-    <Reference Include="System.Core" />
     <Reference Include="System.Data">
       <Name>System.Data</Name>
     </Reference>
@@ -324,6 +323,10 @@
     <Compile Include="WiFiService.cs" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\..\LINQBridge.CF\LINQBridge.CF.csproj">
+      <Project>{A2A772A1-66FE-4BB6-8EF7-8DCC7997AF42}</Project>
+      <Name>LINQBridge.CF</Name>
+    </ProjectReference>
     <ProjectReference Include="..\..\OpenNETCF.WindowsCE.Messaging\OpenNETCF.WindowsCE.Messaging\OpenNETCF.WindowsCE.Messaging.csproj">
       <Project>{17822A8F-AFA7-4AB7-A568-E4F93DAC99D3}</Project>
       <Name>OpenNETCF.WindowsCE.Messaging</Name>

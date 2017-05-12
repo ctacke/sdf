@@ -85,10 +85,6 @@
       <Private>False</Private>
     </Reference>
     <Reference Include="mscorlib" />
-    <Reference Include="OpenNETCF.Testing.Support.SmartDevice, Version=1.0.1.2, Culture=neutral, PublicKeyToken=a757e209dc5983d5, processorArchitecture=MSIL">
-      <SpecificVersion>False</SpecificVersion>
-      <HintPath>..\..\..\secondparty\OpenNETCF.Testing.Support.SmartDevice\OpenNETCF.Testing.Support.SmartDevice.dll</HintPath>
-    </Reference>
     <Reference Include="System" />
     <Reference Include="System.Data" />
     <Reference Include="System.Drawing" />
@@ -115,6 +111,10 @@
     <ProjectReference Include="..\..\OpenNETCF.Configuration\OpenNETCF.Configuration\OpenNETCF.Configuration.csproj">
       <Project>{C9C83714-D202-49D3-9033-73FC3E88691B}</Project>
       <Name>OpenNETCF.Configuration %28OpenNETCF.Configuration\OpenNETCF.Configuration%29</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\OpenNETCF.Testing\Support\OpenNETCF.Testing.Support.SmartDevice\OpenNETCF.Testing.Support.SmartDevice.csproj">
+      <Project>{4F8D951A-0583-41DB-AE4C-5C6054248A4E}</Project>
+      <Name>OpenNETCF.Testing.Support.SmartDevice</Name>
     </ProjectReference>
     <ProjectReference Include="..\OpenNETCF\OpenNETCF.csproj">
       <Project>{ED420160-D2FD-4437-9D28-F10C55E4DB28}</Project>

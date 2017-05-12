@@ -17,7 +17,7 @@
     <TargetFrameworkVersion>v2.0</TargetFrameworkVersion>
     <FormFactorID>
     </FormFactorID>
-    <SignAssembly>true</SignAssembly>
+    <SignAssembly>false</SignAssembly>
     <AssemblyOriginatorKeyFile>..\..\SDFkeypair.snk</AssemblyOriginatorKeyFile>
     <FileUpgradeFlags>
     </FileUpgradeFlags>
@@ -100,9 +100,6 @@
     <Compile Include="ServiceState.cs" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="..\..\SDFkeypair.snk">
-      <Link>SDFkeypair.snk</Link>
-    </None>
     <None Include="ClassDiagram.cd" />
   </ItemGroup>
   <Import Condition="'$(TargetFrameworkVersion)' == 'v1.0'" Project="$(MSBuildBinPath)\Microsoft.CompactFramework.CSharp.v1.targets" />

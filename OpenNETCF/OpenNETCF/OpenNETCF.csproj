@@ -32,7 +32,7 @@
     <SccAuxPath>
     </SccAuxPath>
     <OSVersion>5.00</OSVersion>
-    <SignAssembly>true</SignAssembly>
+    <SignAssembly>false</SignAssembly>
     <OldToolsVersion>2.0</OldToolsVersion>
     <NativePlatformName>Windows CE</NativePlatformName>
     <UpgradeBackupLocation>
@@ -385,9 +385,6 @@
     <EmbeddedResource Include="Timers\Timer2.bmp" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="..\..\SDFkeypair.snk">
-      <Link>SDFkeypair.snk</Link>
-    </None>
     <None Include="ClassDiagram1.cd" />
     <None Include="ComponentModel\BackgroundWorker.xmta" />
     <None Include="IO\FileSystemWatcher.xmta" />

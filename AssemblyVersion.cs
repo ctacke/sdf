@@ -2,7 +2,7 @@ using System.Reflection;
 using System.Runtime.InteropServices;
 using System;
 [assembly: AssemblyProduct("Smart Device Framework")]
-[assembly: AssemblyCopyright("Copyright © 2004-2010 OpenNETCF Consulting, LLC")]
+[assembly: AssemblyCopyright("Copyright © 2004-2017 OpenNETCF Consulting, LLC")]
 [assembly: AssemblyCompany("OpenNETCF Consulting, LLC")]
 [assembly: AssemblyTrademark("")]
 [assembly: AssemblyCulture("")]
@@ -18,7 +18,7 @@ using System;
 
 // http://amsu.cira.colostate.edu/julian.html
 
-[assembly: AssemblyVersion("2.3.12317.0")]
+[assembly: AssemblyVersion("2.3.17132.0")]
 #if DESKTOP
-[assembly: AssemblyFileVersion("2.3.12317.0")]
+[assembly: AssemblyFileVersion("2.3.17132.0")]
 #endif
