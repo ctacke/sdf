@@ -334,8 +334,12 @@ namespace OpenNETCF.Net
             // we want to store key material in the registry so it survives a restart
             using (var key = Registry.LocalMachine.OpenSubKey("\\init\\bootvars", true))
             {
-                key.SetValue("MasterKeysInRegistry", 1, RegistryValueKind.DWord);
-                key.Flush();
+                // this key may not exist in WinMo - it does in CE
+                if (key != null)
+                {
+                    key.SetValue("MasterKeysInRegistry", 1, RegistryValueKind.DWord);
+                    key.Flush();
+                }
             }
 
             m_wzc = GetFirstWZCInterface();

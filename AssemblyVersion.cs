@@ -18,7 +18,7 @@ using System;
 
 // http://amsu.cira.colostate.edu/julian.html
 
-[assembly: AssemblyVersion("2.3.17132.0")]
+[assembly: AssemblyVersion("2.3.17135.0")]
 #if DESKTOP
 [assembly: AssemblyFileVersion("2.3.17132.0")]
 #endif
