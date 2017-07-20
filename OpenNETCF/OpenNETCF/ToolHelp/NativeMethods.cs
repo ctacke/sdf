@@ -61,12 +61,14 @@ namespace OpenNETCF.ToolHelp
 		internal const int TH32CS_SNAPPROCESS = 0x00000002;
 		internal const int TH32CS_SNAPTHREAD = 0x00000004;
 		internal const int TH32CS_SNAPMODULE = 0x00000008;
-        internal const int TH32CS_SNAPNOHEAPS = 0x40000000;
+		internal const int TH32CS_SNAPNOHEAPS = 0x40000000;
 
 		[DllImport("toolhelp.dll", SetLastError=true)]
 		internal static extern IntPtr CreateToolhelp32Snapshot(uint flags, uint processid);
 		[DllImport("toolhelp.dll", SetLastError=true)]
 		internal static extern int CloseToolhelp32Snapshot(IntPtr handle);
+		[DllImport("toolhelp.dll", SetLastError = true)]
+		internal static extern int Toolhelp32ReadProcessMemory(uint processid, IntPtr lpBaseAddress, byte[] buffer, Int32 length, ref Int32 numberofbytesread);
 		[DllImport("toolhelp.dll", SetLastError=true)]
 		internal static extern int Process32First(IntPtr handle, byte[] pe);
 		[DllImport("toolhelp.dll", SetLastError=true)]
@@ -75,10 +77,10 @@ namespace OpenNETCF.ToolHelp
 		internal static extern int Thread32First(IntPtr handle, byte[] te);
 		[DllImport("toolhelp.dll", SetLastError=true)]
 		internal static extern int Thread32Next(IntPtr handle, byte[] te);
-        [DllImport("toolhelp.dll", SetLastError = true)]
-        internal static extern int Module32First(IntPtr handle, byte[] me);
-        [DllImport("toolhelp.dll", SetLastError = true)]
-        internal static extern int Module32Next(IntPtr handle, byte[] me);
-        #endregion
+		[DllImport("toolhelp.dll", SetLastError = true)]
+		internal static extern int Module32First(IntPtr handle, byte[] me);
+		[DllImport("toolhelp.dll", SetLastError = true)]
+		internal static extern int Module32Next(IntPtr handle, byte[] me);
+		#endregion
 	}
 }
