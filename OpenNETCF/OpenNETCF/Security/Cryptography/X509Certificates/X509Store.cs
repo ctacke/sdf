@@ -23,7 +23,7 @@ namespace OpenNETCF.Security.Cryptography.X509Certificates
                     nameString = "My";
                     break;
                 case StoreName.CertificateAuthority:
-                    nameString = "CertificateAuthority";
+                    nameString = "CA";
                     break;
                 case StoreName.Root:
                     nameString = "Root";
