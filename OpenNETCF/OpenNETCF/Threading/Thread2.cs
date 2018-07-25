@@ -1,69 +1,51 @@
+#region --- Copyright Information --- 
+/*
+ *******************************************************************
+|                                                                   |
+|           OpenNETCF Smart Device Framework 2.2                    |
+|                                                                   |
+|                                                                   |
+|       Copyright (c) 2000-2008 OpenNETCF Consulting LLC            |
+|       ALL RIGHTS RESERVED                                         |
+|                                                                   |
+|   The entire contents of this file is protected by U.S. and       |
+|   International Copyright Laws. Unauthorized reproduction,        |
+|   reverse-engineering, and distribution of all or any portion of  |
+|   the code contained in this file is strictly prohibited and may  |
+|   result in severe civil and criminal penalties and will be       |
+|   prosecuted to the maximum extent possible under the law.        |
+|                                                                   |
+|   RESTRICTIONS                                                    |
+|                                                                   |
+|   THIS SOURCE CODE AND ALL RESULTING INTERMEDIATE FILES           |
+|   ARE CONFIDENTIAL AND PROPRIETARY TRADE                          |
+|   SECRETS OF OPENNETCF CONSULTING LLC THE REGISTERED DEVELOPER IS |
+|   LICENSED TO DISTRIBUTE THE PRODUCT AND ALL ACCOMPANYING .NET    |
+|   CONTROLS AS PART OF A COMPILED EXECUTABLE PROGRAM ONLY.         |
+|                                                                   |
+|   THE SOURCE CODE CONTAINED WITHIN THIS FILE AND ALL RELATED      |
+|   FILES OR ANY PORTION OF ITS CONTENTS SHALL AT NO TIME BE        |
+|   COPIED, TRANSFERRED, SOLD, DISTRIBUTED, OR OTHERWISE MADE       |
+|   AVAILABLE TO OTHER INDIVIDUALS WITHOUT EXPRESS WRITTEN CONSENT  |
+|   AND PERMISSION FROM OPENNETCF CONSULTING LLC                    |
+|                                                                   |
+|   CONSULT THE END USER LICENSE AGREEMENT FOR INFORMATION ON       |
+|   ADDITIONAL RESTRICTIONS.                                        |
+|                                                                   |
+ ******************************************************************* 
+*/
+#endregion
+
+
+
 using System;
 using System.Threading;
 using System.Runtime.InteropServices;
 using System.Reflection;
 using OpenNETCF.Runtime.InteropServices;
 
-using LPSECURITY_ATTRIBUTES = System.IntPtr;
-using DWORD = System.Int32;
-using LPTHREAD_START_ROUTINE = System.IntPtr;
-using LPVOID = System.IntPtr;
-using HANDLE = System.IntPtr;
-
-using System.Diagnostics;
-
 namespace OpenNETCF.Threading
 {
-    public class RTThread : IDisposable
-    {
-        delegate void THREAD_START_ROUTINE(IntPtr lpParam);
-
-        private const int CREATE_SUSPENDED = 0x00000004;
-
-        private THREAD_START_ROUTINE m_threadProcDelegate;
-        private IntPtr m_threadProcFcnPtr;
-        private IntPtr m_threadHandle;
-        private int m_threadID;
-
-        public RTThread()
-        {
-            m_threadProcDelegate = new THREAD_START_ROUTINE(ThreadProc);
-            m_threadProcFcnPtr = System.Runtime.InteropServices.Marshal.GetFunctionPointerForDelegate(m_threadProcDelegate);
-
-            m_threadHandle = CreateThread(IntPtr.Zero, 0, m_threadProcFcnPtr, IntPtr.Zero, CREATE_SUSPENDED, out m_threadID);
-        }
-
-        public void Dispose()
-        {
-            CloseHandle(m_threadHandle);
-        }
-
-        public void Start()
-        {
-            ResumeThread(m_threadHandle);
-        }
-
-        private void ThreadProc(IntPtr lpParam)
-        {
-            Debugger.Break();
-        }
-
-        [DllImport("coredll.dll", SetLastError = true)]
-        private static extern IntPtr CreateThread(LPSECURITY_ATTRIBUTES lpThreadAttributes, 
-            DWORD dwStackSize, 
-            LPTHREAD_START_ROUTINE lpStartAddress, 
-            LPVOID lpParameter, 
-            DWORD dwCreationFlags, 
-            out DWORD lpThreadId);
-
-        [DllImport("coredll.dll", SetLastError = true)]
-        private static extern DWORD ResumeThread(HANDLE hThread);
-
-        [DllImport("coredll.dll", SetLastError = true)]
-        [return: MarshalAs(UnmanagedType.Bool)]
-        private static extern bool CloseHandle(IntPtr hObject);
-    }
-
 	/// <summary>
 	/// Creates and controls a thread, sets its priority, and gets its status.
 	/// </summary>

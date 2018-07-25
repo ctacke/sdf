@@ -1,9 +1,50 @@
+#region --- Copyright Information --- 
+/*
+ *******************************************************************
+|                                                                   |
+|           OpenNETCF Smart Device Framework 2.2                    |
+|                                                                   |
+|                                                                   |
+|       Copyright (c) 2000-2008 OpenNETCF Consulting LLC            |
+|       ALL RIGHTS RESERVED                                         |
+|                                                                   |
+|   The entire contents of this file is protected by U.S. and       |
+|   International Copyright Laws. Unauthorized reproduction,        |
+|   reverse-engineering, and distribution of all or any portion of  |
+|   the code contained in this file is strictly prohibited and may  |
+|   result in severe civil and criminal penalties and will be       |
+|   prosecuted to the maximum extent possible under the law.        |
+|                                                                   |
+|   RESTRICTIONS                                                    |
+|                                                                   |
+|   THIS SOURCE CODE AND ALL RESULTING INTERMEDIATE FILES           |
+|   ARE CONFIDENTIAL AND PROPRIETARY TRADE                          |
+|   SECRETS OF OPENNETCF CONSULTING LLC THE REGISTERED DEVELOPER IS |
+|   LICENSED TO DISTRIBUTE THE PRODUCT AND ALL ACCOMPANYING .NET    |
+|   CONTROLS AS PART OF A COMPILED EXECUTABLE PROGRAM ONLY.         |
+|                                                                   |
+|   THE SOURCE CODE CONTAINED WITHIN THIS FILE AND ALL RELATED      |
+|   FILES OR ANY PORTION OF ITS CONTENTS SHALL AT NO TIME BE        |
+|   COPIED, TRANSFERRED, SOLD, DISTRIBUTED, OR OTHERWISE MADE       |
+|   AVAILABLE TO OTHER INDIVIDUALS WITHOUT EXPRESS WRITTEN CONSENT  |
+|   AND PERMISSION FROM OPENNETCF CONSULTING LLC                    |
+|                                                                   |
+|   CONSULT THE END USER LICENSE AGREEMENT FOR INFORMATION ON       |
+|   ADDITIONAL RESTRICTIONS.                                        |
+|                                                                   |
+ ******************************************************************* 
+*/
+#endregion
+
+
+
 using System;
 
 namespace OpenNETCF.Security.Cryptography.Internal
 {
 	internal class Const
 	{
+        /*
 		// Algorithm classes
 		/// <summary>
 		/// Any
@@ -402,11 +443,11 @@ namespace OpenNETCF.Security.Cryptography.Internal
 
 		public const uint CRYPT_FAILED = 0; //FALSE
 		public const uint CRYPT_SUCCEED = 1; //TRUE
-
-        public const uint CRYPT_FIRST = 1;
+        */
+		public const uint CRYPT_FIRST = 1;
 		public const uint CRYPT_NEXT = 2;
-
-        public const uint CRYPT_SGC_ENUM = 4;
+/*
+		public const uint CRYPT_SGC_ENUM = 4;
         
 		public const uint CRYPT_IMPL_HARDWARE = 1;
 		public const uint CRYPT_IMPL_SOFTWARE = 2;
@@ -613,9 +654,6 @@ namespace OpenNETCF.Security.Cryptography.Internal
 		//NOT FROM WinCrypt.h
 		//public const int MAX_KEYBLOB = 1024;
 		//public const uint MAX_HASH = 64;
-
-        public const int CRYPT_ASN_ENCODING = 0x01;
-        public const int CERT_FIND_PUBLIC_KEY = 393216;
-        public const int CERT_KEY_PROV_INFO_PROP_ID = 2;
+         */
 	}
 }

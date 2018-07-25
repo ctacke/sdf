@@ -1,8 +1,8 @@
-﻿<Project DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003" ToolsVersion="3.5">
+﻿<?xml version="1.0" encoding="utf-8"?><Project DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003" ToolsVersion="3.5">
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProductVersion>9.0.30729</ProductVersion>
+    <ProductVersion>9.0.21022</ProductVersion>
     <SchemaVersion>2.0</SchemaVersion>
     <ProjectGuid>{EB28E2E6-CE24-4D4A-8F38-C892D09783C2}</ProjectGuid>
     <OutputType>Library</OutputType>
@@ -17,12 +17,12 @@
     <TargetFrameworkVersion>v2.0</TargetFrameworkVersion>
     <FormFactorID>
     </FormFactorID>
-    <SccProjectName>SAK</SccProjectName>
-    <SccLocalPath>SAK</SccLocalPath>
-    <SccAuxPath>SAK</SccAuxPath>
-    <SccProvider>SAK</SccProvider>
-    <SignAssembly>true</SignAssembly>
-    <AssemblyOriginatorKeyFile>..\..\SDFkeypair.snk</AssemblyOriginatorKeyFile>
+    
+    
+    
+    
+    <SignAssembly>false</SignAssembly>
+    <AssemblyOriginatorKeyFile></AssemblyOriginatorKeyFile>
     <FileUpgradeFlags>
     </FileUpgradeFlags>
     <OldToolsVersion>2.0</OldToolsVersion>
@@ -47,7 +47,7 @@
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
     <DebugType>pdbonly</DebugType>
     <Optimize>true</Optimize>
-    <OutputPath>..\..\Deploy\bin\</OutputPath>
+    <OutputPath>..\..\Deploy\bin\v20</OutputPath>
     <DefineConstants>TRACE;PocketPC</DefineConstants>
     <NoStdLib>true</NoStdLib>
     <NoConfig>true</NoConfig>
@@ -59,26 +59,8 @@
     <NoWarn>1591</NoWarn>
     <DocumentationFile>OpenNETCF.Windows.Forms.XML</DocumentationFile>
   </PropertyGroup>
-  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'IntegrationTestDebug|AnyCPU' ">
-    <NoStdLib>true</NoStdLib>
-    <NoConfig>true</NoConfig>
-    <GenerateSerializationAssemblies>Off</GenerateSerializationAssemblies>
-    <DebugSymbols>true</DebugSymbols>
-    <OutputPath>bin\IntegrationTestDebug\v20</OutputPath>
-    <DefineConstants>TRACE;DEBUG;PocketPC; SDF21</DefineConstants>
-    <DocumentationFile>bin\Debug\OpenNETCF.Windows.Forms.XML</DocumentationFile>
-    <DebugType>full</DebugType>
-    <PlatformTarget>AnyCPU</PlatformTarget>
-    <CodeAnalysisUseTypeNameInSuppression>true</CodeAnalysisUseTypeNameInSuppression>
-    <CodeAnalysisModuleSuppressionsFile>GlobalSuppressions.cs</CodeAnalysisModuleSuppressionsFile>
-    <ErrorReport>prompt</ErrorReport>
-  </PropertyGroup>
-  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'IntegrationTestRelease|AnyCPU' ">
-    <NoStdLib>true</NoStdLib>
-    <NoConfig>true</NoConfig>
-    <GenerateSerializationAssemblies>off</GenerateSerializationAssemblies>
-    <OutputPath>bin\IntegrationTestRelease\v20</OutputPath>
-  </PropertyGroup>
+  
+  
   <ItemGroup>
     <Reference Include="Microsoft.WindowsCE.Forms" />
     <Reference Include="mscorlib" />
@@ -90,7 +72,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="..\..\AssemblyVersion.cs">
-      <Link>Properties\AssemblyVersion.cs</Link>
+      <Link>AssemblyVersion.cs</Link>
     </Compile>
     <Compile Include="AnimateCtl.cs">
       <SubType>UserControl</SubType>
@@ -99,12 +81,6 @@
       <DependentUpon>AnimateCtl.cs</DependentUpon>
     </Compile>
     <Compile Include="Application2.cs" />
-    <None Include="BaseControl.cs">
-      <SubType>UserControl</SubType>
-    </None>
-    <None Include="BaseCustomDrawControl.cs">
-      <SubType>UserControl</SubType>
-    </None>
     <Compile Include="BatteryChargeStatus.cs" />
     <Compile Include="BatteryChemistry.cs" />
     <Compile Include="BatteryLife.cs">
@@ -263,19 +239,8 @@
     <Compile Include="ThreadWindow.cs">
       <DependentUpon>Application2.cs</DependentUpon>
     </Compile>
-    <Compile Include="Win32\BM.cs" />
-    <Compile Include="Win32\BN.cs" />
-    <Compile Include="Win32\BS.cs" />
-    <Compile Include="Win32\BST.cs" />
     <Compile Include="Win32\CB.cs" />
-    <Compile Include="Win32\CBN.cs" />
     <Compile Include="Win32\CBS.cs" />
-    <Compile Include="Win32\CDDS.cs" />
-    <Compile Include="Win32\CDIS.cs" />
-    <Compile Include="Win32\CDRF.cs" />
-    <Compile Include="Win32\COMPAREITEMSTRUCT.cs" />
-    <Compile Include="Win32\DELETITEMSTRUCT.cs" />
-    <Compile Include="Win32\DRAWITEMSTRUCT.cs" />
     <Compile Include="Win32\DTM.cs" />
     <Compile Include="Win32\DTN.cs" />
     <Compile Include="Win32\DTS.cs" />
@@ -286,34 +251,16 @@
     <Compile Include="Win32\GWL.cs" />
     <Compile Include="Win32\HS.cs" />
     <Compile Include="Win32\HWND.cs" />
-    <Compile Include="Win32\LB.cs" />
     <Compile Include="Win32\LBS.cs" />
-    <Compile Include="Win32\LVCDI.cs" />
-    <Compile Include="Win32\LVGA.cs" />
-    <Compile Include="Win32\LVGF.cs" />
-    <Compile Include="Win32\LVGROUP.cs" />
-    <Compile Include="Win32\LVGS.cs" />
     <Compile Include="Win32\LVM.cs" />
     <Compile Include="Win32\MCM.cs" />
     <Compile Include="Win32\MCN.cs" />
     <Compile Include="Win32\MCS.cs" />
     <Compile Include="Win32\MCSC.cs" />
-    <Compile Include="Win32\MEASUREITEMSTRUCT.cs" />
-    <Compile Include="Win32\NM.cs" />
-    <Compile Include="Win32\NMCUSTOMDRAW.cs" />
     <Compile Include="Win32\NMHDR.cs" />
-    <Compile Include="Win32\NMLISTVIEW.cs" />
-    <Compile Include="Win32\NMLVCUSTOMDRAW.cs" />
-    <Compile Include="Win32\NMTVCUSTOMDRAW.cs" />
-    <Compile Include="Win32\ODA.cs" />
-    <Compile Include="Win32\ODS.cs" />
-    <Compile Include="Win32\ODT.cs" />
-    <Compile Include="Win32\RECT.cs" />
     <Compile Include="Win32\SW.cs" />
     <Compile Include="Win32\SWP.cs" />
     <Compile Include="Win32\TCN.cs" />
-    <Compile Include="Win32\TVM.cs" />
-    <Compile Include="Win32\TVN.cs" />
     <Compile Include="Win32\WA.cs" />
     <Compile Include="Win32\Win32Window.cs" />
     <Compile Include="Win32\WM.cs" />
@@ -332,9 +279,7 @@
     </EmbeddedResource>
   </ItemGroup>
   <ItemGroup>
-    <None Include="..\..\SDFkeypair.snk">
-      <Link>SDFkeypair.snk</Link>
-    </None>
+    
     <None Include="AnimateCtl.xmta">
       <DependentUpon>AnimateCtl.cs</DependentUpon>
     </None>
@@ -359,9 +304,9 @@
     <None Include="ColorDialog.xmta">
       <DependentUpon>ColorDialog.cs</DependentUpon>
     </None>
-    <Content Include="ComboBox2.xmta">
+    <None Include="ComboBox2.xmta">
       <DependentUpon>ComboBox2.cs</DependentUpon>
-    </Content>
+    </None>
     <None Include="DateTimePicker2.xmta">
       <DependentUpon>DateTimePicker2.cs</DependentUpon>
     </None>
@@ -405,12 +350,12 @@
   <ItemGroup>
     <ProjectReference Include="..\..\OpenNETCF.Drawing\OpenNETCF.Drawing\OpenNETCF.Drawing.csproj">
       <Project>{FA15C437-D0AA-4C99-A1F2-5581CAB8F7B8}</Project>
-      <Name>OpenNETCF.Drawing</Name>
+      <Name>OpenNETCF.Drawing %28OpenNETCF.Drawing\OpenNETCF.Drawing%29</Name>
       <Private>True</Private>
     </ProjectReference>
     <ProjectReference Include="..\..\OpenNETCF\OpenNETCF\OpenNETCF.csproj">
       <Project>{ED420160-D2FD-4437-9D28-F10C55E4DB28}</Project>
-      <Name>OpenNETCF</Name>
+      <Name>OpenNETCF %28OpenNETCF\OpenNETCF%29</Name>
       <Private>True</Private>
     </ProjectReference>
   </ItemGroup>

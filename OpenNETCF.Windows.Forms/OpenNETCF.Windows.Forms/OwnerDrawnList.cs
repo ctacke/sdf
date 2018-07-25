@@ -1,3 +1,43 @@
+#region --- Copyright Information --- 
+/*
+ *******************************************************************
+|                                                                   |
+|           OpenNETCF Smart Device Framework 2.2                    |
+|                                                                   |
+|                                                                   |
+|       Copyright (c) 2000-2008 OpenNETCF Consulting LLC            |
+|       ALL RIGHTS RESERVED                                         |
+|                                                                   |
+|   The entire contents of this file is protected by U.S. and       |
+|   International Copyright Laws. Unauthorized reproduction,        |
+|   reverse-engineering, and distribution of all or any portion of  |
+|   the code contained in this file is strictly prohibited and may  |
+|   result in severe civil and criminal penalties and will be       |
+|   prosecuted to the maximum extent possible under the law.        |
+|                                                                   |
+|   RESTRICTIONS                                                    |
+|                                                                   |
+|   THIS SOURCE CODE AND ALL RESULTING INTERMEDIATE FILES           |
+|   ARE CONFIDENTIAL AND PROPRIETARY TRADE                          |
+|   SECRETS OF OPENNETCF CONSULTING LLC THE REGISTERED DEVELOPER IS |
+|   LICENSED TO DISTRIBUTE THE PRODUCT AND ALL ACCOMPANYING .NET    |
+|   CONTROLS AS PART OF A COMPILED EXECUTABLE PROGRAM ONLY.         |
+|                                                                   |
+|   THE SOURCE CODE CONTAINED WITHIN THIS FILE AND ALL RELATED      |
+|   FILES OR ANY PORTION OF ITS CONTENTS SHALL AT NO TIME BE        |
+|   COPIED, TRANSFERRED, SOLD, DISTRIBUTED, OR OTHERWISE MADE       |
+|   AVAILABLE TO OTHER INDIVIDUALS WITHOUT EXPRESS WRITTEN CONSENT  |
+|   AND PERMISSION FROM OPENNETCF CONSULTING LLC                    |
+|                                                                   |
+|   CONSULT THE END USER LICENSE AGREEMENT FOR INFORMATION ON       |
+|   ADDITIONAL RESTRICTIONS.                                        |
+|                                                                   |
+ ******************************************************************* 
+*/
+#endregion
+
+
+
 using System;
 using System.Data;
 using System.Drawing;
@@ -19,7 +59,7 @@ namespace OpenNETCF.Windows.Forms
   /// <summary>
   /// Summary description for OwnerDrawnList.
   /// </summary>
-  public abstract class OwnerDrawnList : Control, IWin32Window, IDisposable
+  public abstract class OwnerDrawnList : Control, IWin32Window
   {
     /// <summary>
     /// Raised when the DataSource property changes.
@@ -125,41 +165,6 @@ namespace OpenNETCF.Windows.Forms
 
       this.BackColor = Color.Red;
     }
-
-    ~OwnerDrawnList()
-    {
-        Dispose();
-    }
-
-	#region IDisposable Members
-
-      /// <summary>
-      /// Destroys images associated with control
-      /// </summary>
-    public new void Dispose()
-    {
-        if (backgroundImage != null)
-        {
-            backgroundImage.Dispose();
-            backgroundImage = null;
-        }
-
-        if (m_bmpOffscreen != null)
-        {
-            m_bmpOffscreen.Dispose();
-            m_bmpOffscreen = null;
-        }
-
-        if (gxOff != null)
-        {
-            gxOff.Dispose();
-            gxOff = null;
-        }
-
-        base.Dispose(true);
-    }
-
-    #endregion
 
     #region public properties
 
@@ -392,13 +397,12 @@ namespace OpenNETCF.Windows.Forms
       if ((this.Width == 0) || (this.Height == 0))
         return;
 
-      // NC - 2009-04-22: No need to mess with the height
-      //base.Height = ((int)Math.Ceiling((base.Height / (itemHeight * 1.0D))) * itemHeight);
+        base.Height = (int) Math.Ceiling((base.Height/(itemHeight*1.0D))) * itemHeight; 
 
       //How many items are visible
-      // NC - 2009-04-22: Added Math.Ceiling call to maximize number of items displayed
-      int viewableItemCount = (int)Math.Ceiling(this.Height / (this.ItemHeight * 1.0D)); 
-      
+      int viewableItemCount = this.Height / this.ItemHeight;
+
+
       if (!this.showScrollbar)
       {
         //Instead of hiding the scrollbar just move it off the screen
@@ -480,8 +484,8 @@ namespace OpenNETCF.Windows.Forms
 
       base.OnMouseDown(e);
 
-      //jsm - get out if there are no items or ItemHeight is invalid
-      if (BaseItems.Count == 0 || this.itemHeight <= 0)
+      //get out if there are no items
+      if (BaseItems.Count == 0)
         return;
 
       prevSelection = selectedIndex;

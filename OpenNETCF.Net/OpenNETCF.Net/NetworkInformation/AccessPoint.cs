@@ -1,3 +1,43 @@
+#region --- Copyright Information --- 
+/*
+ *******************************************************************
+|                                                                   |
+|           OpenNETCF Smart Device Framework 2.2                    |
+|                                                                   |
+|                                                                   |
+|       Copyright (c) 2000-2008 OpenNETCF Consulting LLC            |
+|       ALL RIGHTS RESERVED                                         |
+|                                                                   |
+|   The entire contents of this file is protected by U.S. and       |
+|   International Copyright Laws. Unauthorized reproduction,        |
+|   reverse-engineering, and distribution of all or any portion of  |
+|   the code contained in this file is strictly prohibited and may  |
+|   result in severe civil and criminal penalties and will be       |
+|   prosecuted to the maximum extent possible under the law.        |
+|                                                                   |
+|   RESTRICTIONS                                                    |
+|                                                                   |
+|   THIS SOURCE CODE AND ALL RESULTING INTERMEDIATE FILES           |
+|   ARE CONFIDENTIAL AND PROPRIETARY TRADE                          |
+|   SECRETS OF OPENNETCF CONSULTING LLC THE REGISTERED DEVELOPER IS |
+|   LICENSED TO DISTRIBUTE THE PRODUCT AND ALL ACCOMPANYING .NET    |
+|   CONTROLS AS PART OF A COMPILED EXECUTABLE PROGRAM ONLY.         |
+|                                                                   |
+|   THE SOURCE CODE CONTAINED WITHIN THIS FILE AND ALL RELATED      |
+|   FILES OR ANY PORTION OF ITS CONTENTS SHALL AT NO TIME BE        |
+|   COPIED, TRANSFERRED, SOLD, DISTRIBUTED, OR OTHERWISE MADE       |
+|   AVAILABLE TO OTHER INDIVIDUALS WITHOUT EXPRESS WRITTEN CONSENT  |
+|   AND PERMISSION FROM OPENNETCF CONSULTING LLC                    |
+|                                                                   |
+|   CONSULT THE END USER LICENSE AGREEMENT FOR INFORMATION ON       |
+|   ADDITIONAL RESTRICTIONS.                                        |
+|                                                                   |
+ ******************************************************************* 
+*/
+#endregion
+
+
+
 using System;
 using System.Collections;
 
@@ -9,7 +49,7 @@ namespace OpenNETCF.Net.NetworkInformation
   /// queried for SSID-specific information for the
   /// associated adapter such as signal strength.
   /// </summary>
-  public class AccessPoint : IAccessPoint
+  public class AccessPoint
   {
     /// <summary>
     /// The AP's operating channel
@@ -60,23 +100,6 @@ namespace OpenNETCF.Net.NetworkInformation
     /// </returns>
     public InfrastructureMode InfrastructureMode { get; private set; }
 
-    /// <summary>
-    /// 802.11 WEP key index. The global keys are represented by values of 1 to n. 
-    /// Zero represents a per-client key. 
-    /// </summary>
-    public int KeyIndex { get; private set; }
-
-    /// <summary>
-    /// Data containing a network key or passphrase
-    /// </summary>
-    /// <remarks>Contents depend on AuthenticationMode and WEPStatus</remarks>
-    public byte[] KeyMaterial { get; private set; }
-
-    /// <summary>
-    /// Contains information about 802.1x authentication.
-    /// </summary>
-    public EAPParameters EapolParams { get; private set; }
-
     internal AccessPoint(WLANConfiguration config)
     {
         if (config == null) throw new ArgumentNullException("config");
@@ -86,19 +109,10 @@ namespace OpenNETCF.Net.NetworkInformation
         Privacy = config.Privacy;
         AuthenticationMode = config.AuthenticationMode;
 
-        // jsm - Defect 352: Exposed keyIndex, keyMaterial, and EapolParams
-        KeyIndex = config.KeyIndex;
-        KeyMaterial = config.KeyMaterial;
-        EapolParams = config.EapolParams;
-
         Channel = config.Configuration.Frequency;
         if (Channel > 14)
         {
-            Channel = (config.Configuration.Frequency - 2407000) / 5000;
-        }
-        if (Channel < 0)
-        {
-            Channel =  (int)((config.Configuration.Frequency - 2407) / 5);
+            Channel = (Channel - 2407000) / 5000;
         }
 
         // see if the rssi is in the HIWORD or LOWORD
@@ -135,11 +149,7 @@ namespace OpenNETCF.Net.NetworkInformation
       Channel = bssid.Configuration.Frequency;
       if (Channel > 14)
       {
-          Channel = (bssid.Configuration.Frequency - 2407000) / 5000;
-      }
-      if (Channel < 0)
-      {
-          Channel = (int)((bssid.Configuration.Frequency - 2407) / 5);
+        Channel = (Channel - 2407000) / 5000;
       }
 
       // see if the rssi is in the HIWORD or LOWORD

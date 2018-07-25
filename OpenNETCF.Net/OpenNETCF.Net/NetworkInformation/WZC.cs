@@ -1,7 +1,46 @@
+#region --- Copyright Information --- 
+/*
+ *******************************************************************
+|                                                                   |
+|           OpenNETCF Smart Device Framework 2.2                    |
+|                                                                   |
+|                                                                   |
+|       Copyright (c) 2000-2008 OpenNETCF Consulting LLC            |
+|       ALL RIGHTS RESERVED                                         |
+|                                                                   |
+|   The entire contents of this file is protected by U.S. and       |
+|   International Copyright Laws. Unauthorized reproduction,        |
+|   reverse-engineering, and distribution of all or any portion of  |
+|   the code contained in this file is strictly prohibited and may  |
+|   result in severe civil and criminal penalties and will be       |
+|   prosecuted to the maximum extent possible under the law.        |
+|                                                                   |
+|   RESTRICTIONS                                                    |
+|                                                                   |
+|   THIS SOURCE CODE AND ALL RESULTING INTERMEDIATE FILES           |
+|   ARE CONFIDENTIAL AND PROPRIETARY TRADE                          |
+|   SECRETS OF OPENNETCF CONSULTING LLC THE REGISTERED DEVELOPER IS |
+|   LICENSED TO DISTRIBUTE THE PRODUCT AND ALL ACCOMPANYING .NET    |
+|   CONTROLS AS PART OF A COMPILED EXECUTABLE PROGRAM ONLY.         |
+|                                                                   |
+|   THE SOURCE CODE CONTAINED WITHIN THIS FILE AND ALL RELATED      |
+|   FILES OR ANY PORTION OF ITS CONTENTS SHALL AT NO TIME BE        |
+|   COPIED, TRANSFERRED, SOLD, DISTRIBUTED, OR OTHERWISE MADE       |
+|   AVAILABLE TO OTHER INDIVIDUALS WITHOUT EXPRESS WRITTEN CONSENT  |
+|   AND PERMISSION FROM OPENNETCF CONSULTING LLC                    |
+|                                                                   |
+|   CONSULT THE END USER LICENSE AGREEMENT FOR INFORMATION ON       |
+|   ADDITIONAL RESTRICTIONS.                                        |
+|                                                                   |
+ ******************************************************************* 
+*/
+#endregion
+
+
+
 using System;
 using System.Runtime.InteropServices;
 using System.Text;
-using System.Collections.Generic;
 
 namespace OpenNETCF.Net.NetworkInformation
 {
@@ -9,71 +48,7 @@ namespace OpenNETCF.Net.NetworkInformation
     {
         public static int SetAdapter(INTF_ENTRY entry, INTF_FLAGS flags)
         {
-            return WZC.WZCSetInterface(null, flags, ref entry, null);
-        }
-
-        public static void ResetAdapter(string adapterName)
-        {
-            INTF_ENTRY_EX intf = new INTF_ENTRY_EX();
-            intf.Guid = adapterName;
-            INTF_FLAGS flags = 0;
-
-            try
-            {
-                WZCSetInterfaceEx(null, INTF_FLAGS.INTF_PREFLIST, ref intf, out flags);
-            }
-            catch (MissingMethodException)
-            {
-                throw new PlatformNotSupportedException("The required OS components for this method are not present.");
-            }
-        }
-
-        internal static List<IAccessPoint> GetAPs(string adapterName)
-        {
-            var apList = new List<IAccessPoint>();
-
-            INTF_ENTRY entry = new INTF_ENTRY();
-            entry.Guid = adapterName;
-            INTF_FLAGS flags = 0;
-
-            int result = WZCQueryInterface(null, INTF_FLAGS.INTF_ALL, ref entry, out flags);
-
-            if (result != 0)
-            {
-                entry.Dispose();
-                throw new Exception("WZCQueryInterface failed for " + adapterName);
-            }
-
-            try
-            {
-                // Figure out how many SSIDs there are.
-                if (entry.rdBSSIDList.cbData == 0)
-                {
-                    // list is empty
-                    return apList;
-                }
-
-                NDIS_802_11_BSSID_LIST rawlist = new NDIS_802_11_BSSID_LIST(entry.rdBSSIDList.lpData, true);
-
-                for (int i = 0; i < rawlist.NumberOfItems; i++)
-                {
-                    // Get the next raw item from the list.
-                    BSSID bssid = rawlist.Item(i);
-
-                    // Using the raw item, create a cooked 
-                    // SSID item.
-                    AccessPoint ssid = new AccessPoint(bssid);
-
-                    // Add the new item to this.
-                    apList.Add(ssid);
-                }
-
-                return apList;
-            }
-            finally
-            {
-                WZCDeleteIntfObj(ref entry);
-            }
+            return NativeMethods.WZCSetInterface(null, flags, ref entry, null);
         }
 
         public static int QueryAdapter(string adapterName, out INTF_ENTRY entry)
@@ -91,11 +66,11 @@ namespace OpenNETCF.Net.NetworkInformation
 
             try
             {
-                retVal = WZC.WZCQueryInterface(null, INTF_FLAGS.INTF_ALL, ref entry, out flags);
+                retVal = NativeMethods.WZCQueryInterface(null, INTF_FLAGS.INTF_ALL, ref entry, out flags);
             }
             catch
             {
-                WZC.WZCDeleteIntfObj(ref entry);
+                NativeMethods.WZCDeleteIntfObj(ref entry);
             }
 
             return retVal;
@@ -104,7 +79,7 @@ namespace OpenNETCF.Net.NetworkInformation
         #region ---- P/Invokes ----
 
         [DllImport("wzcsapi.dll")]
-        internal static extern int
+        private static extern int
             WZCQueryInterface(
             string pSrvAddr,
             INTF_FLAGS dwInFlags,
@@ -112,34 +87,19 @@ namespace OpenNETCF.Net.NetworkInformation
             out INTF_FLAGS pdwOutFlags);
 
         [DllImport("wzcsapi.dll")]
-        internal static extern uint
+        private static extern uint
             WZCEnumInterfaces(
             string pSrvAddr,
             ref INTFS_KEY_TABLE pIntfs);
 
         [DllImport("wzcsapi.dll")]
-        internal static extern int
-            WZCSetInterface(
-            string pSrvAddr,
-            INTF_FLAGS dwInFlags,
-            ref INTF_ENTRY pIntf,
-            out INTF_FLAGS pdwOutFlags);
-
-        [DllImport("wzcsapi.dll")]
-        public static extern int
+        private static extern int
             WZCSetInterface(
             string pSrvAddr,
             INTF_FLAGS dwInFlags,
             ref INTF_ENTRY pIntf,
             object pdwOutFlags);
 
-        [DllImport("wzcsapi.dll")]
-        internal static extern int
-            WZCSetInterfaceEx(
-            string pSrvAddr,
-            INTF_FLAGS dwInFlags,
-            ref INTF_ENTRY_EX pIntf,
-            out INTF_FLAGS pdwOutFlags);
 
         //---------------------------------------
         // WZCDeleteIntfObj: cleans an INTF_ENTRY object that is
@@ -149,12 +109,12 @@ namespace OpenNETCF.Net.NetworkInformation
         // pIntf
         //     [in] pointer to the INTF_ENTRY object to delete
         [DllImport("wzcsapi.dll")]
-        internal static extern void
+        private static extern void
             WZCDeleteIntfObj(
             ref INTF_ENTRY Intf);
 
         [DllImport("wzcsapi.dll")]
-        internal static extern void
+        private static extern void
             WZCDeleteIntfObj(
             IntPtr p);
 

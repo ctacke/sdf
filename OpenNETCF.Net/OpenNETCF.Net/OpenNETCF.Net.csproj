@@ -1,12 +1,12 @@
-﻿<Project DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003" ToolsVersion="3.5">
+﻿<?xml version="1.0" encoding="utf-8"?><Project DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003" ToolsVersion="3.5">
   <PropertyGroup>
     <ProjectType>Local</ProjectType>
-    <ProductVersion>9.0.30729</ProductVersion>
+    <ProductVersion>9.0.21022</ProductVersion>
     <SchemaVersion>2.0</SchemaVersion>
     <ProjectGuid>{39DC4301-E4CC-4C4E-9579-336E2B993F51}</ProjectGuid>
-    <SccProjectName>SAK</SccProjectName>
-    <SccLocalPath>SAK</SccLocalPath>
-    <SccProvider>SAK</SccProvider>
+    
+    
+    
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
     <ProjectTypeGuids>{4D628B5B-2FBC-4AA6-8C16-197242AEB884};{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}</ProjectTypeGuids>
@@ -15,7 +15,7 @@
     <AssemblyKeyContainerName>
     </AssemblyKeyContainerName>
     <AssemblyName>OpenNETCF.Net</AssemblyName>
-    <AssemblyOriginatorKeyFile>..\..\SDFkeypair.snk</AssemblyOriginatorKeyFile>
+    <AssemblyOriginatorKeyFile></AssemblyOriginatorKeyFile>
     <DelaySign>false</DelaySign>
     <OutputType>Library</OutputType>
     <OutputFileFolder>\Program Files\OpenNETCF.Net</OutputFileFolder>
@@ -26,8 +26,8 @@
     </FileUpgradeFlags>
     <FormFactorID>
     </FormFactorID>
-    <SccAuxPath>SAK</SccAuxPath>
-    <SignAssembly>true</SignAssembly>
+    
+    <SignAssembly>false</SignAssembly>
     <OldToolsVersion>2.0</OldToolsVersion>
     <NativePlatformName>Windows CE</NativePlatformName>
     <UpgradeBackupLocation>
@@ -84,48 +84,9 @@
     <GenerateSerializationAssemblies>off</GenerateSerializationAssemblies>
     <NoWarn>1591</NoWarn>
   </PropertyGroup>
-  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'NDoc|AnyCPU' ">
-    <OutputPath>bin\NDoc\</OutputPath>
-    <AllowUnsafeBlocks>true</AllowUnsafeBlocks>
-    <BaseAddress>0</BaseAddress>
-    <CheckForOverflowUnderflow>false</CheckForOverflowUnderflow>
-    <ConfigurationOverrideFile>
-    </ConfigurationOverrideFile>
-    <DefineConstants>TRACE;NDOC</DefineConstants>
-    <DocumentationFile>OpenNETCF.Net.xml</DocumentationFile>
-    <DebugSymbols>false</DebugSymbols>
-    <FileAlignment>4096</FileAlignment>
-    <Optimize>true</Optimize>
-    <RegisterForComInterop>false</RegisterForComInterop>
-    <RemoveIntegerChecks>false</RemoveIntegerChecks>
-    <TreatWarningsAsErrors>false</TreatWarningsAsErrors>
-    <WarningLevel>4</WarningLevel>
-    <NoStdLib>true</NoStdLib>
-    <NoConfig>true</NoConfig>
-    <GenerateSerializationAssemblies>off</GenerateSerializationAssemblies>
-  </PropertyGroup>
-  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'IntegrationTestDebug|AnyCPU' ">
-    <NoStdLib>true</NoStdLib>
-    <NoConfig>true</NoConfig>
-    <GenerateSerializationAssemblies>Off</GenerateSerializationAssemblies>
-    <DebugSymbols>true</DebugSymbols>
-    <OutputPath>bin\IntegrationTestDebug\</OutputPath>
-    <DefineConstants>TRACE;DEBUG;SDF22</DefineConstants>
-    <BaseAddress>0</BaseAddress>
-    <AllowUnsafeBlocks>true</AllowUnsafeBlocks>
-    <DocumentationFile>OpenNETCF.Net.xml</DocumentationFile>
-    <DebugType>full</DebugType>
-    <PlatformTarget>AnyCPU</PlatformTarget>
-    <CodeAnalysisUseTypeNameInSuppression>true</CodeAnalysisUseTypeNameInSuppression>
-    <CodeAnalysisModuleSuppressionsFile>GlobalSuppressions.cs</CodeAnalysisModuleSuppressionsFile>
-    <ErrorReport>prompt</ErrorReport>
-  </PropertyGroup>
-  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'IntegrationTestRelease|AnyCPU' ">
-    <NoStdLib>true</NoStdLib>
-    <NoConfig>true</NoConfig>
-    <GenerateSerializationAssemblies>off</GenerateSerializationAssemblies>
-    <OutputPath>bin\IntegrationTestRelease\</OutputPath>
-  </PropertyGroup>
+  
+  
+  
   <ItemGroup>
     <Reference Include="Microsoft.WindowsCE.Forms" />
     <Reference Include="mscorlib">
@@ -147,6 +108,28 @@
   <ItemGroup>
     <Compile Include="..\..\AssemblyVersion.cs">
       <Link>Properties\AssemblyVersion.cs</Link>
+    </Compile>
+    <Compile Include="AccessPoint.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="AccessPointCollection.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Adapter.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="AdapterCollection.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="AdapterException.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="AdapterNotificationArgs.cs" />
+    <Compile Include="AdapterStatusMonitor.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="AdapterType.cs">
+      <SubType>Code</SubType>
     </Compile>
     <Compile Include="ConnectionManager\ConnectionDetail.cs" />
     <Compile Include="ConnectionManager\ConnectionDetailCollection.cs" />
@@ -181,6 +164,8 @@
     <Compile Include="Dns\public\DnsRecord.cs" />
     <Compile Include="Dns\public\DnsUpdateSecurity.cs" />
     <Compile Include="Dns\public\QueryOptions.cs" />
+    <Compile Include="EAP.cs" />
+    <Compile Include="IP_ADAPTER_INFO.cs" />
     <Compile Include="NativeMethods.cs" />
     <Compile Include="NetworkInformation\AccessPoint.cs" />
     <Compile Include="NetworkInformation\AccessPointCollection.cs" />
@@ -196,7 +181,6 @@
     <Compile Include="NetworkInformation\Enums.cs" />
     <Compile Include="NetworkInformation\GatewayIPAddressInformation.cs" />
     <Compile Include="NetworkInformation\GatewayIPAddressInformationCollection.cs" />
-    <Compile Include="NetworkInformation\IAccessPoint.cs" />
     <Compile Include="NetworkInformation\IcmpEchoReply.cs" />
     <Compile Include="NetworkInformation\IcmpV4Statistics.cs" />
     <Compile Include="NetworkInformation\IcmpV6Statistics.cs" />
@@ -234,7 +218,6 @@
     <Compile Include="NetworkInformation\MulticastIPAddressInformationCollection.cs" />
     <Compile Include="NetworkInformation\NativeMethods.cs" />
     <Compile Include="NetworkInformation\NDIS.cs" />
-    <Compile Include="NetworkInformation\NDISProperties.cs" />
     <Compile Include="NetworkInformation\NDISQueryOid.cs" />
     <Compile Include="NetworkInformation\NDISUIO.cs" />
     <Compile Include="NetworkInformation\NDISUIO_DEVICE_NOTIFICATION.cs" />
@@ -247,7 +230,6 @@
     <Compile Include="NetworkInformation\NetworkInterfaceWatcher.cs" />
     <Compile Include="NetworkInformation\NetworkInterface_static.cs" />
     <Compile Include="NetworkInformation\NetworkType.cs" />
-    <Compile Include="NetworkInformation\NICStatistics.cs" />
     <Compile Include="NetworkInformation\OperationalStatus.cs" />
     <Compile Include="NetworkInformation\PhysicalAddress.cs" />
     <Compile Include="NetworkInformation\Ping.cs">
@@ -277,6 +259,9 @@
     <Compile Include="NetworkInformation\WZC.cs" />
     <Compile Include="NetworkInformation\WZCControl.cs" />
     <Compile Include="Properties\AssemblyInfo.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Enums.cs">
       <SubType>Code</SubType>
     </Compile>
     <Compile Include="FTP\CommandResponse.cs">
@@ -309,12 +294,28 @@
     <Compile Include="FTP\X509CertificateCollection.cs">
       <SubType>Code</SubType>
     </Compile>
+    <Compile Include="NdisNotificationType.cs" />
+    <Compile Include="NDISUIO_NOTIFICATIONs.cs" />
     <Compile Include="Network.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Networking.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="RFUtils.cs">
       <SubType>Code</SubType>
     </Compile>
     <Compile Include="SelfMarshalledStruct.cs">
       <SubType>Code</SubType>
     </Compile>
+    <Compile Include="SignalStrength.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="StrengthType.cs" />
+    <Compile Include="Structs.cs" />
+    <Compile Include="WebRequestMethods.cs" />
+    <Compile Include="WLANConfiguration.cs" />
+    <Compile Include="WLANConfigurationList.cs" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\..\OpenNETCF.WindowsCE.Messaging\OpenNETCF.WindowsCE.Messaging\OpenNETCF.WindowsCE.Messaging.csproj">
@@ -328,9 +329,7 @@
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>
-    <None Include="..\..\SDFkeypair.snk">
-      <Link>SDFkeypair.snk</Link>
-    </None>
+    
   </ItemGroup>
   <ProjectExtensions>
     <VisualStudio>

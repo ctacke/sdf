@@ -1,12 +1,12 @@
-﻿<Project DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003" ToolsVersion="3.5">
+﻿<?xml version="1.0" encoding="utf-8"?><Project DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003" ToolsVersion="3.5">
   <PropertyGroup>
     <ProjectType>Local</ProjectType>
-    <ProductVersion>9.0.30729</ProductVersion>
+    <ProductVersion>9.0.21022</ProductVersion>
     <SchemaVersion>2.0</SchemaVersion>
     <ProjectGuid>{ED420160-D2FD-4437-9D28-F10C55E4DB28}</ProjectGuid>
-    <SccProjectName>SAK</SccProjectName>
-    <SccLocalPath>SAK</SccLocalPath>
-    <SccProvider>SAK</SccProvider>
+    
+    
+    
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
     <ProjectTypeGuids>{4D628B5B-2FBC-4AA6-8C16-197242AEB884};{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}</ProjectTypeGuids>
@@ -15,7 +15,7 @@
     <AssemblyKeyContainerName>
     </AssemblyKeyContainerName>
     <AssemblyName>OpenNETCF</AssemblyName>
-    <AssemblyOriginatorKeyFile>..\..\SDFkeypair.snk</AssemblyOriginatorKeyFile>
+    <AssemblyOriginatorKeyFile></AssemblyOriginatorKeyFile>
     <DelaySign>false</DelaySign>
     <OutputType>Library</OutputType>
     <OutputFileFolder>\Program Files\OpenNETCF</OutputFileFolder>
@@ -26,19 +26,18 @@
     </FileUpgradeFlags>
     <FormFactorID>
     </FormFactorID>
-    <SccAuxPath>SAK</SccAuxPath>
-    <OSVersion>5.00</OSVersion>
-    <SignAssembly>true</SignAssembly>
+    
+    <OSVersion>5.01</OSVersion>
+    <SignAssembly>false</SignAssembly>
     <OldToolsVersion>2.0</OldToolsVersion>
-    <NativePlatformName>Windows CE</NativePlatformName>
+    <NativePlatformName>Windows Mobile 5.0 Pocket PC SDK</NativePlatformName>
     <UpgradeBackupLocation>
     </UpgradeBackupLocation>
-    <DeployDirPrefix>\</DeployDirPrefix>
   </PropertyGroup>
   <PropertyGroup>
-    <PlatformID>E2BECB1F-8C8C-41ba-B736-9BE7D946A398</PlatformID>
-    <PlatformFamilyName>WindowsCE</PlatformFamilyName>
-    <DeployDirSuffix>\Windows</DeployDirSuffix>
+    <PlatformID>4118C335-430C-497f-BE48-11C3316B135E</PlatformID>
+    <PlatformFamilyName>PocketPC</PlatformFamilyName>
+    <DeployDirSuffix>$(AssemblyName)</DeployDirSuffix>
     <TargetFrameworkVersion>v2.0</TargetFrameworkVersion>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
@@ -48,7 +47,7 @@
     <CheckForOverflowUnderflow>false</CheckForOverflowUnderflow>
     <ConfigurationOverrideFile>
     </ConfigurationOverrideFile>
-    <DefineConstants>TRACE;DEBUG;WindowsCE</DefineConstants>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
     <DocumentationFile>OpenNETCF.xml</DocumentationFile>
     <DebugSymbols>true</DebugSymbols>
     <FileAlignment>512</FileAlignment>
@@ -87,49 +86,9 @@
     <ErrorReport>prompt</ErrorReport>
     <NoWarn>1591;0618</NoWarn>
   </PropertyGroup>
-  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'NDoc|AnyCPU' ">
-    <OutputPath>..\..\NDOC\bin\</OutputPath>
-    <AllowUnsafeBlocks>true</AllowUnsafeBlocks>
-    <BaseAddress>0</BaseAddress>
-    <CheckForOverflowUnderflow>false</CheckForOverflowUnderflow>
-    <ConfigurationOverrideFile>
-    </ConfigurationOverrideFile>
-    <DefineConstants>TRACE;NDOC</DefineConstants>
-    <DocumentationFile>OpenNETCF.xml</DocumentationFile>
-    <DebugSymbols>false</DebugSymbols>
-    <FileAlignment>4096</FileAlignment>
-    <Optimize>true</Optimize>
-    <RegisterForComInterop>false</RegisterForComInterop>
-    <RemoveIntegerChecks>false</RemoveIntegerChecks>
-    <TreatWarningsAsErrors>false</TreatWarningsAsErrors>
-    <WarningLevel>4</WarningLevel>
-    <NoStdLib>true</NoStdLib>
-    <NoConfig>true</NoConfig>
-    <GenerateSerializationAssemblies>off</GenerateSerializationAssemblies>
-  </PropertyGroup>
-  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'IntegrationTestDebug|AnyCPU' ">
-    <NoStdLib>true</NoStdLib>
-    <NoConfig>true</NoConfig>
-    <GenerateSerializationAssemblies>Off</GenerateSerializationAssemblies>
-    <DebugSymbols>true</DebugSymbols>
-    <OutputPath>bin\IntegrationTestDebug\</OutputPath>
-    <DefineConstants>DEBUG;TRACE</DefineConstants>
-    <BaseAddress>0</BaseAddress>
-    <AllowUnsafeBlocks>true</AllowUnsafeBlocks>
-    <DocumentationFile>OpenNETCF.xml</DocumentationFile>
-    <NoWarn>1591</NoWarn>
-    <DebugType>full</DebugType>
-    <PlatformTarget>AnyCPU</PlatformTarget>
-    <CodeAnalysisUseTypeNameInSuppression>true</CodeAnalysisUseTypeNameInSuppression>
-    <CodeAnalysisModuleSuppressionsFile>GlobalSuppressions.cs</CodeAnalysisModuleSuppressionsFile>
-    <ErrorReport>prompt</ErrorReport>
-  </PropertyGroup>
-  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'IntegrationTestRelease|AnyCPU' ">
-    <NoStdLib>true</NoStdLib>
-    <NoConfig>true</NoConfig>
-    <GenerateSerializationAssemblies>off</GenerateSerializationAssemblies>
-    <OutputPath>bin\IntegrationTestRelease\</OutputPath>
-  </PropertyGroup>
+  
+  
+  
   <ItemGroup>
     <Reference Include="Microsoft.WindowsCE.Forms" />
     <Reference Include="mscorlib">
@@ -314,7 +273,88 @@
       <SubType>Code</SubType>
     </Compile>
     <Compile Include="Runtime\InteropServices\SYSTEMTIME.cs" />
+    <Compile Include="Security\Cryptography\AsymmetricKeyExchangeDeformatter.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Security\Cryptography\AsymmetricKeyExchangeFormatter.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Security\Cryptography\DeriveBytes.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Security\Cryptography\HMACSHA1.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Security\Cryptography\Internal Classes\_NullKey.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Security\Cryptography\Internal Classes\Cipher.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Security\Cryptography\Internal Classes\Const.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Security\Cryptography\Internal Classes\Context.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Security\Cryptography\Internal Classes\DiffHell.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Security\Cryptography\Internal Classes\Dsa.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Security\Cryptography\Internal Classes\Enums.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Security\Cryptography\Internal Classes\Error.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Security\Cryptography\Internal Classes\Format.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Security\Cryptography\Internal Classes\Hash.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Security\Cryptography\Internal Classes\Key.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Security\Cryptography\Internal Classes\Mem.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Security\Cryptography\Internal Classes\Prov.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Security\Cryptography\Internal Classes\Rand.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Security\Cryptography\Internal Classes\Rsa.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Security\Cryptography\Internal Classes\Structs.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Security\Cryptography\KeyedHashAlgorithm.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Security\Cryptography\MACTripleDES.cs">
+      <SubType>Code</SubType>
+    </Compile>
     <Compile Include="Security\Cryptography\NativeMethods.cs" />
+    <Compile Include="Security\Cryptography\PasswordDeriveBytes.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Security\Cryptography\ProtectedData.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Security\Cryptography\RNGCryptoServiceProvider.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Security\Cryptography\RSAPKCS1KeyExchangeDeformatter.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Security\Cryptography\RSAPKCS1KeyExchangeFormatter.cs">
+      <SubType>Code</SubType>
+    </Compile>
     <Compile Include="Threading\EventResetMode.cs" />
     <Compile Include="Threading\EventWaitHandle.cs">
       <SubType>Code</SubType>
@@ -377,13 +417,10 @@
     <EmbeddedResource Include="ComponentModel\BackgroundWorker.bmp" />
     <EmbeddedResource Include="IO\FileSystemWatcher.bmp" />
     <Content Include="machine.config" />
-    <Content Include="Security\Cryptography\sc\readme.txt" />
     <EmbeddedResource Include="Timers\Timer2.bmp" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="..\..\SDFkeypair.snk">
-      <Link>SDFkeypair.snk</Link>
-    </None>
+    
     <None Include="ClassDiagram1.cd" />
     <None Include="ComponentModel\BackgroundWorker.xmta" />
     <None Include="IO\FileSystemWatcher.xmta" />
@@ -404,89 +441,6 @@
     <Compile Include="Media\WaveAudio\WHDR_FLAGS.cs" />
     <Compile Include="Reflection\Device.cs" />
     <Compile Include="Reflection\NativeLibrary.cs" />
-    <Compile Include="Security\Cryptography\AesEx.cs" />
-    <Compile Include="Security\Cryptography\aes\cs\Aes.cs" />
-    <Compile Include="Security\Cryptography\aes\cs\AesFactory.cs" />
-    <Compile Include="Security\Cryptography\aes\c\CAes.cs" />
-    <Compile Include="Security\Cryptography\CipherMode.cs" />
-    <Compile Include="Security\Cryptography\DeriveBytes.cs" />
-    <Compile Include="Security\Cryptography\DES.cs" />
-    <Compile Include="Security\Cryptography\DESCryptoServiceProvider.cs" />
-    <Compile Include="Security\Cryptography\HashAlgorithm.cs" />
-    <Compile Include="Security\Cryptography\HMAC.cs" />
-    <Compile Include="Security\Cryptography\HMACMD5.cs" />
-    <Compile Include="Security\Cryptography\HMACRIPEMD160.cs" />
-    <Compile Include="Security\Cryptography\HMACSHA1.cs" />
-    <Compile Include="Security\Cryptography\HMACSHA256.cs" />
-    <Compile Include="Security\Cryptography\HMACSHA384.cs" />
-    <Compile Include="Security\Cryptography\HMACSHA512.cs" />
-    <Compile Include="Security\Cryptography\Internal Classes\Cipher.cs" />
-    <Compile Include="Security\Cryptography\Internal Classes\Const.cs" />
-    <Compile Include="Security\Cryptography\Internal Classes\Context.cs" />
-    <Compile Include="Security\Cryptography\Internal Classes\DiffHell.cs" />
-    <Compile Include="Security\Cryptography\Internal Classes\Dsa.cs" />
-    <Compile Include="Security\Cryptography\Internal Classes\Enums.cs" />
-    <Compile Include="Security\Cryptography\Internal Classes\Error.cs" />
-    <Compile Include="Security\Cryptography\Internal Classes\Format.cs" />
-    <Compile Include="Security\Cryptography\Internal Classes\Hash.cs" />
-    <Compile Include="Security\Cryptography\Internal Classes\Key.cs" />
-    <Compile Include="Security\Cryptography\Internal Classes\Mem.cs" />
-    <Compile Include="Security\Cryptography\Internal Classes\Prov.cs" />
-    <Compile Include="Security\Cryptography\Internal Classes\PVKFile.cs" />
-    <Compile Include="Security\Cryptography\Internal Classes\Rand.cs" />
-    <Compile Include="Security\Cryptography\Internal Classes\Rsa.cs" />
-    <Compile Include="Security\Cryptography\Internal Classes\Structs.cs" />
-    <Compile Include="Security\Cryptography\Internal Classes\_NullKey.cs" />
-    <Compile Include="Security\Cryptography\KeyedHashAlgorithm.cs" />
-    <Compile Include="Security\Cryptography\MACTripleDES.cs" />
-    <Compile Include="Security\Cryptography\MACTripleDES2.cs" />
-    <Compile Include="Security\Cryptography\MD2.cs" />
-    <Compile Include="Security\Cryptography\MD2CryptoServiceProvider.cs" />
-    <Compile Include="Security\Cryptography\MD4.cs" />
-    <Compile Include="Security\Cryptography\MD4CryptoServiceProvider.cs" />
-    <Compile Include="Security\Cryptography\MD5.cs" />
-    <Compile Include="Security\Cryptography\MD5CryptoServiceProvider.cs" />
-    <Compile Include="Security\Cryptography\MD5Managed.cs" />
-    <Compile Include="Security\Cryptography\mentalis\RIPEMD160.cs" />
-    <Compile Include="Security\Cryptography\mentalis\RIPEMD160Managed.cs" />
-    <Compile Include="Security\Cryptography\PasswordDeriveBytes2.cs" />
-    <Compile Include="Security\Cryptography\ProtectedData.cs" />
-    <Compile Include="Security\Cryptography\ProtectedMemory.cs" />
-    <Compile Include="Security\Cryptography\PSHA1.cs" />
-    <Compile Include="Security\Cryptography\RandomNumberGenerator.cs" />
-    <Compile Include="Security\Cryptography\Rfc2898DeriveBytes.cs" />
-    <Compile Include="Security\Cryptography\Rijndael.cs" />
-    <Compile Include="Security\Cryptography\RijndaelCryptoServiceProvider.cs" />
-    <Compile Include="Security\Cryptography\RijndaelManaged.cs" />
-    <Compile Include="Security\Cryptography\RIPEMD160.cs" />
-    <Compile Include="Security\Cryptography\RIPEMD160Managed.cs" />
-    <Compile Include="Security\Cryptography\RNGCryptoServiceProvider.cs" />
-    <Compile Include="Security\Cryptography\sc\IBlockCipher.cs" />
-    <Compile Include="Security\Cryptography\sc\KeyGen.cs" />
-    <Compile Include="Security\Cryptography\sc\StreamCipher.cs" />
-    <Compile Include="Security\Cryptography\sc\StreamCtx.cs" />
-    <Compile Include="Security\Cryptography\SecureString.cs" />
-    <Compile Include="Security\Cryptography\SHA1.cs" />
-    <Compile Include="Security\Cryptography\SHA1CryptoServiceProvider.cs" />
-    <Compile Include="Security\Cryptography\SHA1Managed.cs" />
-    <Compile Include="Security\Cryptography\SHA256.cs" />
-    <Compile Include="Security\Cryptography\SHA256Managed.cs" />
-    <Compile Include="Security\Cryptography\SHA384.cs" />
-    <Compile Include="Security\Cryptography\SHA384Managed.cs" />
-    <Compile Include="Security\Cryptography\SHA512.cs" />
-    <Compile Include="Security\Cryptography\SHA512Managed.cs" />
-    <Compile Include="Security\Cryptography\sha\SHA1.cs" />
-    <Compile Include="Security\Cryptography\sha\SHA256.cs" />
-    <Compile Include="Security\Cryptography\sha\SHA384.cs" />
-    <Compile Include="Security\Cryptography\sha\SHA512.cs" />
-    <Compile Include="Security\Cryptography\SymmetricAlgorithm.cs" />
-    <Compile Include="Security\Cryptography\TripleDES.cs" />
-    <Compile Include="Security\Cryptography\TripleDESCryptoServiceProvider.cs" />
-    <Compile Include="Security\Cryptography\TripleDesEx.cs" />
-    <Compile Include="Security\Cryptography\X509Certificates\Constants.cs" />
-    <Compile Include="Security\Cryptography\X509Certificates\X509Certificate.cs" />
-    <Compile Include="Security\Cryptography\X509Certificates\X509CertificateCollection.cs" />
-    <Compile Include="Security\Cryptography\X509Certificates\X509Store.cs" />
     <Compile Include="Threading\Monitor2.cs" />
     <Compile Include="ToolHelp\ProcessAPI.cs" />
     <Compile Include="ToolHelp\ProcessEntry.2.2.cs" />
@@ -504,7 +458,6 @@
     <Compile Include="ToolHelp\ThreadEntry.2.1.cs" />
     <Compile Include="ToolHelp\ToolhelpAPI.cs" />
     <Compile Include="ToolHelp\Util.cs" />
-    <Compile Include="Win32\Core.cs" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\..\OpenNETCF.Configuration\OpenNETCF.Configuration\OpenNETCF.Configuration.csproj">

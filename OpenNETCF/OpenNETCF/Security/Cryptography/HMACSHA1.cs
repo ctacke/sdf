@@ -1,55 +1,82 @@
-//==========================================================================================
-//
-//		OpenNETCF.Windows.Forms.HMACSHA1
-//		Copyright (c) 2003, OpenNETCF.org
-//
-//		This library is free software; you can redistribute it and/or modify it under 
-//		the terms of the OpenNETCF.org Shared Source License.
-//
-//		This library is distributed in the hope that it will be useful, but 
-//		WITHOUT ANY WARRANTY; without even the implied warranty of MERCHANTABILITY or 
-//		FITNESS FOR A PARTICULAR PURPOSE. See the OpenNETCF.org Shared Source License 
-//		for more details.
-//
-//		You should have received a copy of the OpenNETCF.org Shared Source License 
-//		along with this library; if not, email licensing@opennetcf.org to request a copy.
-//
-//		If you wish to contact the OpenNETCF Advisory Board to discuss licensing, please 
-//		email licensing@opennetcf.org.
-//
-//		For general enquiries, email enquiries@opennetcf.org or visit our website at:
-//		http://www.opennetcf.org
-//
-//		!!! A HUGE thank-you goes out to Casey Chesnut for supplying this class library !!!
-//      !!! You can contact Casey at http://www.brains-n-brawn.com                      !!!
-//
-//==========================================================================================
+#region --- Copyright Information --- 
+/*
+ *******************************************************************
+|                                                                   |
+|           OpenNETCF Smart Device Framework 2.2                    |
+|                                                                   |
+|                                                                   |
+|       Copyright (c) 2000-2008 OpenNETCF Consulting LLC            |
+|       ALL RIGHTS RESERVED                                         |
+|                                                                   |
+|   The entire contents of this file is protected by U.S. and       |
+|   International Copyright Laws. Unauthorized reproduction,        |
+|   reverse-engineering, and distribution of all or any portion of  |
+|   the code contained in this file is strictly prohibited and may  |
+|   result in severe civil and criminal penalties and will be       |
+|   prosecuted to the maximum extent possible under the law.        |
+|                                                                   |
+|   RESTRICTIONS                                                    |
+|                                                                   |
+|   THIS SOURCE CODE AND ALL RESULTING INTERMEDIATE FILES           |
+|   ARE CONFIDENTIAL AND PROPRIETARY TRADE                          |
+|   SECRETS OF OPENNETCF CONSULTING LLC THE REGISTERED DEVELOPER IS |
+|   LICENSED TO DISTRIBUTE THE PRODUCT AND ALL ACCOMPANYING .NET    |
+|   CONTROLS AS PART OF A COMPILED EXECUTABLE PROGRAM ONLY.         |
+|                                                                   |
+|   THE SOURCE CODE CONTAINED WITHIN THIS FILE AND ALL RELATED      |
+|   FILES OR ANY PORTION OF ITS CONTENTS SHALL AT NO TIME BE        |
+|   COPIED, TRANSFERRED, SOLD, DISTRIBUTED, OR OTHERWISE MADE       |
+|   AVAILABLE TO OTHER INDIVIDUALS WITHOUT EXPRESS WRITTEN CONSENT  |
+|   AND PERMISSION FROM OPENNETCF CONSULTING LLC                    |
+|                                                                   |
+|   CONSULT THE END USER LICENSE AGREEMENT FOR INFORMATION ON       |
+|   ADDITIONAL RESTRICTIONS.                                        |
+|                                                                   |
+ ******************************************************************* 
+*/
+#endregion
+
+
+
 using System;
 using OpenNETCF.Security.Cryptography.Internal;
 
 namespace OpenNETCF.Security.Cryptography
 {
+    /// <summary>
+    /// Computes a Hash-based Message Authentication Code (HMAC) using the SHA1 hash function.
+    /// </summary>
+    /// <devnotes>
+    /// Based on comments and commented-out code in the original implemenation of this class
+    /// I'm not certain it even functions.  I'm no crypto expert, so I don't know how to test it
+    /// - ctacke
+    /// </devnotes>
 	public class HMACSHA1 : KeyedHashAlgorithm
 	{
+        /// <summary>
+        /// Initializes an implementation of HMACSHA1
+        /// </summary>
+        public override void Initialize()
+        {
+            System.Security.Cryptography.RNGCryptoServiceProvider rng = new System.Security.Cryptography.RNGCryptoServiceProvider();
+            byte[] key = new byte[64];
+            rng.GetBytes(key);
+            //key = OpenNETCF.Security.Cryptography.Internal.Rand.GetRandomBytes(64);
+        }
+
+        /// <summary>
+        /// Initializes a new instance of the HMACSHA1 class
+        /// </summary>
 		public HMACSHA1()
 		{
-            key = OpenNETCF.Security.Cryptography.Internal.Rand.GetRandomBytes(64);
-			/*
-			//1st cut was wrong
-			IntPtr prov = OpenNETCF.Security.Cryptography.Context.AcquireContext();
-			//3DES is WSE default?
-			IntPtr ipKey = OpenNETCF.Security.Cryptography.Key.GenKey(prov, Calg.TRIP_DES, GenKeyParam.EXPORTABLE);
-			key = OpenNETCF.Security.Cryptography.Key.ExportSessionKey(prov, ipKey, 24, true);
-			//reversed above
-			OpenNETCF.Security.Cryptography.Key.DestroyKey(ipKey);
-			OpenNETCF.Security.Cryptography.Context.ReleaseContext(prov);
-			*/
+            Initialize();
 		}
 
-		private byte [] rgbInner;
+        private byte[] key = null;
+        private byte[] rgbInner;
 		private byte [] rgbOuter;
-		//MONO
-		private byte[] KeySetup (byte[] key, byte padding) 
+
+        private byte[] KeySetup (byte[] key, byte padding) 
 		{
 			byte[] buf = new byte [64];
 			for (int i = 0; i < key.Length; ++i)
@@ -59,14 +86,18 @@ namespace OpenNETCF.Security.Cryptography
 			return buf;
 		}
 
+        /// <summary>
+        /// Initializes a new instance of the HMACSHA1 class
+        /// </summary>
+        /// <param name="sessKey"></param>
 		public HMACSHA1(byte [] sessKey)
 		{
-			//if(sessKey.Length != 16)
-			//	throw new Exception("only supports 16 byte RC2 key lengths");
 			key = (byte []) sessKey.Clone();
 		}
 
-		private byte [] key = null;
+        /// <summary>
+        /// Gets or sets the key to be used in the hash algorithm
+        /// </summary>
 		public override byte[] Key 
 		{ 
 			get{return key;}
@@ -74,24 +105,47 @@ namespace OpenNETCF.Security.Cryptography
 		}
 
 		private byte [] hash = null;
+        /// <summary>
+        /// Gets the value of the computed hash code
+        /// </summary>
 		public override byte[] Hash 
 		{ 
 			get{return hash;}
 		}
 
+        /// <summary>
+        /// Gets the size of the computed hash code in bits
+        /// </summary>
 		public override int HashSize 
 		{ 
 			get{return 160;}
 		}
 
-		//http://groups.google.com/groups?q=calg_hmac&hl=en&lr=&ie=UTF-8&oe=UTF-8&selm=8bWw7.2452%241q2.225894%40news2-win.server.ntlworld.com&rnum=1
-		public override byte [] ComputeHash(byte [] buffer)
+        protected override void HashCore(byte[] array, int ibStart, int cbSize)
+        {
+            //TODO CF 2.0 requires this, though I'm not sure if doing nothing will cause 
+            // a problem, since the class worked in SDF 1.0
+        }
+
+        protected override byte[] HashFinal()
+        {
+            //TODO CF 2.0 requires this, though I'm not sure if doing nothing will cause 
+            // a problem, since the class worked in SDF 1.0
+            return null;
+        }
+
+        /// <summary>
+        /// Computes the hash value for the input data
+        /// </summary>
+        /// <param name="buffer"></param>
+        /// <returns></returns>
+		public new byte [] ComputeHash(byte [] buffer)
 		{
 			byte [] tempBa = (byte []) buffer.Clone();
 			rgbInner = KeySetup(key, 0x36);
 			rgbOuter = KeySetup(key, 0x5C);
 
-            IntPtr prov = OpenNETCF.Security.Cryptography.Internal.Context.AcquireContext();
+			IntPtr prov = OpenNETCF.Security.Cryptography.Internal.Context.AcquireContext();
 
             IntPtr hash1 = OpenNETCF.Security.Cryptography.Internal.Hash.CreateHash(prov, CalgHash.SHA1);
             OpenNETCF.Security.Cryptography.Internal.Hash.HashData(hash1, rgbInner);
@@ -107,33 +161,6 @@ namespace OpenNETCF.Security.Cryptography
 
             OpenNETCF.Security.Cryptography.Internal.Context.ReleaseContext(prov);
 			return hash;
-
-			/*
-			//1st cut was wrong
-			IntPtr prov = OpenNETCF.Security.Cryptography.Context.AcquireContext();
-			byte [] baKey = (byte []) key.Clone();
-			//reversed below
-			IntPtr ipKey = IntPtr.Zero;
-			if(baKey.Length == 8)
-				ipKey = OpenNETCF.Security.Cryptography.Key.ImportSessionKey(prov, Calg.DES, baKey, true);
-			if(baKey.Length == 16)
-				ipKey = OpenNETCF.Security.Cryptography.Key.ImportSessionKey(prov, Calg.RC2, baKey, true);
-			if(baKey.Length == 24)
-				ipKey = OpenNETCF.Security.Cryptography.Key.ImportSessionKey(prov, Calg.TRIP_DES, baKey, true);
-			
-			IntPtr hmacHash = OpenNETCF.Security.Cryptography.Hash.CreateHash(prov, CalgHash.HMAC, ipKey);
-			byte [] baHmacInfo = new byte[20]; //create new HMAC_Info byte[]
-			byte [] algId = BitConverter.GetBytes((uint)CalgHash.SHA1); 
-			Buffer.BlockCopy(algId, 0, baHmacInfo, 0, 4); //set HashAlgid
-			OpenNETCF.Security.Cryptography.Hash.SetHashParam(hmacHash, HashParam.HMAC_INFO, baHmacInfo);
-			OpenNETCF.Security.Cryptography.Hash.HashData(hmacHash, buffer);
-			hash = OpenNETCF.Security.Cryptography.Hash.GetHashParam(hmacHash);
-			OpenNETCF.Security.Cryptography.Hash.DestroyHash(hmacHash);
-			
-			OpenNETCF.Security.Cryptography.Key.DestroyKey(ipKey);
-			OpenNETCF.Security.Cryptography.Context.ReleaseContext(prov);
-			return hash;
-			*/
 		}
 	}
 }

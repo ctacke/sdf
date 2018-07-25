@@ -1,3 +1,43 @@
+#region --- Copyright Information --- 
+/*
+ *******************************************************************
+|                                                                   |
+|           OpenNETCF Smart Device Framework 2.2                    |
+|                                                                   |
+|                                                                   |
+|       Copyright (c) 2000-2008 OpenNETCF Consulting LLC            |
+|       ALL RIGHTS RESERVED                                         |
+|                                                                   |
+|   The entire contents of this file is protected by U.S. and       |
+|   International Copyright Laws. Unauthorized reproduction,        |
+|   reverse-engineering, and distribution of all or any portion of  |
+|   the code contained in this file is strictly prohibited and may  |
+|   result in severe civil and criminal penalties and will be       |
+|   prosecuted to the maximum extent possible under the law.        |
+|                                                                   |
+|   RESTRICTIONS                                                    |
+|                                                                   |
+|   THIS SOURCE CODE AND ALL RESULTING INTERMEDIATE FILES           |
+|   ARE CONFIDENTIAL AND PROPRIETARY TRADE                          |
+|   SECRETS OF OPENNETCF CONSULTING LLC THE REGISTERED DEVELOPER IS |
+|   LICENSED TO DISTRIBUTE THE PRODUCT AND ALL ACCOMPANYING .NET    |
+|   CONTROLS AS PART OF A COMPILED EXECUTABLE PROGRAM ONLY.         |
+|                                                                   |
+|   THE SOURCE CODE CONTAINED WITHIN THIS FILE AND ALL RELATED      |
+|   FILES OR ANY PORTION OF ITS CONTENTS SHALL AT NO TIME BE        |
+|   COPIED, TRANSFERRED, SOLD, DISTRIBUTED, OR OTHERWISE MADE       |
+|   AVAILABLE TO OTHER INDIVIDUALS WITHOUT EXPRESS WRITTEN CONSENT  |
+|   AND PERMISSION FROM OPENNETCF CONSULTING LLC                    |
+|                                                                   |
+|   CONSULT THE END USER LICENSE AGREEMENT FOR INFORMATION ON       |
+|   ADDITIONAL RESTRICTIONS.                                        |
+|                                                                   |
+ ******************************************************************* 
+*/
+#endregion
+
+
+
 using System;
 using System.Collections.Generic;
 using System.Text;
@@ -19,7 +59,18 @@ namespace OpenNETCF.Net.NetworkInformation
         /// </summary>
         public void Reset()
         {
-            WZC.ResetAdapter(this.Name);
+            INTF_ENTRY_EX intf = new INTF_ENTRY_EX();
+            intf.Guid = this.Name;
+            int flags = 0;
+
+            try
+            {
+                WZCPInvokes.WZCSetInterfaceEx(null, INTFFlags.INTF_PREFLIST, ref intf, ref flags);
+            }
+            catch (MissingMethodException)
+            {
+                throw new PlatformNotSupportedException("The required OS components for this method are not present.");
+            }
         }
 
         /// <summary>
@@ -86,28 +137,25 @@ namespace OpenNETCF.Net.NetworkInformation
                 }
 
                 int retVal = WZC.SetAdapter(entry, INTF_FLAGS.INTF_FALLBACK);
-				
-				entry.Dispose();
                 if (retVal > 0)
                 {
                     throw new System.ComponentModel.Win32Exception(retVal, "Unable to set WZC interface");
                 }
-            }
 
+                entry.Dispose();
+            }
             get
             {
                 if (NetworkInterfaceType != NetworkInterfaceType.Ethernet)
                     return false;
 
                 INTF_ENTRY entry;
-				bool retVal = false;
-
                 if (WZC.QueryAdapter(this.Name, out entry) == 0)
                 {
-					retVal = ((entry.dwCtlFlags & (uint)INTF_FLAGS.INTF_FALLBACK) != 0);
+                    return true;
                 }
                 entry.Dispose();
-                return retVal;
+                return false;
             }
         }
 
@@ -291,7 +339,7 @@ namespace OpenNETCF.Net.NetworkInformation
                     config.KeyLength = WLANConfiguration.WZCCTL_MAX_WEPK_MATERIAL;
                     config.CtlFlags |= WZCControl.WEPKXFormat | WZCControl.ONEXEnabled | WZCControl.WEPKPresent;
 
-                    WZC.WZCPassword2Key(ref config, passphrase);
+                    NativeMethods.WZCPassword2Key(ref config, passphrase);
 
                     // Note that, since the config structure doesn't
                     // actually have a byte[] for key material, we
@@ -548,7 +596,7 @@ namespace OpenNETCF.Net.NetworkInformation
         /// </summary>
         /// <param name="ap">The open access point to add</param>
         /// <returns><b>true</b> on success, otherwise <b>false</b></returns>
-        public bool AddPreferredNetwork(IAccessPoint ap)
+        public bool AddPreferredNetwork(AccessPoint ap)
         {
             if (ap.Privacy != WEPStatus.WEPDisabled)
             {

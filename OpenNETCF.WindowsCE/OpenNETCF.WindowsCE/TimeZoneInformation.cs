@@ -1,3 +1,43 @@
+#region --- Copyright Information --- 
+/*
+ *******************************************************************
+|                                                                   |
+|           OpenNETCF Smart Device Framework 2.2                    |
+|                                                                   |
+|                                                                   |
+|       Copyright (c) 2000-2008 OpenNETCF Consulting LLC            |
+|       ALL RIGHTS RESERVED                                         |
+|                                                                   |
+|   The entire contents of this file is protected by U.S. and       |
+|   International Copyright Laws. Unauthorized reproduction,        |
+|   reverse-engineering, and distribution of all or any portion of  |
+|   the code contained in this file is strictly prohibited and may  |
+|   result in severe civil and criminal penalties and will be       |
+|   prosecuted to the maximum extent possible under the law.        |
+|                                                                   |
+|   RESTRICTIONS                                                    |
+|                                                                   |
+|   THIS SOURCE CODE AND ALL RESULTING INTERMEDIATE FILES           |
+|   ARE CONFIDENTIAL AND PROPRIETARY TRADE                          |
+|   SECRETS OF OPENNETCF CONSULTING LLC THE REGISTERED DEVELOPER IS |
+|   LICENSED TO DISTRIBUTE THE PRODUCT AND ALL ACCOMPANYING .NET    |
+|   CONTROLS AS PART OF A COMPILED EXECUTABLE PROGRAM ONLY.         |
+|                                                                   |
+|   THE SOURCE CODE CONTAINED WITHIN THIS FILE AND ALL RELATED      |
+|   FILES OR ANY PORTION OF ITS CONTENTS SHALL AT NO TIME BE        |
+|   COPIED, TRANSFERRED, SOLD, DISTRIBUTED, OR OTHERWISE MADE       |
+|   AVAILABLE TO OTHER INDIVIDUALS WITHOUT EXPRESS WRITTEN CONSENT  |
+|   AND PERMISSION FROM OPENNETCF CONSULTING LLC                    |
+|                                                                   |
+|   CONSULT THE END USER LICENSE AGREEMENT FOR INFORMATION ON       |
+|   ADDITIONAL RESTRICTIONS.                                        |
+|                                                                   |
+ ******************************************************************* 
+*/
+#endregion
+
+
+
 using System;
 using System.Collections.Generic;
 using System.Text;
@@ -153,7 +193,7 @@ namespace OpenNETCF.WindowsCE
         /// <summary>
         /// Name associated with standard time on this device.
         /// </summary>
-        /// <remarks>For example, this member could contain “EST” to indicate Eastern Standard Time.</remarks>
+        /// <remarks>For example, this member could contain ï¿½ESTï¿½ to indicate Eastern Standard Time.</remarks>
         public string StandardName
         {
             get
@@ -178,7 +218,7 @@ namespace OpenNETCF.WindowsCE
         /// Absolute format specifies an exact date and time when standard time begins.
         /// In this form, the wYear, wMonth, wDay, wHour, wMinute, wSecond, and wMilliseconds members of the SYSTEMTIME structure are used to specify an exact date.
         /// <para>Day-in-month format is specified by setting the wYear member to zero, setting the wDayOfWeek member to an appropriate weekday, and using a wDay value in the range 1 through 5 to select the correct day in the month.
-        /// Using this notation, the first Sunday in April can be specified, as can the last Thursday in October (5 is equal to “the last”).</para></remarks>
+        /// Using this notation, the first Sunday in April can be specified, as can the last Thursday in October (5 is equal to ï¿½the lastï¿½).</para></remarks>
         public SystemTime StandardDate
         {
             get

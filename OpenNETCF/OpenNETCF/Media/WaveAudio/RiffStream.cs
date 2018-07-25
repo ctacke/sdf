@@ -1,3 +1,43 @@
+#region --- Copyright Information --- 
+/*
+ *******************************************************************
+|                                                                   |
+|           OpenNETCF Smart Device Framework 2.2                    |
+|                                                                   |
+|                                                                   |
+|       Copyright (c) 2000-2008 OpenNETCF Consulting LLC            |
+|       ALL RIGHTS RESERVED                                         |
+|                                                                   |
+|   The entire contents of this file is protected by U.S. and       |
+|   International Copyright Laws. Unauthorized reproduction,        |
+|   reverse-engineering, and distribution of all or any portion of  |
+|   the code contained in this file is strictly prohibited and may  |
+|   result in severe civil and criminal penalties and will be       |
+|   prosecuted to the maximum extent possible under the law.        |
+|                                                                   |
+|   RESTRICTIONS                                                    |
+|                                                                   |
+|   THIS SOURCE CODE AND ALL RESULTING INTERMEDIATE FILES           |
+|   ARE CONFIDENTIAL AND PROPRIETARY TRADE                          |
+|   SECRETS OF OPENNETCF CONSULTING LLC THE REGISTERED DEVELOPER IS |
+|   LICENSED TO DISTRIBUTE THE PRODUCT AND ALL ACCOMPANYING .NET    |
+|   CONTROLS AS PART OF A COMPILED EXECUTABLE PROGRAM ONLY.         |
+|                                                                   |
+|   THE SOURCE CODE CONTAINED WITHIN THIS FILE AND ALL RELATED      |
+|   FILES OR ANY PORTION OF ITS CONTENTS SHALL AT NO TIME BE        |
+|   COPIED, TRANSFERRED, SOLD, DISTRIBUTED, OR OTHERWISE MADE       |
+|   AVAILABLE TO OTHER INDIVIDUALS WITHOUT EXPRESS WRITTEN CONSENT  |
+|   AND PERMISSION FROM OPENNETCF CONSULTING LLC                    |
+|                                                                   |
+|   CONSULT THE END USER LICENSE AGREEMENT FOR INFORMATION ON       |
+|   ADDITIONAL RESTRICTIONS.                                        |
+|                                                                   |
+ ******************************************************************* 
+*/
+#endregion
+
+
+
 using System;
 using System.Collections.Generic;
 using System.Text;
@@ -5,7 +45,7 @@ using System.IO;
 
 namespace OpenNETCF.Media.WaveAudio
 {
-    public class RiffStream : Stream
+    public class RiffStream: Stream
     {
         [CLSCompliant(false)]
         protected Stream _baseStream;
@@ -47,20 +87,7 @@ namespace OpenNETCF.Media.WaveAudio
             RiffStream stm = new RiffStream();
             stm._accessMode = FileAccess.Write;
             stm._baseStream = underlyingStream;
-            stm.InitializeForWriting(underlyingStream, fmt, fmt, false);
-            stm.WriteHeader();
-            return stm;
-        }
-
-        public static RiffStream Append(Stream underlyingStream)
-        {
-            RiffStream stm = new RiffStream();
-            stm._accessMode = FileAccess.Write;
-            stm._baseStream = underlyingStream;
-            stm._baseStream.Position = 0;
-            WaveFormat2 fmtOut = WaveFormat2.FromStream(underlyingStream);
-            stm._baseStream.Position = stm._baseStream.Length;
-            stm.InitializeForWriting(underlyingStream, fmtOut, fmtOut, true);
+            stm.InitializeForWriting(underlyingStream, fmt, fmt);
             stm.WriteHeader();
             return stm;
         }
@@ -81,30 +108,19 @@ namespace OpenNETCF.Media.WaveAudio
             _baseStream.Seek(_posData, SeekOrigin.Begin);
         }
 
-        protected virtual bool InitializeForWriting(Stream underlyingStream, WaveFormat2 wfIn, WaveFormat2 wfOut, bool fAppend)
+        protected virtual bool InitializeForWriting(Stream underlyingStream, WaveFormat2 wfIn, WaveFormat2 wfOut)
         {
-            if (fAppend)
-            {
-                long position = underlyingStream.Position;
-                underlyingStream.Seek(0, SeekOrigin.Begin);
-                LoadHeader();
-                _ckData.BeginWrite();
-                _ckData.Seek(position - _ckData.DataStart, SeekOrigin.Begin);
-            }
-            else
-            {
-                _baseStream.Position = 0;
-                _mmc = new RiffChunk(underlyingStream);
-                (_mmc as RiffChunk).BeginWrite();
-                _ckFmt = new FmtChunk(underlyingStream, wfOut);
-                _mmc.AppendChunk(_ckFmt);
-                _ckFmt.BeginWrite();
-                _ckFmt.Write(_ckFmt.WaveFormat.GetBytes());
-                _fmt = wfOut;
-                _ckData = new DataChunk(underlyingStream);
-                _mmc.AppendChunk(_ckData);
-                _ckData.BeginWrite();
-            }
+            _baseStream.Position = 0;
+            _mmc = new RiffChunk(underlyingStream);
+            (_mmc as RiffChunk).BeginWrite();
+            _ckFmt = new FmtChunk(underlyingStream, wfOut);
+            _mmc.AppendChunk(_ckFmt);
+            _ckFmt.BeginWrite();
+            _ckFmt.Write(_ckFmt.WaveFormat.GetBytes());
+            _fmt = wfOut;
+            _ckData = new DataChunk(underlyingStream);
+            _mmc.AppendChunk(_ckData);
+            _ckData.BeginWrite();
             return true;
         }
 

@@ -1,0 +1,102 @@
+[Version]
+Signature="$Windows NT$"
+Provider="OpenNETCF"
+CESignature="$Windows CE$"
+
+[CEStrings]
+AppName="SDF 2.3"
+InstallDir=%CE2%
+
+[Strings]
+Manufacturer="OpenNETCF"
+GAC_FILE_EXTENSION="_v2_3_0_21_cneutral_1"
+GAC_FILE_VERSION="2.3.0.21"
+GAC_PUBLIC_KEY_TOKEN="e60dbea84bb431b7"
+GLOBAL_REG="SOFTWARE\Microsoft\.NETCompactFramework\Installer\Assemblies\Global"
+ASSEMBLY_REG="SOFTWARE\Microsoft\.NETCompactFramework\Installer\Assemblies\ROM"
+SRC_DIR="c:\d\products\current.release.sdf\Binaries\release"
+
+[CEDevice]
+VersionMin=4.2
+VersionMax=7.99
+BuildMax=0xE0000000
+
+[DefaultInstall]
+AddReg=RegKeys
+CopyFiles=Files.Common
+
+[SourceDisksNames]
+1=,"GAC",,%SRC_DIR%
+
+[SourceDisksFiles]
+"OpenNETCF.dll"=1
+"OpenNETCF.AppSettings.dll"=1
+"OpenNETCF.Configuration.dll"=1
+"OpenNETCF.Core.dll"=1
+"OpenNETCF.Data.dll"=1
+"OpenNETCF.Drawing.dll"=1
+"OpenNETCF.Net.dll"=1
+"OpenNETCF.Net.Mail.dll"=1
+"OpenNETCF.Phone.dll"=1
+"OpenNETCF.Rss.dll"=1
+"OpenNETCF.VisualBasic.dll"=1
+"OpenNETCF.Windows.Forms.dll"=1
+"OpenNETCF.WindowsCE.dll"=1
+"OpenNETCF.WindowsCE.Messaging.dll"=1
+"OpenNETCF.WindowsCE.Services.dll"=1
+"OpenNETCF.WindowsMobile.dll"=1
+
+[DestinationDirs]
+Files.Common=0,"%CE2%"	; windows
+
+[Files.Common]
+"GAC_OpenNETCF.Configuration%GAC_FILE_EXTENSION%.dll","OpenNETCF.Configuration.dll",,0
+"GAC_OpenNETCF%GAC_FILE_EXTENSION%.dll","OpenNETCF.dll",,0
+"GAC_OpenNETCF.Core%GAC_FILE_EXTENSION%.dll","OpenNETCF.dll",,0
+"GAC_OpenNETCF.Data%GAC_FILE_EXTENSION%.dll","OpenNETCF.Data.dll",,0
+"GAC_OpenNETCF.Drawing%GAC_FILE_EXTENSION%.dll","OpenNETCF.Drawing.dll",,0
+"GAC_OpenNETCF.Net%GAC_FILE_EXTENSION%.dll","OpenNETCF.Net.dll",,0
+"GAC_OpenNETCF.Net.Mail%GAC_FILE_EXTENSION%.dll","OpenNETCF.Net.dll",,0
+"GAC_OpenNETCF.VisualBasic%GAC_FILE_EXTENSION%.dll","OpenNETCF.VisualBasic.dll",,0
+"GAC_OpenNETCF.Windows.Forms%GAC_FILE_EXTENSION%.dll","OpenNETCF.Windows.Forms.dll",,0
+"GAC_OpenNETCF.Phone%GAC_FILE_EXTENSION%.dll","OpenNETCF.Phone.dll",,0
+"GAC_OpenNETCF.Rss%GAC_FILE_EXTENSION%.dll","OpenNETCF.Rss.dll",,0
+"GAC_OpenNETCF.WindowsCE%GAC_FILE_EXTENSION%.dll","OpenNETCF.WindowsCE.dll",,0
+"GAC_OpenNETCF.WindowsCE.Messaging%GAC_FILE_EXTENSION%.dll","OpenNETCF.WindowsCE.Messaging.dll",,0
+"GAC_OpenNETCF.WindowsMobile%GAC_FILE_EXTENSION%.dll","OpenNETCF.WindowsMobile.dll",,0
+"GAC_OpenNETCF.AppSettings%GAC_FILE_EXTENSION%.dll","OpenNETCF.AppSettings.dll",,0
+"GAC_OpenNETCF.WindowsCE.Services%GAC_FILE_EXTENSION%.dll","OpenNETCF.WindowsCE.Services.dll",,0
+[RegKeys]
+HKLM,SOFTWARE\OpenNETCF\SmartDeviceFramework,%GAC_FILE_VERSION%,0x00010001,1
+HKLM,%GLOBAL_REG%,"OpenNETCF.Configuration, Version=%GAC_FILE_VERSION%, Culture=neutral, PublicKeyToken=%GAC_PUBLIC_KEY_TOKEN%",0x00010000,"\windows\GAC_OpenNETCF.Configuration%GAC_FILE_EXTENSION%.dll"
+HKLM,%GLOBAL_REG%,"OpenNETCF, Version=%GAC_FILE_VERSION%, Culture=neutral, PublicKeyToken=%GAC_PUBLIC_KEY_TOKEN%",0x00010000,"\windows\GAC_OpenNETCF%GAC_FILE_EXTENSION%.dll"
+HKLM,%GLOBAL_REG%,"OpenNETCF.Core, Version=%GAC_FILE_VERSION%, Culture=neutral, PublicKeyToken=%GAC_PUBLIC_KEY_TOKEN%",0x00010000,"\windows\GAC_OpenNETCF.Core%GAC_FILE_EXTENSION%.dll"
+HKLM,%GLOBAL_REG%,"OpenNETCF.Data, Version=%GAC_FILE_VERSION%, Culture=neutral, PublicKeyToken=%GAC_PUBLIC_KEY_TOKEN%",0x00010000,"\windows\GAC_OpenNETCF.Data%GAC_FILE_EXTENSION%.dll"
+HKLM,%GLOBAL_REG%,"OpenNETCF.Drawing, Version=%GAC_FILE_VERSION%, Culture=neutral, PublicKeyToken=%GAC_PUBLIC_KEY_TOKEN%",0x00010000,"\windows\GAC_OpenNETCF.Drawing%GAC_FILE_EXTENSION%.dll"
+HKLM,%GLOBAL_REG%,"OpenNETCF.Net, Version=%GAC_FILE_VERSION%, Culture=neutral, PublicKeyToken=%GAC_PUBLIC_KEY_TOKEN%",0x00010000,"\windows\GAC_OpenNETCF.Net%GAC_FILE_EXTENSION%.dll"
+HKLM,%GLOBAL_REG%,"OpenNETCF.Net.Mail, Version=%GAC_FILE_VERSION%, Culture=neutral, PublicKeyToken=%GAC_PUBLIC_KEY_TOKEN%",0x00010000,"\windows\GAC_OpenNETCF.Net.Mail%GAC_FILE_EXTENSION%.dll"
+HKLM,%GLOBAL_REG%,"OpenNETCF.VisualBasic, Version=%GAC_FILE_VERSION%, Culture=neutral, PublicKeyToken=%GAC_PUBLIC_KEY_TOKEN%",0x00010000,"\windows\GAC_OpenNETCF.VisualBasic%GAC_FILE_EXTENSION%.dll"
+HKLM,%GLOBAL_REG%,"OpenNETCF.Windows.Forms, Version=%GAC_FILE_VERSION%, Culture=neutral, PublicKeyToken=%GAC_PUBLIC_KEY_TOKEN%",0x00010000,"\windows\GAC_OpenNETCF.Windows.Forms%GAC_FILE_EXTENSION%.dll"
+HKLM,%GLOBAL_REG%,"OpenNETCF.Phone, Version=%GAC_FILE_VERSION%, Culture=neutral, PublicKeyToken=%GAC_PUBLIC_KEY_TOKEN%",0x00010000,"\windows\GAC_OpenNETCF.Phone%GAC_FILE_EXTENSION%.dll"
+HKLM,%GLOBAL_REG%,"OpenNETCF.Rss, Version=%GAC_FILE_VERSION%, Culture=neutral, PublicKeyToken=%GAC_PUBLIC_KEY_TOKEN%",0x00010000,"\windows\GAC_OpenNETCF.Rss%GAC_FILE_EXTENSION%.dll"
+HKLM,%GLOBAL_REG%,"OpenNETCF.WindowsCE, Version=%GAC_FILE_VERSION%, Culture=neutral, PublicKeyToken=%GAC_PUBLIC_KEY_TOKEN%",0x00010000,"\windows\GAC_OpenNETCF.WindowsCE%GAC_FILE_EXTENSION%.dll"
+HKLM,%GLOBAL_REG%,"OpenNETCF.WindowsCE.Messaging, Version=%GAC_FILE_VERSION%, Culture=neutral, PublicKeyToken=%GAC_PUBLIC_KEY_TOKEN%",0x00010000,"\windows\GAC_OpenNETCF.WindowsCE.Messaging%GAC_FILE_EXTENSION%.dll"
+HKLM,%GLOBAL_REG%,"OpenNETCF.WindowsMobile, Version=%GAC_FILE_VERSION%, Culture=neutral, PublicKeyToken=%GAC_PUBLIC_KEY_TOKEN%",0x00010000,"\windows\GAC_OpenNETCF.WindowsMobile%GAC_FILE_EXTENSION%.dll"
+HKLM,%GLOBAL_REG%,"OpenNETCF.AppSettings, Version=%GAC_FILE_VERSION%, Culture=neutral, PublicKeyToken=%GAC_PUBLIC_KEY_TOKEN%",0x00010000,"\windows\GAC_OpenNETCF.AppSettings%GAC_FILE_EXTENSION%.dll"
+HKLM,%GLOBAL_REG%,"OpenNETCF.WindowsCE.Services, Version=%GAC_FILE_VERSION%, Culture=neutral, PublicKeyToken=%GAC_PUBLIC_KEY_TOKEN%",0x00010000,"\windows\GAC_OpenNETCF.WindowsCE.Services%GAC_FILE_EXTENSION%.dll"
+HKLM,%ASSEMBLY_REG%,"OpenNETCF.Configuration, Version=%GAC_FILE_VERSION%, Culture=neutral, PublicKeyToken=%GAC_PUBLIC_KEY_TOKEN%",0x00010000,"\windows\GAC_OpenNETCF.Configuration%GAC_FILE_EXTENSION%.dll"
+HKLM,%ASSEMBLY_REG%,"OpenNETCF, Version=%GAC_FILE_VERSION%, Culture=neutral, PublicKeyToken=%GAC_PUBLIC_KEY_TOKEN%",0x00010000,"\windows\GAC_OpenNETCF%GAC_FILE_EXTENSION%.dll"
+HKLM,%ASSEMBLY_REG%,"OpenNETCF.Core, Version=%GAC_FILE_VERSION%, Culture=neutral, PublicKeyToken=%GAC_PUBLIC_KEY_TOKEN%",0x00010000,"\windows\GAC_OpenNETCF.Core%GAC_FILE_EXTENSION%.dll"
+HKLM,%ASSEMBLY_REG%,"OpenNETCF.Data, Version=%GAC_FILE_VERSION%, Culture=neutral, PublicKeyToken=%GAC_PUBLIC_KEY_TOKEN%",0x00010000,"\windows\GAC_OpenNETCF.Data%GAC_FILE_EXTENSION%.dll"
+HKLM,%ASSEMBLY_REG%,"OpenNETCF.Drawing, Version=%GAC_FILE_VERSION%, Culture=neutral, PublicKeyToken=%GAC_PUBLIC_KEY_TOKEN%",0x00010000,"\windows\GAC_OpenNETCF.Drawing%GAC_FILE_EXTENSION%.dll"
+HKLM,%ASSEMBLY_REG%,"OpenNETCF.Net, Version=%GAC_FILE_VERSION%, Culture=neutral, PublicKeyToken=%GAC_PUBLIC_KEY_TOKEN%",0x00010000,"\windows\GAC_OpenNETCF.Net%GAC_FILE_EXTENSION%.dll"
+HKLM,%ASSEMBLY_REG%,"OpenNETCF.Net.Mail, Version=%GAC_FILE_VERSION%, Culture=neutral, PublicKeyToken=%GAC_PUBLIC_KEY_TOKEN%",0x00010000,"\windows\GAC_OpenNETCF.Net.Mail%GAC_FILE_EXTENSION%.dll"
+HKLM,%ASSEMBLY_REG%,"OpenNETCF.VisualBasic, Version=%GAC_FILE_VERSION%, Culture=neutral, PublicKeyToken=%GAC_PUBLIC_KEY_TOKEN%",0x00010000,"\windows\GAC_OpenNETCF.VisualBasic%GAC_FILE_EXTENSION%.dll"
+HKLM,%ASSEMBLY_REG%,"OpenNETCF.Windows.Forms, Version=%GAC_FILE_VERSION%, Culture=neutral, PublicKeyToken=%GAC_PUBLIC_KEY_TOKEN%",0x00010000,"\windows\GAC_OpenNETCF.Windows.Forms%GAC_FILE_EXTENSION%.dll"
+HKLM,%ASSEMBLY_REG%,"OpenNETCF.Phone, Version=%GAC_FILE_VERSION%, Culture=neutral, PublicKeyToken=%GAC_PUBLIC_KEY_TOKEN%",0x00010000,"\windows\GAC_OpenNETCF.Phone%GAC_FILE_EXTENSION%.dll"
+HKLM,%ASSEMBLY_REG%,"OpenNETCF.Rss, Version=%GAC_FILE_VERSION%, Culture=neutral, PublicKeyToken=%GAC_PUBLIC_KEY_TOKEN%",0x00010000,"\windows\GAC_OpenNETCF.Rss%GAC_FILE_EXTENSION%.dll"
+HKLM,%ASSEMBLY_REG%,"OpenNETCF.WindowsCE, Version=%GAC_FILE_VERSION%, Culture=neutral, PublicKeyToken=%GAC_PUBLIC_KEY_TOKEN%",0x00010000,"\windows\GAC_OpenNETCF.WindowsCE%GAC_FILE_EXTENSION%.dll"
+HKLM,%ASSEMBLY_REG%,"OpenNETCF.WindowsCE.Messaging, Version=%GAC_FILE_VERSION%, Culture=neutral, PublicKeyToken=%GAC_PUBLIC_KEY_TOKEN%",0x00010000,"\windows\GAC_OpenNETCF.WindowsCE.Messaging%GAC_FILE_EXTENSION%.dll"
+HKLM,%ASSEMBLY_REG%,"OpenNETCF.WindowsMobile, Version=%GAC_FILE_VERSION%, Culture=neutral, PublicKeyToken=%GAC_PUBLIC_KEY_TOKEN%",0x00010000,"\windows\GAC_OpenNETCF.WindowsMobile%GAC_FILE_EXTENSION%.dll"
+HKLM,%ASSEMBLY_REG%,"OpenNETCF.AppSettings, Version=%GAC_FILE_VERSION%, Culture=neutral, PublicKeyToken=%GAC_PUBLIC_KEY_TOKEN%",0x00010000,"\windows\GAC_OpenNETCF.AppSettings%GAC_FILE_EXTENSION%.dll"
+HKLM,%ASSEMBLY_REG%,"OpenNETCF.WindowsCE.Services, Version=%GAC_FILE_VERSION%, Culture=neutral, PublicKeyToken=%GAC_PUBLIC_KEY_TOKEN%",0x00010000,"\windows\GAC_OpenNETCF.WindowsCE.Services%GAC_FILE_EXTENSION%.dll"

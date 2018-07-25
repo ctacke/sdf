@@ -1,3 +1,43 @@
+#region --- Copyright Information --- 
+/*
+ *******************************************************************
+|                                                                   |
+|           OpenNETCF Smart Device Framework 2.2                    |
+|                                                                   |
+|                                                                   |
+|       Copyright (c) 2000-2008 OpenNETCF Consulting LLC            |
+|       ALL RIGHTS RESERVED                                         |
+|                                                                   |
+|   The entire contents of this file is protected by U.S. and       |
+|   International Copyright Laws. Unauthorized reproduction,        |
+|   reverse-engineering, and distribution of all or any portion of  |
+|   the code contained in this file is strictly prohibited and may  |
+|   result in severe civil and criminal penalties and will be       |
+|   prosecuted to the maximum extent possible under the law.        |
+|                                                                   |
+|   RESTRICTIONS                                                    |
+|                                                                   |
+|   THIS SOURCE CODE AND ALL RESULTING INTERMEDIATE FILES           |
+|   ARE CONFIDENTIAL AND PROPRIETARY TRADE                          |
+|   SECRETS OF OPENNETCF CONSULTING LLC THE REGISTERED DEVELOPER IS |
+|   LICENSED TO DISTRIBUTE THE PRODUCT AND ALL ACCOMPANYING .NET    |
+|   CONTROLS AS PART OF A COMPILED EXECUTABLE PROGRAM ONLY.         |
+|                                                                   |
+|   THE SOURCE CODE CONTAINED WITHIN THIS FILE AND ALL RELATED      |
+|   FILES OR ANY PORTION OF ITS CONTENTS SHALL AT NO TIME BE        |
+|   COPIED, TRANSFERRED, SOLD, DISTRIBUTED, OR OTHERWISE MADE       |
+|   AVAILABLE TO OTHER INDIVIDUALS WITHOUT EXPRESS WRITTEN CONSENT  |
+|   AND PERMISSION FROM OPENNETCF CONSULTING LLC                    |
+|                                                                   |
+|   CONSULT THE END USER LICENSE AGREEMENT FOR INFORMATION ON       |
+|   ADDITIONAL RESTRICTIONS.                                        |
+|                                                                   |
+ ******************************************************************* 
+*/
+#endregion
+
+
+
 using System;
 using System.Collections.Generic;
 using System.Text;
@@ -7,7 +47,7 @@ using System.Threading;
 
 namespace OpenNETCF.Media.WaveAudio
 {
-    public class ACMStream : RiffStream
+    public class ACMStream: RiffStream
     {
         const int DefaultBufferSizeInSeconds = 5;
 
@@ -57,7 +97,7 @@ namespace OpenNETCF.Media.WaveAudio
             base.LoadHeader();
 
             byte[] fmtIn = _fmt.GetBytes();
-            if (_fmt2 == null)
+            if ( _fmt2 == null )
                 _fmt2 = WaveFormat2.GetPCMWaveFormat(_fmt.SamplesPerSec, _fmt.Channels, _fmt.BitsPerSample != 0 ? _fmt.BitsPerSample : (short)16);
             byte[] fmtOut = _fmt2.GetBytes();
             MMResult mmr;
@@ -94,7 +134,7 @@ namespace OpenNETCF.Media.WaveAudio
 
             bufferRead = new SlidingBuffer(cbOut);
             firstBlock = true;
-
+            
             bufferRead.BufferStarving = (BufferStarvingHandler)delegate(SlidingBuffer obj, int spaceAvailable)
             {
                 if (hdr1.cbDstLengthUsed == ptrBuffer1)
@@ -154,25 +194,12 @@ namespace OpenNETCF.Media.WaveAudio
             return null;
         }
 
-        public static ACMStream Append(Stream underlyingStream, WaveFormat2 fmt)
-        {
-            ACMStream stm = new ACMStream();
-            stm._accessMode = FileAccess.Write;
-            stm._baseStream = underlyingStream;
-            stm._baseStream.Position = 0;
-            WaveFormat2 fmtOut = WaveFormat2.FromStream(underlyingStream);
-            stm._baseStream.Position = stm._baseStream.Length;
-            stm.InitializeForWriting(underlyingStream, fmt ?? fmtOut, fmtOut, true);
-            stm.WriteHeader();
-            return stm;
-        }
-
         public static ACMStream OpenWrite(Stream underlyingStream, WaveFormat2 fmtIn, WaveFormat2 fmtOut)
         {
             ACMStream stm = new ACMStream();
             stm._accessMode = FileAccess.Write;
             stm._baseStream = underlyingStream;
-            stm.InitializeForWriting(underlyingStream, fmtIn, fmtOut, false);
+            stm.InitializeForWriting(underlyingStream,  fmtIn, fmtOut);
             stm.WriteHeader();
             return stm;
         }
@@ -183,9 +210,9 @@ namespace OpenNETCF.Media.WaveAudio
             return bufferRead.Read(buffer, offset, count);
         }
 
-        protected override bool InitializeForWriting(Stream underlyingStream, WaveFormat2 wfIn, WaveFormat2 wfOut, bool fAppend)
+        protected override bool InitializeForWriting(Stream underlyingStream, WaveFormat2 wfIn, WaveFormat2 wfOut)
         {
-            base.InitializeForWriting(underlyingStream, wfIn, wfOut, fAppend);
+            base.InitializeForWriting(underlyingStream, wfIn, wfOut);
             MMResult mmr;
 
             int driverId = 0;
@@ -219,7 +246,7 @@ namespace OpenNETCF.Media.WaveAudio
             IntPtr hDrv = IntPtr.Zero;
             if (driverId != 0)
                 AcmNativeMethods.acmDriverOpen(out hDrv, driverId, 0);
-            mmr = AcmNativeMethods.acmStreamOpen(out hStreamComp, hDrv, fmtIn, fmtOut, IntPtr.Zero, 0, 0, AcmStreamOpenFlags.CALLBACK_NULL | AcmStreamOpenFlags.NONREALTIME);
+            mmr = AcmNativeMethods.acmStreamOpen(out hStreamComp, hDrv, fmtIn, fmtOut, IntPtr.Zero, 0, 0, AcmStreamOpenFlags.CALLBACK_NULL|AcmStreamOpenFlags.NONREALTIME);
             hdr1 = new ACMSTREAMHEADER();
             hdr1.cbStruct = Marshal.SizeOf(hdr1);
             hdr2 = new ACMSTREAMHEADER();
@@ -265,7 +292,7 @@ namespace OpenNETCF.Media.WaveAudio
                 int bufferSize = hdr1.cbSrcLength;
                 if (ptrBuffer1 == hdr1.cbSrcLength || count == 0)
                 {
-                    if (count == 0)
+                    if ( count == 0 )
                         hdr1.cbSrcLength = ptrBuffer1;
 
                     AcmStreamConvertFlags flags;
@@ -278,7 +305,7 @@ namespace OpenNETCF.Media.WaveAudio
                     }
                     else if (count != 0 || ptrBuffer1 > 0)
                         flags = AcmStreamConvertFlags.BLOCKALIGN;
-                    else
+                    else 
                     {
                         flags = AcmStreamConvertFlags.END;
                     }
@@ -312,7 +339,7 @@ namespace OpenNETCF.Media.WaveAudio
         {
             Flush();
 
-            if ((hdr1.fdwStatus & AcmStreamHeaderStatus.PREPARED) != 0)
+            if ( (hdr1.fdwStatus & AcmStreamHeaderStatus.PREPARED) != 0)
                 AcmNativeMethods.acmStreamUnprepareHeader(hStreamComp, ref hdr1, 0);
             if ((hdr2.fdwStatus & AcmStreamHeaderStatus.PREPARED) != 0)
                 AcmNativeMethods.acmStreamUnprepareHeader(hStreamComp, ref hdr2, 0);
@@ -321,7 +348,7 @@ namespace OpenNETCF.Media.WaveAudio
                 AcmNativeMethods.acmStreamClose(hStreamComp, 0);
             hStreamComp = IntPtr.Zero;
 
-            if (hinBuffer1.IsAllocated)
+            if ( hinBuffer1.IsAllocated )
                 hinBuffer1.Free();
             if (hinBuffer2.IsAllocated)
                 hinBuffer2.Free();
@@ -329,7 +356,7 @@ namespace OpenNETCF.Media.WaveAudio
                 houtBuffer1.Free();
             if (houtBuffer2.IsAllocated)
                 houtBuffer2.Free();
-
+            
             if (_baseStream != null)
                 _baseStream.Close();
         }

@@ -1,16 +1,53 @@
+#region --- Copyright Information --- 
+/*
+ *******************************************************************
+|                                                                   |
+|           OpenNETCF Smart Device Framework 2.2                    |
+|                                                                   |
+|                                                                   |
+|       Copyright (c) 2000-2008 OpenNETCF Consulting LLC            |
+|       ALL RIGHTS RESERVED                                         |
+|                                                                   |
+|   The entire contents of this file is protected by U.S. and       |
+|   International Copyright Laws. Unauthorized reproduction,        |
+|   reverse-engineering, and distribution of all or any portion of  |
+|   the code contained in this file is strictly prohibited and may  |
+|   result in severe civil and criminal penalties and will be       |
+|   prosecuted to the maximum extent possible under the law.        |
+|                                                                   |
+|   RESTRICTIONS                                                    |
+|                                                                   |
+|   THIS SOURCE CODE AND ALL RESULTING INTERMEDIATE FILES           |
+|   ARE CONFIDENTIAL AND PROPRIETARY TRADE                          |
+|   SECRETS OF OPENNETCF CONSULTING LLC THE REGISTERED DEVELOPER IS |
+|   LICENSED TO DISTRIBUTE THE PRODUCT AND ALL ACCOMPANYING .NET    |
+|   CONTROLS AS PART OF A COMPILED EXECUTABLE PROGRAM ONLY.         |
+|                                                                   |
+|   THE SOURCE CODE CONTAINED WITHIN THIS FILE AND ALL RELATED      |
+|   FILES OR ANY PORTION OF ITS CONTENTS SHALL AT NO TIME BE        |
+|   COPIED, TRANSFERRED, SOLD, DISTRIBUTED, OR OTHERWISE MADE       |
+|   AVAILABLE TO OTHER INDIVIDUALS WITHOUT EXPRESS WRITTEN CONSENT  |
+|   AND PERMISSION FROM OPENNETCF CONSULTING LLC                    |
+|                                                                   |
+|   CONSULT THE END USER LICENSE AGREEMENT FOR INFORMATION ON       |
+|   ADDITIONAL RESTRICTIONS.                                        |
+|                                                                   |
+ ******************************************************************* 
+*/
+#endregion
+
+
+
 using System;
 using System.Drawing;
 using System.Text;
 using System.Windows.Forms;
 using System.Runtime.InteropServices;
 using OpenNETCF.Windows.Forms;
-using OpenNETCF.Drawing.Imaging;
 
 namespace OpenNETCF.Win32
 {
-    public delegate IntPtr WndProcDelegate(IntPtr hwnd, WM msg, IntPtr wParam, IntPtr lParam);
-    
-    /// <summary>
+	/// <summary>
 	/// A helper class for working with native windows.
 	/// </summary>
 	public class Win32Window
@@ -265,21 +302,12 @@ namespace OpenNETCF.Win32
 		/// <param name="GetWindowLongParam">Specifies the zero-based offset to the value to be set.</param>
 		/// <param name="nValue">Specifies the replacement value.</param>
 		[DllImport("coredll.dll", SetLastError=true)]
-		public static extern int SetWindowLong(IntPtr hWnd, GWL GetWindowLongParam, int nValue);
-
-        [DllImport("coredll.dll", SetLastError = true)]
-        public static extern IntPtr SetWindowLong(IntPtr hWnd, GWL GetWindowLongParam, IntPtr nValue);
-
-        [DllImport("coredll.dll", SetLastError = true)]
-        public static extern int SendMessage(IntPtr hWnd, WM msg, int wParam, int lParam);
-
-        [DllImport("coredll.dll", SetLastError = true)]
+		public static extern void SetWindowLong(IntPtr hWnd, GWL GetWindowLongParam, int nValue);
+		
+		[DllImport("coredll.dll", SetLastError=true)]
 		public static extern IntPtr SendMessage(IntPtr hWnd, int msg, int wParam, int lParam);
-
-        [DllImport("coredll.dll", SetLastError = true)]
-        public static extern IntPtr SendMessage(IntPtr hWnd, int msg, int wParam, ref OpenNETCF.Win32.RECT lParam);
-
-        [DllImport("coredll.dll", SetLastError = true)]
+		
+		[DllImport("coredll.dll", SetLastError=true)]
 		public static extern IntPtr SendMessage(IntPtr hWnd, int msg, IntPtr wParam, int lParam);
 
 		[DllImport("coredll.dll", SetLastError=true)]
@@ -300,10 +328,7 @@ namespace OpenNETCF.Win32
 		[DllImport("coredll.dll", SetLastError=true)]
 		public static extern int DefWindowProc(IntPtr hWnd, int Msg, IntPtr wParam, IntPtr lParam);
 
-        [DllImport("coredll.dll", SetLastError = true)]
-        public static extern IntPtr DefWindowProc(IntPtr hWnd, WM Msg, IntPtr wParam, IntPtr lParam);
-        
-        /// <summary>
+		/// <summary>
 		/// enables or disables mouse and keyboard input to the specified window or control. When input is disabled, the window does not receive input such as mouse clicks and key presses. When input is enabled, the window receives all input.
 		/// </summary>
 		/// <param name="hWnd">Handle to the window to be enabled or disabled.</param>
@@ -348,9 +373,6 @@ namespace OpenNETCF.Win32
 			IntPtr hWnd, HWND pos,
 			int X, int Y, int cx, int cy, SWP uFlags);
 
-		[DllImport("coredll.dll", SetLastError=true)]
-        public static extern bool SetWindowText(IntPtr hWnd, string text); 
-        
 		public static void UpdateWindowStyle(IntPtr hwnd, int RemoveStyle, int AddStyle) 
 		{
 			int style = GetWindowLong(hwnd, GWL.STYLE);
