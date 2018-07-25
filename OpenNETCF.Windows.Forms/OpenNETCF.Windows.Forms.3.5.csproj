@@ -1,0 +1,418 @@
+﻿<Project DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003" ToolsVersion="3.5">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>9.0.21022</ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{EB28E2E6-CE24-4D4A-8F38-C892D09783C2}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>OpenNETCF.Windows.Forms</RootNamespace>
+    <AssemblyName>OpenNETCF.Windows.Forms</AssemblyName>
+    <ProjectTypeGuids>{4D628B5B-2FBC-4AA6-8C16-197242AEB884};{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}</ProjectTypeGuids>
+    <PlatformFamilyName>PocketPC</PlatformFamilyName>
+    <PlatformID>4118C335-430C-497f-BE48-11C3316B135E</PlatformID>
+    <OSVersion>5.01</OSVersion>
+    <DeployDirSuffix>OpenNETCF.Windows.Forms</DeployDirSuffix>
+    <TargetFrameworkVersion>v3.5</TargetFrameworkVersion>
+    <FormFactorID>
+    </FormFactorID>
+    <SccProjectName>
+    </SccProjectName>
+    <SccLocalPath>
+    </SccLocalPath>
+    <SccAuxPath>
+    </SccAuxPath>
+    <SccProvider>
+    </SccProvider>
+    <SignAssembly>true</SignAssembly>
+    <AssemblyOriginatorKeyFile>SDFkeypair.snk</AssemblyOriginatorKeyFile>
+    <FileUpgradeFlags>
+    </FileUpgradeFlags>
+    <OldToolsVersion>2.0</OldToolsVersion>
+    <NativePlatformName>Windows Mobile 5.0 Pocket PC SDK</NativePlatformName>
+    <UpgradeBackupLocation>
+    </UpgradeBackupLocation>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>TRACE;DEBUG;PocketPC; SDF21</DefineConstants>
+    <NoStdLib>true</NoStdLib>
+    <NoConfig>true</NoConfig>
+    <ErrorReport>prompt</ErrorReport>
+    <FileAlignment>512</FileAlignment>
+    <WarningLevel>4</WarningLevel>
+    <GenerateSerializationAssemblies>Off</GenerateSerializationAssemblies>
+    <DocumentationFile>bin\Debug\OpenNETCF.Windows.Forms.XML</DocumentationFile>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE;PocketPC; SDF21</DefineConstants>
+    <NoStdLib>true</NoStdLib>
+    <NoConfig>true</NoConfig>
+    <ErrorReport>prompt</ErrorReport>
+    <FileAlignment>512</FileAlignment>
+    <WarningLevel>4</WarningLevel>
+    <GenerateSerializationAssemblies>Off</GenerateSerializationAssemblies>
+    <TreatWarningsAsErrors>false</TreatWarningsAsErrors>
+    <NoWarn>1591</NoWarn>
+    <DocumentationFile>bin\Release\OpenNETCF.Windows.Forms.XML</DocumentationFile>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="Microsoft.WindowsCE.Forms" />
+    <Reference Include="mscorlib" />
+    <Reference Include="System" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="AnimateCtl.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="AnimateCtl.designer.cs">
+      <DependentUpon>AnimateCtl.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Application2.cs" />
+    <Compile Include="BatteryChargeStatus.cs" />
+    <Compile Include="BatteryChemistry.cs" />
+    <Compile Include="BatteryLife.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="BatteryMonitor.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Button2.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="ButtonBase2.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="CharacterCasing.cs">
+      <DependentUpon>TextBox2.cs</DependentUpon>
+    </Compile>
+    <Compile Include="CheckBox2.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="CheckBox2.designer.cs">
+      <DependentUpon>CheckBox2.cs</DependentUpon>
+    </Compile>
+    <Compile Include="CheckBox2_SDF21.cs">
+      <DependentUpon>CheckBox2.cs</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Clipboard.cs" />
+    <Compile Include="ColorDialog.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="ComboBox2.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="ComboBox2.designer.cs">
+      <DependentUpon>ComboBox2.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Control2.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="CreateParams.cs" />
+    <Compile Include="CurrentFormMessageFilter.cs">
+      <DependentUpon>Application2.cs</DependentUpon>
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Cursor2.cs" />
+    <Compile Include="DateTimePicker2.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="DEVMODE.cs" />
+    <Compile Include="DrawDirection.cs">
+      <DependentUpon>AnimateCtl.cs</DependentUpon>
+    </Compile>
+    <Compile Include="DrawMode.cs" />
+    <Compile Include="DrawStyle.cs">
+      <DependentUpon>ProgressBar2.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Enums.cs" />
+    <Compile Include="GradiantStyle.cs">
+      <DependentUpon>ProgressBar2.cs</DependentUpon>
+    </Compile>
+    <Compile Include="GroupBox.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Help2.cs" />
+    <Compile Include="HelpNavigator.cs">
+      <DependentUpon>Help2.cs</DependentUpon>
+    </Compile>
+    <Compile Include="IButtonControl.cs" />
+    <Compile Include="ImageViewer.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="ImageViewer.designer.cs">
+      <DependentUpon>ImageViewer.cs</DependentUpon>
+    </Compile>
+    <Compile Include="IMessageFilter.cs">
+      <DependentUpon>Application2.cs</DependentUpon>
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="IWin32Window.cs" />
+    <Compile Include="LinkLabel2.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="ListBox2.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="ListItem.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="MonthCalendar2.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="NativeMethods.cs" />
+    <Compile Include="NativeWindow.cs" />
+    <Compile Include="NotifyIcon.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="OwnerDrawnList.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="PictureBox2.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="PictureBox2.designer.cs">
+      <DependentUpon>PictureBox2.cs</DependentUpon>
+    </Compile>
+    <Compile Include="PowerLineStatus.cs" />
+    <Compile Include="PowerStatus.cs" />
+    <Compile Include="ProgressBar2.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="ProgressBar2.designer.cs">
+      <DependentUpon>ProgressBar2.cs</DependentUpon>
+    </Compile>
+    <Compile Include="RoundGauge.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Lamp.cs">
+      <DependentUpon>RoundGauge.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Needle.cs">
+      <DependentUpon>RoundGauge.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="SendKeys.cs" />
+    <Compile Include="Signature.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Signature_2.2.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="SmartList.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="StaticMethods.cs" />
+    <Compile Include="SystemInformation2.cs" />
+    <Compile Include="TextBox2.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="TextBox2_2.1.cs">
+      <DependentUpon>TextBox2.cs</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="ThreadWindow.cs">
+      <DependentUpon>Application2.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Win32\CB.cs" />
+    <Compile Include="Win32\CBS.cs" />
+    <Compile Include="Win32\DTM.cs" />
+    <Compile Include="Win32\DTN.cs" />
+    <Compile Include="Win32\DTS.cs" />
+    <Compile Include="Win32\EM.cs" />
+    <Compile Include="Win32\ES.cs" />
+    <Compile Include="Win32\GDTR.cs" />
+    <Compile Include="Win32\GW.cs" />
+    <Compile Include="Win32\GWL.cs" />
+    <Compile Include="Win32\HS.cs" />
+    <Compile Include="Win32\HWND.cs" />
+    <Compile Include="Win32\LBS.cs" />
+    <Compile Include="Win32\LVM.cs" />
+    <Compile Include="Win32\MCM.cs" />
+    <Compile Include="Win32\MCN.cs" />
+    <Compile Include="Win32\MCS.cs" />
+    <Compile Include="Win32\MCSC.cs" />
+    <Compile Include="Win32\NMHDR.cs" />
+    <Compile Include="Win32\SW.cs" />
+    <Compile Include="Win32\SWP.cs" />
+    <Compile Include="Win32\TCN.cs" />
+    <Compile Include="Win32\WA.cs" />
+    <Compile Include="Win32\Win32Window.cs" />
+    <Compile Include="Win32\WM.cs" />
+    <Compile Include="Win32\WS.cs" />
+    <Compile Include="Win32\WS_EX.cs" />
+    <Service Include="{94E38DFF-614B-4cbd-B67C-F211BB35CE8B}" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="CheckBox2.resx">
+      <DependentUpon>CheckBox2.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ProgressBar2.resx">
+      <SubType>Designer</SubType>
+      <DependentUpon>ProgressBar2.cs</DependentUpon>
+    </EmbeddedResource>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="AnimateCtl.xmta">
+      <DependentUpon>AnimateCtl.cs</DependentUpon>
+    </None>
+    <None Include="BatteryLife.xmta">
+      <DependentUpon>BatteryLife.cs</DependentUpon>
+    </None>
+    <None Include="BatteryMonitor.xmta">
+      <DependentUpon>BatteryMonitor.cs</DependentUpon>
+    </None>
+    <None Include="Button2.xmta">
+      <DependentUpon>Button2.cs</DependentUpon>
+    </None>
+    <None Include="ButtonBase2.xmta">
+      <DependentUpon>ButtonBase2.cs</DependentUpon>
+    </None>
+    <None Include="CharacterCasing.xmta">
+      <DependentUpon>CharacterCasing.cs</DependentUpon>
+    </None>
+    <None Include="CheckBox2.xmta">
+      <DependentUpon>CheckBox2.cs</DependentUpon>
+    </None>
+    <None Include="ColorDialog.xmta" />
+    <None Include="ComboBox2.xmta">
+      <DependentUpon>ComboBox2.cs</DependentUpon>
+    </None>
+    <None Include="DateTimePicker2.xmta" />
+    <None Include="GroupBox.xmta">
+      <DependentUpon>GroupBox.cs</DependentUpon>
+    </None>
+    <None Include="ImageViewer.xmta">
+      <DependentUpon>ImageViewer.cs</DependentUpon>
+    </None>
+    <None Include="LinkLabel2.xmta">
+      <DependentUpon>LinkLabel2.cs</DependentUpon>
+    </None>
+    <None Include="ListBox2.xmta">
+      <DependentUpon>ListBox2.cs</DependentUpon>
+    </None>
+    <None Include="MonthCalendar2.xmta">
+      <DependentUpon>MonthCalendar2.cs</DependentUpon>
+    </None>
+    <None Include="NotifyIcon.xmta" />
+    <None Include="PictureBox2.xmta">
+      <DependentUpon>PictureBox2.cs</DependentUpon>
+    </None>
+    <None Include="ProgressBar2.xmta">
+      <DependentUpon>ProgressBar2.cs</DependentUpon>
+    </None>
+    <None Include="RoundGauge.xmta">
+      <DependentUpon>RoundGauge.cs</DependentUpon>
+    </None>
+    <None Include="SDFkeypair.snk" />
+    <None Include="Signature.xmta">
+      <DependentUpon>Signature.cs</DependentUpon>
+    </None>
+    <None Include="SmartList.xmta">
+      <DependentUpon>SmartList.cs</DependentUpon>
+    </None>
+    <None Include="TextBox2.xmta">
+      <DependentUpon>TextBox2.cs</DependentUpon>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="ProgressBar2.bmp">
+    </EmbeddedResource>
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="RoundGauge.bmp">
+    </EmbeddedResource>
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="CheckBox2.bmp" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="BatteryLife.bmp" />
+    <EmbeddedResource Include="Button2.bmp" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="BatteryMonitor.bmp" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="TextBox2.bmp" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="AnimateCtl.resx">
+      <DependentUpon>AnimateCtl.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="GroupBox.bmp" />
+    <EmbeddedResource Include="LinkLabel2.bmp" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="AnimateCtl.bmp" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="ComboBox2.bmp" />
+    <EmbeddedResource Include="ComboBox2.resx">
+      <DependentUpon>ComboBox2.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="ImageViewer.bmp" />
+    <EmbeddedResource Include="PictureBox2.bmp" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="ListBox2.bmp" />
+    <EmbeddedResource Include="SmartList.bmp" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="DateTimePicker2.bmp" />
+    <EmbeddedResource Include="MonthCalendar2.bmp" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="NotifyIcon.bmp" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="ColorDialog.bmp" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Signature.bmp" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\OpenNETCF.Drawing\OpenNETCF.Drawing.3.5.csproj">
+      <Project>{FA15C437-D0AA-4C99-A1F2-5581CAB8F7B8}</Project>
+      <Name>OpenNETCF.Drawing.3.5</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\OpenNETCF\OpenNETCF.3.5.csproj">
+      <Project>{ED420160-D2FD-4437-9D28-F10C55E4DB28}</Project>
+      <Name>OpenNETCF.3.5</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <Import Condition="'$(TargetFrameworkVersion)' == 'v1.0'" Project="$(MSBuildBinPath)\Microsoft.CompactFramework.CSharp.v1.targets" />
+  <Import Condition="'$(TargetFrameworkVersion)' == 'v2.0'" Project="$(MSBuildBinPath)\Microsoft.CompactFramework.CSharp.targets" />
+  <ProjectExtensions>
+    <VisualStudio>
+      <FlavorProperties GUID="{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}">
+        <HostingProcess disable="1" />
+      </FlavorProperties>
+    </VisualStudio>
+  </ProjectExtensions>
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+  <Import Condition="'$(TargetFrameworkVersion)' == 'v3.5'" Project="$(MSBuildBinPath)\Microsoft.CompactFramework.CSharp.targets" />
+</Project>

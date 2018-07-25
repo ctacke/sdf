@@ -1,0 +1,130 @@
+﻿<Project DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>8.0.50727</ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{D9A1BCA4-64AA-4B43-8B88-4822CD665605}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>OpenNETCF.WindowsCE</RootNamespace>
+    <AssemblyName>OpenNETCF.WindowsCE</AssemblyName>
+    <ProjectTypeGuids>{4D628B5B-2FBC-4AA6-8C16-197242AEB884};{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}</ProjectTypeGuids>
+    <PlatformFamilyName>PocketPC</PlatformFamilyName>
+    <PlatformID>3C41C503-53EF-4c2a-8DD4-A8217CAD115E</PlatformID>
+    <OSVersion>4.20</OSVersion>
+    <DeployDirSuffix>OpenNETCF.WindowsCE</DeployDirSuffix>
+    <TargetFrameworkVersion>v2.0</TargetFrameworkVersion>
+    <FormFactorID>
+    </FormFactorID>
+    <SccProjectName>
+    </SccProjectName>
+    <SccLocalPath>
+    </SccLocalPath>
+    <SccAuxPath>
+    </SccAuxPath>
+    <SccProvider>
+    </SccProvider>
+    <SignAssembly>true</SignAssembly>
+    <AssemblyOriginatorKeyFile>SDFkeypair.snk</AssemblyOriginatorKeyFile>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>TRACE;DEBUG</DefineConstants>
+    <NoStdLib>true</NoStdLib>
+    <NoConfig>true</NoConfig>
+    <ErrorReport>prompt</ErrorReport>
+    <FileAlignment>512</FileAlignment>
+    <WarningLevel>4</WarningLevel>
+    <GenerateSerializationAssemblies>Off</GenerateSerializationAssemblies>
+    <NoWarn>
+    </NoWarn>
+    <DocumentationFile>OpenNETCF.WindowsCE.XML</DocumentationFile>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>none</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>
+    </DefineConstants>
+    <NoStdLib>true</NoStdLib>
+    <NoConfig>true</NoConfig>
+    <ErrorReport>prompt</ErrorReport>
+    <FileAlignment>512</FileAlignment>
+    <WarningLevel>4</WarningLevel>
+    <GenerateSerializationAssemblies>Off</GenerateSerializationAssemblies>
+    <TreatWarningsAsErrors>false</TreatWarningsAsErrors>
+    <DocumentationFile>OpenNETCF.WindowsCE.XML</DocumentationFile>
+    <NoWarn>1591</NoWarn>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="mscorlib" />
+    <Reference Include="System" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="..\AssemblyVersion.cs">
+      <Link>Properties\AssemblyVersion.cs</Link>
+    </Compile>
+    
+    <Compile Include="DateTimeHelper.cs" />
+    <Compile Include="DeviceManagement.cs" />
+    <Compile Include="Enums.cs" />
+    <Compile Include="LargeIntervalTimer.cs" />
+    <Compile Include="Notification\UserNotificationTrigger.cs" />
+    <Compile Include="Notification\Led.cs" />
+    <Compile Include="MemoryManagement.cs" />
+    <Compile Include="NativeMethods.cs" />
+    <Compile Include="Notification\NativeMethods.cs" />
+    <Compile Include="Notification\NotificationAction.cs" />
+    <Compile Include="Notification\NotificationCommandLine.cs" />
+    <Compile Include="Notification\NotificationEvent.cs" />
+    <Compile Include="Notification\NotificationStatus.cs" />
+    <Compile Include="Notification\NotificationType.cs" />
+    <Compile Include="Notification\Notify.cs" />
+    <Compile Include="Notification\UserNotification.cs" />
+    <Compile Include="Notification\UserNotificationInfoHeader.cs" />
+    <Compile Include="PowerBroadcast.cs" />
+    <Compile Include="PowerManagement.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Structs.cs" />
+    <Compile Include="TimeZoneCollection.cs" />
+    <Compile Include="TimeZoneInformation.cs" />
+    <Compile Include="TZReg.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\OpenNETCF.WindowsCE.Messaging\OpenNETCF.WindowsCE.Messaging.csproj">
+      <Project>{17822A8F-AFA7-4AB7-A568-E4F93DAC99D3}</Project>
+      <Name>OpenNETCF.WindowsCE.Messaging</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\OpenNETCF\OpenNETCF.2.2.csproj">
+      <Project>{ED420160-D2FD-4437-9D28-F10C55E4DB28}</Project>
+      <Name>OpenNETCF</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="SDFkeypair.snk" />
+  </ItemGroup>
+  <Import Condition="'$(TargetFrameworkVersion)' == 'v1.0'" Project="$(MSBuildBinPath)\Microsoft.CompactFramework.CSharp.v1.targets" />
+  <Import Condition="'$(TargetFrameworkVersion)' == 'v2.0'" Project="$(MSBuildBinPath)\Microsoft.CompactFramework.CSharp.targets" />
+  <ProjectExtensions>
+    <VisualStudio>
+      <FlavorProperties GUID="{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}">
+        <HostingProcess disable="1" />
+      </FlavorProperties>
+    </VisualStudio>
+  </ProjectExtensions>
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

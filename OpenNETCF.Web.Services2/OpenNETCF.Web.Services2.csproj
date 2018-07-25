@@ -1,0 +1,333 @@
+﻿<Project DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <ProjectType>Local</ProjectType>
+    <ProductVersion>8.0.50727</ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{EA93E97B-FC64-420A-A1D4-93817F50D9A6}</ProjectGuid>
+    <SccProjectName>
+    </SccProjectName>
+    <SccLocalPath>
+    </SccLocalPath>
+    <SccProvider>
+    </SccProvider>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectTypeGuids>{4D628B5B-2FBC-4AA6-8C16-197242AEB884};{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}</ProjectTypeGuids>
+    <ApplicationIcon>
+    </ApplicationIcon>
+    <AssemblyKeyContainerName>
+    </AssemblyKeyContainerName>
+    <AssemblyName>OpenNETCF.Web.Services2</AssemblyName>
+    <AssemblyOriginatorKeyFile>SDFkeypair.snk</AssemblyOriginatorKeyFile>
+    <DelaySign>false</DelaySign>
+    <OutputType>Library</OutputType>
+    <OutputFileFolder>\Program Files\OpenNETCF.Web.Services2</OutputFileFolder>
+    <RootNamespace>OpenNETCF.Web.Services2</RootNamespace>
+    <StartupObject>
+    </StartupObject>
+    <FileUpgradeFlags>
+    </FileUpgradeFlags>
+    <FormFactorID>
+    </FormFactorID>
+    <SccAuxPath>
+    </SccAuxPath>
+    <SignAssembly>true</SignAssembly>
+  </PropertyGroup>
+  <PropertyGroup>
+    <PlatformID>E2BECB1F-8C8C-41ba-B736-9BE7D946A398</PlatformID>
+    <PlatformFamilyName>WindowsCE</PlatformFamilyName>
+    <DeployDirSuffix>$(AssemblyName)</DeployDirSuffix>
+    <TargetFrameworkVersion>v2.0</TargetFrameworkVersion>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <OutputPath>bin\Debug\</OutputPath>
+    <AllowUnsafeBlocks>false</AllowUnsafeBlocks>
+    <BaseAddress>0</BaseAddress>
+    <CheckForOverflowUnderflow>false</CheckForOverflowUnderflow>
+    <ConfigurationOverrideFile>
+    </ConfigurationOverrideFile>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <DocumentationFile>bin\Debug\OpenNETCF.Web.Services2.XML</DocumentationFile>
+    <DebugSymbols>true</DebugSymbols>
+    <FileAlignment>512</FileAlignment>
+    <Optimize>false</Optimize>
+    <RegisterForComInterop>false</RegisterForComInterop>
+    <RemoveIntegerChecks>false</RemoveIntegerChecks>
+    <TreatWarningsAsErrors>false</TreatWarningsAsErrors>
+    <WarningLevel>4</WarningLevel>
+    <NoStdLib>true</NoStdLib>
+    <NoConfig>true</NoConfig>
+    <GenerateSerializationAssemblies>off</GenerateSerializationAssemblies>
+    <NoWarn>
+    </NoWarn>
+    <ErrorReport>prompt</ErrorReport>
+    <DebugType>full</DebugType>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <OutputPath>bin\Release\</OutputPath>
+    <AllowUnsafeBlocks>false</AllowUnsafeBlocks>
+    <BaseAddress>0</BaseAddress>
+    <CheckForOverflowUnderflow>false</CheckForOverflowUnderflow>
+    <ConfigurationOverrideFile>
+    </ConfigurationOverrideFile>
+    <DefineConstants>
+    </DefineConstants>
+    <DocumentationFile>OpenNETCF.Web.Services2.XML</DocumentationFile>
+    <DebugSymbols>false</DebugSymbols>
+    <FileAlignment>512</FileAlignment>
+    <Optimize>true</Optimize>
+    <RegisterForComInterop>false</RegisterForComInterop>
+    <RemoveIntegerChecks>false</RemoveIntegerChecks>
+    <TreatWarningsAsErrors>true</TreatWarningsAsErrors>
+    <WarningLevel>4</WarningLevel>
+    <NoStdLib>true</NoStdLib>
+    <NoConfig>true</NoConfig>
+    <GenerateSerializationAssemblies>off</GenerateSerializationAssemblies>
+    <ErrorReport>prompt</ErrorReport>
+    <NoWarn>1591</NoWarn>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="mscorlib">
+      <Name>MSCorLib</Name>
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="System">
+      <Name>System</Name>
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="System.Data">
+      <Name>System.Data</Name>
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="System.Web.Services">
+      <Name>System.Web.Services</Name>
+    </Reference>
+    <Reference Include="System.Xml">
+      <Name>System.XML</Name>
+      <Private>False</Private>
+    </Reference>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="..\AssemblyVersion.cs">
+      <Link>Properties\AssemblyVersion.cs</Link>
+    </Compile>
+    <Compile Include="Security\Configuration\WebServicesConfiguration.cs" />
+    <Compile Include="Security\Cryptography\AES.cs" />
+    <Compile Include="Security\Cryptography\AES128.cs" />
+    <Compile Include="Security\Cryptography\AES128KeyExchangeFormatter.cs" />
+    <Compile Include="Security\Cryptography\AES128Managed.cs" />
+    <Compile Include="Security\Cryptography\AES128EncryptionFormatter.cs" />
+    <Compile Include="Security\Cryptography\AESKeyExchangeFormatter.cs" />
+    <Compile Include="Security\Cryptography\AsymmetricEncryptionFormatter.cs" />
+    <Compile Include="Security\Cryptography\AsymmetricKeyAlgorithm.cs" />
+    <Compile Include="Security\Cryptography\AsymmetricKeyExchangeFormatter.cs" />
+    <Compile Include="Security\Cryptography\AsymmetricSignatureFormatter.cs" />
+    <Compile Include="Security\Cryptography\EncryptionFormatter.cs" />
+    <Compile Include="Security\Cryptography\KeyAlgorithm.cs" />
+    <Compile Include="Security\Cryptography\KeyedHashSignatureFormatter.cs" />
+    <Compile Include="Security\Cryptography\KeyExchangeFormatter.cs" />
+    <Compile Include="Security\Cryptography\RSA.cs" />
+    <Compile Include="Security\Cryptography\RSA15.cs" />
+    <Compile Include="Security\Cryptography\RSA15EncryptionFormatter.cs" />
+    <Compile Include="Security\Cryptography\RSA15KeyExchangeFormatter.cs" />
+    <Compile Include="Security\Cryptography\RSAPublicKeyBlob.cs" />
+    <Compile Include="Security\Cryptography\RSASHA1SignatureFormatter.cs" />
+    <Compile Include="Security\Cryptography\SignatureFormatter.cs" />
+    <Compile Include="Security\Cryptography\SymmetricKeyAlgorithm.cs" />
+    <Compile Include="Security\Cryptography\SymmetricKeyExchangeFormatter.cs" />
+    <Compile Include="Security\Cryptography\SymmetricEncryptionFormatter.cs" />
+    <Compile Include="Security\Cryptography\TripleDES.cs" />
+    <Compile Include="Security\Cryptography\TripleDESEncryptionFormatter.cs" />
+    <Compile Include="Security\Cryptography\TripleDESKeyExchangeFormatter.cs" />
+    <Compile Include="Security\Cryptography\Utils.cs" />
+    <Compile Include="_DecodeCertKey.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="_XmlCanonicalizer.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="AddressingHeaders.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Properties\AssemblyInfo.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="BinarySecurityToken.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Consts.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="CryptoEx.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Dime\DimeAttachment.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Dime\DimeAttachmentCollection.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Dime\DimeExtension.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Dime\DimeExtensionAttribute.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Dime\DimeReader.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Dime\DimeRecord.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Dime\DimeStream.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Dime\DimeWrap.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Dime\DimeWriter.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Dime\FlagsEnum.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Dime\IDimeAttachmentContainer.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Dime\IOModeEnum.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Dime\TypeFormatEnum.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="EventingExtension.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="EventingHeaders.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="HeadersExtension.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="HeadersHandler.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="LameXpath.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="MimeType.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="P_SHA1.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="pathHeader.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="ProgressExtension.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="SecConvHandler.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="SecConvObject.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="SecureConversation.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="SecurityHeader.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="SecurityTokenReference.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="SessionCookiesWrap.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="SessionHeader.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="SoapFaultHandler.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="SoapFilters.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="TimestampHeader.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="TimeZone.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="TraceExtension.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="TripleDesEx.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="UnknownHeadersWrap.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="UsernameToken.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="UsernameTokenV1.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="WoTe.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="WsExtension.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="XmlEncExtension.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="XmlEncHandler.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="XmlEncObject.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="XmlEncryption.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="XmlSigExtension.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="XmlSigHandler.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="XmlSignature.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="XmlSigObject.cs">
+      <SubType>Code</SubType>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\OpenNETCF\OpenNETCF.2.2.csproj">
+      <Name>OpenNETCF</Name>
+      <Project>{ED420160-D2FD-4437-9D28-F10C55E4DB28}</Project>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="SDFkeypair.snk" />
+  </ItemGroup>
+  <ProjectExtensions>
+    <VisualStudio>
+      <FlavorProperties GUID="{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}">
+        <HostingProcess disable="1" />
+      </FlavorProperties>
+    </VisualStudio>
+  </ProjectExtensions>
+  <Import Condition="'$(TargetFrameworkVersion)' == 'v1.0'" Project="$(MSBuildBinPath)\Microsoft.CompactFramework.CSharp.v1.targets" />
+  <Import Condition="'$(TargetFrameworkVersion)' == 'v2.0'" Project="$(MSBuildBinPath)\Microsoft.CompactFramework.CSharp.targets" />
+  <PropertyGroup>
+    <PreBuildEvent>
+    </PreBuildEvent>
+    <PostBuildEvent>
+    </PostBuildEvent>
+  </PropertyGroup>
+</Project>

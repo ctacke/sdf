@@ -1,0 +1,222 @@
+using System;
+using System.Collections;
+using System.Collections.Specialized;
+using System.Text;
+using System.Xml;
+using System.Reflection;
+
+using OpenNETCF.Rss;
+
+namespace OpenNETCF.Rss.Configuration
+{
+	/// <summary>
+	/// Uses to process the transport section in an configuration file.
+	/// </summary>
+	public sealed class TransportConfiguration
+	{
+		#region fields
+		private static HybridDictionary transports;
+		private int refreshInterval; 
+		#endregion
+
+		#region constructors
+
+		static TransportConfiguration()
+		{
+			TransportConfiguration.transports = new HybridDictionary();
+		}
+
+		/// <summary>
+		/// Initializes a new instance of the TransportConfiguration class.
+		/// </summary>
+		public TransportConfiguration()
+		{
+			this.refreshInterval = 60000;
+		} 
+		
+		#endregion
+
+		/// <summary>
+		/// Gets the refresh interval.
+		/// </summary>
+		public int RefreshInterval
+		{
+			get
+			{
+				return refreshInterval;
+			}
+		}
+
+		#region public methods
+		/// <summary>
+		/// Loads the transports section from a config file.
+		/// </summary>
+		/// <param name="section"></param>
+		public void Load(XmlNode section)
+		{
+			string text = "";
+
+			foreach (XmlNode node in section.ChildNodes)
+			{
+				XmlElement element = node as XmlElement;
+				if (element == null)
+				{
+					continue;
+				}
+
+				if ((text = element.LocalName) == null)
+				{
+					throw new ArgumentException("Error in the configuration");
+				}
+
+				text = string.IsInterned(text);
+
+				if (text == "transports")
+				{
+					LoadTransports(element);
+				}
+
+				if (text == "refreshInterval")
+				{
+					refreshInterval = Convert.ToInt32(node.Attributes["value"].Value);
+				}
+			}
+
+		}
+
+		/// <summary>
+		/// Adds transport to the collection.
+		/// </summary>
+		/// <param name="scheme"></param>
+		/// <param name="transport"></param>
+		public void AddTransport(string scheme, IFeedTransport transport)
+		{
+			if ((scheme == null) || (scheme.Length == 0))
+			{
+				throw new ArgumentNullException("scheme");
+			}
+			if (transport == null)
+			{
+				throw new ArgumentNullException("transport");
+			}
+			TransportConfiguration.transports[scheme] = transport;
+		}
+
+		/// <summary>
+		/// Returns the transport by the given scheme.
+		/// </summary>
+		/// <param name="scheme"></param>
+		/// <returns></returns>
+		public IFeedTransport GetTransport(string scheme)
+		{
+			if ((scheme == null) || (scheme.Length == 0))
+			{
+				throw new ArgumentNullException("scheme");
+			}
+			return (TransportConfiguration.transports[scheme] as IFeedTransport);
+		}
+		
+		#endregion
+
+
+		#region helper methods
+		private void LoadTransports(XmlElement element)
+		{
+			for (int num = 0; num < element.ChildNodes.Count; num++)
+			{
+				string scheme;
+				string name;
+				XmlElement currentElement = element.ChildNodes[num] as XmlElement;
+
+				if ((currentElement != null) && ((name = currentElement.LocalName) != null))
+				{
+					name = string.IsInterned(name);
+					if (name == "add")
+					{
+						IFeedTransport transport;
+						scheme = currentElement.GetAttribute("scheme");
+						string typeName = currentElement.GetAttribute("type");
+						if (scheme.Length == 0)
+						{
+							throw new ArgumentException("missing scheme");
+						}
+						if (typeName.Length == 0)
+						{
+							Type type = null;
+
+							if (FeedHttpTransport.UriScheme == scheme)
+							{
+								type = typeof(FeedHttpTransport);
+							}
+							else
+							{
+								throw new ArgumentException("failed to create FeedHttpTransport");
+							}
+							if (element.HasChildNodes)
+							{
+								transport = this.LoadTransport(type, currentElement.ChildNodes);
+							}
+							else
+							{
+								transport = this.LoadTransport(type, (XmlNodeList)null);
+							}
+
+							this.AddTransport(scheme, transport);
+						}
+						else if (element.HasChildNodes)
+						{
+							transport = this.LoadTransport(typeName, element.ChildNodes);
+						}
+						else
+						{
+							transport = this.LoadTransport(typeName, (XmlNodeList)null);
+						}
+						TransportConfiguration.transports[typeName] = transport;
+					}
+				}
+			}
+
+		}
+
+
+		private IFeedTransport LoadTransport(string typeName, XmlNodeList configData)
+		{
+			Type type = Type.GetType(typeName, false);
+			if (type != null)
+			{
+				return this.LoadTransport(type, configData);
+			}
+			return null;
+		}
+
+		private IFeedTransport LoadTransport(Type type, XmlNodeList configData)
+		{
+			object[] objArray;
+			ConstructorInfo info = null;
+			//ISoapTransport transport = null;
+			if (Utility.ImplementsInterface(type, typeof(IFeedTransport)))
+			{
+				if (configData == null)
+				{
+					info = type.GetConstructor(BindingFlags.Public | BindingFlags.Instance, null, new Type[0], null);
+					if (info == null)
+					{
+						throw new ArgumentException("No constructor");
+					}
+					return (info.Invoke(null) as IFeedTransport);
+				}
+				Type[] typeArray = new Type[1] { typeof(XmlNodeList) };
+				info = type.GetConstructor(BindingFlags.Public | BindingFlags.Instance, null, typeArray, null);
+				if (info == null)
+				{
+					throw new ArgumentException("No constructor");
+				}
+				objArray = new object[1] { configData };
+				return (info.Invoke(objArray) as IFeedTransport);
+			}
+			return null;
+		}
+		
+		#endregion
+	}
+}

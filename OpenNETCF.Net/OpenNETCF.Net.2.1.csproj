@@ -1,0 +1,322 @@
+﻿<Project DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <ProjectType>Local</ProjectType>
+    <ProductVersion>8.0.50727</ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{39DC4301-E4CC-4C4E-9579-336E2B993F51}</ProjectGuid>
+    <SccProjectName>
+    </SccProjectName>
+    <SccLocalPath>
+    </SccLocalPath>
+    <SccProvider>
+    </SccProvider>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectTypeGuids>{4D628B5B-2FBC-4AA6-8C16-197242AEB884};{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}</ProjectTypeGuids>
+    <ApplicationIcon>
+    </ApplicationIcon>
+    <AssemblyKeyContainerName>
+    </AssemblyKeyContainerName>
+    <AssemblyName>OpenNETCF.Net</AssemblyName>
+    <AssemblyOriginatorKeyFile>SDFkeypair.snk</AssemblyOriginatorKeyFile>
+    <DelaySign>false</DelaySign>
+    <OutputType>Library</OutputType>
+    <OutputFileFolder>\Program Files\OpenNETCF.Net</OutputFileFolder>
+    <RootNamespace>OpenNETCF.Net</RootNamespace>
+    <StartupObject>
+    </StartupObject>
+    <FileUpgradeFlags>
+    </FileUpgradeFlags>
+    <FormFactorID>
+    </FormFactorID>
+    <SccAuxPath>
+    </SccAuxPath>
+    <SignAssembly>true</SignAssembly>
+  </PropertyGroup>
+  <PropertyGroup>
+    <PlatformID>E2BECB1F-8C8C-41ba-B736-9BE7D946A398</PlatformID>
+    <PlatformFamilyName>WindowsCE</PlatformFamilyName>
+    <DeployDirSuffix>$(AssemblyName)</DeployDirSuffix>
+    <TargetFrameworkVersion>v2.0</TargetFrameworkVersion>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <OutputPath>bin\Debug\</OutputPath>
+    <AllowUnsafeBlocks>true</AllowUnsafeBlocks>
+    <BaseAddress>0</BaseAddress>
+    <CheckForOverflowUnderflow>false</CheckForOverflowUnderflow>
+    <ConfigurationOverrideFile>
+    </ConfigurationOverrideFile>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <DocumentationFile>OpenNETCF.Net.xml</DocumentationFile>
+    <DebugSymbols>true</DebugSymbols>
+    <FileAlignment>512</FileAlignment>
+    <Optimize>false</Optimize>
+    <RegisterForComInterop>false</RegisterForComInterop>
+    <RemoveIntegerChecks>false</RemoveIntegerChecks>
+    <TreatWarningsAsErrors>false</TreatWarningsAsErrors>
+    <WarningLevel>4</WarningLevel>
+    <NoStdLib>true</NoStdLib>
+    <NoConfig>true</NoConfig>
+    <GenerateSerializationAssemblies>off</GenerateSerializationAssemblies>
+    <NoWarn>
+    </NoWarn>
+    <ErrorReport>prompt</ErrorReport>
+    <DebugType>full</DebugType>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <OutputPath>bin\Release\</OutputPath>
+    <AllowUnsafeBlocks>true</AllowUnsafeBlocks>
+    <BaseAddress>0</BaseAddress>
+    <CheckForOverflowUnderflow>false</CheckForOverflowUnderflow>
+    <ConfigurationOverrideFile>
+    </ConfigurationOverrideFile>
+    <DefineConstants>TRACE</DefineConstants>
+    <DocumentationFile>OpenNETCF.Net.xml</DocumentationFile>
+    <DebugSymbols>false</DebugSymbols>
+    <FileAlignment>4096</FileAlignment>
+    <Optimize>true</Optimize>
+    <RegisterForComInterop>false</RegisterForComInterop>
+    <RemoveIntegerChecks>false</RemoveIntegerChecks>
+    <TreatWarningsAsErrors>true</TreatWarningsAsErrors>
+    <WarningLevel>4</WarningLevel>
+    <NoStdLib>true</NoStdLib>
+    <NoConfig>true</NoConfig>
+    <GenerateSerializationAssemblies>off</GenerateSerializationAssemblies>
+    <NoWarn>1591</NoWarn>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'NDoc|AnyCPU' ">
+    <OutputPath>bin\NDoc\</OutputPath>
+    <AllowUnsafeBlocks>true</AllowUnsafeBlocks>
+    <BaseAddress>0</BaseAddress>
+    <CheckForOverflowUnderflow>false</CheckForOverflowUnderflow>
+    <ConfigurationOverrideFile>
+    </ConfigurationOverrideFile>
+    <DefineConstants>TRACE;NDOC</DefineConstants>
+    <DocumentationFile>OpenNETCF.Net.xml</DocumentationFile>
+    <DebugSymbols>false</DebugSymbols>
+    <FileAlignment>4096</FileAlignment>
+    <Optimize>true</Optimize>
+    <RegisterForComInterop>false</RegisterForComInterop>
+    <RemoveIntegerChecks>false</RemoveIntegerChecks>
+    <TreatWarningsAsErrors>false</TreatWarningsAsErrors>
+    <WarningLevel>4</WarningLevel>
+    <NoStdLib>true</NoStdLib>
+    <NoConfig>true</NoConfig>
+    <GenerateSerializationAssemblies>off</GenerateSerializationAssemblies>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="Microsoft.WindowsCE.Forms">
+      <Name>Microsoft.WindowsCE.Forms</Name>
+    </Reference>
+    <Reference Include="mscorlib">
+      <Name>MSCorLib</Name>
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="System">
+      <Name>System</Name>
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="System.Data">
+      <Name>System.Data</Name>
+    </Reference>
+    <Reference Include="System.Xml">
+      <Name>System.XML</Name>
+    </Reference>
+    <ProjectReference Include="..\OpenNETCF.WindowsCE.Messaging\OpenNETCF.WindowsCE.Messaging.csproj">
+      <Project>{17822A8F-AFA7-4AB7-A568-E4F93DAC99D3}</Project>
+      <Name>OpenNETCF.WindowsCE.Messaging</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\OpenNETCF\OpenNETCF.csproj">
+      <Name>OpenNETCF</Name>
+      <Project>{EEE28D3C-9C36-4968-8AD1-0DE97C42B6B6}</Project>
+      <Package>{20D4826A-C6FA-45DB-90F4-C717570B9F32}</Package>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="NetworkInformation\AccessPoint.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="NetworkInformation\AccessPointCollection.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Adapter.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="AdapterCollection.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="AdapterException.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="AdapterNotificationArgs.cs" />
+    <Compile Include="AdapterStatusMonitor.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="AdapterType.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="EAP.cs" />
+    <Compile Include="Enums2.cs" />
+    <Compile Include="NetworkInformation\Enums.cs" />
+    <Compile Include="NetworkInformation\GatewayIPAddressInformation.cs" />
+    <Compile Include="NetworkInformation\GatewayIPAddressInformationCollection.cs" />
+    <Compile Include="NetworkInformation\IPv4InterfaceProperties.cs" />
+    <Compile Include="NetworkInformation\IPv4InterfaceStatistics.cs" />
+    <Compile Include="NetworkInformation\IPv6InterfaceProperties.cs" />
+    <Compile Include="NetworkInformation\IP_ADAPTER_INFO.cs" />
+    <Compile Include="NativeMethods.cs" />
+    <Compile Include="NetworkInformation\IPAddressCollection.cs" />
+    <Compile Include="NetworkInformation\IPAddressInformation.cs" />
+    <Compile Include="NetworkInformation\IPUtility.cs" />
+    <Compile Include="NetworkInformation\NDIS.cs" />
+    <Compile Include="NDISQueryOid.cs" />
+    <Compile Include="NetworkInformation\IPGlobalProperties.cs" />
+    <Compile Include="NetworkInformation\IPGlobalStatistics.cs" />
+    <Compile Include="NetworkInformation\PhysicalAddress.cs" />
+    <Compile Include="NetworkInformation\TcpStatistics.cs" />
+    <Compile Include="NetworkInformation\NetworkInterface.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="NetworkInformation\NetworkInterfaceCollection.cs" />
+    <Compile Include="NetworkInformation\NetworkInterfaceTable.cs" />
+    <Compile Include="NetworkInformation\UnicastIPAddressInformation.cs" />
+    <Compile Include="NetworkInformation\UnicastIPAddressInformationCollection.cs" />
+    <Compile Include="NetworkInformation\NetworkInterfaceWatcher.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="ConnectionInfo.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="ConnectionManager.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="DestinationInfo.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="DestinationInfoCollection.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="DeviceDetail.cs" />
+    <Compile Include="DeviceMonitor.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="DeviceNotificationArgs.cs" />
+    <Compile Include="Enums.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="FTP\CommandResponse.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="FTP\FtpCommandType.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="FTP\FtpControlStream.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="FTP\FtpDataStream.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="FTP\FtpRequestCreator.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="FTP\FtpStatusCode.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="FTP\FtpStream.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="FTP\FtpWebRequest.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="FTP\FtpWebResponse.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="FTP\X509CertificateCollection.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="NdisNotificationType.cs" />
+    <Compile Include="NDISUIO_NOTIFICATIONs.cs" />
+    <Compile Include="Network.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="NetworkInformation\IcmpEchoReply.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="NetworkInformation\NetworkInterfaceType.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="NetworkInformation\IpAdapterInfo.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="NetworkInformation\IPInterfaceProperties.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="NetworkInformation\IPInterfaceStatistics.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="NetworkInformation\IPOptions.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="NetworkInformation\IPStatus.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="NetworkInformation\NetworkInformationException.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="NetworkInformation\NetworkInterfaceComponent.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="NetworkInformation\OperationalStatus.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="NetworkInformation\Ping.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="NetworkInformation\PingException.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="NetworkInformation\PingOptions.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="NetworkInformation\PingReply.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Networking.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="RFUtils.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="SelfMarshalledStruct.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="SignalStrength.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Structs.cs" />
+    <Compile Include="WLANConfiguration.cs" />
+    <Compile Include="WLANConfigurationList.cs" />
+    <Compile Include="NetworkInformation\WirelessNetworkInterface.cs" />
+    <Compile Include="NetworkInformation\WZC.cs" />
+    <Compile Include="NetworkInformation\WZCNetworkInterface.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="SDFkeypair.snk" />
+  </ItemGroup>
+  <ProjectExtensions>
+    <VisualStudio>
+      <FlavorProperties GUID="{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}">
+        <HostingProcess disable="1" />
+      </FlavorProperties>
+    </VisualStudio>
+  </ProjectExtensions>
+  <Import Condition="'$(TargetFrameworkVersion)' == 'v1.0'" Project="$(MSBuildBinPath)\Microsoft.CompactFramework.CSharp.v1.targets" />
+  <Import Condition="'$(TargetFrameworkVersion)' == 'v2.0'" Project="$(MSBuildBinPath)\Microsoft.CompactFramework.CSharp.targets" />
+  <PropertyGroup>
+    <PreBuildEvent>
+    </PreBuildEvent>
+    <PostBuildEvent>
+    </PostBuildEvent>
+  </PropertyGroup>
+</Project>

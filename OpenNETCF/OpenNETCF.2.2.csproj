@@ -1,0 +1,499 @@
+﻿<Project DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <ProjectType>Local</ProjectType>
+    <ProductVersion>8.0.50727</ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{ED420160-D2FD-4437-9D28-F10C55E4DB28}</ProjectGuid>
+    <SccProjectName>
+    </SccProjectName>
+    <SccLocalPath>
+    </SccLocalPath>
+    <SccProvider>
+    </SccProvider>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectTypeGuids>{4D628B5B-2FBC-4AA6-8C16-197242AEB884};{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}</ProjectTypeGuids>
+    <ApplicationIcon>
+    </ApplicationIcon>
+    <AssemblyKeyContainerName>
+    </AssemblyKeyContainerName>
+    <AssemblyName>OpenNETCF</AssemblyName>
+    <AssemblyOriginatorKeyFile>SDFkeypair.snk</AssemblyOriginatorKeyFile>
+    <DelaySign>false</DelaySign>
+    <OutputType>Library</OutputType>
+    <OutputFileFolder>\Program Files\OpenNETCF</OutputFileFolder>
+    <RootNamespace>OpenNETCF</RootNamespace>
+    <StartupObject>
+    </StartupObject>
+    <FileUpgradeFlags>
+    </FileUpgradeFlags>
+    <FormFactorID>
+    </FormFactorID>
+    <SccAuxPath>
+    </SccAuxPath>
+    <OSVersion>5.00</OSVersion>
+    <SignAssembly>true</SignAssembly>
+  </PropertyGroup>
+  <PropertyGroup>
+    <PlatformID>E2BECB1F-8C8C-41ba-B736-9BE7D946A398</PlatformID>
+    <PlatformFamilyName>WindowsCE</PlatformFamilyName>
+    <DeployDirSuffix>$(AssemblyName)</DeployDirSuffix>
+    <TargetFrameworkVersion>v2.0</TargetFrameworkVersion>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <OutputPath>bin\Debug\</OutputPath>
+    <AllowUnsafeBlocks>true</AllowUnsafeBlocks>
+    <BaseAddress>0</BaseAddress>
+    <CheckForOverflowUnderflow>false</CheckForOverflowUnderflow>
+    <ConfigurationOverrideFile>
+    </ConfigurationOverrideFile>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <DocumentationFile>OpenNETCF.xml</DocumentationFile>
+    <DebugSymbols>true</DebugSymbols>
+    <FileAlignment>512</FileAlignment>
+    <Optimize>false</Optimize>
+    <RegisterForComInterop>false</RegisterForComInterop>
+    <RemoveIntegerChecks>false</RemoveIntegerChecks>
+    <TreatWarningsAsErrors>false</TreatWarningsAsErrors>
+    <WarningLevel>4</WarningLevel>
+    <NoStdLib>true</NoStdLib>
+    <NoConfig>true</NoConfig>
+    <GenerateSerializationAssemblies>off</GenerateSerializationAssemblies>
+    <NoWarn>1591</NoWarn>
+    <ErrorReport>prompt</ErrorReport>
+    <DebugType>full</DebugType>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <OutputPath>bin\Release\</OutputPath>
+    <AllowUnsafeBlocks>true</AllowUnsafeBlocks>
+    <BaseAddress>0</BaseAddress>
+    <CheckForOverflowUnderflow>false</CheckForOverflowUnderflow>
+    <ConfigurationOverrideFile>
+    </ConfigurationOverrideFile>
+    <DefineConstants>
+    </DefineConstants>
+    <DocumentationFile>OpenNETCF.xml</DocumentationFile>
+    <DebugSymbols>false</DebugSymbols>
+    <FileAlignment>512</FileAlignment>
+    <Optimize>true</Optimize>
+    <RegisterForComInterop>false</RegisterForComInterop>
+    <RemoveIntegerChecks>false</RemoveIntegerChecks>
+    <TreatWarningsAsErrors>false</TreatWarningsAsErrors>
+    <WarningLevel>4</WarningLevel>
+    <NoStdLib>true</NoStdLib>
+    <NoConfig>true</NoConfig>
+    <GenerateSerializationAssemblies>off</GenerateSerializationAssemblies>
+    <ErrorReport>prompt</ErrorReport>
+    <NoWarn>1591;0618</NoWarn>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'NDoc|AnyCPU' ">
+    <OutputPath>bin\NDoc\</OutputPath>
+    <AllowUnsafeBlocks>true</AllowUnsafeBlocks>
+    <BaseAddress>0</BaseAddress>
+    <CheckForOverflowUnderflow>false</CheckForOverflowUnderflow>
+    <ConfigurationOverrideFile>
+    </ConfigurationOverrideFile>
+    <DefineConstants>TRACE;NDOC</DefineConstants>
+    <DocumentationFile>OpenNETCF.xml</DocumentationFile>
+    <DebugSymbols>false</DebugSymbols>
+    <FileAlignment>4096</FileAlignment>
+    <Optimize>true</Optimize>
+    <RegisterForComInterop>false</RegisterForComInterop>
+    <RemoveIntegerChecks>false</RemoveIntegerChecks>
+    <TreatWarningsAsErrors>false</TreatWarningsAsErrors>
+    <WarningLevel>4</WarningLevel>
+    <NoStdLib>true</NoStdLib>
+    <NoConfig>true</NoConfig>
+    <GenerateSerializationAssemblies>off</GenerateSerializationAssemblies>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="Microsoft.WindowsCE.Forms" />
+    <Reference Include="mscorlib">
+      <Name>mscorlib</Name>
+    </Reference>
+    <Reference Include="System">
+      <Name>System</Name>
+    </Reference>
+    <Reference Include="System.Data" />
+    <Reference Include="System.Drawing">
+      <Name>System.Drawing</Name>
+    </Reference>
+    <Reference Include="System.Windows.Forms">
+      <Name>System.Windows.Forms</Name>
+    </Reference>
+    <Reference Include="System.Xml">
+      <Name>System.Xml</Name>
+    </Reference>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="ComponentModel\License.cs" />
+    <Compile Include="ComponentModel\LicenseException.cs" />
+    <Compile Include="ComponentModel\LicenseManager.cs" />
+    <Compile Include="ComponentModel\LicenseProvider.cs" />
+    <Compile Include="ComponentModel\LicenseProviderAttribute.cs" />
+    <Compile Include="ComponentModel\LicenseResourceType.cs" />
+    <Compile Include="ComponentModel\LicenseUsageMode.cs" />
+    <Compile Include="ComponentModel\PublicKeyLicenseProvider.cs" />
+    <Compile Include="Diagnostics\Switch.cs" />
+    <Compile Include="Diagnostics\SwitchesDictionarySectionHandler.cs" />
+    <Compile Include="Diagnostics\SystemDiagnosticsSection.cs" />
+    <Compile Include="Diagnostics\TraceLevel.cs" />
+    <Compile Include="Diagnostics\TraceSwitch.cs" />
+    <Compile Include="IO\DriveInfo.cs" />
+    <Compile Include="IO\FileAccess2.cs" />
+    <Compile Include="IO\FileCreateDisposition.cs" />
+    <Compile Include="IO\FileFlags.cs" />
+    <Compile Include="IO\FileSystemEventArgs.cs" />
+    <Compile Include="IO\NativeMethods.cs" />
+    <Compile Include="IO\NotifyFilters.cs" />
+    <Compile Include="IO\RenamedEventArgs.cs" />
+    <Compile Include="IO\WatcherChangeTypes.cs" />
+    <Compile Include="Media\WaveAudio\Wave.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="BitReversedLUT.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="ComponentModel\BackgroundWorker.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="ComponentModel\DoWorkEventArgs.cs" />
+    <Compile Include="ComponentModel\InvalidEnumArgumentException.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="ComponentModel\ProgressChangedEventArgs.cs" />
+    <Compile Include="ComponentModel\RunWorkerCompletedEventArgs.cs" />
+    <Compile Include="CRC.cs" />
+    <Compile Include="CRCPolynomial.cs" />
+    <Compile Include="Diagnostics\DebugMessage.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Diagnostics\DiagnosticsConfiguration.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Diagnostics\DiagnosticsConfigurationHandler.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Diagnostics\EventLog\EntryWrittenEventArgs.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Diagnostics\EventLog\EventLog.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Diagnostics\EventLog\EventLogEntry.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Diagnostics\EventLog\EventLogEntryCollection.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Diagnostics\EventLog\EventLogEntryType.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Diagnostics\EventLog\EventLogWriterType.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Diagnostics\EventLog\IEventLogWriter.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Diagnostics\EventLog\XMLEventLogWriter.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Diagnostics\FileVersionInfo.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Diagnostics\Logging.cs" />
+    <Compile Include="Diagnostics\Process.cs">
+    </Compile>
+    <Compile Include="Diagnostics\ReleaseMessage.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Diagnostics\Stopwatch.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Diagnostics\TextWriterTraceListener.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Diagnostics\Trace2.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Diagnostics\TraceInternal2.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Enum2.cs" />
+    <Compile Include="Environment2.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="IO\FileHelper.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="IO\FileSystemWatcher.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="IO\PhysicalAddressPointer.cs" />
+    <Compile Include="IO\StreamInterfaceDriver.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Math2.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Media\SoundPlayer.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Media\SystemSound.cs" />
+    <Compile Include="Media\SystemSounds.cs" />
+    <Compile Include="Media\WaveAudio\_RiffChunk.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Media\WaveAudio\Audio.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Media\WaveAudio\Chunks.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Media\WaveAudio\FourCC.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Media\WaveAudio\MMChunk.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Media\WaveAudio\Player.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Media\WaveAudio\Recorder.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Media\WaveAudio\SoundMessageWindow.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Media\WaveAudio\WaveHeader.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Reflection\Assembly2.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Runtime\InteropServices\AdvancedMarshaler.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Runtime\InteropServices\ComTypes\IStream.cs" />
+    <Compile Include="Runtime\InteropServices\ComTypes\STATSTG.cs" />
+    <Compile Include="Runtime\InteropServices\CriticalHandle.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Runtime\InteropServices\ComTypes\FILETIME.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Runtime\InteropServices\Marshal2.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Runtime\InteropServices\SafeHandle.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Runtime\InteropServices\SYSTEMTIME.cs" />
+    <Compile Include="Security\Cryptography\AsymmetricKeyExchangeDeformatter.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Security\Cryptography\AsymmetricKeyExchangeFormatter.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Security\Cryptography\DeriveBytes.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Security\Cryptography\HMACSHA1.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Security\Cryptography\Internal Classes\_NullKey.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Security\Cryptography\Internal Classes\Cipher.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Security\Cryptography\Internal Classes\Const.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Security\Cryptography\Internal Classes\Context.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Security\Cryptography\Internal Classes\DiffHell.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Security\Cryptography\Internal Classes\Dsa.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Security\Cryptography\Internal Classes\Enums.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Security\Cryptography\Internal Classes\Error.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Security\Cryptography\Internal Classes\Format.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Security\Cryptography\Internal Classes\Hash.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Security\Cryptography\Internal Classes\Key.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Security\Cryptography\Internal Classes\Mem.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Security\Cryptography\Internal Classes\Prov.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Security\Cryptography\Internal Classes\Rand.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Security\Cryptography\Internal Classes\Rsa.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Security\Cryptography\Internal Classes\Structs.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Security\Cryptography\KeyedHashAlgorithm.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Security\Cryptography\MACTripleDES.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Security\Cryptography\NativeMethods.cs" />
+    <Compile Include="Security\Cryptography\PasswordDeriveBytes.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Security\Cryptography\ProtectedData.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Security\Cryptography\RNGCryptoServiceProvider.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Security\Cryptography\RSAPKCS1KeyExchangeDeformatter.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Security\Cryptography\RSAPKCS1KeyExchangeFormatter.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Threading\EventResetMode.cs" />
+    <Compile Include="Threading\EventWaitHandle.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Threading\NamedMutex.cs" />
+    <Compile Include="Threading\NativeMethods.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Threading\SafeThreadHandle.cs" />
+    <Compile Include="Threading\Semaphore.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Threading\SemaphoreFullException.cs" />
+    <Compile Include="Threading\Thread2.cs" />
+    <Compile Include="Threading\WaitHandleCannotBeOpenedException.cs" />
+    <Compile Include="Timers\ElapsedEventArgs.cs" />
+    <Compile Include="Timers\ISynchronizationInvoker.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Timers\Timer2.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="ToolHelp\NativeMethods.cs" />
+    <Compile Include="ToolHelp\ProcessEntry.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="ToolHelp\PROCESSENTRY32.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="ToolHelp\ThreadEntry.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="ToolHelp\THREADENTRY32.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="TrigonometricLUT.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="NativeMethods.cs" />
+    <Compile Include="Win32\RegistryHelper.cs" />
+    <Compile Include="Win32\SafeHandles\SafeFileHandle.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Win32\SafeHandles\SafeHandleMinusOneIsInvalid.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Win32\SafeHandles\SafeHandleZeroOrMinusOneIsInvalid.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Win32\SafeHandles\SafeWaitHandle.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Media\WaveAudio\NativeMethods.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Media\WaveAudio\WaveFormat2.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Media\WaveAudio\WaveHdr.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Media\WaveAudio\WaveInCaps.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Win32\SystemTime.cs" />
+    <EmbeddedResource Include="ComponentModel\BackgroundWorker.bmp" />
+    <EmbeddedResource Include="IO\FileSystemWatcher.bmp" />
+    <Content Include="machine.config" />
+    <EmbeddedResource Include="Timers\Timer2.bmp" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="ClassDiagram1.cd" />
+    <None Include="ComponentModel\BackgroundWorker.xmta" />
+    <None Include="IO\FileSystemWatcher.xmta" />
+    <None Include="SDFkeypair.snk" />
+    <None Include="Timers\Timer2.xmta" />
+    
+    <Compile Include="IO\DelimitedTextWriter.cs" />
+<Compile Include="..\AssemblyVersion.cs">
+      <Link>Properties\AssemblyVersion.cs</Link>
+    </Compile>
+    <Compile Include="Threading\Monitor2.cs" />
+    <Compile Include="ToolHelp\ProcessAPI.cs" />
+    <Compile Include="ToolHelp\ProcessEntry.2.2.cs" />
+    <Compile Include="IO\MemoryMappedFile.cs" />
+    <Compile Include="IO\StreamInterfaceDriver_2_2.cs" />
+    <Compile Include="Media\WaveAudio\AcmNativeMethods.cs" />
+    <Compile Include="Media\WaveAudio\ACMStream.cs" />
+    <Compile Include="Media\WaveAudio\ACMSupport.cs" />
+    <Compile Include="Media\WaveAudio\FormatTag.cs" />
+    <Compile Include="Media\WaveAudio\MMResult.cs" />
+    <Compile Include="Media\WaveAudio\RiffStream.cs" />
+    <Compile Include="Media\WaveAudio\SlidingBuffer.cs" />
+    <Compile Include="Threading\EventWaitHandle_2_2.cs" />
+    <Compile Include="ToolHelp\ModuleEntry.cs" />
+    <Compile Include="ToolHelp\MODULEENTRY32.cs" />
+    <Compile Include="ToolHelp\ThreadEntry.2.1.cs" />
+    <Compile Include="ToolHelp\ToolhelpAPI.cs" />
+    <Compile Include="ToolHelp\Util.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\OpenNETCF.Configuration\OpenNETCF.Configuration.csproj">
+      <Project>{C9C83714-D202-49D3-9033-73FC3E88691B}</Project>
+      <Name>OpenNETCF.Configuration</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="Win32\Notify\" />
+  </ItemGroup>
+  <ProjectExtensions>
+    <VisualStudio>
+      <FlavorProperties GUID="{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}">
+        <HostingProcess disable="1" />
+      </FlavorProperties>
+    </VisualStudio>
+  </ProjectExtensions>
+  <Import Condition="'$(TargetFrameworkVersion)' == 'v1.0'" Project="$(MSBuildBinPath)\Microsoft.CompactFramework.CSharp.v1.targets" />
+  <Import Condition="'$(TargetFrameworkVersion)' == 'v2.0'" Project="$(MSBuildBinPath)\Microsoft.CompactFramework.CSharp.targets" />
+  <PropertyGroup>
+    <PreBuildEvent>
+    </PreBuildEvent>
+    <PostBuildEvent>
+    </PostBuildEvent>
+  </PropertyGroup>
+</Project>

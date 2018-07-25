@@ -1,0 +1,28 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 10.00
+# Visual Studio 2008
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "OpenNETCF.Net.Mail", "OpenNETCF.Net.Mail.csproj", "{DF0A5145-0DD4-414C-BDBD-276FBF709EB1}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Tester", "Tester\Tester.csproj", "{CED87AB1-47A6-4005-B974-F3CF6F827F56}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{DF0A5145-0DD4-414C-BDBD-276FBF709EB1}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{DF0A5145-0DD4-414C-BDBD-276FBF709EB1}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{DF0A5145-0DD4-414C-BDBD-276FBF709EB1}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{DF0A5145-0DD4-414C-BDBD-276FBF709EB1}.Release|Any CPU.Build.0 = Release|Any CPU
+		{CED87AB1-47A6-4005-B974-F3CF6F827F56}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{CED87AB1-47A6-4005-B974-F3CF6F827F56}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{CED87AB1-47A6-4005-B974-F3CF6F827F56}.Debug|Any CPU.Deploy.0 = Debug|Any CPU
+		{CED87AB1-47A6-4005-B974-F3CF6F827F56}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{CED87AB1-47A6-4005-B974-F3CF6F827F56}.Release|Any CPU.Build.0 = Release|Any CPU
+		{CED87AB1-47A6-4005-B974-F3CF6F827F56}.Release|Any CPU.Deploy.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal
