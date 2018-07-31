@@ -95,12 +95,13 @@ namespace OpenNETCF.WindowsCE.Services
                         using (RegistryKey svcKey = root.OpenSubKey(name, true))
                         {
                             string prefixVal = (string)svcKey.GetValue("Prefix");
-                            int svcIndex = (int)svcKey.GetValue("Index");
+                            int? svcIndex = (int?)svcKey.GetValue("Index");
                             DLLName = (string)svcKey.GetValue("Dll");
 
                             if (!String.IsNullOrEmpty(prefixVal))
                             {
-                                string prefixFull = String.Format("{0}:", prefixVal.ToUpper().Substring(0, 3) + svcIndex.ToString());
+                                string strIndex = (svcIndex == null) ? "" : svcIndex.ToString();
+                                string prefixFull = String.Format("{0}:", prefixVal.ToUpper().Substring(0, 3) + strIndex);
 
                                 // 2. Get handles by way of CreateFile
                                 IntPtr svcHandle = CreateFile(prefixFull, 0, 0, 0, OPEN_EXISTING, 0, 0);
