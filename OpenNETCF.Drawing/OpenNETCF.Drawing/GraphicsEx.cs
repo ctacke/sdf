@@ -8,7 +8,7 @@ namespace OpenNETCF.Drawing
 	/// <summary>
 	/// Encapsulates a GDI+ drawing surface.
 	/// </summary>
-    public partial class GraphicsEx
+    public partial class GraphicsEx: IDisposable
     {
 		#region private fields
 		
