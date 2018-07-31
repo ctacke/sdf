@@ -303,12 +303,7 @@
     <Compile Include="Runtime\InteropServices\AdvancedMarshaler.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="Runtime\InteropServices\ComTypes\IStream.cs" />
-    <Compile Include="Runtime\InteropServices\ComTypes\STATSTG.cs" />
     <Compile Include="Runtime\InteropServices\CriticalHandle.cs">
-      <SubType>Code</SubType>
-    </Compile>
-    <Compile Include="Runtime\InteropServices\ComTypes\FILETIME.cs">
       <SubType>Code</SubType>
     </Compile>
     <Compile Include="Runtime\InteropServices\Marshal2.cs">

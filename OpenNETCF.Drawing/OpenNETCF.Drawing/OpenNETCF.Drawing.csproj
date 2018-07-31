@@ -148,6 +148,9 @@
       <Link>Properties\AssemblyVersion.cs</Link>
     </Compile>
     <Compile Include="BitmapEx.cs" />
+    <Compile Include="ComTypes\FILETIME.cs" />
+    <Compile Include="ComTypes\IStream.cs" />
+    <Compile Include="ComTypes\STATSTG.cs" />
     <Compile Include="ContentAlignment2.cs" />
     <Compile Include="CopyPixelOperation.cs" />
     <Compile Include="FontEx.cs" />
@@ -196,13 +199,6 @@
     <Compile Include="Win32\GDI.cs">
       <SubType>Code</SubType>
     </Compile>
-  </ItemGroup>
-  <ItemGroup>
-    <ProjectReference Include="..\..\OpenNETCF\OpenNETCF\OpenNETCF.csproj">
-      <Project>{ED420160-D2FD-4437-9D28-F10C55E4DB28}</Project>
-      <Name>OpenNETCF</Name>
-      <Private>False</Private>
-    </ProjectReference>
   </ItemGroup>
   <ProjectExtensions>
     <VisualStudio>
