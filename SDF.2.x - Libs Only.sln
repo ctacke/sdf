@@ -3,6 +3,7 @@ Microsoft Visual Studio Solution File, Format Version 10.00
 # Visual Studio 2008
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{7E5F5A18-9DCC-4D79-BBB0-7E61AC03812A}"
 	ProjectSection(SolutionItems) = preProject
+		AssemblyVersion.cs = AssemblyVersion.cs
 		SDF\SDFkeypair.snk = SDF\SDFkeypair.snk
 	EndProjectSection
 EndProject

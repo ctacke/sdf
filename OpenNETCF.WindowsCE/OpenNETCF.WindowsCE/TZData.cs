@@ -1,5 +1,6 @@
 using System;
 using System.Runtime.InteropServices;
+using OpenNETCF.Win32;
 
 namespace OpenNETCF.WindowsCE
 {
@@ -21,8 +22,20 @@ namespace OpenNETCF.WindowsCE
             DSTName = Marshal.PtrToStringUni((IntPtr)Marshal.ReadInt32(pData));
             pData = (IntPtr)(pData.ToInt32() + 4);
             GMTOffset = Marshal.ReadInt32(pData);
-            pData = (IntPtr)(pData.ToInt32() + 8);
+            pData = (IntPtr)(pData.ToInt32() + 4);
+            StdOffset = Marshal.ReadInt32(pData);
+            pData = (IntPtr)(pData.ToInt32() + 4);
             DSTOffset = Marshal.ReadInt32(pData);
+
+            byte[] bbSystemTime = new byte[16];
+
+            pData = (IntPtr)( pData.ToInt32() + 4 );
+            Marshal.Copy( pData, bbSystemTime, 0, bbSystemTime.Length );
+            StdDate = new SystemTime( bbSystemTime );
+
+            pData = (IntPtr)( pData.ToInt32() + bbSystemTime.Length );
+            Marshal.Copy( pData, bbSystemTime, 0, bbSystemTime.Length );
+            DSTDate = new SystemTime( bbSystemTime );
         }
 
         /// <summary>
@@ -42,9 +55,21 @@ namespace OpenNETCF.WindowsCE
         /// </summary>
         public readonly int GMTOffset;
         /// <summary>
+        /// StandardBias (in minutes)
+        /// </summary>
+        public readonly int StdOffset;
+        /// <summary>
         /// Timezone's DST offset (in minutes)
         /// </summary>
         public readonly int DSTOffset;
+        /// <summary>
+        /// StandardDate
+        /// </summary>
+        public readonly SystemTime StdDate;
+        /// <summary>
+        /// DaylightDate
+        /// </summary>
+        public readonly SystemTime DSTDate;
 
         /// <summary>
         /// Returns the timezone's short name

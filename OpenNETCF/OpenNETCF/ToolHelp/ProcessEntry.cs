@@ -84,11 +84,11 @@ namespace OpenNETCF.ToolHelp
 		/// Reads memory for process
 		/// </summary>
 		/// <param name="Address">Memory address to start reading from</param>
-		/// <param name="Length">Number of bytes to read</param>
+		/// <param name="length">Number of bytes to read</param>
 		/// <returns>Byte array containing data read</returns>
 		public byte[] ReadMemory(IntPtr address, Int32 length)
 		{
-			byte[] r = new byte[Length];
+			byte[] r = new byte[length];
 			int actread = 0;
 			NativeMethods.Toolhelp32ReadProcessMemory(m_pe.th32ProcessID, address, r, length, ref actread);
 			return r;

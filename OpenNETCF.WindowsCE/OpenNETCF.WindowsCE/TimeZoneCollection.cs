@@ -121,6 +121,7 @@ namespace OpenNETCF.WindowsCE
 								// TIME_ZONE_INFORMATION.
 								string	dstName;
 								dstName = tzKey.GetValue("Dlt").ToString();
+								var stdName = tzKey.GetValue( "Std" ).ToString();
 
 								// Read the time zone information from the 
 								// registry.  Unfortunately, this is something
@@ -141,7 +142,7 @@ namespace OpenNETCF.WindowsCE
 								// Don't forget to copy the standard name and
 								// daylight name to the structure.
 								tzi.DaylightName = dstName;
-								tzi.StandardName = thiskeyname;
+								tzi.StandardName = stdName;
 
 								// Copy the display name from the registry to
 								// the class.
@@ -184,11 +185,16 @@ namespace OpenNETCF.WindowsCE
 
                         tzi.Bias = tmpTZ.GMTOffset;
                         tzi.DaylightBias = tmpTZ.DSTOffset;
+						tzi.StandardBias = tmpTZ.StdOffset;
 
                         // Don't forget to copy the standard name and
                         // daylight name to the structure.
                         tzi.DaylightName = tmpTZ.DSTName;
                         tzi.StandardName = tmpTZ.Name;
+
+						// Copy dates of time's transition
+						tzi.StandardDate = tmpTZ.StdDate;
+						tzi.DaylightDate = tmpTZ.DSTDate;
 
                         // Copy the display name from the registry to
                         // the class.

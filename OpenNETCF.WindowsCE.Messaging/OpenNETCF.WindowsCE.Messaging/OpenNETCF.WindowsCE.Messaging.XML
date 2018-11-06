@@ -205,43 +205,6 @@
             Number of writers attached to the queue for writing.
             </summary>
         </member>
-        <member name="T:OpenNETCF.WindowsCE.Messaging.ReadWriteResult">
-            <summary>
-            Returned by Send and Read methods of P2PMessageQueue
-            If OK, the message was sent/read
-            </summary>
-        </member>
-        <member name="F:OpenNETCF.WindowsCE.Messaging.ReadWriteResult.OK">
-            <summary>
-            The Message was read from the queue OR added tot he queue succesfully
-            </summary>
-        </member>
-        <member name="F:OpenNETCF.WindowsCE.Messaging.ReadWriteResult.Timeout">
-            <summary>
-            Receive: no message on the queue
-            Send: the queue is full
-            </summary>
-        </member>
-        <member name="F:OpenNETCF.WindowsCE.Messaging.ReadWriteResult.Disconnected">
-            <summary>
-            There is no reader/writer on the other end
-            </summary>
-        </member>
-        <member name="F:OpenNETCF.WindowsCE.Messaging.ReadWriteResult.BufferFail">
-            <summary>
-            Message on queue larger than the buffer allocated
-            </summary>
-        </member>
-        <member name="F:OpenNETCF.WindowsCE.Messaging.ReadWriteResult.OutOfMemory">
-            <summary>
-            Not enough memory to allocate buffer for message
-            </summary>
-        </member>
-        <member name="F:OpenNETCF.WindowsCE.Messaging.ReadWriteResult.InvalidHandle">
-            <summary>
-            Returned if you block on a Receive/Send and the queue is closed
-            </summary>
-        </member>
         <member name="T:OpenNETCF.WindowsCE.Messaging.Message">
             <summary>
             Base class for messages sent through a P2PMessageQueue
@@ -278,6 +241,43 @@
             <summary>
             Gets|sets the bytes for this message.
             Your own types can inherit from Message and override this member for sending them over queues
+            </summary>
+        </member>
+        <member name="T:OpenNETCF.WindowsCE.Messaging.ReadWriteResult">
+            <summary>
+            Returned by Send and Read methods of P2PMessageQueue
+            If OK, the message was sent/read
+            </summary>
+        </member>
+        <member name="F:OpenNETCF.WindowsCE.Messaging.ReadWriteResult.OK">
+            <summary>
+            The Message was read from the queue OR added tot he queue succesfully
+            </summary>
+        </member>
+        <member name="F:OpenNETCF.WindowsCE.Messaging.ReadWriteResult.Timeout">
+            <summary>
+            Receive: no message on the queue
+            Send: the queue is full
+            </summary>
+        </member>
+        <member name="F:OpenNETCF.WindowsCE.Messaging.ReadWriteResult.Disconnected">
+            <summary>
+            There is no reader/writer on the other end
+            </summary>
+        </member>
+        <member name="F:OpenNETCF.WindowsCE.Messaging.ReadWriteResult.BufferFail">
+            <summary>
+            Message on queue larger than the buffer allocated
+            </summary>
+        </member>
+        <member name="F:OpenNETCF.WindowsCE.Messaging.ReadWriteResult.OutOfMemory">
+            <summary>
+            Not enough memory to allocate buffer for message
+            </summary>
+        </member>
+        <member name="F:OpenNETCF.WindowsCE.Messaging.ReadWriteResult.InvalidHandle">
+            <summary>
+            Returned if you block on a Receive/Send and the queue is closed
             </summary>
         </member>
     </members>

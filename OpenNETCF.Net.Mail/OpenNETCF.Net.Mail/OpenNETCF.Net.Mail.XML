@@ -4,49 +4,6 @@
         <name>OpenNETCF.Net.Mail</name>
     </assembly>
     <members>
-        <member name="T:OpenNETCF.Net.Mail.SmtpCredential">
-            <summary>
-            Credentials to use for SmtpClient
-            </summary>
-        </member>
-        <member name="M:OpenNETCF.Net.Mail.SmtpCredential.#ctor(System.String,System.String,System.String)">
-            <summary>
-            Creates a new instance of the SmtpCredential class
-            </summary>
-            <param name="userName"></param>
-            <param name="password"></param>
-            <param name="domain"></param>
-        </member>
-        <member name="T:OpenNETCF.Net.Mail.MailPriority">
-            <summary>
-            Specifies the priority of a MailMessage.
-            </summary>
-        </member>
-        <member name="F:OpenNETCF.Net.Mail.MailPriority.Normal">
-            <summary>
-            Sends the message with normal priority
-            </summary>
-        </member>
-        <member name="F:OpenNETCF.Net.Mail.MailPriority.Low">
-            <summary>
-            Sends the message with low priority
-            </summary>
-        </member>
-        <member name="F:OpenNETCF.Net.Mail.MailPriority.High">
-            <summary>
-            Sends the message with high priority
-            </summary>
-        </member>
-        <member name="T:OpenNETCF.Net.Mail.SmtpDeliveryMethod">
-            <summary>
-            Specifies how email messages are delivered.
-            </summary>
-        </member>
-        <member name="F:OpenNETCF.Net.Mail.SmtpDeliveryMethod.Network">
-            <summary>
-            An Smtp server availble to send mail messages.
-            </summary>
-        </member>
         <member name="T:OpenNETCF.Net.Mail.Resources">
             <summary>
               A strongly-typed resource class, for looking up localized strings, etc.
@@ -138,13 +95,6 @@
               Looks up a localized string similar to Message must contain a valid to address..
             </summary>
         </member>
-        <member name="T:OpenNETCF.Net.Mail.SendCompletedEventHandler">
-            <summary>
-            Represents the method that will handle the SendCompleted event.
-            </summary>
-            <param name="sender"></param>
-            <param name="e"></param>
-        </member>
         <member name="T:OpenNETCF.Net.Mail.SmtpClient">
             <summary>
             Allows applications to send e-mail by using the Simple Mail Transfer Protocol (SMTP).
@@ -204,6 +154,11 @@
             Determines if a send operation is in progress.
             </summary>
         </member>
+        <member name="T:OpenNETCF.Net.Mime.TransferEncoding">
+            <summary>
+            Specifies the Content-Transfer-Encoding header information for an e-mail message attachment.
+            </summary>
+        </member>
         <member name="T:OpenNETCF.Net.Mail.AttachmentCollection">
             <summary>
             Stores attachments to be sent as part of an e-mail message.
@@ -213,6 +168,19 @@
             <summary>
             Releases all resources used by the AttachmentCollection. 
             </summary>
+        </member>
+        <member name="T:OpenNETCF.Net.Mail.SmtpCredential">
+            <summary>
+            Credentials to use for SmtpClient
+            </summary>
+        </member>
+        <member name="M:OpenNETCF.Net.Mail.SmtpCredential.#ctor(System.String,System.String,System.String)">
+            <summary>
+            Creates a new instance of the SmtpCredential class
+            </summary>
+            <param name="userName"></param>
+            <param name="password"></param>
+            <param name="domain"></param>
         </member>
         <member name="M:OpenNETCF.Net.Mail.MailAddressCollection.Add(System.String)">
             <summary>
@@ -240,9 +208,34 @@
             Represents an attachment to an e-mail.
             </summary>
         </member>
-        <member name="T:OpenNETCF.Net.Mime.TransferEncoding">
+        <member name="T:OpenNETCF.Net.Mail.SmtpDeliveryMethod">
             <summary>
-            Specifies the Content-Transfer-Encoding header information for an e-mail message attachment.
+            Specifies how email messages are delivered.
+            </summary>
+        </member>
+        <member name="F:OpenNETCF.Net.Mail.SmtpDeliveryMethod.Network">
+            <summary>
+            An Smtp server availble to send mail messages.
+            </summary>
+        </member>
+        <member name="T:OpenNETCF.Net.Mail.MailPriority">
+            <summary>
+            Specifies the priority of a MailMessage.
+            </summary>
+        </member>
+        <member name="F:OpenNETCF.Net.Mail.MailPriority.Normal">
+            <summary>
+            Sends the message with normal priority
+            </summary>
+        </member>
+        <member name="F:OpenNETCF.Net.Mail.MailPriority.Low">
+            <summary>
+            Sends the message with low priority
+            </summary>
+        </member>
+        <member name="F:OpenNETCF.Net.Mail.MailPriority.High">
+            <summary>
+            Sends the message with high priority
             </summary>
         </member>
         <member name="T:OpenNETCF.Net.Mail.DeliveryNotificationOptions">
@@ -274,6 +267,13 @@
             <summary>
             Never notify.
             </summary>
+        </member>
+        <member name="T:OpenNETCF.Net.Mail.SendCompletedEventHandler">
+            <summary>
+            Represents the method that will handle the SendCompleted event.
+            </summary>
+            <param name="sender"></param>
+            <param name="e"></param>
         </member>
     </members>
 </doc>

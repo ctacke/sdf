@@ -4,99 +4,9 @@
         <name>OpenNETCF.Rss</name>
     </assembly>
     <members>
-        <member name="T:OpenNETCF.Rss.FeedTransport">
+        <member name="T:OpenNETCF.Threading.NativeMethods">
             <summary>
-            Represents the protocol used to transport the RSS feeds. 
-            </summary>
-        </member>
-        <member name="M:OpenNETCF.Rss.FeedTransport.#ctor">
-            <summary>
-            Initializes a new instance of the FeedTransport.
-            </summary>
-        </member>
-        <member name="M:OpenNETCF.Rss.FeedTransport.StaticGetInputChannel(System.Uri)">
-            <summary>
-            Gets the input channel for the transport. 
-            </summary>
-            <param name="destination">The Uri to receive the RSS feeds.</param>
-            <returns>The IFeedInputChannel associated with the transport. </returns>
-        </member>
-        <member name="M:OpenNETCF.Rss.FeedTransport.LoadSerializer(System.String)">
-            <summary>
-            Loads feed serializer
-            </summary>
-            <param name="typeName">Type name of serializer</param>
-            <returns>Feed serializer object.</returns>
-        </member>
-        <member name="M:OpenNETCF.Rss.FeedTransport.LoadSerializer(System.Type)">
-            <summary>
-            Loads feed serializer
-            </summary>
-            <param name="type">Type of serializer</param>
-            <returns>Feed serializer object.</returns>
-        </member>
-        <member name="M:OpenNETCF.Rss.FeedTransport.GetTransport(System.Uri)">
-            <summary>
-            Get the transport associated with the specified destination. 
-            </summary>
-            <param name="destination">Feed destination.</param>
-            <returns>Transport object.</returns>
-        </member>
-        <member name="P:OpenNETCF.Rss.FeedTransport.InputChannels">
-            <summary>
-            Gets channels colletion.
-            </summary>
-        </member>
-        <member name="T:OpenNETCF.Rss.IFeedTransport">
-            <summary>
-            Provides the base interface for objects that represent Feed transports. 
-            </summary>
-        </member>
-        <member name="M:OpenNETCF.Rss.IFeedTransport.GetInputChannel(System.Uri)">
-            <summary>
-            Gets the Feed input channel for the transport.
-            </summary>
-            <param name="address">The Url for the transport.</param>
-            <returns>An IFeedInputChannel representing the Feed input channel for the transport. </returns>
-        </member>
-        <member name="T:OpenNETCF.Rss.DateTimeExt">
-            <summary>
-            Helper class.
-            </summary>
-        </member>
-        <member name="M:OpenNETCF.Rss.DateTimeExt.ToDateTime(System.String)">
-            <summary>
-            Converts an ISO 8601 date to a DateTime object. Helper method needed to 
-            deal with timezone offset since they are unsupported by the 
-            .NET Framework. 
-            </summary>
-            <param name="datetime">DateTime string</param>
-            <returns>DateTime instance</returns>
-            <exception cref="T:System.FormatException">On format errors parsing the datetime</exception>
-        </member>
-        <member name="M:OpenNETCF.Rss.DateTimeExt.Parse(System.String)">
-            <summary>
-            Parse is able to parse RFC2822/RFC822 formatted dates.
-            It has a fallback mechanism: if the string does not match,
-            the normal DateTime.Parse() function is called.
-            </summary>
-            <param name="dateTimeString">DateTime String to parse</param>
-            <returns>DateTime instance</returns>
-            <exception cref="T:System.FormatException">On format errors parsing the datetime</exception>
-        </member>
-        <member name="T:OpenNETCF.Rss.Configuration.FeedConfiguration">
-            <summary>
-            Uses to process a configuration file. 
-            </summary>
-        </member>
-        <member name="M:OpenNETCF.Rss.Configuration.FeedConfiguration.#ctor">
-            <summary>
-            Initializes a new instance of the FeedConfiguration class.
-            </summary>
-        </member>
-        <member name="P:OpenNETCF.Rss.Configuration.FeedConfiguration.TransportConfiguration">
-            <summary>
-            Gets the instance of the TransportConfiguration class.
+            Contains native API calls for Threading related functionality.
             </summary>
         </member>
         <member name="T:OpenNETCF.Rss.IFeedChannel">
@@ -107,6 +17,11 @@
         <member name="M:OpenNETCF.Rss.IFeedChannel.Close">
             <summary>
             Closes the channel. 
+            </summary>
+        </member>
+        <member name="T:OpenNETCF.Rss.FeedHttpInputChannel">
+            <summary>
+            Defines an HTTP connection that allowes feeds received from a given destination.
             </summary>
         </member>
         <member name="T:OpenNETCF.Rss.FeedInputChannel">
@@ -156,204 +71,278 @@
             Returns <b>true</b> if the connection is closed, otherwise <b>false</b>.
             </summary>
         </member>
-        <member name="T:OpenNETCF.Rss.Data.Opml">
+        <member name="M:OpenNETCF.Rss.FeedHttpInputChannel.#ctor(System.Uri,OpenNETCF.Rss.FeedHttpTransport)">
             <summary>
-            Identifies the OPML.
+            Initializes a new instance of the FeedHttpInputChannel class with the specified destination and transport. 
+            </summary>
+            <param name="destination">An Uri that represents the target destination for the channel.</param>
+            <param name="transport">A FeedHttpTransport that represents the transport for the channel.</param>
+        </member>
+        <member name="M:OpenNETCF.Rss.FeedHttpInputChannel.BeginReceive(System.AsyncCallback,System.Object)">
+            <summary>
+            Starts asyncronous retreival of the RSS Feed.
+            </summary>
+            <param name="callback">An System.AsyncCallback that represents the callback method.</param>
+            <param name="state">An object that can be used to access state information for the asynchronous operation.</param>
+            <returns>The System.IAsyncResult that identifies the asynchronous request. </returns>
+        </member>
+        <member name="M:OpenNETCF.Rss.FeedHttpInputChannel.EndReceive(System.IAsyncResult)">
+            <summary>
+            Ends a pending asynchronous receive operation. 
+            </summary>
+            <param name="result">The System.IAsyncResult that identifies the asynchronous receive operation to finish.</param>
+            <returns>A Feed object that is received. </returns>
+        </member>
+        <member name="M:OpenNETCF.Rss.FeedHttpInputChannel.Receive">
+            <summary>
+            Receives a RSS feed on the channel. 
+            </summary>
+            <returns>A Feed object.</returns>
+        </member>
+        <member name="P:OpenNETCF.Rss.FeedHttpInputChannel.InputChannels">
+            <summary>
+            Gets colection of input channels.
             </summary>
         </member>
-        <member name="M:OpenNETCF.Rss.Data.Opml.#ctor">
+        <member name="T:OpenNETCF.Rss.IFeedTransport">
             <summary>
-            Initializes a new instance of the Opml class.
+            Provides the base interface for objects that represent Feed transports. 
             </summary>
         </member>
-        <member name="P:OpenNETCF.Rss.Data.Opml.Items">
+        <member name="M:OpenNETCF.Rss.IFeedTransport.GetInputChannel(System.Uri)">
             <summary>
-            Gets or sets opml items.
+            Gets the Feed input channel for the transport.
+            </summary>
+            <param name="address">The Url for the transport.</param>
+            <returns>An IFeedInputChannel representing the Feed input channel for the transport. </returns>
+        </member>
+        <member name="T:OpenNETCF.Rss.Configuration.FeedConfiguration">
+            <summary>
+            Uses to process a configuration file. 
             </summary>
         </member>
-        <member name="P:OpenNETCF.Rss.Data.Opml.Title">
+        <member name="M:OpenNETCF.Rss.Configuration.FeedConfiguration.#ctor">
             <summary>
-            Gets or sets opml Title.
+            Initializes a new instance of the FeedConfiguration class.
             </summary>
         </member>
-        <member name="P:OpenNETCF.Rss.Data.Opml.DateCreated">
+        <member name="P:OpenNETCF.Rss.Configuration.FeedConfiguration.TransportConfiguration">
             <summary>
-            Gets or sets opml DateCreated.
+            Gets the instance of the TransportConfiguration class.
             </summary>
         </member>
-        <member name="P:OpenNETCF.Rss.Data.Opml.DateModified">
+        <member name="T:OpenNETCF.Rss.DateTimeExt">
             <summary>
-            Gets or sets opml DateModified.
+            Helper class.
             </summary>
         </member>
-        <member name="P:OpenNETCF.Rss.Data.Opml.OwnerName">
+        <member name="M:OpenNETCF.Rss.DateTimeExt.ToDateTime(System.String)">
             <summary>
-            Gets or sets opml OwnerName.
+            Converts an ISO 8601 date to a DateTime object. Helper method needed to 
+            deal with timezone offset since they are unsupported by the 
+            .NET Framework. 
+            </summary>
+            <param name="datetime">DateTime string</param>
+            <returns>DateTime instance</returns>
+            <exception cref="T:System.FormatException">On format errors parsing the datetime</exception>
+        </member>
+        <member name="M:OpenNETCF.Rss.DateTimeExt.Parse(System.String)">
+            <summary>
+            Parse is able to parse RFC2822/RFC822 formatted dates.
+            It has a fallback mechanism: if the string does not match,
+            the normal DateTime.Parse() function is called.
+            </summary>
+            <param name="dateTimeString">DateTime String to parse</param>
+            <returns>DateTime instance</returns>
+            <exception cref="T:System.FormatException">On format errors parsing the datetime</exception>
+        </member>
+        <member name="T:OpenNETCF.Rss.FeedTransport">
+            <summary>
+            Represents the protocol used to transport the RSS feeds. 
             </summary>
         </member>
-        <member name="P:OpenNETCF.Rss.Data.Opml.OwnerEmail">
+        <member name="M:OpenNETCF.Rss.FeedTransport.#ctor">
             <summary>
-            Gets or sets opml OwnerEmail.
+            Initializes a new instance of the FeedTransport.
             </summary>
         </member>
-        <member name="T:OpenNETCF.Rss.Configuration.TransportConfiguration">
+        <member name="M:OpenNETCF.Rss.FeedTransport.StaticGetInputChannel(System.Uri)">
             <summary>
-            Uses to process the transport section in an configuration file.
+            Gets the input channel for the transport. 
+            </summary>
+            <param name="destination">The Uri to receive the RSS feeds.</param>
+            <returns>The IFeedInputChannel associated with the transport. </returns>
+        </member>
+        <member name="M:OpenNETCF.Rss.FeedTransport.LoadSerializer(System.String)">
+            <summary>
+            Loads feed serializer
+            </summary>
+            <param name="typeName">Type name of serializer</param>
+            <returns>Feed serializer object.</returns>
+        </member>
+        <member name="M:OpenNETCF.Rss.FeedTransport.LoadSerializer(System.Type)">
+            <summary>
+            Loads feed serializer
+            </summary>
+            <param name="type">Type of serializer</param>
+            <returns>Feed serializer object.</returns>
+        </member>
+        <member name="M:OpenNETCF.Rss.FeedTransport.GetTransport(System.Uri)">
+            <summary>
+            Get the transport associated with the specified destination. 
+            </summary>
+            <param name="destination">Feed destination.</param>
+            <returns>Transport object.</returns>
+        </member>
+        <member name="P:OpenNETCF.Rss.FeedTransport.InputChannels">
+            <summary>
+            Gets channels colletion.
             </summary>
         </member>
-        <member name="M:OpenNETCF.Rss.Configuration.TransportConfiguration.#ctor">
+        <member name="M:OpenNETCF.Rss.Utils.StringHelper.EmptyOrNull(System.String)">
             <summary>
-            Initializes a new instance of the TransportConfiguration class.
+            Helper to test strings.
             </summary>
+            <param name="text">String to test</param>
+            <returns>True, if 'text' was null or of length zero</returns>
+            <remarks>No trimming of the string happens</remarks>
         </member>
-        <member name="M:OpenNETCF.Rss.Configuration.TransportConfiguration.Load(System.Xml.XmlNode)">
+        <member name="M:OpenNETCF.Rss.Utils.StringHelper.EmptyTrimOrNull(System.String)">
             <summary>
-            Loads the transports section from a config file.
+            Helper to test strings.
             </summary>
-            <param name="section"></param>
+            <param name="text">String to test</param>
+            <returns>True, if 'text' was null or of length zero</returns>
+            <remarks>Trimming of the string happens</remarks>
         </member>
-        <member name="M:OpenNETCF.Rss.Configuration.TransportConfiguration.AddTransport(System.String,OpenNETCF.Rss.IFeedTransport)">
+        <member name="M:OpenNETCF.Rss.Utils.StringHelper.SizeOfStr(System.String)">
             <summary>
-            Adds transport to the collection.
+            Return the size of a string in byte. Consider, if it is null.
             </summary>
-            <param name="scheme"></param>
-            <param name="transport"></param>
+            <param name="s">String</param>
+            <returns>Size in bytes</returns>
         </member>
-        <member name="M:OpenNETCF.Rss.Configuration.TransportConfiguration.GetTransport(System.String)">
+        <member name="M:OpenNETCF.Rss.Utils.StringHelper.LengthOfStr(System.String)">
             <summary>
-            Returns the transport by the given scheme.
+            Return the length of a string. Consider, if it is null.
             </summary>
-            <param name="scheme"></param>
+            <param name="s">String</param>
+            <returns>Length</returns>
+        </member>
+        <member name="M:OpenNETCF.Rss.Utils.StringHelper.ShortenByEllipsis(System.String,System.Int32)">
+            <summary>
+            Cuts the provided string at allowedLength - 3 (ellipsis length)
+            </summary>
+            <param name="text">string to work on</param>
+            <param name="allowedLength">Max. length of the string to return</param>
+            <returns>string that ends with ellipsis (...)</returns>
+            <remarks>Considers newline and linefeed</remarks>
+        </member>
+        <member name="M:OpenNETCF.Rss.Utils.StringHelper.GetFirstWords(System.String,System.Int32)">
+            <summary>
+            Return the first amount of words defined by 'wordCount' contained in 'text'.
+            </summary>
+            <param name="text">String to work on</param>
+            <param name="wordCount">Amount of words to look for</param>
+            <returns>String containing only the first x words.</returns>
+            <remarks>Word delimiters are: linefeed, carrige return, tab and space</remarks>
+        </member>
+        <member name="M:OpenNETCF.Rss.Utils.StringHelper.IsEMailAddress(System.String)">
+            <summary>
+            Tests the <c>text</c> for a valid e-Mail address and returns true,
+            if the content match, else false. 
+            </summary>
+            <param name="text">String to test</param>
+            <returns>True if it looks like a valid e-Mail address, else false.</returns>
+        </member>
+        <member name="M:OpenNETCF.Rss.Utils.StringHelper.GetEMailAddress(System.String)">
+            <summary>
+            Gets the Email address within a selection of text.
+            </summary>
+            <param name="text">Text.</param>
             <returns></returns>
         </member>
-        <member name="P:OpenNETCF.Rss.Configuration.TransportConfiguration.RefreshInterval">
+        <member name="M:OpenNETCF.Rss.Utils.StringHelper.AreEqualCaseInsensitive(System.String,System.String)">
             <summary>
-            Gets the refresh interval.
+            Performs case insensitive check on whether the strings are equal.
+            </summary>
+            <param name="original">Original.</param>
+            <param name="comparand">Comparand.</param>
+            <returns></returns>
+        </member>
+        <member name="T:OpenNETCF.Rss.Data.FeedItem">
+            <summary>
+            Identifies the feed item of a RSS feed.
             </summary>
         </member>
-        <member name="T:OpenNETCF.Rss.OpmlParser">
+        <member name="M:OpenNETCF.Rss.Data.FeedItem.#ctor">
             <summary>
-            Implements a parser for OPML files.
+            Initializes a new instance of the FeedItem class.
             </summary>
         </member>
-        <member name="T:OpenNETCF.Rss.Data.OpmlItem">
+        <member name="P:OpenNETCF.Rss.Data.FeedItem.Title">
             <summary>
-            Identifies the OPML item.
+            Gets or sets feed item title.
             </summary>
         </member>
-        <member name="M:OpenNETCF.Rss.Data.OpmlItem.#ctor">
+        <member name="P:OpenNETCF.Rss.Data.FeedItem.Link">
             <summary>
-            Initializes a new instance of the OpmlItem class.
+            Gets or sets feed item link.
             </summary>
         </member>
-        <member name="P:OpenNETCF.Rss.Data.OpmlItem.Items">
+        <member name="P:OpenNETCF.Rss.Data.FeedItem.Description">
             <summary>
-            Gets or sets OPML item's sub items
+            Gets or sets feed item Description.
             </summary>
         </member>
-        <member name="P:OpenNETCF.Rss.Data.OpmlItem.Title">
+        <member name="P:OpenNETCF.Rss.Data.FeedItem.Author">
             <summary>
-            Gets or sets OPML item's Title
+            Gets or sets feed item Author.
             </summary>
         </member>
-        <member name="P:OpenNETCF.Rss.Data.OpmlItem.HtmlUrl">
+        <member name="P:OpenNETCF.Rss.Data.FeedItem.Id">
             <summary>
-            Gets or sets OPML item's HtmlUrl
+            Gets or sets feed item Id.
             </summary>
         </member>
-        <member name="P:OpenNETCF.Rss.Data.OpmlItem.XmlUrl">
+        <member name="P:OpenNETCF.Rss.Data.FeedItem.ParentId">
             <summary>
-            Gets or sets OPML item's XmlUrl
+            Gets or sets feed item ParentId.
             </summary>
         </member>
-        <member name="P:OpenNETCF.Rss.Data.OpmlItem.Type">
+        <member name="P:OpenNETCF.Rss.Data.FeedItem.PubDate">
             <summary>
-            Gets or sets OPML item's Type
+            Gets or sets feed item PubDate.
             </summary>
         </member>
-        <member name="T:OpenNETCF.Threading.NativeMethods">
+        <member name="P:OpenNETCF.Rss.Data.FeedItem.Category">
             <summary>
-            Contains native API calls for Threading related functionality.
+            Gets or sets feed item Category.
             </summary>
         </member>
-        <member name="T:OpenNETCF.Rss.FeedParser">
+        <member name="P:OpenNETCF.Rss.Data.FeedItem.CommentCount">
             <summary>
-            Implements feed parser.
+            Gets or sets feed item CommentCount.
             </summary>
         </member>
-        <member name="F:OpenNETCF.Rss.FeedParser.optionalElementsDoc">
+        <member name="P:OpenNETCF.Rss.Data.FeedItem.Enclosure">
             <summary>
-            XmlDocument object where nodes placed in NewsItem.OptionalElements come from.
+            Gets or sets feed item Enclosure.
             </summary>
         </member>
-        <member name="M:OpenNETCF.Rss.FeedParser.#ctor">
+        <member name="P:OpenNETCF.Rss.Data.FeedItem.Parent">
             <summary>
-            Initializes a new instance of the FeedParser.
+            Gets or sets feed item Enclosure.
             </summary>
         </member>
-        <member name="F:OpenNETCF.Rss.FeedParser.SyndicationFormat.Rss">
+        <member name="P:OpenNETCF.Rss.Data.FeedItem.DirtyFlag">
             <summary>
-            Dave Winer's Family of specs including RSS 0.91 &amp; RSS 2.0
+            Gets or sets internal flag to indictate new item.
             </summary>
         </member>
-        <member name="F:OpenNETCF.Rss.FeedParser.SyndicationFormat.Rdf">
+        <member name="P:OpenNETCF.Rss.Data.FeedItem.OptionalElements">
             <summary>
-            The RDF based syndication formats such as RSS 0.9 and RSS 1.0 
-            </summary>
-        </member>
-        <member name="F:OpenNETCF.Rss.FeedParser.SyndicationFormat.Atom">
-            <summary>
-            The Atom syndication format
-            </summary>
-        </member>
-        <member name="F:OpenNETCF.Rss.FeedParser.SyndicationFormat.Unknown">
-            <summary>
-            An unknown and hence unsupported feed format
-            </summary>
-        </member>
-        <member name="T:OpenNETCF.Rss.Data.Feed">
-            <summary>
-            Identifies the Feed of a RSS feed.
-            </summary>
-        </member>
-        <member name="M:OpenNETCF.Rss.Data.Feed.#ctor">
-            <summary>
-            Initializes a new instance of the Feed class.
-            </summary>
-        </member>
-        <member name="P:OpenNETCF.Rss.Data.Feed.Items">
-            <summary>
-            Gets or sets feed items.
-            </summary>
-        </member>
-        <member name="P:OpenNETCF.Rss.Data.Feed.Title">
-            <summary>
-            Gets or sets feed title.
-            </summary>
-        </member>
-        <member name="P:OpenNETCF.Rss.Data.Feed.Link">
-            <summary>
-            Gets or sets feed link.
-            </summary>
-        </member>
-        <member name="P:OpenNETCF.Rss.Data.Feed.Description">
-            <summary>
-            Gets or sets feed description.
-            </summary>
-        </member>
-        <member name="P:OpenNETCF.Rss.Data.Feed.Copyright">
-            <summary>
-            Gets or sets feed copyright.
-            </summary>
-        </member>
-        <member name="P:OpenNETCF.Rss.Data.Feed.PubDate">
-            <summary>
-            Gets or sets feed pubDate.
-            </summary>
-        </member>
-        <member name="P:OpenNETCF.Rss.Data.Feed.LastBuildDate">
-            <summary>
-            Gets or sets feed LastBuildDate.
+            Gets or sets feed item OptionalElements.
             </summary>
         </member>
         <member name="T:OpenNETCF.Rss.FeedFileStorage">
@@ -461,6 +450,211 @@
             Gets the number of Feeds in the storage.
             </summary>
         </member>
+        <member name="T:OpenNETCF.Rss.OpmlParser">
+            <summary>
+            Implements a parser for OPML files.
+            </summary>
+        </member>
+        <member name="T:OpenNETCF.Rss.Data.Opml">
+            <summary>
+            Identifies the OPML.
+            </summary>
+        </member>
+        <member name="M:OpenNETCF.Rss.Data.Opml.#ctor">
+            <summary>
+            Initializes a new instance of the Opml class.
+            </summary>
+        </member>
+        <member name="P:OpenNETCF.Rss.Data.Opml.Items">
+            <summary>
+            Gets or sets opml items.
+            </summary>
+        </member>
+        <member name="P:OpenNETCF.Rss.Data.Opml.Title">
+            <summary>
+            Gets or sets opml Title.
+            </summary>
+        </member>
+        <member name="P:OpenNETCF.Rss.Data.Opml.DateCreated">
+            <summary>
+            Gets or sets opml DateCreated.
+            </summary>
+        </member>
+        <member name="P:OpenNETCF.Rss.Data.Opml.DateModified">
+            <summary>
+            Gets or sets opml DateModified.
+            </summary>
+        </member>
+        <member name="P:OpenNETCF.Rss.Data.Opml.OwnerName">
+            <summary>
+            Gets or sets opml OwnerName.
+            </summary>
+        </member>
+        <member name="P:OpenNETCF.Rss.Data.Opml.OwnerEmail">
+            <summary>
+            Gets or sets opml OwnerEmail.
+            </summary>
+        </member>
+        <member name="T:OpenNETCF.Rss.Data.Enclosure">
+            <summary>
+            Identifies the enclosure of a RSS feed item.
+            </summary>
+        </member>
+        <member name="M:OpenNETCF.Rss.Data.Enclosure.#ctor">
+            <summary>
+            Initializes a new instance of the Enclosure class.
+            </summary>
+        </member>
+        <member name="P:OpenNETCF.Rss.Data.Enclosure.Url">
+            <summary>
+            Gets or sets the url.
+            </summary>
+        </member>
+        <member name="P:OpenNETCF.Rss.Data.Enclosure.Length">
+            <summary>
+            Gets or sets the length value.
+            </summary>
+        </member>
+        <member name="P:OpenNETCF.Rss.Data.Enclosure.Type">
+            <summary>
+            Gets or sets the type value.
+            </summary>
+        </member>
+        <member name="T:OpenNETCF.Rss.Configuration.StorageConfiguration">
+            <summary>
+            Summary description for StorageConfiguration.
+            </summary>
+        </member>
+        <member name="M:OpenNETCF.Rss.Configuration.StorageConfiguration.#ctor">
+            <summary>
+            Initializes a new instance of the TransportConfiguration class.
+            </summary>
+        </member>
+        <member name="M:OpenNETCF.Rss.Configuration.StorageConfiguration.Load(System.Xml.XmlNode)">
+            <summary>
+            Loads storage setings from config file.
+            </summary>
+            <param name="section">The XmlNode section from the config file.</param>
+        </member>
+        <member name="M:OpenNETCF.Rss.Configuration.StorageConfiguration.GetProvider">
+            <summary>
+            Returns the storage provider by the given scheme.
+            </summary>		
+            <returns></returns>
+        </member>
+        <member name="T:OpenNETCF.Rss.FeedSerializer">
+            <summary>
+            Implements feed serializer class
+            </summary>
+        </member>
+        <member name="T:OpenNETCF.Rss.IFeedSerializer">
+            <summary>
+            Defines the members for a Feed serializer. 
+            </summary>
+        </member>
+        <member name="M:OpenNETCF.Rss.IFeedSerializer.Deserialize(System.IO.Stream)">
+            <summary>
+            Deserializes a Feed from the specified stream. 
+            </summary>
+            <param name="stream">A System.IO.Stream that contains the Feed to deserialize.</param>
+            <returns></returns>
+        </member>
+        <member name="M:OpenNETCF.Rss.IFeedSerializer.Serialize(OpenNETCF.Rss.Data.Feed,System.IO.Stream)">
+            <summary>
+            Serializes the specified Feed into the specified stream. 
+            </summary>
+            <param name="feed">A Feed to serialize into the stream.</param>
+            <param name="stream">A System.IO.Stream to serialize the Feed into.</param>
+        </member>
+        <member name="M:OpenNETCF.Rss.FeedSerializer.#ctor">
+            <summary>
+            Initializes a new instance of the FeedSerializer.
+            </summary>
+        </member>
+        <member name="M:OpenNETCF.Rss.FeedSerializer.Deserialize(System.IO.Stream)">
+            <summary>
+            Creates a Feed object from an XML stream.
+            </summary>
+            <param name="stream">An XML stream.</param>
+            <returns>A Feed object.</returns>
+        </member>
+        <member name="M:OpenNETCF.Rss.FeedSerializer.Serialize(OpenNETCF.Rss.Data.Feed,System.IO.Stream)">
+            <summary>
+            Serializes the Feed object into XML stream.
+            </summary>
+            <param name="feed">The Feed object.</param>
+            <param name="stream">The Stream object.</param>
+        </member>
+        <member name="T:OpenNETCF.Rss.Configuration.TransportConfiguration">
+            <summary>
+            Uses to process the transport section in an configuration file.
+            </summary>
+        </member>
+        <member name="M:OpenNETCF.Rss.Configuration.TransportConfiguration.#ctor">
+            <summary>
+            Initializes a new instance of the TransportConfiguration class.
+            </summary>
+        </member>
+        <member name="M:OpenNETCF.Rss.Configuration.TransportConfiguration.Load(System.Xml.XmlNode)">
+            <summary>
+            Loads the transports section from a config file.
+            </summary>
+            <param name="section"></param>
+        </member>
+        <member name="M:OpenNETCF.Rss.Configuration.TransportConfiguration.AddTransport(System.String,OpenNETCF.Rss.IFeedTransport)">
+            <summary>
+            Adds transport to the collection.
+            </summary>
+            <param name="scheme"></param>
+            <param name="transport"></param>
+        </member>
+        <member name="M:OpenNETCF.Rss.Configuration.TransportConfiguration.GetTransport(System.String)">
+            <summary>
+            Returns the transport by the given scheme.
+            </summary>
+            <param name="scheme"></param>
+            <returns></returns>
+        </member>
+        <member name="P:OpenNETCF.Rss.Configuration.TransportConfiguration.RefreshInterval">
+            <summary>
+            Gets the refresh interval.
+            </summary>
+        </member>
+        <member name="T:OpenNETCF.Rss.FeedParser">
+            <summary>
+            Implements feed parser.
+            </summary>
+        </member>
+        <member name="F:OpenNETCF.Rss.FeedParser.optionalElementsDoc">
+            <summary>
+            XmlDocument object where nodes placed in NewsItem.OptionalElements come from.
+            </summary>
+        </member>
+        <member name="M:OpenNETCF.Rss.FeedParser.#ctor">
+            <summary>
+            Initializes a new instance of the FeedParser.
+            </summary>
+        </member>
+        <member name="F:OpenNETCF.Rss.FeedParser.SyndicationFormat.Rss">
+            <summary>
+            Dave Winer's Family of specs including RSS 0.91 &amp; RSS 2.0
+            </summary>
+        </member>
+        <member name="F:OpenNETCF.Rss.FeedParser.SyndicationFormat.Rdf">
+            <summary>
+            The RDF based syndication formats such as RSS 0.9 and RSS 1.0 
+            </summary>
+        </member>
+        <member name="F:OpenNETCF.Rss.FeedParser.SyndicationFormat.Atom">
+            <summary>
+            The Atom syndication format
+            </summary>
+        </member>
+        <member name="F:OpenNETCF.Rss.FeedParser.SyndicationFormat.Unknown">
+            <summary>
+            An unknown and hence unsupported feed format
+            </summary>
+        </member>
         <member name="T:OpenNETCF.Rss.FeedWorker">
             <summary>
             Implements a thread worker class.
@@ -489,29 +683,168 @@
             Stops feed retreival process.
             </summary>
         </member>
-        <member name="T:OpenNETCF.Rss.Data.Enclosure">
+        <member name="T:OpenNETCF.Rss.FeedReceiver">
             <summary>
-            Identifies the enclosure of a RSS feed item.
+            Provides a base class for receiving RSS feeds.
             </summary>
         </member>
-        <member name="M:OpenNETCF.Rss.Data.Enclosure.#ctor">
+        <member name="M:OpenNETCF.Rss.FeedReceiver.Receive(OpenNETCF.Rss.Data.Feed)">
             <summary>
-            Initializes a new instance of the Enclosure class.
+            A callback that receives RSS feed.
+            </summary>
+            <param name="feed"></param>
+        </member>
+        <member name="T:OpenNETCF.Rss.Data.FeedItemCollection">
+            <summary>
+            Represents a collection of FeedItem objects 
             </summary>
         </member>
-        <member name="P:OpenNETCF.Rss.Data.Enclosure.Url">
+        <member name="M:OpenNETCF.Rss.Data.FeedItemCollection.Add(OpenNETCF.Rss.Data.FeedItem)">
             <summary>
-            Gets or sets the url.
+            Adds the specified FeedItem to the collection.  
+            </summary>
+            <param name="value">The FeedItem to add to the control collection.</param>
+            <returns>The index value of the added FeedItem.</returns>
+        </member>
+        <member name="M:OpenNETCF.Rss.Data.FeedItemCollection.Insert(System.Int32,OpenNETCF.Rss.Data.FeedItem)">
+            <summary>
+            Inserts an existing FeedItem in the feed item collection at the specified location.  
+            </summary>
+            <param name="index"></param>
+            <param name="value"></param>
+        </member>
+        <member name="M:OpenNETCF.Rss.Data.FeedItemCollection.Remove(OpenNETCF.Rss.Data.FeedItem)">
+            <summary>
+            Removes the specified FeedItem from the collection.  
+            </summary>
+            <param name="value"></param>
+        </member>
+        <member name="M:OpenNETCF.Rss.Data.FeedItemCollection.Contains(OpenNETCF.Rss.Data.FeedItem)">
+            <summary>
+            Determines whether the specified FeedItem is a member of the collection. 
+            </summary>
+            <param name="value">The FeedItem to locate in the collection.</param>
+            <returns>true if the FeedItem is a member of the collection; otherwise, false. </returns>
+        </member>
+        <member name="M:OpenNETCF.Rss.Data.FeedItemCollection.Contains(System.String)">
+            <summary>
+            Determines whether the specified FeedItem is a member of the collection. 
+            </summary>
+            <param name="key">The FeedItem unique id to locate in the collection.</param>
+            <returns>true if the FeedItem is a member of the collection; otherwise, false.</returns>
+        </member>
+        <member name="M:OpenNETCF.Rss.Data.FeedItemCollection.IndexOf(OpenNETCF.Rss.Data.FeedItem)">
+            <summary>
+            Retrieves the index of the specified FeedItem in the collection.
+            </summary>
+            <param name="value"> The FeedItem to locate in the collection.</param>
+            <returns>A zero-based index value that represents the position of the specified FeedItem in the FeedItemCollection . </returns>
+        </member>
+        <member name="M:OpenNETCF.Rss.Data.FeedItemCollection.Clear">
+            <summary>
+            Removes all elements from the FeedItemCollection.
             </summary>
         </member>
-        <member name="P:OpenNETCF.Rss.Data.Enclosure.Length">
+        <member name="P:OpenNETCF.Rss.Data.FeedItemCollection.Item(System.Int32)">
             <summary>
-            Gets or sets the length value.
+            Gets or sets the item at the specified index within the collection.
             </summary>
         </member>
-        <member name="P:OpenNETCF.Rss.Data.Enclosure.Type">
+        <member name="P:OpenNETCF.Rss.Data.FeedItemCollection.Item(System.String)">
             <summary>
-            Gets or sets the type value.
+            Gets or sets the item by the specified unique id within the collection.
+            </summary>
+        </member>
+        <member name="T:OpenNETCF.Rss.FeedHttpConnection">
+            <summary>
+            Implements HTTP communication.
+            </summary>
+        </member>
+        <member name="M:OpenNETCF.Rss.FeedHttpConnection.#ctor(System.Uri,OpenNETCF.Rss.IFeedSerializer)">
+            <summary>
+            Initializes a new instance of the FeedHttpConnection class.
+            </summary>
+            <param name="destination">The Uri object of the RSS feed.</param>
+            <param name="serializer">The serializer object.</param>
+        </member>
+        <member name="M:OpenNETCF.Rss.FeedHttpConnection.Receive">
+            <summary>
+            Performs a syncronous HTTP retreival of the RSS feed.
+            </summary>
+            <returns>A Feed object.</returns>
+        </member>
+        <member name="M:OpenNETCF.Rss.FeedHttpConnection.BeginReceive(System.AsyncCallback)">
+            <summary>
+            Starts an asyncronous HTTP feed retreival.
+            </summary>
+            <param name="callBack"></param>
+            <returns>An System.IAsyncResult object that represents the result of the BeginReceive operation.</returns>
+        </member>
+        <member name="M:OpenNETCF.Rss.FeedHttpConnection.EndReceive(System.IAsyncResult)">
+            <summary>
+            Retrieves the return value of the asynchronous operation represented by the System.IAsyncResult object passed.  
+            </summary>
+            <param name="ar">The System.IAsyncResult object that represents a specific invoke asynchronous operation, returned when calling BeginReceive.</param>
+            <returns>A Feed object.</returns>
+        </member>
+        <member name="M:OpenNETCF.Rss.FeedHttpConnection.Close">
+            <summary>
+            Closes the current Response object.
+            </summary>
+        </member>
+        <member name="P:OpenNETCF.Rss.FeedHttpConnection.Destination">
+            <summary>
+            Gets the Uri destination.
+            </summary>
+        </member>
+        <member name="P:OpenNETCF.Rss.FeedHttpConnection.ReceiveTimeout">
+            <summary>
+            Gets ot sets the receive timeout.
+            </summary>
+        </member>
+        <member name="T:OpenNETCF.Rss.Data.Feed">
+            <summary>
+            Identifies the Feed of a RSS feed.
+            </summary>
+        </member>
+        <member name="M:OpenNETCF.Rss.Data.Feed.#ctor">
+            <summary>
+            Initializes a new instance of the Feed class.
+            </summary>
+        </member>
+        <member name="P:OpenNETCF.Rss.Data.Feed.Items">
+            <summary>
+            Gets or sets feed items.
+            </summary>
+        </member>
+        <member name="P:OpenNETCF.Rss.Data.Feed.Title">
+            <summary>
+            Gets or sets feed title.
+            </summary>
+        </member>
+        <member name="P:OpenNETCF.Rss.Data.Feed.Link">
+            <summary>
+            Gets or sets feed link.
+            </summary>
+        </member>
+        <member name="P:OpenNETCF.Rss.Data.Feed.Description">
+            <summary>
+            Gets or sets feed description.
+            </summary>
+        </member>
+        <member name="P:OpenNETCF.Rss.Data.Feed.Copyright">
+            <summary>
+            Gets or sets feed copyright.
+            </summary>
+        </member>
+        <member name="P:OpenNETCF.Rss.Data.Feed.PubDate">
+            <summary>
+            Gets or sets feed pubDate.
+            </summary>
+        </member>
+        <member name="P:OpenNETCF.Rss.Data.Feed.LastBuildDate">
+            <summary>
+            Gets or sets feed LastBuildDate.
             </summary>
         </member>
         <member name="T:OpenNETCF.Rss.Data.ContentType">
@@ -533,142 +866,6 @@
         </member>
         <member name="F:OpenNETCF.Rss.Data.ContentType.Xhtml">
             <summary>XHTML formated</summary>
-        </member>
-        <member name="M:OpenNETCF.Rss.Utils.StringHelper.EmptyOrNull(System.String)">
-            <summary>
-            Helper to test strings.
-            </summary>
-            <param name="text">String to test</param>
-            <returns>True, if 'text' was null or of length zero</returns>
-            <remarks>No trimming of the string happens</remarks>
-        </member>
-        <member name="M:OpenNETCF.Rss.Utils.StringHelper.EmptyTrimOrNull(System.String)">
-            <summary>
-            Helper to test strings.
-            </summary>
-            <param name="text">String to test</param>
-            <returns>True, if 'text' was null or of length zero</returns>
-            <remarks>Trimming of the string happens</remarks>
-        </member>
-        <member name="M:OpenNETCF.Rss.Utils.StringHelper.SizeOfStr(System.String)">
-            <summary>
-            Return the size of a string in byte. Consider, if it is null.
-            </summary>
-            <param name="s">String</param>
-            <returns>Size in bytes</returns>
-        </member>
-        <member name="M:OpenNETCF.Rss.Utils.StringHelper.LengthOfStr(System.String)">
-            <summary>
-            Return the length of a string. Consider, if it is null.
-            </summary>
-            <param name="s">String</param>
-            <returns>Length</returns>
-        </member>
-        <member name="M:OpenNETCF.Rss.Utils.StringHelper.ShortenByEllipsis(System.String,System.Int32)">
-            <summary>
-            Cuts the provided string at allowedLength - 3 (ellipsis length)
-            </summary>
-            <param name="text">string to work on</param>
-            <param name="allowedLength">Max. length of the string to return</param>
-            <returns>string that ends with ellipsis (...)</returns>
-            <remarks>Considers newline and linefeed</remarks>
-        </member>
-        <member name="M:OpenNETCF.Rss.Utils.StringHelper.GetFirstWords(System.String,System.Int32)">
-            <summary>
-            Return the first amount of words defined by 'wordCount' contained in 'text'.
-            </summary>
-            <param name="text">String to work on</param>
-            <param name="wordCount">Amount of words to look for</param>
-            <returns>String containing only the first x words.</returns>
-            <remarks>Word delimiters are: linefeed, carrige return, tab and space</remarks>
-        </member>
-        <member name="M:OpenNETCF.Rss.Utils.StringHelper.IsEMailAddress(System.String)">
-            <summary>
-            Tests the <c>text</c> for a valid e-Mail address and returns true,
-            if the content match, else false. 
-            </summary>
-            <param name="text">String to test</param>
-            <returns>True if it looks like a valid e-Mail address, else false.</returns>
-        </member>
-        <member name="M:OpenNETCF.Rss.Utils.StringHelper.GetEMailAddress(System.String)">
-            <summary>
-            Gets the Email address within a selection of text.
-            </summary>
-            <param name="text">Text.</param>
-            <returns></returns>
-        </member>
-        <member name="M:OpenNETCF.Rss.Utils.StringHelper.AreEqualCaseInsensitive(System.String,System.String)">
-            <summary>
-            Performs case insensitive check on whether the strings are equal.
-            </summary>
-            <param name="original">Original.</param>
-            <param name="comparand">Comparand.</param>
-            <returns></returns>
-        </member>
-        <member name="T:OpenNETCF.Rss.Configuration.StorageConfiguration">
-            <summary>
-            Summary description for StorageConfiguration.
-            </summary>
-        </member>
-        <member name="M:OpenNETCF.Rss.Configuration.StorageConfiguration.#ctor">
-            <summary>
-            Initializes a new instance of the TransportConfiguration class.
-            </summary>
-        </member>
-        <member name="M:OpenNETCF.Rss.Configuration.StorageConfiguration.Load(System.Xml.XmlNode)">
-            <summary>
-            Loads storage setings from config file.
-            </summary>
-            <param name="section">The XmlNode section from the config file.</param>
-        </member>
-        <member name="M:OpenNETCF.Rss.Configuration.StorageConfiguration.GetProvider">
-            <summary>
-            Returns the storage provider by the given scheme.
-            </summary>		
-            <returns></returns>
-        </member>
-        <member name="T:OpenNETCF.Rss.IFeedSerializer">
-            <summary>
-            Defines the members for a Feed serializer. 
-            </summary>
-        </member>
-        <member name="M:OpenNETCF.Rss.IFeedSerializer.Deserialize(System.IO.Stream)">
-            <summary>
-            Deserializes a Feed from the specified stream. 
-            </summary>
-            <param name="stream">A System.IO.Stream that contains the Feed to deserialize.</param>
-            <returns></returns>
-        </member>
-        <member name="M:OpenNETCF.Rss.IFeedSerializer.Serialize(OpenNETCF.Rss.Data.Feed,System.IO.Stream)">
-            <summary>
-            Serializes the specified Feed into the specified stream. 
-            </summary>
-            <param name="feed">A Feed to serialize into the stream.</param>
-            <param name="stream">A System.IO.Stream to serialize the Feed into.</param>
-        </member>
-        <member name="T:OpenNETCF.Rss.FeedSerializer">
-            <summary>
-            Implements feed serializer class
-            </summary>
-        </member>
-        <member name="M:OpenNETCF.Rss.FeedSerializer.#ctor">
-            <summary>
-            Initializes a new instance of the FeedSerializer.
-            </summary>
-        </member>
-        <member name="M:OpenNETCF.Rss.FeedSerializer.Deserialize(System.IO.Stream)">
-            <summary>
-            Creates a Feed object from an XML stream.
-            </summary>
-            <param name="stream">An XML stream.</param>
-            <returns>A Feed object.</returns>
-        </member>
-        <member name="M:OpenNETCF.Rss.FeedSerializer.Serialize(OpenNETCF.Rss.Data.Feed,System.IO.Stream)">
-            <summary>
-            Serializes the Feed object into XML stream.
-            </summary>
-            <param name="feed">The Feed object.</param>
-            <param name="stream">The Stream object.</param>
         </member>
         <member name="T:OpenNETCF.Rss.Utility">
             <summary>
@@ -741,236 +938,39 @@
             Gets the current feed storage.
             </summary>
         </member>
-        <member name="T:OpenNETCF.Rss.Data.FeedItemCollection">
+        <member name="T:OpenNETCF.Rss.Data.OpmlItem">
             <summary>
-            Represents a collection of FeedItem objects 
+            Identifies the OPML item.
             </summary>
         </member>
-        <member name="M:OpenNETCF.Rss.Data.FeedItemCollection.Add(OpenNETCF.Rss.Data.FeedItem)">
+        <member name="M:OpenNETCF.Rss.Data.OpmlItem.#ctor">
             <summary>
-            Adds the specified FeedItem to the collection.  
-            </summary>
-            <param name="value">The FeedItem to add to the control collection.</param>
-            <returns>The index value of the added FeedItem.</returns>
-        </member>
-        <member name="M:OpenNETCF.Rss.Data.FeedItemCollection.Insert(System.Int32,OpenNETCF.Rss.Data.FeedItem)">
-            <summary>
-            Inserts an existing FeedItem in the feed item collection at the specified location.  
-            </summary>
-            <param name="index"></param>
-            <param name="value"></param>
-        </member>
-        <member name="M:OpenNETCF.Rss.Data.FeedItemCollection.Remove(OpenNETCF.Rss.Data.FeedItem)">
-            <summary>
-            Removes the specified FeedItem from the collection.  
-            </summary>
-            <param name="value"></param>
-        </member>
-        <member name="M:OpenNETCF.Rss.Data.FeedItemCollection.Contains(OpenNETCF.Rss.Data.FeedItem)">
-            <summary>
-            Determines whether the specified FeedItem is a member of the collection. 
-            </summary>
-            <param name="value">The FeedItem to locate in the collection.</param>
-            <returns>true if the FeedItem is a member of the collection; otherwise, false. </returns>
-        </member>
-        <member name="M:OpenNETCF.Rss.Data.FeedItemCollection.Contains(System.String)">
-            <summary>
-            Determines whether the specified FeedItem is a member of the collection. 
-            </summary>
-            <param name="key">The FeedItem unique id to locate in the collection.</param>
-            <returns>true if the FeedItem is a member of the collection; otherwise, false.</returns>
-        </member>
-        <member name="M:OpenNETCF.Rss.Data.FeedItemCollection.IndexOf(OpenNETCF.Rss.Data.FeedItem)">
-            <summary>
-            Retrieves the index of the specified FeedItem in the collection.
-            </summary>
-            <param name="value"> The FeedItem to locate in the collection.</param>
-            <returns>A zero-based index value that represents the position of the specified FeedItem in the FeedItemCollection . </returns>
-        </member>
-        <member name="M:OpenNETCF.Rss.Data.FeedItemCollection.Clear">
-            <summary>
-            Removes all elements from the FeedItemCollection.
+            Initializes a new instance of the OpmlItem class.
             </summary>
         </member>
-        <member name="P:OpenNETCF.Rss.Data.FeedItemCollection.Item(System.Int32)">
+        <member name="P:OpenNETCF.Rss.Data.OpmlItem.Items">
             <summary>
-            Gets or sets the item at the specified index within the collection.
+            Gets or sets OPML item's sub items
             </summary>
         </member>
-        <member name="P:OpenNETCF.Rss.Data.FeedItemCollection.Item(System.String)">
+        <member name="P:OpenNETCF.Rss.Data.OpmlItem.Title">
             <summary>
-            Gets or sets the item by the specified unique id within the collection.
+            Gets or sets OPML item's Title
             </summary>
         </member>
-        <member name="T:OpenNETCF.Rss.FeedReceiver">
+        <member name="P:OpenNETCF.Rss.Data.OpmlItem.HtmlUrl">
             <summary>
-            Provides a base class for receiving RSS feeds.
+            Gets or sets OPML item's HtmlUrl
             </summary>
         </member>
-        <member name="M:OpenNETCF.Rss.FeedReceiver.Receive(OpenNETCF.Rss.Data.Feed)">
+        <member name="P:OpenNETCF.Rss.Data.OpmlItem.XmlUrl">
             <summary>
-            A callback that receives RSS feed.
-            </summary>
-            <param name="feed"></param>
-        </member>
-        <member name="T:OpenNETCF.Rss.Data.FeedItem">
-            <summary>
-            Identifies the feed item of a RSS feed.
+            Gets or sets OPML item's XmlUrl
             </summary>
         </member>
-        <member name="M:OpenNETCF.Rss.Data.FeedItem.#ctor">
+        <member name="P:OpenNETCF.Rss.Data.OpmlItem.Type">
             <summary>
-            Initializes a new instance of the FeedItem class.
-            </summary>
-        </member>
-        <member name="P:OpenNETCF.Rss.Data.FeedItem.Title">
-            <summary>
-            Gets or sets feed item title.
-            </summary>
-        </member>
-        <member name="P:OpenNETCF.Rss.Data.FeedItem.Link">
-            <summary>
-            Gets or sets feed item link.
-            </summary>
-        </member>
-        <member name="P:OpenNETCF.Rss.Data.FeedItem.Description">
-            <summary>
-            Gets or sets feed item Description.
-            </summary>
-        </member>
-        <member name="P:OpenNETCF.Rss.Data.FeedItem.Author">
-            <summary>
-            Gets or sets feed item Author.
-            </summary>
-        </member>
-        <member name="P:OpenNETCF.Rss.Data.FeedItem.Id">
-            <summary>
-            Gets or sets feed item Id.
-            </summary>
-        </member>
-        <member name="P:OpenNETCF.Rss.Data.FeedItem.ParentId">
-            <summary>
-            Gets or sets feed item ParentId.
-            </summary>
-        </member>
-        <member name="P:OpenNETCF.Rss.Data.FeedItem.PubDate">
-            <summary>
-            Gets or sets feed item PubDate.
-            </summary>
-        </member>
-        <member name="P:OpenNETCF.Rss.Data.FeedItem.Category">
-            <summary>
-            Gets or sets feed item Category.
-            </summary>
-        </member>
-        <member name="P:OpenNETCF.Rss.Data.FeedItem.CommentCount">
-            <summary>
-            Gets or sets feed item CommentCount.
-            </summary>
-        </member>
-        <member name="P:OpenNETCF.Rss.Data.FeedItem.Enclosure">
-            <summary>
-            Gets or sets feed item Enclosure.
-            </summary>
-        </member>
-        <member name="P:OpenNETCF.Rss.Data.FeedItem.Parent">
-            <summary>
-            Gets or sets feed item Enclosure.
-            </summary>
-        </member>
-        <member name="P:OpenNETCF.Rss.Data.FeedItem.DirtyFlag">
-            <summary>
-            Gets or sets internal flag to indictate new item.
-            </summary>
-        </member>
-        <member name="P:OpenNETCF.Rss.Data.FeedItem.OptionalElements">
-            <summary>
-            Gets or sets feed item OptionalElements.
-            </summary>
-        </member>
-        <member name="T:OpenNETCF.Rss.FeedHttpInputChannel">
-            <summary>
-            Defines an HTTP connection that allowes feeds received from a given destination.
-            </summary>
-        </member>
-        <member name="M:OpenNETCF.Rss.FeedHttpInputChannel.#ctor(System.Uri,OpenNETCF.Rss.FeedHttpTransport)">
-            <summary>
-            Initializes a new instance of the FeedHttpInputChannel class with the specified destination and transport. 
-            </summary>
-            <param name="destination">An Uri that represents the target destination for the channel.</param>
-            <param name="transport">A FeedHttpTransport that represents the transport for the channel.</param>
-        </member>
-        <member name="M:OpenNETCF.Rss.FeedHttpInputChannel.BeginReceive(System.AsyncCallback,System.Object)">
-            <summary>
-            Starts asyncronous retreival of the RSS Feed.
-            </summary>
-            <param name="callback">An System.AsyncCallback that represents the callback method.</param>
-            <param name="state">An object that can be used to access state information for the asynchronous operation.</param>
-            <returns>The System.IAsyncResult that identifies the asynchronous request. </returns>
-        </member>
-        <member name="M:OpenNETCF.Rss.FeedHttpInputChannel.EndReceive(System.IAsyncResult)">
-            <summary>
-            Ends a pending asynchronous receive operation. 
-            </summary>
-            <param name="result">The System.IAsyncResult that identifies the asynchronous receive operation to finish.</param>
-            <returns>A Feed object that is received. </returns>
-        </member>
-        <member name="M:OpenNETCF.Rss.FeedHttpInputChannel.Receive">
-            <summary>
-            Receives a RSS feed on the channel. 
-            </summary>
-            <returns>A Feed object.</returns>
-        </member>
-        <member name="P:OpenNETCF.Rss.FeedHttpInputChannel.InputChannels">
-            <summary>
-            Gets colection of input channels.
-            </summary>
-        </member>
-        <member name="T:OpenNETCF.Rss.FeedHttpConnection">
-            <summary>
-            Implements HTTP communication.
-            </summary>
-        </member>
-        <member name="M:OpenNETCF.Rss.FeedHttpConnection.#ctor(System.Uri,OpenNETCF.Rss.IFeedSerializer)">
-            <summary>
-            Initializes a new instance of the FeedHttpConnection class.
-            </summary>
-            <param name="destination">The Uri object of the RSS feed.</param>
-            <param name="serializer">The serializer object.</param>
-        </member>
-        <member name="M:OpenNETCF.Rss.FeedHttpConnection.Receive">
-            <summary>
-            Performs a syncronous HTTP retreival of the RSS feed.
-            </summary>
-            <returns>A Feed object.</returns>
-        </member>
-        <member name="M:OpenNETCF.Rss.FeedHttpConnection.BeginReceive(System.AsyncCallback)">
-            <summary>
-            Starts an asyncronous HTTP feed retreival.
-            </summary>
-            <param name="callBack"></param>
-            <returns>An System.IAsyncResult object that represents the result of the BeginReceive operation.</returns>
-        </member>
-        <member name="M:OpenNETCF.Rss.FeedHttpConnection.EndReceive(System.IAsyncResult)">
-            <summary>
-            Retrieves the return value of the asynchronous operation represented by the System.IAsyncResult object passed.  
-            </summary>
-            <param name="ar">The System.IAsyncResult object that represents a specific invoke asynchronous operation, returned when calling BeginReceive.</param>
-            <returns>A Feed object.</returns>
-        </member>
-        <member name="M:OpenNETCF.Rss.FeedHttpConnection.Close">
-            <summary>
-            Closes the current Response object.
-            </summary>
-        </member>
-        <member name="P:OpenNETCF.Rss.FeedHttpConnection.Destination">
-            <summary>
-            Gets the Uri destination.
-            </summary>
-        </member>
-        <member name="P:OpenNETCF.Rss.FeedHttpConnection.ReceiveTimeout">
-            <summary>
-            Gets ot sets the receive timeout.
+            Gets or sets OPML item's Type
             </summary>
         </member>
     </members>
