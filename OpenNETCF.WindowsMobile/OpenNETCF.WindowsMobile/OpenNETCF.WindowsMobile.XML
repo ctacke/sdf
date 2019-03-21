@@ -4,39 +4,54 @@
         <name>OpenNETCF.WindowsMobile</name>
     </assembly>
     <members>
-        <member name="T:OpenNETCF.WindowsMobile.Forms.VoiceRecorderStyles">
+        <member name="T:OpenNETCF.WindowsMobile.Vibrate">
             <summary>
-            Specifies values representing possible states for an <see cref="T:OpenNETCF.WindowsMobile.Forms.VoiceRecorder">Voice Recorder</see> control.
+            Controls vibration on the device.
+            </summary>
+            <remarks>Supported only on Smartphone. Previously named <b>OpenNETCF.Notification.Vibrate</b>. Vibration equipped Pocket PC devices emulate the Vibration motor as a notification Led.</remarks>
+            <platform><os>Windows Mobile 2003 for Smartphone</os></platform>
+        </member>
+        <member name="M:OpenNETCF.WindowsMobile.Vibrate.Play">
+            <summary>
+            Plays the default looping vibration on the device.
+            </summary>
+            <returns>TRUE if vibration started successfully else FALSE.</returns>
+            <platform><os>Pocket PC Phone Edition, Windows Mobile 2003 for Smartphone</os></platform>
+            <preliminary/>
+        </member>
+        <member name="M:OpenNETCF.WindowsMobile.Vibrate.Stop">
+            <summary>
+            Stops any current vibration.
+            </summary>
+            <returns>TRUE on success else FALSE.</returns>
+            <platform><os>Pocket PC Phone Edition, Windows Mobile 2003 for Smartphone</os></platform>
+            <preliminary/>
+        </member>
+        <member name="M:OpenNETCF.WindowsMobile.Vibrate.GetDeviceCaps(OpenNETCF.WindowsMobile.Vibrate.VibrationCapabilities)">
+            <summary>
+            Gets the current device vibration capabilities.
+            </summary>
+            <param name="caps">Member of the VibrationCapabilities enumeration identifying what capability to query.</param>
+            <returns>0 if the capability is not supported, 1 if a single level is supported or a value between 2 and 7 if multiple levels are supported.</returns>
+            <remarks>This function returns the number of vibration steps (a number from 0 to 7) that the device hardware supports for the requested vibration capability.</remarks>
+            <platform><os>Pocket PC Phone Edition, Windows Mobile 2003 for Smartphone</os></platform>
+            <preliminary/>
+        </member>
+        <member name="T:OpenNETCF.WindowsMobile.Vibrate.VibrationCapabilities">
+            <summary>
+            Used by the GetDeviceCaps function to query the device vibration capabilities.
+            </summary>
+            <platform><os>Pocket PC Phone Edition, Windows Mobile 2003 for Smartphone</os></platform>
+            <preliminary/>
+        </member>
+        <member name="F:OpenNETCF.WindowsMobile.Vibrate.VibrationCapabilities.Amplitude">
+            <summary>
+            Query the amplitude that the device supports.
             </summary>
         </member>
-        <member name="F:OpenNETCF.WindowsMobile.Forms.VoiceRecorderStyles.NoOKCancel">
+        <member name="F:OpenNETCF.WindowsMobile.Vibrate.VibrationCapabilities.Frequency">
             <summary>
-            The <b>OK/CANCEL</b> is not displayed. 
-            </summary>
-        </member>
-        <member name="F:OpenNETCF.WindowsMobile.Forms.VoiceRecorderStyles.NoOK">
-            <summary>
-            The <b>OK</b> is not displayed. 
-            </summary>
-        </member>
-        <member name="F:OpenNETCF.WindowsMobile.Forms.VoiceRecorderStyles.NoRecord">
-            <summary>
-            No <b>RECORD</b> button displayed.
-            </summary>
-        </member>
-        <member name="F:OpenNETCF.WindowsMobile.Forms.VoiceRecorderStyles.PlayMode">
-            <summary>
-            Immediatly play supplied file when launched.
-            </summary>
-        </member>
-        <member name="F:OpenNETCF.WindowsMobile.Forms.VoiceRecorderStyles.RecordMode">
-            <summary>
-            Immediately record when launched.
-            </summary>
-        </member>
-        <member name="F:OpenNETCF.WindowsMobile.Forms.VoiceRecorderStyles.StopDismiss">
-            <summary>
-            Dismiss control when stopped.
+            Query the frequency that the device supports.
             </summary>
         </member>
         <member name="T:OpenNETCF.WindowsMobile.Forms.VoiceRecorder">
@@ -164,54 +179,39 @@
             Notification structure received from the voice control.
             </summary>
         </member>
-        <member name="T:OpenNETCF.WindowsMobile.Vibrate">
+        <member name="T:OpenNETCF.WindowsMobile.Forms.VoiceRecorderStyles">
             <summary>
-            Controls vibration on the device.
-            </summary>
-            <remarks>Supported only on Smartphone. Previously named <b>OpenNETCF.Notification.Vibrate</b>. Vibration equipped Pocket PC devices emulate the Vibration motor as a notification Led.</remarks>
-            <platform><os>Windows Mobile 2003 for Smartphone</os></platform>
-        </member>
-        <member name="M:OpenNETCF.WindowsMobile.Vibrate.Play">
-            <summary>
-            Plays the default looping vibration on the device.
-            </summary>
-            <returns>TRUE if vibration started successfully else FALSE.</returns>
-            <platform><os>Pocket PC Phone Edition, Windows Mobile 2003 for Smartphone</os></platform>
-            <preliminary/>
-        </member>
-        <member name="M:OpenNETCF.WindowsMobile.Vibrate.Stop">
-            <summary>
-            Stops any current vibration.
-            </summary>
-            <returns>TRUE on success else FALSE.</returns>
-            <platform><os>Pocket PC Phone Edition, Windows Mobile 2003 for Smartphone</os></platform>
-            <preliminary/>
-        </member>
-        <member name="M:OpenNETCF.WindowsMobile.Vibrate.GetDeviceCaps(OpenNETCF.WindowsMobile.Vibrate.VibrationCapabilities)">
-            <summary>
-            Gets the current device vibration capabilities.
-            </summary>
-            <param name="caps">Member of the VibrationCapabilities enumeration identifying what capability to query.</param>
-            <returns>0 if the capability is not supported, 1 if a single level is supported or a value between 2 and 7 if multiple levels are supported.</returns>
-            <remarks>This function returns the number of vibration steps (a number from 0 to 7) that the device hardware supports for the requested vibration capability.</remarks>
-            <platform><os>Pocket PC Phone Edition, Windows Mobile 2003 for Smartphone</os></platform>
-            <preliminary/>
-        </member>
-        <member name="T:OpenNETCF.WindowsMobile.Vibrate.VibrationCapabilities">
-            <summary>
-            Used by the GetDeviceCaps function to query the device vibration capabilities.
-            </summary>
-            <platform><os>Pocket PC Phone Edition, Windows Mobile 2003 for Smartphone</os></platform>
-            <preliminary/>
-        </member>
-        <member name="F:OpenNETCF.WindowsMobile.Vibrate.VibrationCapabilities.Amplitude">
-            <summary>
-            Query the amplitude that the device supports.
+            Specifies values representing possible states for an <see cref="T:OpenNETCF.WindowsMobile.Forms.VoiceRecorder">Voice Recorder</see> control.
             </summary>
         </member>
-        <member name="F:OpenNETCF.WindowsMobile.Vibrate.VibrationCapabilities.Frequency">
+        <member name="F:OpenNETCF.WindowsMobile.Forms.VoiceRecorderStyles.NoOKCancel">
             <summary>
-            Query the frequency that the device supports.
+            The <b>OK/CANCEL</b> is not displayed. 
+            </summary>
+        </member>
+        <member name="F:OpenNETCF.WindowsMobile.Forms.VoiceRecorderStyles.NoOK">
+            <summary>
+            The <b>OK</b> is not displayed. 
+            </summary>
+        </member>
+        <member name="F:OpenNETCF.WindowsMobile.Forms.VoiceRecorderStyles.NoRecord">
+            <summary>
+            No <b>RECORD</b> button displayed.
+            </summary>
+        </member>
+        <member name="F:OpenNETCF.WindowsMobile.Forms.VoiceRecorderStyles.PlayMode">
+            <summary>
+            Immediatly play supplied file when launched.
+            </summary>
+        </member>
+        <member name="F:OpenNETCF.WindowsMobile.Forms.VoiceRecorderStyles.RecordMode">
+            <summary>
+            Immediately record when launched.
+            </summary>
+        </member>
+        <member name="F:OpenNETCF.WindowsMobile.Forms.VoiceRecorderStyles.StopDismiss">
+            <summary>
+            Dismiss control when stopped.
             </summary>
         </member>
         <member name="T:OpenNETCF.WindowsMobile.Forms.InkX">

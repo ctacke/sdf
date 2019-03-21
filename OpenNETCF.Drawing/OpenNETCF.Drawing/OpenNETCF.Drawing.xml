@@ -4,548 +4,6 @@
         <name>OpenNETCF.Drawing</name>
     </assembly>
     <members>
-        <member name="T:OpenNETCF.Win32.BitmapFileHeader">
-            <summary>
-            This structure contains information about the type, size, and layout of a file that containing a device-independent bitmap (DIB).
-            </summary>
-            <remarks>Wraps the native <b>BITMAPFILEHEADER</b> structure</remarks>
-        </member>
-        <member name="P:OpenNETCF.Win32.BitmapFileHeader.Type">
-            <summary>
-            Specifies the file type. It must be BM.
-            </summary>
-        </member>
-        <member name="P:OpenNETCF.Win32.BitmapFileHeader.Size">
-            <summary>
-            Specifies the size, in bytes, of the bitmap file.
-            </summary>
-        </member>
-        <member name="P:OpenNETCF.Win32.BitmapFileHeader.OffBits">
-            <summary>
-            Specifies the offset, in bytes, from the <b>BitmapFileHeader</b> structure to the bitmap bits.
-            </summary>
-        </member>
-        <member name="P:OpenNETCF.Win32.BitmapFileHeader.Data">
-            <summary>
-            Internal data
-            </summary>
-        </member>
-        <member name="T:OpenNETCF.Drawing.Imaging.IImageSink">
-            <summary>
-            This interface allows an image source, such as an image decoder, and an image sink to exchange data. 
-            The most important interaction between the source and the sink happens when they negotiate data transfer 
-            parameters during the call to the IImageSink::BeginSink method
-            </summary>
-        </member>
-        <member name="M:OpenNETCF.Drawing.Imaging.IImageSink.BeginSink(OpenNETCF.Drawing.Imaging.ImageInfo@,OpenNETCF.Drawing.Imaging.RECT@)">
-            <summary>
-            Begin the sink process
-            </summary>
-            <param name="imageInfo"></param>
-            <param name="subarea"></param>
-            <returns></returns>
-        </member>
-        <member name="M:OpenNETCF.Drawing.Imaging.IImageSink.EndSink(System.Int32)">
-            <summary>
-            End the sink process
-            </summary>
-            <param name="statusCode"></param>
-            <returns></returns>
-        </member>
-        <member name="M:OpenNETCF.Drawing.Imaging.IImageSink.SetPalette(OpenNETCF.Drawing.Imaging.ColorPalette@)">
-            <summary>
-            Pass the color palette to the image sink
-            </summary>
-            <param name="palette"></param>
-            <returns></returns>
-        </member>
-        <member name="M:OpenNETCF.Drawing.Imaging.IImageSink.GetPixelDataBuffer(OpenNETCF.Drawing.Imaging.RECT,System.Drawing.Imaging.PixelFormat,System.Boolean,OpenNETCF.Drawing.Imaging.BitmapDataInternal@)">
-            <summary>
-            Ask the sink to allocate pixel data buffer
-            </summary>
-            <param name="rect"></param>
-            <param name="pixelFormat"></param>
-            <param name="lastPass"></param>
-            <param name="bitmapData"></param>
-            <returns></returns>
-        </member>
-        <member name="M:OpenNETCF.Drawing.Imaging.IImageSink.ReleasePixelDataBuffer(OpenNETCF.Drawing.Imaging.BitmapDataInternal@)">
-            <summary>
-            Give the sink pixel data and release data buffer
-            </summary>
-            <param name="bitmapData"></param>
-            <returns></returns>
-        </member>
-        <member name="M:OpenNETCF.Drawing.Imaging.IImageSink.PushPixelData(OpenNETCF.Drawing.Imaging.RECT,OpenNETCF.Drawing.Imaging.BitmapDataInternal@,System.Boolean)">
-            <summary>
-            Push pixel data
-            </summary>
-            <param name="rect"></param>
-            <param name="bitmapData"></param>
-            <param name="lastPass"></param>
-            <returns></returns>
-        </member>
-        <member name="M:OpenNETCF.Drawing.Imaging.IImageSink.PushRawData(System.IntPtr,System.UInt32)">
-            <summary>
-            Push raw image data
-            </summary>
-            <param name="buffer"></param>
-            <param name="bufsize"></param>
-            <returns></returns>
-        </member>
-        <member name="M:OpenNETCF.Drawing.Imaging.IImageSink.NeedTransform(System.UInt32@)">
-            <summary>
-            This method is used by an image source to determine whether an image 
-            sink should rotate an image and by how much it should rotate the image
-            </summary>
-            <param name="rotation"></param>
-            <returns></returns>
-        </member>
-        <member name="M:OpenNETCF.Drawing.Imaging.IImageSink.NeedRawProperty">
-            <summary>
-            This method is used by an image source to determine whether an image sink can accept raw properties
-            </summary>
-            <returns></returns>
-        </member>
-        <member name="M:OpenNETCF.Drawing.Imaging.IImageSink.PushRawInfo(System.Byte[])">
-            <summary>
-            This method is used by an image source to send raw information about an image to an image sink
-            </summary>
-            <param name="info"></param>
-            <returns></returns>
-        </member>
-        <member name="M:OpenNETCF.Drawing.Imaging.IImageSink.GetPropertyBuffer(System.Int32,System.IntPtr)">
-            <summary>
-            Retrieves a property as a blob
-            </summary>
-            <param name="uiTotalBufferSize"></param>
-            <param name="ppBuffer"></param>
-            <returns></returns>
-        </member>
-        <member name="T:OpenNETCF.Drawing.GraphicsEx">
-            <summary>
-            Encapsulates a GDI+ drawing surface.
-            </summary>
-        </member>
-        <member name="M:OpenNETCF.Drawing.GraphicsEx.CopyFromScreen(System.Int32,System.Int32,System.Int32,System.Int32,System.Drawing.Size)">
-            <summary>
-            Performs a bit-block transfer of the color data, corresponding to a rectangle of pixels, from the screen to the drawing surface of the GraphicsEx. 
-            </summary>
-            <param name="sourceX">The x-coordinate of the point at the upper-left corner of the source rectangle.</param>
-            <param name="sourceY">The y-coordinate of the point at the upper-left corner of the source rectangle</param>
-            <param name="destinationX">The x-coordinate of the point at the upper-left corner of the destination rectangle.</param>
-            <param name="destinationY">The y-coordinate of the point at the upper-left corner of the destination rectangle.</param>
-            <param name="blockRegionSize">The size of the area to be transferred.</param>
-        </member>
-        <member name="M:OpenNETCF.Drawing.GraphicsEx.CopyFromScreen(System.Int32,System.Int32,System.Int32,System.Int32,System.Drawing.Size,OpenNETCF.Drawing.CopyPixelOperation)">
-            <summary>
-            Performs a bit-block transfer of the color data, corresponding to a rectangle of pixels, from the screen to the drawing surface of the GraphicsEx.
-            </summary>
-            <param name="sourceX">The x-coordinate of the point at the upper-left corner of the source rectangle.</param>
-            <param name="sourceY">The y-coordinate of the point at the upper-left corner of the source rectangle</param>
-            <param name="destinationX">The x-coordinate of the point at the upper-left corner of the destination rectangle.</param>
-            <param name="destinationY">The y-coordinate of the point at the upper-left corner of the destination rectangle.</param>
-            <param name="blockRegionSize">The size of the area to be transferred.</param>
-            <param name="copyPixelOperation">One of the <c>CopyPixelOperation</c> values.</param>
-        </member>
-        <member name="M:OpenNETCF.Drawing.GraphicsEx.FromHdc(System.IntPtr)">
-            <summary>
-            Creates a new <see cref="T:OpenNETCF.Drawing.GraphicsEx"/> object from the specified native graphics handle.  
-            </summary>
-            <param name="nativeGraphics">native graphics handle.</param>
-        </member>
-        <member name="M:OpenNETCF.Drawing.GraphicsEx.FromHwnd(System.IntPtr)">
-            <summary>
-            Creates a new <see cref="T:OpenNETCF.Drawing.GraphicsEx"/> object from the specified handle to a window.  
-            </summary>
-            <param name="hwnd">Handle to a window.</param>
-            <returns>This method returns a new <see cref="T:OpenNETCF.Drawing.GraphicsEx"/> object for the specified window handle.  </returns>
-        </member>
-        <member name="M:OpenNETCF.Drawing.GraphicsEx.FromControl(System.Windows.Forms.Control)">
-            <summary>
-            Creates a new <see cref="T:OpenNETCF.Drawing.GraphicsEx"/> object from the specified <see cref="T:System.Windows.Forms.Control"/> object.  
-            </summary>
-            <param name="ctl"><see cref="T:System.Windows.Forms.Control"/> object</param>
-            <returns>This method returns a new OpenNETCF.Drawing.GraphicsEx object for the specified specified Control object.</returns>
-        </member>
-        <member name="M:OpenNETCF.Drawing.GraphicsEx.CompatibleGraphics(System.Windows.Forms.Control)">
-            <summary>
-            Creates a new copy of <see cref="T:OpenNETCF.Drawing.GraphicsEx"/> object from the specified Control object.  
-            </summary>
-            <param name="ctl"><see cref="T:System.Windows.Forms.Control"/> object.</param>
-            <returns>This method returns a new <see cref="T:OpenNETCF.Drawing.GraphicsEx"/> object for the specified specified Control object.</returns>
-        </member>
-        <member name="M:OpenNETCF.Drawing.GraphicsEx.CompatibleGraphics">
-            <summary>
-            Creates a new copy of <see cref="T:OpenNETCF.Drawing.GraphicsEx"/> object from the existing <see cref="T:OpenNETCF.Drawing.GraphicsEx"/> objec.
-            </summary>
-            <returns></returns>
-        </member>
-        <member name="M:OpenNETCF.Drawing.GraphicsEx.CopyGraphics(System.Windows.Forms.Control,System.Drawing.Rectangle)">
-            <summary>
-            Copies the graphics.
-            </summary>
-            <param name="ctl"></param>
-            <param name="rc"></param>
-        </member>
-        <member name="M:OpenNETCF.Drawing.GraphicsEx.CopyGraphics(OpenNETCF.Drawing.GraphicsEx,System.Drawing.Rectangle)">
-            <summary>
-            Copies the graphics.
-            </summary>
-            <param name="gx"></param>
-            <param name="rc"></param>
-        </member>
-        <member name="M:OpenNETCF.Drawing.GraphicsEx.CopyGraphics(System.Windows.Forms.Control,System.Drawing.Rectangle,System.Drawing.Color)">
-            <summary>
-            Copies graphics from <see cref="T:System.Windows.Forms.Control"/> with transparent color.
-            </summary>
-            <param name="ctl">Control to copy graphics from</param>
-            <param name="rc">Rectangle to copy.</param>
-            <param name="transpColor">Transaprent color.</param>
-        </member>
-        <member name="M:OpenNETCF.Drawing.GraphicsEx.DrawRectangle(OpenNETCF.Drawing.PenEx,System.Drawing.Rectangle)">
-            <summary>
-            Draws a rectangle specified by a <see cref="T:System.Drawing.Rectangle"/> structure. 
-            </summary>
-            <param name="pen">A <see cref="T:OpenNETCF.Drawing.PenEx"/> object that determines the color, width, and style of the rectangle. </param>
-            <param name="rc">A <see cref="T:System.Drawing.Rectangle"/> structure that represents the rectangle to draw. </param>
-        </member>
-        <member name="M:OpenNETCF.Drawing.GraphicsEx.DrawRectangle(OpenNETCF.Drawing.PenEx,System.Int32,System.Int32,System.Int32,System.Int32)">
-            <summary>
-            Draws a rectangle.
-            </summary>
-            <param name="pen">A <see cref="T:OpenNETCF.Drawing.PenEx"/> object that determines the color, width, and style of the rectangle. </param>
-            <param name="x">x: x-coordinate of the upper-left corner of the rectangle to draw. </param>
-            <param name="y"> y: y-coordinate of the upper-left corner of the rectangle to draw.  </param>
-            <param name="cx">width: width of the rectangle to draw. </param>
-            <param name="cy">height: Height of the rectangle to draw. </param>
-        </member>
-        <member name="M:OpenNETCF.Drawing.GraphicsEx.MeasureString(System.String,OpenNETCF.Drawing.FontEx,System.Int32)">
-            <summary>
-            Measures the specified string when drawn with the specified <see cref="T:OpenNETCF.Drawing.FontEx"/> object.  
-            </summary>
-            <param name="text">String to measure.</param>
-            <param name="font"><see cref="T:OpenNETCF.Drawing.FontEx"/> object that defines the text format of the string.</param>
-            <param name="width">Width to fit the string.</param>
-            <returns></returns>
-        </member>
-        <member name="M:OpenNETCF.Drawing.GraphicsEx.MeasureString(System.String,OpenNETCF.Drawing.FontEx)">
-            <summary>
-            Measures the specified string when drawn with the specified <see cref="T:OpenNETCF.Drawing.FontEx"/> object.  
-            </summary>
-            <param name="text"><see cref="T:System.String"/> to measure.</param>
-            <param name="font"><see cref="T:OpenNETCF.Drawing.FontEx"/> object that defines the text format of the string.</param>
-            <returns></returns>
-        </member>
-        <member name="M:OpenNETCF.Drawing.GraphicsEx.FillRectangle(System.Drawing.Color,System.Drawing.Rectangle)">
-            <summary>
-            Fills the interior of a rectangle specified by a <see cref="T:System.Drawing.Rectangle"/> structure.  
-            </summary>
-            <param name="color">The <see cref="T:System.Drawing.Color"/> to fill.</param>
-            <param name="rc"><see cref="T:System.Drawing.Rectangle"/> structure that represents the rectangle to fill. </param>
-        </member>
-        <member name="M:OpenNETCF.Drawing.GraphicsEx.DrawString(System.String,OpenNETCF.Drawing.FontEx,System.Drawing.Color,System.Drawing.Rectangle)">
-            <summary>
-            Draws the specified text string at the specified location with the specified <see cref="T:System.Drawing.Color"/> and <see cref="T:OpenNETCF.Drawing.FontEx"/> objects.
-            </summary>
-            <param name="text">String to draw</param>
-            <param name="font"><see cref="T:OpenNETCF.Drawing.FontEx"/> object that defines the text format of the string</param>
-            <param name="textColor">The <see cref="T:System.Drawing.Color"/> of text draw.</param>
-            <param name="rc">Rectangle structure that specifies the location of the drawn text</param>
-        </member>
-        <member name="M:OpenNETCF.Drawing.GraphicsEx.DrawRoundRectangle(OpenNETCF.Drawing.PenEx,System.Drawing.Rectangle,System.Drawing.Size)">
-            <summary>
-            Draws a rectangle with rounded corners.
-            </summary>
-            <param name="pen">A <see cref="T:OpenNETCF.Drawing.PenEx"/> object that determines the color, width, and style of the rectangle</param>
-            <param name="rc">A <see cref="T:System.Drawing.Rectangle"/> structure that represents the rectangle to draw.</param>
-            <param name="size">A <see cref="T:System.Drawing.Size"/> structre that defines the corner radius.</param>
-        </member>
-        <member name="M:OpenNETCF.Drawing.GraphicsEx.DrawEllipse(OpenNETCF.Drawing.PenEx,System.Drawing.Rectangle)">
-            <summary>
-            Draws an ellipse specified by a bounding <see cref="T:System.Drawing.Rectangle"/> structure.
-            </summary>
-            <param name="pen">A <see cref="T:OpenNETCF.Drawing.PenEx"/> object that determines the color, width, and style of the ellipse.</param>
-            <param name="rc">A <see cref="T:System.Drawing.Rectangle"/> structure that represents the rectangle to draw.</param>
-        </member>
-        <member name="M:OpenNETCF.Drawing.GraphicsEx.DrawEllipse(OpenNETCF.Drawing.PenEx,System.Int32,System.Int32,System.Int32,System.Int32)">
-            <summary>
-            Draws an ellipse defined by a bounding rectangle specified by a pair of coordinates, a height, and a width.
-            </summary>
-            <param name="pen">A <see cref="T:OpenNETCF.Drawing.PenEx"/> object that determines the color, width, and style of the ellipse.</param>
-            <param name="x">x-coordinate of the upper-left corner of the bounding rectangle that defines the ellipse.</param>
-            <param name="y">y-coordinate of the upper-left corner of the bounding rectangle that defines the ellipse.</param>
-            <param name="width">Width of the bounding rectangle that defines the ellipse.</param>
-            <param name="height">Height of the bounding rectangle that defines the ellipse.</param>
-        </member>
-        <member name="M:OpenNETCF.Drawing.GraphicsEx.DrawImage(OpenNETCF.Drawing.BitmapEx,System.Int32,System.Int32)">
-            <summary>
-            Draws the specified <see cref="T:OpenNETCF.Drawing.BitmapEx"/> object at the specified location and with the original size.  
-            </summary>
-            <param name="image"><see cref="T:OpenNETCF.Drawing.BitmapEx"/> object to draw.</param>
-            <param name="x">x-coordinate of the upper-left corner of the drawn image.</param>
-            <param name="y">y-coordinate of the upper-top corner of the drawn image.</param>
-        </member>
-        <member name="M:OpenNETCF.Drawing.GraphicsEx.DrawImage(OpenNETCF.Drawing.BitmapEx,System.Drawing.Rectangle,System.Drawing.Rectangle)">
-            <summary>
-            Draws the specified portion of the specified System.Drawing.Image object at the specified location and with the specified size.  
-            </summary>
-            <param name="image"><see cref="T:OpenNETCF.Drawing.BitmapEx"/> object to draw.</param>
-            <param name="destRect"><see cref="T:System.Drawing.Rectangle"/> structure that specifies the location and size of the drawn image.
-            The image is scaled to fit the rectangle.</param>
-            <param name="srcRect"><see cref="T:System.Drawing.Rectangle"/> structure that specifies the portion of the image object to draw.</param>
-        </member>
-        <member name="M:OpenNETCF.Drawing.GraphicsEx.DrawLine(OpenNETCF.Drawing.PenEx,System.Int32,System.Int32,System.Int32,System.Int32)">
-            <summary>
-            Draws a line connecting the two points specified by coordinate pairs.  
-            </summary>
-            <param name="pen">PenEx object that determines the color, width, and style of the line.</param>
-            <param name="xStart">x-coordinate of the first point.</param>
-            <param name="yStart">y-coordinate of the first point.</param>
-            <param name="xEnd">x-coordinate of the second point.</param>
-            <param name="yEnd">x-coordinate of the seconf point.</param>
-        </member>
-        <member name="M:OpenNETCF.Drawing.GraphicsEx.GetHdc">
-            <summary>
-            Gets the handle to the device context associated with this <see cref="T:OpenNETCF.Drawing.GraphicsEx"/> object.
-            </summary>
-            <returns>Handle to the device context associated with this <see cref="T:OpenNETCF.Drawing.GraphicsEx"/> object</returns>
-        </member>
-        <member name="T:OpenNETCF.Drawing.Imaging.Rational">
-            <summary>
-            Holds a Rational number used by imaging properties
-            </summary>
-        </member>
-        <member name="T:OpenNETCF.Drawing.Imaging.SRational">
-            <summary>
-            Holds a Signed Rational number used by imaging properties
-            </summary>
-        </member>
-        <member name="T:OpenNETCF.Win32.GDI">
-            <summary>
-            GDI P/Invokes and definitions.
-            </summary>
-        </member>
-        <member name="M:OpenNETCF.Win32.GDI.SetTextColor(System.IntPtr,System.Int32)">
-            <summary>
-            Set the forecolor of text in the selected DC
-            </summary>
-            <param name="hdc"></param>
-            <param name="crColor"></param>
-            <returns></returns>
-        </member>
-        <member name="M:OpenNETCF.Win32.GDI.GetTextColor(System.IntPtr)">
-            <summary>
-            Get the forecolor of text in the selected DC
-            </summary>
-            <param name="hdc"></param>
-            <returns></returns>
-        </member>
-        <member name="M:OpenNETCF.Win32.GDI.SetBkColor(System.IntPtr,System.Int32)">
-            <summary>
-            Set the backcolor in the selected DC
-            </summary>
-            <param name="hdc"></param>
-            <param name="crColor"></param>
-            <returns></returns>
-        </member>
-        <member name="M:OpenNETCF.Win32.GDI.SetBkMode(System.IntPtr,OpenNETCF.Win32.GDI.BackgroundMode)">
-            <summary>
-            Set the backmode in the selected DC
-            </summary>
-            <param name="hdc"></param>
-            <param name="iBkMode"></param>
-            <returns></returns>
-        </member>
-        <member name="M:OpenNETCF.Win32.GDI.SelectObject(System.IntPtr,System.IntPtr)">
-            <summary>
-            Select a system object (FONT, DC, etc.)
-            </summary>
-            <param name="hdc"></param>
-            <param name="hgdiobj"></param>
-            <returns></returns>
-        </member>
-        <member name="M:OpenNETCF.Win32.GDI.ReleaseDC(System.IntPtr,System.IntPtr)">
-            <summary>
-            Release a Device Context
-            </summary>
-            <param name="hWnd"></param>
-            <param name="hDC"></param>
-        </member>
-        <member name="M:OpenNETCF.Win32.GDI.GetWindowDC(System.IntPtr)">
-            <summary>
-            Get the DC for the specified window
-            </summary>
-            <param name="hWnd">Native window handle of the window.</param>
-            <returns>Device Context Handle for specified window.</returns>
-        </member>
-        <member name="M:OpenNETCF.Win32.GDI.GetDC(System.IntPtr)">
-            <summary>
-            Get the DC for the specified window handle
-            </summary>
-            <param name="hWnd"></param>
-            <returns></returns>
-        </member>
-        <member name="M:OpenNETCF.Win32.GDI.Rectangle(System.IntPtr,System.Int32,System.Int32,System.Int32,System.Int32)">
-            <summary>
-            Draw a rectangle in a DC
-            </summary>
-            <param name="hdc"></param>
-            <param name="nLeftRect"></param>
-            <param name="nTopRect"></param>
-            <param name="nRightRect"></param>
-            <param name="nBottomRect"></param>
-        </member>
-        <member name="M:OpenNETCF.Win32.GDI.GetObject(System.IntPtr,System.Int32,System.Byte[])">
-            <summary>
-            This function obtains information about a specified graphics object.
-            </summary>
-            <param name="hObj">Handle to the graphics object of interest.</param>
-            <param name="cb">Specifies the number of bytes of information to be written to the buffer.</param>
-            <param name="objdata">a buffer that is to receive the information about the specified graphics object.</param>
-            <returns>If the function succeeds, and lpvObject is a valid pointer, the return value is the number of bytes stored into the buffer.</returns>
-        </member>
-        <member name="M:OpenNETCF.Win32.GDI.GetObject(System.IntPtr,System.Int32,OpenNETCF.Win32.DibSection)">
-            <summary>
-            This function obtains information about a specified graphics object.
-            </summary>
-            <param name="hObj">Handle to the graphics object of interest.</param>
-            <param name="cb">Specifies the number of bytes of information to be written to the buffer.</param>
-            <param name="objdata">a buffer that is to receive the information about the specified graphics object.</param>
-            <returns>If the function succeeds, and lpvObject is a valid pointer, the return value is the number of bytes stored into the buffer.</returns>
-        </member>
-        <member name="M:OpenNETCF.Win32.GDI.CreateSolidBrush(System.Int32)">
-            <summary>
-            This function creates a logical brush that has the specified solid color.
-            </summary>
-            <param name="crColor">Specifies the color of the brush.</param>
-            <returns>A handle that identifies a logical brush indicates success.</returns>
-        </member>
-        <member name="T:OpenNETCF.Win32.GDI.RegionFlags">
-            <summary>
-            Region type
-            </summary>
-        </member>
-        <member name="F:OpenNETCF.Win32.GDI.RegionFlags.ERROR">
-            <summary>
-            
-            </summary>
-        </member>
-        <member name="F:OpenNETCF.Win32.GDI.RegionFlags.NULLREGION">
-            <summary>
-            
-            </summary>
-        </member>
-        <member name="F:OpenNETCF.Win32.GDI.RegionFlags.SIMPLEREGION">
-            <summary>
-            
-            </summary>
-        </member>
-        <member name="F:OpenNETCF.Win32.GDI.RegionFlags.COMPLEXREGION">
-            <summary>
-            
-            </summary>
-        </member>
-        <member name="T:OpenNETCF.Win32.GDI.BackgroundMode">
-            <summary>
-            Background mode
-            </summary>
-        </member>
-        <member name="F:OpenNETCF.Win32.GDI.BackgroundMode.TRANSPARENT">
-            <summary>
-            Background is Transparent.
-            </summary>
-        </member>
-        <member name="F:OpenNETCF.Win32.GDI.BackgroundMode.OPAQUE">
-            <summary>
-            Background is Opaque.
-            </summary>
-        </member>
-        <member name="T:OpenNETCF.Drawing.RotateFlipType">
-            <summary>
-            Specifies the direction of an image's rotation and the axis used to flip the image.
-            </summary>
-        </member>
-        <member name="F:OpenNETCF.Drawing.RotateFlipType.Rotate180FlipXY">
-            <summary>
-            Specifies a 180-degree rotation followed by a horizontal and vertical flip.
-            </summary>
-        </member>
-        <member name="F:OpenNETCF.Drawing.RotateFlipType.RotateNoneFlipNone">
-            <summary>
-            Specifies no rotation and no flipping.
-            </summary>
-        </member>
-        <member name="F:OpenNETCF.Drawing.RotateFlipType.Rotate270FlipXY">
-            <summary>
-            Specifies a 270-degree rotation followed by a horizontal and vertical flip.
-            </summary>
-        </member>
-        <member name="F:OpenNETCF.Drawing.RotateFlipType.Rotate90FlipNone">
-            <summary>
-            Specifies a 90-degree rotation without flipping.
-            </summary>
-        </member>
-        <member name="F:OpenNETCF.Drawing.RotateFlipType.Rotate180FlipNone">
-            <summary>
-            Specifies a 180-degree rotation without flipping.
-            </summary>
-        </member>
-        <member name="F:OpenNETCF.Drawing.RotateFlipType.RotateNoneFlipXY">
-            <summary>
-            Specifies no rotation followed by a horizontal and vertical flip.
-            </summary>
-        </member>
-        <member name="F:OpenNETCF.Drawing.RotateFlipType.Rotate270FlipNone">
-            <summary>
-            Specifies a 270-degree rotation without flipping.
-            </summary>
-        </member>
-        <member name="F:OpenNETCF.Drawing.RotateFlipType.Rotate90FlipXY">
-            <summary>
-            Specifies a 90-degree rotation followed by a horizontal and vertical flip.
-            </summary>
-        </member>
-        <member name="F:OpenNETCF.Drawing.RotateFlipType.Rotate180FlipY">
-            <summary>
-            Specifies a 180-degree rotation followed by a vertical flip.
-            </summary>
-        </member>
-        <member name="F:OpenNETCF.Drawing.RotateFlipType.RotateNoneFlipX">
-            <summary>
-            Specifies no rotation followed by a horizontal flip.
-            </summary>
-        </member>
-        <member name="F:OpenNETCF.Drawing.RotateFlipType.Rotate90FlipX">
-            <summary>
-            Specifies a 90-degree rotation followed by a horizontal flip.
-            </summary>
-        </member>
-        <member name="F:OpenNETCF.Drawing.RotateFlipType.Rotate270FlipY">
-            <summary>
-            Specifies a 270-degree rotation followed by a vertical flip.
-            </summary>
-        </member>
-        <member name="F:OpenNETCF.Drawing.RotateFlipType.RotateNoneFlipY">
-            <summary>
-            Specifies no rotation followed by a vertical flip.
-            </summary>
-        </member>
-        <member name="F:OpenNETCF.Drawing.RotateFlipType.Rotate180FlipX">
-            <summary>
-            Specifies a 180-degree rotation followed by a horizontal flip.
-            </summary>
-        </member>
-        <member name="F:OpenNETCF.Drawing.RotateFlipType.Rotate90FlipY">
-            <summary>
-            Specifies a 90-degree rotation followed by a vertical flip.
-            </summary>
-        </member>
-        <member name="F:OpenNETCF.Drawing.RotateFlipType.Rotate270FlipX">
-            <summary>
-            Specifies a 270-degree rotation followed by a horizontal flip.
-            </summary>
-        </member>
         <member name="T:OpenNETCF.Drawing.Imaging.ImageTag">
             <summary>
             Image property ID tags (PROPID's from the EXIF tags)
@@ -1534,22 +992,144 @@
             Two SLONGs. First is numerator, second is denominator
             </summary>
         </member>
-        <member name="T:OpenNETCF.Drawing.GDIPlus">
+        <member name="T:OpenNETCF.Win32.GDI">
             <summary>
-            Summary description for GDIPlus.
+            GDI P/Invokes and definitions.
             </summary>
         </member>
-        <member name="M:OpenNETCF.Drawing.GDIPlus.CreateFontIndirect(System.IntPtr)">
+        <member name="M:OpenNETCF.Win32.GDI.SetTextColor(System.IntPtr,System.Int32)">
             <summary>
-            This function creates a logical font that has the characteristics specified in the specified structure. 
-            An application can subsequently select the font as the current font for any device context (DC). 			
+            Set the forecolor of text in the selected DC
             </summary>
-            <param name="pLogFont">Long pointer to a <see cref="T:OpenNETCF.Drawing.GDIPlus.LOGFONT"/> that defines the characteristics of the logical font.</param>
-            <returns>A handle to a logical font.</returns>
+            <param name="hdc"></param>
+            <param name="crColor"></param>
+            <returns></returns>
         </member>
-        <member name="T:OpenNETCF.Drawing.GDIPlus.LOGFONT">
+        <member name="M:OpenNETCF.Win32.GDI.GetTextColor(System.IntPtr)">
             <summary>
-            This structure defines the attributes of a font.
+            Get the forecolor of text in the selected DC
+            </summary>
+            <param name="hdc"></param>
+            <returns></returns>
+        </member>
+        <member name="M:OpenNETCF.Win32.GDI.SetBkColor(System.IntPtr,System.Int32)">
+            <summary>
+            Set the backcolor in the selected DC
+            </summary>
+            <param name="hdc"></param>
+            <param name="crColor"></param>
+            <returns></returns>
+        </member>
+        <member name="M:OpenNETCF.Win32.GDI.SetBkMode(System.IntPtr,OpenNETCF.Win32.GDI.BackgroundMode)">
+            <summary>
+            Set the backmode in the selected DC
+            </summary>
+            <param name="hdc"></param>
+            <param name="iBkMode"></param>
+            <returns></returns>
+        </member>
+        <member name="M:OpenNETCF.Win32.GDI.SelectObject(System.IntPtr,System.IntPtr)">
+            <summary>
+            Select a system object (FONT, DC, etc.)
+            </summary>
+            <param name="hdc"></param>
+            <param name="hgdiobj"></param>
+            <returns></returns>
+        </member>
+        <member name="M:OpenNETCF.Win32.GDI.ReleaseDC(System.IntPtr,System.IntPtr)">
+            <summary>
+            Release a Device Context
+            </summary>
+            <param name="hWnd"></param>
+            <param name="hDC"></param>
+        </member>
+        <member name="M:OpenNETCF.Win32.GDI.GetWindowDC(System.IntPtr)">
+            <summary>
+            Get the DC for the specified window
+            </summary>
+            <param name="hWnd">Native window handle of the window.</param>
+            <returns>Device Context Handle for specified window.</returns>
+        </member>
+        <member name="M:OpenNETCF.Win32.GDI.GetDC(System.IntPtr)">
+            <summary>
+            Get the DC for the specified window handle
+            </summary>
+            <param name="hWnd"></param>
+            <returns></returns>
+        </member>
+        <member name="M:OpenNETCF.Win32.GDI.Rectangle(System.IntPtr,System.Int32,System.Int32,System.Int32,System.Int32)">
+            <summary>
+            Draw a rectangle in a DC
+            </summary>
+            <param name="hdc"></param>
+            <param name="nLeftRect"></param>
+            <param name="nTopRect"></param>
+            <param name="nRightRect"></param>
+            <param name="nBottomRect"></param>
+        </member>
+        <member name="M:OpenNETCF.Win32.GDI.GetObject(System.IntPtr,System.Int32,System.Byte[])">
+            <summary>
+            This function obtains information about a specified graphics object.
+            </summary>
+            <param name="hObj">Handle to the graphics object of interest.</param>
+            <param name="cb">Specifies the number of bytes of information to be written to the buffer.</param>
+            <param name="objdata">a buffer that is to receive the information about the specified graphics object.</param>
+            <returns>If the function succeeds, and lpvObject is a valid pointer, the return value is the number of bytes stored into the buffer.</returns>
+        </member>
+        <member name="M:OpenNETCF.Win32.GDI.GetObject(System.IntPtr,System.Int32,OpenNETCF.Win32.DibSection)">
+            <summary>
+            This function obtains information about a specified graphics object.
+            </summary>
+            <param name="hObj">Handle to the graphics object of interest.</param>
+            <param name="cb">Specifies the number of bytes of information to be written to the buffer.</param>
+            <param name="objdata">a buffer that is to receive the information about the specified graphics object.</param>
+            <returns>If the function succeeds, and lpvObject is a valid pointer, the return value is the number of bytes stored into the buffer.</returns>
+        </member>
+        <member name="M:OpenNETCF.Win32.GDI.CreateSolidBrush(System.Int32)">
+            <summary>
+            This function creates a logical brush that has the specified solid color.
+            </summary>
+            <param name="crColor">Specifies the color of the brush.</param>
+            <returns>A handle that identifies a logical brush indicates success.</returns>
+        </member>
+        <member name="T:OpenNETCF.Win32.GDI.RegionFlags">
+            <summary>
+            Region type
+            </summary>
+        </member>
+        <member name="F:OpenNETCF.Win32.GDI.RegionFlags.ERROR">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="F:OpenNETCF.Win32.GDI.RegionFlags.NULLREGION">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="F:OpenNETCF.Win32.GDI.RegionFlags.SIMPLEREGION">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="F:OpenNETCF.Win32.GDI.RegionFlags.COMPLEXREGION">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="T:OpenNETCF.Win32.GDI.BackgroundMode">
+            <summary>
+            Background mode
+            </summary>
+        </member>
+        <member name="F:OpenNETCF.Win32.GDI.BackgroundMode.TRANSPARENT">
+            <summary>
+            Background is Transparent.
+            </summary>
+        </member>
+        <member name="F:OpenNETCF.Win32.GDI.BackgroundMode.OPAQUE">
+            <summary>
+            Background is Opaque.
             </summary>
         </member>
         <member name="T:OpenNETCF.Drawing.SystemColorsHelper">
@@ -1763,331 +1343,53 @@
             Windows Standard
             </summary>
         </member>
-        <member name="M:OpenNETCF.Drawing.Imaging.IImagingFactory.CreateImageFromStream(OpenNETCF.Runtime.InteropServices.ComTypes.IStream,OpenNETCF.Drawing.Imaging.IImage@)">
+        <member name="M:OpenNETCF.Drawing.Imaging.IBitmapImage.GetSize(System.Drawing.Size@)">
             <summary>
-            Create an image object from an input stream
-             stream doesn't have to seekable
-             caller should Release the stream if call is successful
+            Get bitmap dimensions pixels
             </summary>
-            <param name="stream"></param>
-            <param name="image"></param>
-            <returns></returns>
-        </member>
-        <member name="M:OpenNETCF.Drawing.Imaging.IImagingFactory.CreateImageFromFile(System.String,OpenNETCF.Drawing.Imaging.IImage@)">
-            <summary>
-            Create an image object from a file
-            </summary>
-            <param name="filename"></param>
-            <param name="image"></param>
-            <returns></returns>
-        </member>
-        <member name="M:OpenNETCF.Drawing.Imaging.IImagingFactory.CreateImageFromBuffer(System.Byte[],System.UInt32,OpenNETCF.Drawing.Imaging.BufferDisposalFlag,OpenNETCF.Drawing.Imaging.IImage@)">
-            <summary>
-            Create an image object from a memory buffer
-            </summary>
-            <param name="buf"></param>
             <param name="size"></param>
-            <param name="disposalFlag"></param>
-            <param name="image"></param>
             <returns></returns>
         </member>
-        <member name="M:OpenNETCF.Drawing.Imaging.IImagingFactory.CreateNewBitmap(System.UInt32,System.UInt32,System.Drawing.Imaging.PixelFormat,OpenNETCF.Drawing.Imaging.IBitmapImage@)">
+        <member name="M:OpenNETCF.Drawing.Imaging.IBitmapImage.GetPixelFormatID(System.Drawing.Imaging.PixelFormat@)">
             <summary>
-            Create a new bitmap image object
+            Get bitmap pixel format
             </summary>
-            <param name="width"></param>
-            <param name="height"></param>
             <param name="pixelFormat"></param>
-            <param name="bitmap"></param>
             <returns></returns>
         </member>
-        <member name="M:OpenNETCF.Drawing.Imaging.IImagingFactory.CreateBitmapFromImage(OpenNETCF.Drawing.Imaging.IImage,System.UInt32,System.UInt32,System.Drawing.Imaging.PixelFormat,OpenNETCF.Drawing.Imaging.InterpolationHint,OpenNETCF.Drawing.Imaging.IBitmapImage@)">
+        <member name="M:OpenNETCF.Drawing.Imaging.IBitmapImage.LockBits(OpenNETCF.Drawing.Imaging.RECT,System.UInt32,System.Drawing.Imaging.PixelFormat,OpenNETCF.Drawing.Imaging.BitmapDataInternal@)">
             <summary>
-            Create a bitmap image from an IImage object
+            Access bitmap data the specified pixel format
+             must support at least PIXFMT_DONTCARE and
+             the canonical formats.
             </summary>
-            <param name="image"></param>
-            <param name="width"></param>
-            <param name="height"></param>
+            <param name="rect"></param>
+            <param name="flags"></param>
             <param name="pixelFormat"></param>
-            <param name="hints"></param>
-            <param name="bitmap"></param>
+            <param name="lockedBitmapData"></param>
             <returns></returns>
         </member>
-        <member name="M:OpenNETCF.Drawing.Imaging.IImagingFactory.CreateBitmapFromBuffer(OpenNETCF.Drawing.Imaging.BitmapDataInternal@,OpenNETCF.Drawing.Imaging.IBitmapImage@)">
+        <member name="M:OpenNETCF.Drawing.Imaging.IBitmapImage.UnlockBits(OpenNETCF.Drawing.Imaging.BitmapDataInternal@)">
             <summary>
-            Create a new bitmap image object on user-supplied memory buffer
+            
             </summary>
-            <param name="bitmapData"></param>
-            <param name="bitmap"></param>
+            <param name="lockedBitmapData"></param>
             <returns></returns>
         </member>
-        <member name="M:OpenNETCF.Drawing.Imaging.IImagingFactory.CreateImageDecoder(OpenNETCF.Runtime.InteropServices.ComTypes.IStream,OpenNETCF.Drawing.Imaging.DecoderInitFlag,OpenNETCF.Drawing.Imaging.IImageDecoder@)">
+        <member name="M:OpenNETCF.Drawing.Imaging.IBitmapImage.GetPalette(System.IntPtr@)">
             <summary>
-            Create an image decoder object to process the given input stream
+            Set/get palette associated with the bitmap image
+            Do not use directly. Use <c>ImageUtils.GetBitmapPalette</c> instead
             </summary>
-            <param name="stream"></param>
-            <param name="flags"></param>
-            <param name="decoder"></param>
+            <param name="palette"></param>
             <returns></returns>
         </member>
-        <member name="M:OpenNETCF.Drawing.Imaging.IImagingFactory.CreateImageEncoderToStream(System.Guid@,OpenNETCF.Runtime.InteropServices.ComTypes.IStream,OpenNETCF.Drawing.Imaging.IImageEncoder@)">
+        <member name="M:OpenNETCF.Drawing.Imaging.IBitmapImage.SetPalette(System.IntPtr)">
             <summary>
-            Create an image encoder object that can output data the
-            specified image file format.
+            Do not use directly. Use <c>ImageUtils.SetBitmapPalette</c> instead
             </summary>
-            <param name="clsid"></param>
-            <param name="stream"></param>
-            <param name="encoder"></param>
+            <param name="palette"></param>
             <returns></returns>
-        </member>
-        <member name="M:OpenNETCF.Drawing.Imaging.IImagingFactory.GetInstalledDecoders(System.UInt32@,System.IntPtr@)">
-            <summary>
-            Get a list of all currently installed image decoders
-            </summary>
-            <param name="count"></param>
-            <param name="decoders"></param>
-            <returns></returns>
-        </member>
-        <member name="M:OpenNETCF.Drawing.Imaging.IImagingFactory.GetInstalledEncoders(System.UInt32@,System.IntPtr@)">
-            <summary>
-            Get a list of all currently installed image decoders
-            </summary>
-            <param name="count"></param>
-            <param name="encoders"></param>
-            <returns></returns>
-        </member>
-        <member name="M:OpenNETCF.Drawing.Imaging.IImagingFactory.InstallImageCodec(OpenNETCF.Drawing.Imaging.ImageCodecInfo@)">
-            <summary>
-            Install an image encoder / decoder
-             caller should do the regular COM component
-             installation before calling this method
-            </summary>
-            <param name="codecInfo"></param>
-            <returns></returns>
-        </member>
-        <member name="M:OpenNETCF.Drawing.Imaging.IImagingFactory.UninstallImageCodec(System.String,System.UInt32)">
-            <summary>
-            Uninstall an image encoder / decoder
-            </summary>
-            <param name="codecName"></param>
-            <param name="flags"></param>
-            <returns></returns>
-        </member>
-        <member name="T:OpenNETCF.Drawing.PenEx">
-            <summary>
-            Defines an object used to draw lines and curves.
-            </summary>
-        </member>
-        <member name="M:OpenNETCF.Drawing.PenEx.#ctor(System.Drawing.Color)">
-            <summary>
-            Initializes a new instance of the <see cref="T:OpenNETCF.Drawing.PenEx"/> class with the <see cref="P:OpenNETCF.Drawing.PenEx.Color"/>.  
-            </summary>
-            <param name="color">The <see cref="P:OpenNETCF.Drawing.PenEx.Color"/> of the <see cref="T:OpenNETCF.Drawing.PenEx"/>.</param>
-        </member>
-        <member name="M:OpenNETCF.Drawing.PenEx.#ctor(System.Drawing.Color,System.Int32)">
-            <summary>
-            Initializes a new instance of the <see cref="T:OpenNETCF.Drawing.PenEx"/> class with the Width.  
-            </summary>
-            <param name="color">The <see cref="P:OpenNETCF.Drawing.PenEx.Color"/> of the <see cref="T:OpenNETCF.Drawing.PenEx"/>.</param>
-            <param name="width">The <see cref="P:OpenNETCF.Drawing.PenEx.Width"/> of the <see cref="T:OpenNETCF.Drawing.PenEx"/>.</param>
-        </member>
-        <member name="M:OpenNETCF.Drawing.PenEx.#ctor(System.Drawing.Color,OpenNETCF.Drawing.Drawing2D.DashStyle)">
-            <summary>
-            Initializes a new instance of the <see cref="T:OpenNETCF.Drawing.PenEx"/> class with the <see cref="P:OpenNETCF.Drawing.PenEx.DashStyle"/>.
-            </summary>
-            <param name="color">The <see cref="P:OpenNETCF.Drawing.PenEx.Color"/> of the <see cref="T:OpenNETCF.Drawing.PenEx"/>.</param>
-            <param name="style">The <see cref="P:OpenNETCF.Drawing.PenEx.DashStyle"/> of the <see cref="T:OpenNETCF.Drawing.PenEx"/>.</param>
-        </member>
-        <member name="M:OpenNETCF.Drawing.PenEx.#ctor(System.Drawing.Color,OpenNETCF.Drawing.Drawing2D.DashStyle,System.Int32)">
-            <summary>
-            Initializes a new instance of the <see cref="T:OpenNETCF.Drawing.PenEx"/> class with the <see cref="P:OpenNETCF.Drawing.PenEx.Color"/>.  
-            </summary>
-            <param name="color">The <see cref="P:OpenNETCF.Drawing.PenEx.Color"/> of the <see cref="T:OpenNETCF.Drawing.PenEx"/>.</param>
-            <param name="width">The <see cref="P:OpenNETCF.Drawing.PenEx.Width"/> of the <see cref="T:OpenNETCF.Drawing.PenEx"/>.</param>
-            <param name="style">The <see cref="P:OpenNETCF.Drawing.PenEx.DashStyle"/> of the <see cref="T:OpenNETCF.Drawing.PenEx"/>.</param>
-        </member>
-        <member name="P:OpenNETCF.Drawing.PenEx.Color">
-            <summary>
-            Gets or sets the color of this object.  
-            </summary>
-        </member>
-        <member name="P:OpenNETCF.Drawing.PenEx.DashStyle">
-            <summary>
-            Gets or sets the style used for dashed lines drawn with this <see cref="T:OpenNETCF.Drawing.PenEx"/> object.
-            </summary>
-        </member>
-        <member name="P:OpenNETCF.Drawing.PenEx.Width">
-            <summary>
-            Gets or sets the Width of this object.
-            </summary>
-        </member>
-        <member name="T:OpenNETCF.Drawing.ContentAlignment2">
-            <summary>
-            Specifies alignment of content on the drawing surface.
-            </summary>
-        </member>
-        <member name="F:OpenNETCF.Drawing.ContentAlignment2.BottomCenter">
-            <summary>
-            Content is vertically aligned at the bottom, and horizontally aligned at the center.
-            </summary>
-        </member>
-        <member name="F:OpenNETCF.Drawing.ContentAlignment2.BottomLeft">
-            <summary>
-            Content is vertically aligned at the bottom, and horizontally aligned on the left.
-            </summary>
-        </member>
-        <member name="F:OpenNETCF.Drawing.ContentAlignment2.BottomRight">
-            <summary>
-            Content is vertically aligned at the bottom, and horizontally aligned on the right.
-            </summary>
-        </member>
-        <member name="F:OpenNETCF.Drawing.ContentAlignment2.MiddleCenter">
-            <summary>
-            Content is vertically aligned in the middle, and horizontally aligned at the center.
-            </summary>
-        </member>
-        <member name="F:OpenNETCF.Drawing.ContentAlignment2.MiddleLeft">
-            <summary>
-            Content is vertically aligned in the middle, and horizontally aligned on the left.
-            </summary>
-        </member>
-        <member name="F:OpenNETCF.Drawing.ContentAlignment2.MiddleRight">
-            <summary>
-            Content is vertically aligned in the middle, and horizontally aligned on the right.
-            </summary>
-        </member>
-        <member name="F:OpenNETCF.Drawing.ContentAlignment2.TopCenter">
-            <summary>
-            Content is vertically aligned at the top, and horizontally aligned at the center.
-            </summary>
-        </member>
-        <member name="F:OpenNETCF.Drawing.ContentAlignment2.TopLeft">
-            <summary>
-            Content is vertically aligned at the top, and horizontally aligned on the left.
-            </summary>
-        </member>
-        <member name="F:OpenNETCF.Drawing.ContentAlignment2.TopRight">
-            <summary>
-            Content is vertically aligned at the top, and horizontally aligned on the right.
-            </summary>
-        </member>
-        <member name="T:OpenNETCF.Win32.BitmapInfoHeader">
-            <summary>
-            Contains information about the dimensions and color format of a device-independent bitmap (DIB).
-            </summary>
-            <remarks>Wrapper for Win32 <b>BITMAPINFOHEADER</b> structure</remarks>
-        </member>
-        <member name="P:OpenNETCF.Win32.BitmapInfoHeader.Size">
-            <summary>
-            Specifies the number of bytes required by the structure.
-            </summary>
-        </member>
-        <member name="P:OpenNETCF.Win32.BitmapInfoHeader.Width">
-            <summary>
-            Specifies the width of the bitmap, in pixels.
-            </summary>
-        </member>
-        <member name="P:OpenNETCF.Win32.BitmapInfoHeader.Height">
-            <summary>
-            Specifies the height of the bitmap, in pixels.
-            If biHeight is positive, the bitmap is a bottom-up DIB and its origin is the lower-left corner.
-            If biHeight is negative, the bitmap is a top-down DIB and its origin is the upper-left corner.
-            If biHeight is negative, indicating a top-down DIB, biCompression must be either BI_RGB or BI_BITFIELDS.
-            Top-down DIBs cannot be compressed.
-            </summary>
-        </member>
-        <member name="P:OpenNETCF.Win32.BitmapInfoHeader.Planes">
-            <summary>
-            Specifies the number of planes for the target device.
-            This value must be set to 1.
-            </summary>
-        </member>
-        <member name="P:OpenNETCF.Win32.BitmapInfoHeader.BitCount">
-            <summary>
-            Specifies the number of bits per pixel.
-            The biBitCount member determines the number of bits that define each pixel and the maximum number of colors in the bitmap.
-            </summary>
-        </member>
-        <member name="P:OpenNETCF.Win32.BitmapInfoHeader.Compression">
-            <summary>
-            Specifies the type of compression for a compressed bottom-up bitmap (top-down DIBs cannot be compressed).
-            </summary>
-        </member>
-        <member name="P:OpenNETCF.Win32.BitmapInfoHeader.SizeImage">
-            <summary>
-            Specifies the size, in bytes, of the image. This may be set to zero for BI_RGB bitmaps.
-            </summary>
-        </member>
-        <member name="P:OpenNETCF.Win32.BitmapInfoHeader.XPelsPerMeter">
-            <summary>
-            Specifies the horizontal resolution, in pixels per meter, of the target device for the bitmap.
-            An application can use this value to select a bitmap from a resource group that best matches the characteristics of the current device.
-            </summary>
-        </member>
-        <member name="P:OpenNETCF.Win32.BitmapInfoHeader.YPelsPerMeter">
-            <summary>
-            Specifies the vertical resolution, in pixels per meter, of the target device for the bitmap
-            </summary>
-        </member>
-        <member name="P:OpenNETCF.Win32.BitmapInfoHeader.ClrUsed">
-            <summary>
-            Specifies the number of color indexes in the color table that are actually used by the bitmap.
-            If this value is zero, the bitmap uses the maximum number of colors corresponding to the value of the biBitCount member for the compression mode specified by biCompression.
-            </summary>
-        </member>
-        <member name="P:OpenNETCF.Win32.BitmapInfoHeader.ClrImportant">
-            <summary>
-            Specifies the number of color indexes required for displaying the bitmap.
-            If this value is zero, all colors are required.
-            </summary>
-        </member>
-        <member name="T:OpenNETCF.Drawing.Imaging.TAG_TYPE">
-            <summary>
-            Property tag types
-            </summary>
-        </member>
-        <member name="F:OpenNETCF.Drawing.Imaging.TAG_TYPE.BYTE">
-            <summary>
-            8-bit unsigned int
-            </summary>
-        </member>
-        <member name="F:OpenNETCF.Drawing.Imaging.TAG_TYPE.ASCII">
-            <summary>
-            8-bit byte containing one 7-bit ASCII code.
-            NULL terminated.
-            </summary>
-        </member>
-        <member name="F:OpenNETCF.Drawing.Imaging.TAG_TYPE.SHORT">
-            <summary>
-            16-bit unsigned int
-            </summary>
-        </member>
-        <member name="F:OpenNETCF.Drawing.Imaging.TAG_TYPE.LONG">
-            <summary>
-            32-bit unsigned int
-            </summary>
-        </member>
-        <member name="F:OpenNETCF.Drawing.Imaging.TAG_TYPE.RATIONAL">
-            <summary>
-            Two LONGs.  The first LONG is the numerator,
-            the second LONG expresses the denominator.
-            </summary>
-        </member>
-        <member name="F:OpenNETCF.Drawing.Imaging.TAG_TYPE.UNDEFINED">
-            <summary>
-            8-bit byte that can take any value depending
-            on field definition
-            </summary>
-        </member>
-        <member name="F:OpenNETCF.Drawing.Imaging.TAG_TYPE.SLONG">
-            <summary>
-            32-bit singed integer (2's complement notation)
-            </summary>
-        </member>
-        <member name="F:OpenNETCF.Drawing.Imaging.TAG_TYPE.SRATIONAL">
-            <summary>
-            Two SLONGs. First is numerator, second is the denominator
-            </summary>
         </member>
         <member name="T:OpenNETCF.Drawing.Imaging.ImageUtils">
             <summary>
@@ -2235,53 +1537,494 @@
             </summary>
             <returns></returns>
         </member>
-        <member name="M:OpenNETCF.Drawing.Imaging.IBitmapImage.GetSize(System.Drawing.Size@)">
+        <member name="T:OpenNETCF.Drawing.Imaging.TAG_TYPE">
             <summary>
-            Get bitmap dimensions pixels
+            Property tag types
+            </summary>
+        </member>
+        <member name="F:OpenNETCF.Drawing.Imaging.TAG_TYPE.BYTE">
+            <summary>
+            8-bit unsigned int
+            </summary>
+        </member>
+        <member name="F:OpenNETCF.Drawing.Imaging.TAG_TYPE.ASCII">
+            <summary>
+            8-bit byte containing one 7-bit ASCII code.
+            NULL terminated.
+            </summary>
+        </member>
+        <member name="F:OpenNETCF.Drawing.Imaging.TAG_TYPE.SHORT">
+            <summary>
+            16-bit unsigned int
+            </summary>
+        </member>
+        <member name="F:OpenNETCF.Drawing.Imaging.TAG_TYPE.LONG">
+            <summary>
+            32-bit unsigned int
+            </summary>
+        </member>
+        <member name="F:OpenNETCF.Drawing.Imaging.TAG_TYPE.RATIONAL">
+            <summary>
+            Two LONGs.  The first LONG is the numerator,
+            the second LONG expresses the denominator.
+            </summary>
+        </member>
+        <member name="F:OpenNETCF.Drawing.Imaging.TAG_TYPE.UNDEFINED">
+            <summary>
+            8-bit byte that can take any value depending
+            on field definition
+            </summary>
+        </member>
+        <member name="F:OpenNETCF.Drawing.Imaging.TAG_TYPE.SLONG">
+            <summary>
+            32-bit singed integer (2's complement notation)
+            </summary>
+        </member>
+        <member name="F:OpenNETCF.Drawing.Imaging.TAG_TYPE.SRATIONAL">
+            <summary>
+            Two SLONGs. First is numerator, second is the denominator
+            </summary>
+        </member>
+        <member name="T:OpenNETCF.Drawing.Imaging.ImagingFactory">
+            <summary>
+            This interface is used to create bitmaps and images and to manage image encoders and decoders.
+            </summary>
+        </member>
+        <member name="M:OpenNETCF.Drawing.Imaging.IImagingFactory.CreateImageFromStream(OpenNETCF.Runtime.InteropServices.ComTypes.IStream,OpenNETCF.Drawing.Imaging.IImage@)">
+            <summary>
+            Create an image object from an input stream
+             stream doesn't have to seekable
+             caller should Release the stream if call is successful
+            </summary>
+            <param name="stream"></param>
+            <param name="image"></param>
+            <returns></returns>
+        </member>
+        <member name="M:OpenNETCF.Drawing.Imaging.IImagingFactory.CreateImageFromFile(System.String,OpenNETCF.Drawing.Imaging.IImage@)">
+            <summary>
+            Create an image object from a file
+            </summary>
+            <param name="filename"></param>
+            <param name="image"></param>
+            <returns></returns>
+        </member>
+        <member name="M:OpenNETCF.Drawing.Imaging.IImagingFactory.CreateImageFromBuffer(System.Byte[],System.UInt32,OpenNETCF.Drawing.Imaging.BufferDisposalFlag,OpenNETCF.Drawing.Imaging.IImage@)">
+            <summary>
+            Create an image object from a memory buffer
+            </summary>
+            <param name="buf"></param>
+            <param name="size"></param>
+            <param name="disposalFlag"></param>
+            <param name="image"></param>
+            <returns></returns>
+        </member>
+        <member name="M:OpenNETCF.Drawing.Imaging.IImagingFactory.CreateNewBitmap(System.UInt32,System.UInt32,System.Drawing.Imaging.PixelFormat,OpenNETCF.Drawing.Imaging.IBitmapImage@)">
+            <summary>
+            Create a new bitmap image object
+            </summary>
+            <param name="width"></param>
+            <param name="height"></param>
+            <param name="pixelFormat"></param>
+            <param name="bitmap"></param>
+            <returns></returns>
+        </member>
+        <member name="M:OpenNETCF.Drawing.Imaging.IImagingFactory.CreateBitmapFromImage(OpenNETCF.Drawing.Imaging.IImage,System.UInt32,System.UInt32,System.Drawing.Imaging.PixelFormat,OpenNETCF.Drawing.Imaging.InterpolationHint,OpenNETCF.Drawing.Imaging.IBitmapImage@)">
+            <summary>
+            Create a bitmap image from an IImage object
+            </summary>
+            <param name="image"></param>
+            <param name="width"></param>
+            <param name="height"></param>
+            <param name="pixelFormat"></param>
+            <param name="hints"></param>
+            <param name="bitmap"></param>
+            <returns></returns>
+        </member>
+        <member name="M:OpenNETCF.Drawing.Imaging.IImagingFactory.CreateBitmapFromBuffer(OpenNETCF.Drawing.Imaging.BitmapDataInternal@,OpenNETCF.Drawing.Imaging.IBitmapImage@)">
+            <summary>
+            Create a new bitmap image object on user-supplied memory buffer
+            </summary>
+            <param name="bitmapData"></param>
+            <param name="bitmap"></param>
+            <returns></returns>
+        </member>
+        <member name="M:OpenNETCF.Drawing.Imaging.IImagingFactory.CreateImageDecoder(OpenNETCF.Runtime.InteropServices.ComTypes.IStream,OpenNETCF.Drawing.Imaging.DecoderInitFlag,OpenNETCF.Drawing.Imaging.IImageDecoder@)">
+            <summary>
+            Create an image decoder object to process the given input stream
+            </summary>
+            <param name="stream"></param>
+            <param name="flags"></param>
+            <param name="decoder"></param>
+            <returns></returns>
+        </member>
+        <member name="M:OpenNETCF.Drawing.Imaging.IImagingFactory.CreateImageEncoderToStream(System.Guid@,OpenNETCF.Runtime.InteropServices.ComTypes.IStream,OpenNETCF.Drawing.Imaging.IImageEncoder@)">
+            <summary>
+            Create an image encoder object that can output data the
+            specified image file format.
+            </summary>
+            <param name="clsid"></param>
+            <param name="stream"></param>
+            <param name="encoder"></param>
+            <returns></returns>
+        </member>
+        <member name="M:OpenNETCF.Drawing.Imaging.IImagingFactory.GetInstalledDecoders(System.UInt32@,System.IntPtr@)">
+            <summary>
+            Get a list of all currently installed image decoders
+            </summary>
+            <param name="count"></param>
+            <param name="decoders"></param>
+            <returns></returns>
+        </member>
+        <member name="M:OpenNETCF.Drawing.Imaging.IImagingFactory.GetInstalledEncoders(System.UInt32@,System.IntPtr@)">
+            <summary>
+            Get a list of all currently installed image decoders
+            </summary>
+            <param name="count"></param>
+            <param name="encoders"></param>
+            <returns></returns>
+        </member>
+        <member name="M:OpenNETCF.Drawing.Imaging.IImagingFactory.InstallImageCodec(OpenNETCF.Drawing.Imaging.ImageCodecInfo@)">
+            <summary>
+            Install an image encoder / decoder
+             caller should do the regular COM component
+             installation before calling this method
+            </summary>
+            <param name="codecInfo"></param>
+            <returns></returns>
+        </member>
+        <member name="M:OpenNETCF.Drawing.Imaging.IImagingFactory.UninstallImageCodec(System.String,System.UInt32)">
+            <summary>
+            Uninstall an image encoder / decoder
+            </summary>
+            <param name="codecName"></param>
+            <param name="flags"></param>
+            <returns></returns>
+        </member>
+        <member name="T:OpenNETCF.Drawing.Imaging.ImageCodecInfo">
+            <summary>
+            Describes Imaging codec
+            </summary>
+        </member>
+        <member name="P:OpenNETCF.Drawing.Imaging.ImageCodecInfo.CodecName">
+            <summary>
+            Codec name
+            </summary>
+        </member>
+        <member name="P:OpenNETCF.Drawing.Imaging.ImageCodecInfo.DllName">
+            <summary>
+            Codec Dll name
+            </summary>
+        </member>
+        <member name="P:OpenNETCF.Drawing.Imaging.ImageCodecInfo.FormatDescription">
+            <summary>
+            Codec format description
+            </summary>
+        </member>
+        <member name="P:OpenNETCF.Drawing.Imaging.ImageCodecInfo.FilenameExtension">
+            <summary>
+            Codec's file's extension (e.g. BMP)
+            </summary>
+        </member>
+        <member name="P:OpenNETCF.Drawing.Imaging.ImageCodecInfo.MimeType">
+            <summary>
+            Codec's image MIME type
+            </summary>
+        </member>
+        <member name="P:OpenNETCF.Drawing.Imaging.ImageCodecInfo.Flags">
+            <summary>
+            Codec flags
+            </summary>
+        </member>
+        <member name="P:OpenNETCF.Drawing.Imaging.ImageCodecInfo.Version">
+            <summary>
+            Codec version
+            </summary>
+        </member>
+        <member name="T:OpenNETCF.Win32.BitmapFileHeader">
+            <summary>
+            This structure contains information about the type, size, and layout of a file that containing a device-independent bitmap (DIB).
+            </summary>
+            <remarks>Wraps the native <b>BITMAPFILEHEADER</b> structure</remarks>
+        </member>
+        <member name="P:OpenNETCF.Win32.BitmapFileHeader.Type">
+            <summary>
+            Specifies the file type. It must be BM.
+            </summary>
+        </member>
+        <member name="P:OpenNETCF.Win32.BitmapFileHeader.Size">
+            <summary>
+            Specifies the size, in bytes, of the bitmap file.
+            </summary>
+        </member>
+        <member name="P:OpenNETCF.Win32.BitmapFileHeader.OffBits">
+            <summary>
+            Specifies the offset, in bytes, from the <b>BitmapFileHeader</b> structure to the bitmap bits.
+            </summary>
+        </member>
+        <member name="P:OpenNETCF.Win32.BitmapFileHeader.Data">
+            <summary>
+            Internal data
+            </summary>
+        </member>
+        <member name="T:OpenNETCF.Drawing.Imaging.IImage">
+            <summary>
+            This is the basic interface to an image object. It allows applications to do the following: 
+            Display the image onto a destination graphics context  
+            Push image data into an image sink 
+            Access image properties and metadata Decoded image objects and in-memory bitmap image objects support the IImage interface
+            </summary>
+        </member>
+        <member name="M:OpenNETCF.Drawing.Imaging.IImage.GetPhysicalDimension(System.Drawing.Size@)">
+            <summary>
+            Get the device-independent physical dimension of the image
+             unit of 0.01mm
             </summary>
             <param name="size"></param>
             <returns></returns>
         </member>
-        <member name="M:OpenNETCF.Drawing.Imaging.IBitmapImage.GetPixelFormatID(System.Drawing.Imaging.PixelFormat@)">
+        <member name="M:OpenNETCF.Drawing.Imaging.IImage.GetImageInfo(OpenNETCF.Drawing.Imaging.ImageInfo@)">
             <summary>
-            Get bitmap pixel format
+            Get basic image info
             </summary>
-            <param name="pixelFormat"></param>
+            <param name="imageInfo"></param>
             <returns></returns>
         </member>
-        <member name="M:OpenNETCF.Drawing.Imaging.IBitmapImage.LockBits(OpenNETCF.Drawing.Imaging.RECT,System.UInt32,System.Drawing.Imaging.PixelFormat,OpenNETCF.Drawing.Imaging.BitmapDataInternal@)">
+        <member name="M:OpenNETCF.Drawing.Imaging.IImage.SetImageFlags(OpenNETCF.Drawing.Imaging.ImageFlags)">
             <summary>
-            Access bitmap data the specified pixel format
-             must support at least PIXFMT_DONTCARE and
-             the canonical formats.
+            Set image flags
             </summary>
-            <param name="rect"></param>
             <param name="flags"></param>
-            <param name="pixelFormat"></param>
-            <param name="lockedBitmapData"></param>
             <returns></returns>
         </member>
-        <member name="M:OpenNETCF.Drawing.Imaging.IBitmapImage.UnlockBits(OpenNETCF.Drawing.Imaging.BitmapDataInternal@)">
+        <member name="M:OpenNETCF.Drawing.Imaging.IImage.Draw(System.IntPtr,OpenNETCF.Drawing.Imaging.RECT,OpenNETCF.Drawing.Imaging.RECT)">
             <summary>
-            
+            Display the image a GDI device context
             </summary>
-            <param name="lockedBitmapData"></param>
+            <param name="hdc"></param>
+            <param name="dstRect"></param>
+            <param name="srcRect"></param>
             <returns></returns>
         </member>
-        <member name="M:OpenNETCF.Drawing.Imaging.IBitmapImage.GetPalette(System.IntPtr@)">
+        <member name="M:OpenNETCF.Drawing.Imaging.IImage.PushIntoSink(OpenNETCF.Drawing.Imaging.IImageSink)">
             <summary>
-            Set/get palette associated with the bitmap image
-            Do not use directly. Use <c>ImageUtils.GetBitmapPalette</c> instead
+            Push image data into an IImageSink
             </summary>
-            <param name="palette"></param>
+            <param name="sink"></param>
             <returns></returns>
         </member>
-        <member name="M:OpenNETCF.Drawing.Imaging.IBitmapImage.SetPalette(System.IntPtr)">
+        <member name="M:OpenNETCF.Drawing.Imaging.IImage.GetThumbnail(System.UInt32,System.UInt32,OpenNETCF.Drawing.Imaging.IImage@)">
             <summary>
-            Do not use directly. Use <c>ImageUtils.SetBitmapPalette</c> instead
+            Get a thumbnail representation for the image object
             </summary>
-            <param name="palette"></param>
+            <param name="thumbWidth"></param>
+            <param name="thumbHeight"></param>
+            <param name="thumbImage"></param>
             <returns></returns>
+        </member>
+        <member name="T:OpenNETCF.Drawing.FontEx">
+            <summary>
+            Defines a particular format for text, including font face, size, and style attributes. 
+            </summary>
+        </member>
+        <member name="M:OpenNETCF.Drawing.FontEx.#ctor(System.String,System.Single,System.Drawing.FontStyle)">
+            <summary>
+            Initializes a new FontEx object that uses the specified attributes.  
+            </summary>
+            <param name="fontName">A string representation of the System.Drawing.FontFamily object.</param>
+            <param name="size">The size of the new FontEx object.</param>
+            <param name="fontStyle">The style of the new FontEx object.</param>
+        </member>
+        <member name="M:OpenNETCF.Drawing.FontEx.ToHfont">
+            <summary>
+            Returns a handle to this FontEx object.
+            </summary>
+            <returns>A Windows handle to this FontEx object.</returns>
+        </member>
+        <member name="P:OpenNETCF.Drawing.FontEx.Name">
+            <summary>
+            Gets the face name of this FontEx object.
+            </summary>
+        </member>
+        <member name="P:OpenNETCF.Drawing.FontEx.Size">
+            <summary>
+            Gets the em-size of this FontEx object measured in the unit of this FontEx object.
+            </summary>
+        </member>
+        <member name="P:OpenNETCF.Drawing.FontEx.Style">
+            <summary>
+            Gets style information for this FontEx object.
+            </summary>
+        </member>
+        <member name="P:OpenNETCF.Drawing.FontEx.Angle">
+            <summary>
+            Gets sets the angle for the FontEx.
+            </summary>
+        </member>
+        <member name="P:OpenNETCF.Drawing.FontEx.ClearType">
+            <summary>
+            Gets or sets a clear type for FontEx object.
+            </summary>
+        </member>
+        <member name="T:OpenNETCF.Drawing.RotateFlipType">
+            <summary>
+            Specifies the direction of an image's rotation and the axis used to flip the image.
+            </summary>
+        </member>
+        <member name="F:OpenNETCF.Drawing.RotateFlipType.Rotate180FlipXY">
+            <summary>
+            Specifies a 180-degree rotation followed by a horizontal and vertical flip.
+            </summary>
+        </member>
+        <member name="F:OpenNETCF.Drawing.RotateFlipType.RotateNoneFlipNone">
+            <summary>
+            Specifies no rotation and no flipping.
+            </summary>
+        </member>
+        <member name="F:OpenNETCF.Drawing.RotateFlipType.Rotate270FlipXY">
+            <summary>
+            Specifies a 270-degree rotation followed by a horizontal and vertical flip.
+            </summary>
+        </member>
+        <member name="F:OpenNETCF.Drawing.RotateFlipType.Rotate90FlipNone">
+            <summary>
+            Specifies a 90-degree rotation without flipping.
+            </summary>
+        </member>
+        <member name="F:OpenNETCF.Drawing.RotateFlipType.Rotate180FlipNone">
+            <summary>
+            Specifies a 180-degree rotation without flipping.
+            </summary>
+        </member>
+        <member name="F:OpenNETCF.Drawing.RotateFlipType.RotateNoneFlipXY">
+            <summary>
+            Specifies no rotation followed by a horizontal and vertical flip.
+            </summary>
+        </member>
+        <member name="F:OpenNETCF.Drawing.RotateFlipType.Rotate270FlipNone">
+            <summary>
+            Specifies a 270-degree rotation without flipping.
+            </summary>
+        </member>
+        <member name="F:OpenNETCF.Drawing.RotateFlipType.Rotate90FlipXY">
+            <summary>
+            Specifies a 90-degree rotation followed by a horizontal and vertical flip.
+            </summary>
+        </member>
+        <member name="F:OpenNETCF.Drawing.RotateFlipType.Rotate180FlipY">
+            <summary>
+            Specifies a 180-degree rotation followed by a vertical flip.
+            </summary>
+        </member>
+        <member name="F:OpenNETCF.Drawing.RotateFlipType.RotateNoneFlipX">
+            <summary>
+            Specifies no rotation followed by a horizontal flip.
+            </summary>
+        </member>
+        <member name="F:OpenNETCF.Drawing.RotateFlipType.Rotate90FlipX">
+            <summary>
+            Specifies a 90-degree rotation followed by a horizontal flip.
+            </summary>
+        </member>
+        <member name="F:OpenNETCF.Drawing.RotateFlipType.Rotate270FlipY">
+            <summary>
+            Specifies a 270-degree rotation followed by a vertical flip.
+            </summary>
+        </member>
+        <member name="F:OpenNETCF.Drawing.RotateFlipType.RotateNoneFlipY">
+            <summary>
+            Specifies no rotation followed by a vertical flip.
+            </summary>
+        </member>
+        <member name="F:OpenNETCF.Drawing.RotateFlipType.Rotate180FlipX">
+            <summary>
+            Specifies a 180-degree rotation followed by a horizontal flip.
+            </summary>
+        </member>
+        <member name="F:OpenNETCF.Drawing.RotateFlipType.Rotate90FlipY">
+            <summary>
+            Specifies a 90-degree rotation followed by a vertical flip.
+            </summary>
+        </member>
+        <member name="F:OpenNETCF.Drawing.RotateFlipType.Rotate270FlipX">
+            <summary>
+            Specifies a 270-degree rotation followed by a horizontal flip.
+            </summary>
+        </member>
+        <member name="T:OpenNETCF.Drawing.Imaging.PropertyItem">
+            <summary>
+            Internal class
+            </summary>
+        </member>
+        <member name="T:OpenNETCF.Drawing.Imaging.ImageFormatGuid">
+            <summary>
+            Standard image format Guids
+            </summary>
+        </member>
+        <member name="T:OpenNETCF.Drawing.PenEx">
+            <summary>
+            Defines an object used to draw lines and curves.
+            </summary>
+        </member>
+        <member name="M:OpenNETCF.Drawing.PenEx.#ctor(System.Drawing.Color,OpenNETCF.Drawing.Drawing2D.DashStyle,System.Int32)">
+            <summary>
+            Initializes a new instance of the <see cref="T:OpenNETCF.Drawing.PenEx"/> class with the <see cref="P:OpenNETCF.Drawing.PenEx.Color"/>.  
+            </summary>
+            <param name="color">The <see cref="P:OpenNETCF.Drawing.PenEx.Color"/> of the <see cref="T:OpenNETCF.Drawing.PenEx"/>.</param>
+            <param name="width">The <see cref="P:OpenNETCF.Drawing.PenEx.Width"/> of the <see cref="T:OpenNETCF.Drawing.PenEx"/>.</param>
+            <param name="style">The <see cref="P:OpenNETCF.Drawing.PenEx.DashStyle"/> of the <see cref="T:OpenNETCF.Drawing.PenEx"/>.</param>
+        </member>
+        <member name="M:OpenNETCF.Drawing.PenEx.#ctor(System.Drawing.Color)">
+            <summary>
+            Initializes a new instance of the <see cref="T:OpenNETCF.Drawing.PenEx"/> class with the <see cref="P:OpenNETCF.Drawing.PenEx.Color"/>.  
+            </summary>
+            <param name="color">The <see cref="P:OpenNETCF.Drawing.PenEx.Color"/> of the <see cref="T:OpenNETCF.Drawing.PenEx"/>.</param>
+        </member>
+        <member name="M:OpenNETCF.Drawing.PenEx.#ctor(System.Drawing.Color,System.Int32)">
+            <summary>
+            Initializes a new instance of the <see cref="T:OpenNETCF.Drawing.PenEx"/> class with the Width.  
+            </summary>
+            <param name="color">The <see cref="P:OpenNETCF.Drawing.PenEx.Color"/> of the <see cref="T:OpenNETCF.Drawing.PenEx"/>.</param>
+            <param name="width">The <see cref="P:OpenNETCF.Drawing.PenEx.Width"/> of the <see cref="T:OpenNETCF.Drawing.PenEx"/>.</param>
+        </member>
+        <member name="M:OpenNETCF.Drawing.PenEx.#ctor(System.Drawing.Color,OpenNETCF.Drawing.Drawing2D.DashStyle)">
+            <summary>
+            Initializes a new instance of the <see cref="T:OpenNETCF.Drawing.PenEx"/> class with the <see cref="P:OpenNETCF.Drawing.PenEx.DashStyle"/>.
+            </summary>
+            <param name="color">The <see cref="P:OpenNETCF.Drawing.PenEx.Color"/> of the <see cref="T:OpenNETCF.Drawing.PenEx"/>.</param>
+            <param name="style">The <see cref="P:OpenNETCF.Drawing.PenEx.DashStyle"/> of the <see cref="T:OpenNETCF.Drawing.PenEx"/>.</param>
+        </member>
+        <member name="P:OpenNETCF.Drawing.PenEx.Color">
+            <summary>
+            Gets or sets the color of this object.  
+            </summary>
+        </member>
+        <member name="P:OpenNETCF.Drawing.PenEx.DashStyle">
+            <summary>
+            Gets or sets the style used for dashed lines drawn with this <see cref="T:OpenNETCF.Drawing.PenEx"/> object.
+            </summary>
+        </member>
+        <member name="P:OpenNETCF.Drawing.PenEx.Width">
+            <summary>
+            Gets or sets the Width of this object.
+            </summary>
+        </member>
+        <member name="T:OpenNETCF.Drawing.GDIPlus">
+            <summary>
+            Summary description for GDIPlus.
+            </summary>
+        </member>
+        <member name="M:OpenNETCF.Drawing.GDIPlus.CreateFontIndirect(System.IntPtr)">
+            <summary>
+            This function creates a logical font that has the characteristics specified in the specified structure. 
+            An application can subsequently select the font as the current font for any device context (DC). 			
+            </summary>
+            <param name="pLogFont">Long pointer to a <see cref="T:OpenNETCF.Drawing.GDIPlus.LOGFONT"/> that defines the characteristics of the logical font.</param>
+            <returns>A handle to a logical font.</returns>
+        </member>
+        <member name="T:OpenNETCF.Drawing.GDIPlus.LOGFONT">
+            <summary>
+            This structure defines the attributes of a font.
+            </summary>
         </member>
         <member name="T:OpenNETCF.Drawing.Imaging.IImageDecoder">
             <summary>
@@ -2438,283 +2181,6 @@
             <param name="item"></param>
             <returns></returns>
         </member>
-        <member name="T:OpenNETCF.Drawing.FontEx">
-            <summary>
-            Defines a particular format for text, including font face, size, and style attributes. 
-            </summary>
-        </member>
-        <member name="M:OpenNETCF.Drawing.FontEx.#ctor(System.String,System.Single,System.Drawing.FontStyle)">
-            <summary>
-            Initializes a new FontEx object that uses the specified attributes.  
-            </summary>
-            <param name="fontName">A string representation of the System.Drawing.FontFamily object.</param>
-            <param name="size">The size of the new FontEx object.</param>
-            <param name="fontStyle">The style of the new FontEx object.</param>
-        </member>
-        <member name="M:OpenNETCF.Drawing.FontEx.ToHfont">
-            <summary>
-            Returns a handle to this FontEx object.
-            </summary>
-            <returns>A Windows handle to this FontEx object.</returns>
-        </member>
-        <member name="P:OpenNETCF.Drawing.FontEx.Name">
-            <summary>
-            Gets the face name of this FontEx object.
-            </summary>
-        </member>
-        <member name="P:OpenNETCF.Drawing.FontEx.Size">
-            <summary>
-            Gets the em-size of this FontEx object measured in the unit of this FontEx object.
-            </summary>
-        </member>
-        <member name="P:OpenNETCF.Drawing.FontEx.Style">
-            <summary>
-            Gets style information for this FontEx object.
-            </summary>
-        </member>
-        <member name="P:OpenNETCF.Drawing.FontEx.Angle">
-            <summary>
-            Gets sets the angle for the FontEx.
-            </summary>
-        </member>
-        <member name="P:OpenNETCF.Drawing.FontEx.ClearType">
-            <summary>
-            Gets or sets a clear type for FontEx object.
-            </summary>
-        </member>
-        <member name="T:OpenNETCF.Drawing.Imaging.PropertyItem">
-            <summary>
-            Internal class
-            </summary>
-        </member>
-        <member name="T:OpenNETCF.Drawing.Imaging.ImageFormatGuid">
-            <summary>
-            Standard image format Guids
-            </summary>
-        </member>
-        <member name="T:OpenNETCF.Drawing.Imaging.IImage">
-            <summary>
-            This is the basic interface to an image object. It allows applications to do the following: 
-            Display the image onto a destination graphics context  
-            Push image data into an image sink 
-            Access image properties and metadata Decoded image objects and in-memory bitmap image objects support the IImage interface
-            </summary>
-        </member>
-        <member name="M:OpenNETCF.Drawing.Imaging.IImage.GetPhysicalDimension(System.Drawing.Size@)">
-            <summary>
-            Get the device-independent physical dimension of the image
-             unit of 0.01mm
-            </summary>
-            <param name="size"></param>
-            <returns></returns>
-        </member>
-        <member name="M:OpenNETCF.Drawing.Imaging.IImage.GetImageInfo(OpenNETCF.Drawing.Imaging.ImageInfo@)">
-            <summary>
-            Get basic image info
-            </summary>
-            <param name="imageInfo"></param>
-            <returns></returns>
-        </member>
-        <member name="M:OpenNETCF.Drawing.Imaging.IImage.SetImageFlags(OpenNETCF.Drawing.Imaging.ImageFlags)">
-            <summary>
-            Set image flags
-            </summary>
-            <param name="flags"></param>
-            <returns></returns>
-        </member>
-        <member name="M:OpenNETCF.Drawing.Imaging.IImage.Draw(System.IntPtr,OpenNETCF.Drawing.Imaging.RECT,OpenNETCF.Drawing.Imaging.RECT)">
-            <summary>
-            Display the image a GDI device context
-            </summary>
-            <param name="hdc"></param>
-            <param name="dstRect"></param>
-            <param name="srcRect"></param>
-            <returns></returns>
-        </member>
-        <member name="M:OpenNETCF.Drawing.Imaging.IImage.PushIntoSink(OpenNETCF.Drawing.Imaging.IImageSink)">
-            <summary>
-            Push image data into an IImageSink
-            </summary>
-            <param name="sink"></param>
-            <returns></returns>
-        </member>
-        <member name="M:OpenNETCF.Drawing.Imaging.IImage.GetThumbnail(System.UInt32,System.UInt32,OpenNETCF.Drawing.Imaging.IImage@)">
-            <summary>
-            Get a thumbnail representation for the image object
-            </summary>
-            <param name="thumbWidth"></param>
-            <param name="thumbHeight"></param>
-            <param name="thumbImage"></param>
-            <returns></returns>
-        </member>
-        <member name="T:OpenNETCF.Drawing.Imaging.IBasicBitmapOps">
-            <summary>
-            
-            </summary>
-        </member>
-        <member name="M:OpenNETCF.Drawing.Imaging.IBasicBitmapOps.Clone(OpenNETCF.Drawing.Imaging.RECT,OpenNETCF.Drawing.Imaging.IBitmapImage@,System.Boolean)">
-            <summary>
-            Clone an area of the bitmap image
-            </summary>
-            <param name="rect"></param>
-            <param name="outbmp"></param>
-            <param name="bNeedCloneProperty"></param>
-            <returns></returns>
-        </member>
-        <member name="M:OpenNETCF.Drawing.Imaging.IBasicBitmapOps.Flip(System.Boolean,System.Boolean,OpenNETCF.Drawing.Imaging.IBitmapImage@)">
-            <summary>
-            Flip the bitmap image in x- and/or y-direction
-            </summary>
-            <param name="flipX"></param>
-            <param name="flipY"></param>
-            <param name="outbmp"></param>
-            <returns></returns>
-        </member>
-        <member name="M:OpenNETCF.Drawing.Imaging.IBasicBitmapOps.Resize(System.UInt32,System.UInt32,System.Drawing.Imaging.PixelFormat,OpenNETCF.Drawing.Imaging.InterpolationHint,OpenNETCF.Drawing.Imaging.IBitmapImage@)">
-            <summary>
-            Resize the bitmap image
-            </summary>
-            <param name="newWidth"></param>
-            <param name="newHeight"></param>
-            <param name="pixelFormat"></param>
-            <param name="hints"></param>
-            <param name="outbmp"></param>
-            <returns></returns>
-        </member>
-        <member name="M:OpenNETCF.Drawing.Imaging.IBasicBitmapOps.Rotate(System.Single,OpenNETCF.Drawing.Imaging.InterpolationHint,OpenNETCF.Drawing.Imaging.IBitmapImage@)">
-            <summary>
-            Rotate the bitmap image by the specified angle
-            </summary>
-            <param name="angle"></param>
-            <param name="hints"></param>
-            <param name="outbmp"></param>
-            <returns></returns>
-        </member>
-        <member name="M:OpenNETCF.Drawing.Imaging.IBasicBitmapOps.AdjustBrightness(System.Single)">
-            <summary>
-            Adjust the brightness of the bitmap image
-            </summary>
-            <param name="percent"></param>
-            <returns></returns>
-        </member>
-        <member name="M:OpenNETCF.Drawing.Imaging.IBasicBitmapOps.AdjustContrast(System.Single,System.Single)">
-            <summary>
-            This method adjusts the contrast of an image by rescaling the pixel values in the range from 0 to 1 to the new range from shadow to highlight.
-            The old pixel value 0 is mapped to the new pixel value of shadow and the old pixel value 1 is mapped to the new pixel value of highlight. All other old pixel values are mapped into the new range through linear interpolation.
-            </summary>
-            <param name="shadow">A FLOAT value that defines the value for pixels that are currently 0.</param>
-            <param name="highlight">A FLOAT value that defines the value for pixels that are currently 1.</param>
-            <returns></returns>
-        </member>
-        <member name="M:OpenNETCF.Drawing.Imaging.IBasicBitmapOps.AdjustGamma(System.Single)">
-            <summary>
-            Adjust the gamma of the bitmap image
-            </summary>
-            <param name="gamma"></param>
-            <returns></returns>
-        </member>
-        <member name="T:OpenNETCF.Drawing.BitmapEx">
-            <summary>
-            Encapsulates a GDI+ bitmap, which consists of the pixel data for a graphics image and its attributes. A BitmapEx object is an object used to work with images defined by pixel data. 
-            </summary>
-        </member>
-        <member name="M:OpenNETCF.Drawing.BitmapEx.#ctor(System.Int32,System.Int32)">
-            <summary>
-            Initializes a new instance of the BitmapEx class with the specified size.  
-            </summary>
-            <param name="width"></param>
-            <param name="height"></param>
-        </member>
-        <member name="M:OpenNETCF.Drawing.BitmapEx.#ctor(System.String)">
-            <summary>
-            Initializes a new instance of the System.Drawing.Bitmap class from the specified file.  
-            </summary>
-            <param name="filename"></param>
-        </member>
-        <member name="M:OpenNETCF.Drawing.BitmapEx.GetHbitmap">
-            <summary>
-            Creates a GDI bitmap object from this BitmapEx object.  
-            </summary>
-            <returns>A handle to the GDI bitmap object that this method creates.</returns>
-        </member>
-        <member name="M:OpenNETCF.Drawing.BitmapEx.LockBits(System.Drawing.Rectangle,System.Int32,System.Drawing.Imaging.PixelFormat)">
-            <summary>
-            BitmapEx object into system memory.  
-            </summary>
-            <param name="rect">A System.Drawing.Rectangle structure specifying the portion of the BitmapEx to lock.  </param>
-            <param name="flags">Access level (read and write) for the BitmapEx object. ></param>
-            <param name="format">PixelFormat enumeration specifying the data format of this BitmapEx object.</param>
-            <returns>BitmapData object containing information about this lock operation.  </returns>
-        </member>
-        <member name="M:OpenNETCF.Drawing.BitmapEx.UnlockBits(OpenNETCF.Drawing.Imaging.BitmapData)">
-            <summary>
-            Unlocks this BitmapEx from system memory.  
-            </summary>
-            <param name="data"></param>
-        </member>
-        <member name="P:OpenNETCF.Drawing.BitmapEx.Width">
-            <summary>
-            Gets the width of this BitmapEx object.
-            </summary>
-        </member>
-        <member name="P:OpenNETCF.Drawing.BitmapEx.Height">
-            <summary>
-            Gets the height of this BitmapEx object.
-            </summary>
-        </member>
-        <member name="T:OpenNETCF.Drawing.Imaging.BitmapData">
-            <summary>
-            Specifies the attributes of a bitmap image. The BitmapData class is used by the LockBits and UnlockBits methods of the BitmapEx class.
-            </summary>
-        </member>
-        <member name="P:OpenNETCF.Drawing.Imaging.BitmapData.PixelFormat">
-            <summary>
-            Gets or sets the format of the pixel information.
-            </summary>
-        </member>
-        <member name="P:OpenNETCF.Drawing.Imaging.BitmapData.Scan0">
-            <summary>
-            Gets or sets the address of the first pixel data in the bitmap.
-            </summary>
-        </member>
-        <member name="P:OpenNETCF.Drawing.Imaging.BitmapData.Stride">
-            <summary>
-            Gets or sets the stride width (also called scan width) of the bitmap object.  
-            </summary>
-        </member>
-        <member name="P:OpenNETCF.Drawing.Imaging.BitmapData.Width">
-            <summary>
-            Gets or sets the pixel width of the BitmapEx object. This can also be thought of as the number of pixels in one scan line.  
-            </summary>
-        </member>
-        <member name="P:OpenNETCF.Drawing.Imaging.BitmapData.Height">
-            <summary>
-            Gets or sets the pixel height of the BitmapEx object. 
-            </summary>
-        </member>
-        <member name="T:OpenNETCF.Drawing.Imaging.ImageProperty">
-            <summary>
-            Defines a property of an Image
-            </summary>
-        </member>
-        <member name="M:OpenNETCF.Drawing.Imaging.ImageProperty.FromByteArray(System.Byte[])">
-            <summary>
-            Generates an ImageProperty from an array of bytes
-            </summary>
-            <param name="data"></param>
-        </member>
-        <member name="M:OpenNETCF.Drawing.Imaging.ImageProperty.ToByteArray">
-            <summary>
-            Gets the property as a byte representation
-            </summary>
-            <returns></returns>
-        </member>
-        <member name="M:OpenNETCF.Drawing.Imaging.ImageProperty.GetValue">
-            <summary>
-            Retrieves the value of the given property
-            </summary>
-            <returns></returns>
-        </member>
         <member name="T:OpenNETCF.Win32.DibSection">
             <summary>
             Wrapper for WIN32 <b>DIBSECTION</b> structure
@@ -2841,6 +2307,500 @@
             Specifies the offset to the bitmap's bit values within the file mapping object referenced by dshSection. If dshSection is NULL, the dsOffset value has no meaning.
             </summary>
         </member>
+        <member name="T:OpenNETCF.Win32.BitmapInfoHeader">
+            <summary>
+            Contains information about the dimensions and color format of a device-independent bitmap (DIB).
+            </summary>
+            <remarks>Wrapper for Win32 <b>BITMAPINFOHEADER</b> structure</remarks>
+        </member>
+        <member name="P:OpenNETCF.Win32.BitmapInfoHeader.Size">
+            <summary>
+            Specifies the number of bytes required by the structure.
+            </summary>
+        </member>
+        <member name="P:OpenNETCF.Win32.BitmapInfoHeader.Width">
+            <summary>
+            Specifies the width of the bitmap, in pixels.
+            </summary>
+        </member>
+        <member name="P:OpenNETCF.Win32.BitmapInfoHeader.Height">
+            <summary>
+            Specifies the height of the bitmap, in pixels.
+            If biHeight is positive, the bitmap is a bottom-up DIB and its origin is the lower-left corner.
+            If biHeight is negative, the bitmap is a top-down DIB and its origin is the upper-left corner.
+            If biHeight is negative, indicating a top-down DIB, biCompression must be either BI_RGB or BI_BITFIELDS.
+            Top-down DIBs cannot be compressed.
+            </summary>
+        </member>
+        <member name="P:OpenNETCF.Win32.BitmapInfoHeader.Planes">
+            <summary>
+            Specifies the number of planes for the target device.
+            This value must be set to 1.
+            </summary>
+        </member>
+        <member name="P:OpenNETCF.Win32.BitmapInfoHeader.BitCount">
+            <summary>
+            Specifies the number of bits per pixel.
+            The biBitCount member determines the number of bits that define each pixel and the maximum number of colors in the bitmap.
+            </summary>
+        </member>
+        <member name="P:OpenNETCF.Win32.BitmapInfoHeader.Compression">
+            <summary>
+            Specifies the type of compression for a compressed bottom-up bitmap (top-down DIBs cannot be compressed).
+            </summary>
+        </member>
+        <member name="P:OpenNETCF.Win32.BitmapInfoHeader.SizeImage">
+            <summary>
+            Specifies the size, in bytes, of the image. This may be set to zero for BI_RGB bitmaps.
+            </summary>
+        </member>
+        <member name="P:OpenNETCF.Win32.BitmapInfoHeader.XPelsPerMeter">
+            <summary>
+            Specifies the horizontal resolution, in pixels per meter, of the target device for the bitmap.
+            An application can use this value to select a bitmap from a resource group that best matches the characteristics of the current device.
+            </summary>
+        </member>
+        <member name="P:OpenNETCF.Win32.BitmapInfoHeader.YPelsPerMeter">
+            <summary>
+            Specifies the vertical resolution, in pixels per meter, of the target device for the bitmap
+            </summary>
+        </member>
+        <member name="P:OpenNETCF.Win32.BitmapInfoHeader.ClrUsed">
+            <summary>
+            Specifies the number of color indexes in the color table that are actually used by the bitmap.
+            If this value is zero, the bitmap uses the maximum number of colors corresponding to the value of the biBitCount member for the compression mode specified by biCompression.
+            </summary>
+        </member>
+        <member name="P:OpenNETCF.Win32.BitmapInfoHeader.ClrImportant">
+            <summary>
+            Specifies the number of color indexes required for displaying the bitmap.
+            If this value is zero, all colors are required.
+            </summary>
+        </member>
+        <member name="T:OpenNETCF.Drawing.CopyPixelOperation">
+            <summary>
+            Determines how the source color in a copy pixel operation is combined with the destination color to result in a final color.
+            </summary>
+        </member>
+        <member name="F:OpenNETCF.Drawing.CopyPixelOperation.Blackness">
+            <summary>
+            The destination area is filled by using the color associated with index 0 in the physical palette. (This color is black for the default physical palette.)
+            </summary>
+        </member>
+        <member name="F:OpenNETCF.Drawing.CopyPixelOperation.CaptureBlt">
+            <summary>
+            Windows that are layered on top of your window are included in the resulting image. By default, the image contains only your window. Note that this generally cannot be used for printing device contexts.
+            </summary>
+        </member>
+        <member name="F:OpenNETCF.Drawing.CopyPixelOperation.DestinationInvert">
+            <summary>
+            The destination area is inverted.
+            </summary>
+        </member>
+        <member name="F:OpenNETCF.Drawing.CopyPixelOperation.MergeCopy">
+            <summary>
+            The colors of the source area are merged with the colors of the selected brush of the destination device context using the Boolean AND operator.
+            </summary>
+        </member>
+        <member name="F:OpenNETCF.Drawing.CopyPixelOperation.MergePaint">
+            <summary>
+            The colors of the inverted source area are merged with the colors of the destination area by using the Boolean OR operator.
+            </summary>
+        </member>
+        <member name="F:OpenNETCF.Drawing.CopyPixelOperation.NoMirrorBitmap">
+            <summary>
+            The bitmap is not mirrored.
+            </summary>
+        </member>
+        <member name="F:OpenNETCF.Drawing.CopyPixelOperation.NotSourceCopy">
+            <summary>
+            The inverted source area is copied to the destination.
+            </summary>
+        </member>
+        <member name="F:OpenNETCF.Drawing.CopyPixelOperation.NotSourceErase">
+            <summary>
+            The source and destination colors are combined using the Boolean OR operator, and then resultant color is then inverted.
+            </summary>
+        </member>
+        <member name="F:OpenNETCF.Drawing.CopyPixelOperation.PatCopy">
+            <summary>
+            The brush currently selected in the destination device context is copied to the destination bitmap.
+            </summary>
+        </member>
+        <member name="F:OpenNETCF.Drawing.CopyPixelOperation.PatInvert">
+            <summary>
+            The colors of the brush currently selected in the destination device context are combined with the colors of the destination are using the Boolean XOR operator.
+            </summary>
+        </member>
+        <member name="F:OpenNETCF.Drawing.CopyPixelOperation.PatPaint">
+            <summary>
+            The colors of the brush currently selected in the destination device context are combined with the colors of the inverted source area using the Boolean OR operator. The result of this operation is combined with the colors of the destination area using the Boolean OR operator.
+            </summary>
+        </member>
+        <member name="F:OpenNETCF.Drawing.CopyPixelOperation.SourceAnd">
+            <summary>
+            The colors of the source and destination areas are combined using the Boolean AND operator.
+            </summary>
+        </member>
+        <member name="F:OpenNETCF.Drawing.CopyPixelOperation.SourceCopy">
+            <summary>
+            The source area is copied directly to the destination area.
+            </summary>
+        </member>
+        <member name="F:OpenNETCF.Drawing.CopyPixelOperation.SourceErase">
+            <summary>
+            The inverted colors of the destination area are combined with the colors of the source area using the Boolean AND operator.
+            </summary>
+        </member>
+        <member name="F:OpenNETCF.Drawing.CopyPixelOperation.SourceInvert">
+            <summary>
+            The colors of the source and destination areas are combined using the Boolean XOR operator.
+            </summary>
+        </member>
+        <member name="F:OpenNETCF.Drawing.CopyPixelOperation.SourcePaint">
+            <summary>
+            The colors of the source and destination areas are combined using the Boolean OR operator.
+            </summary>
+        </member>
+        <member name="F:OpenNETCF.Drawing.CopyPixelOperation.Whiteness">
+            <summary>
+            The destination area is filled by using the color associated with index 1 in the physical palette. (This color is white for the default physical palette.)
+            </summary>
+        </member>
+        <member name="T:OpenNETCF.Drawing.Imaging.ImageProperty">
+            <summary>
+            Defines a property of an Image
+            </summary>
+        </member>
+        <member name="M:OpenNETCF.Drawing.Imaging.ImageProperty.FromByteArray(System.Byte[])">
+            <summary>
+            Generates an ImageProperty from an array of bytes
+            </summary>
+            <param name="data"></param>
+        </member>
+        <member name="M:OpenNETCF.Drawing.Imaging.ImageProperty.ToByteArray">
+            <summary>
+            Gets the property as a byte representation
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:OpenNETCF.Drawing.Imaging.ImageProperty.GetValue">
+            <summary>
+            Retrieves the value of the given property
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="T:OpenNETCF.Drawing.Imaging.IImageSink">
+            <summary>
+            This interface allows an image source, such as an image decoder, and an image sink to exchange data. 
+            The most important interaction between the source and the sink happens when they negotiate data transfer 
+            parameters during the call to the IImageSink::BeginSink method
+            </summary>
+        </member>
+        <member name="M:OpenNETCF.Drawing.Imaging.IImageSink.BeginSink(OpenNETCF.Drawing.Imaging.ImageInfo@,OpenNETCF.Drawing.Imaging.RECT@)">
+            <summary>
+            Begin the sink process
+            </summary>
+            <param name="imageInfo"></param>
+            <param name="subarea"></param>
+            <returns></returns>
+        </member>
+        <member name="M:OpenNETCF.Drawing.Imaging.IImageSink.EndSink(System.Int32)">
+            <summary>
+            End the sink process
+            </summary>
+            <param name="statusCode"></param>
+            <returns></returns>
+        </member>
+        <member name="M:OpenNETCF.Drawing.Imaging.IImageSink.SetPalette(OpenNETCF.Drawing.Imaging.ColorPalette@)">
+            <summary>
+            Pass the color palette to the image sink
+            </summary>
+            <param name="palette"></param>
+            <returns></returns>
+        </member>
+        <member name="M:OpenNETCF.Drawing.Imaging.IImageSink.GetPixelDataBuffer(OpenNETCF.Drawing.Imaging.RECT,System.Drawing.Imaging.PixelFormat,System.Boolean,OpenNETCF.Drawing.Imaging.BitmapDataInternal@)">
+            <summary>
+            Ask the sink to allocate pixel data buffer
+            </summary>
+            <param name="rect"></param>
+            <param name="pixelFormat"></param>
+            <param name="lastPass"></param>
+            <param name="bitmapData"></param>
+            <returns></returns>
+        </member>
+        <member name="M:OpenNETCF.Drawing.Imaging.IImageSink.ReleasePixelDataBuffer(OpenNETCF.Drawing.Imaging.BitmapDataInternal@)">
+            <summary>
+            Give the sink pixel data and release data buffer
+            </summary>
+            <param name="bitmapData"></param>
+            <returns></returns>
+        </member>
+        <member name="M:OpenNETCF.Drawing.Imaging.IImageSink.PushPixelData(OpenNETCF.Drawing.Imaging.RECT,OpenNETCF.Drawing.Imaging.BitmapDataInternal@,System.Boolean)">
+            <summary>
+            Push pixel data
+            </summary>
+            <param name="rect"></param>
+            <param name="bitmapData"></param>
+            <param name="lastPass"></param>
+            <returns></returns>
+        </member>
+        <member name="M:OpenNETCF.Drawing.Imaging.IImageSink.PushRawData(System.IntPtr,System.UInt32)">
+            <summary>
+            Push raw image data
+            </summary>
+            <param name="buffer"></param>
+            <param name="bufsize"></param>
+            <returns></returns>
+        </member>
+        <member name="M:OpenNETCF.Drawing.Imaging.IImageSink.NeedTransform(System.UInt32@)">
+            <summary>
+            This method is used by an image source to determine whether an image 
+            sink should rotate an image and by how much it should rotate the image
+            </summary>
+            <param name="rotation"></param>
+            <returns></returns>
+        </member>
+        <member name="M:OpenNETCF.Drawing.Imaging.IImageSink.NeedRawProperty">
+            <summary>
+            This method is used by an image source to determine whether an image sink can accept raw properties
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:OpenNETCF.Drawing.Imaging.IImageSink.PushRawInfo(System.Byte[])">
+            <summary>
+            This method is used by an image source to send raw information about an image to an image sink
+            </summary>
+            <param name="info"></param>
+            <returns></returns>
+        </member>
+        <member name="M:OpenNETCF.Drawing.Imaging.IImageSink.GetPropertyBuffer(System.Int32,System.IntPtr)">
+            <summary>
+            Retrieves a property as a blob
+            </summary>
+            <param name="uiTotalBufferSize"></param>
+            <param name="ppBuffer"></param>
+            <returns></returns>
+        </member>
+        <member name="T:OpenNETCF.Drawing.GraphicsEx">
+            <summary>
+            Encapsulates a GDI+ drawing surface.
+            </summary>
+        </member>
+        <member name="M:OpenNETCF.Drawing.GraphicsEx.FromHdc(System.IntPtr)">
+            <summary>
+            Creates a new <see cref="T:OpenNETCF.Drawing.GraphicsEx"/> object from the specified native graphics handle.  
+            </summary>
+            <param name="nativeGraphics">native graphics handle.</param>
+        </member>
+        <member name="M:OpenNETCF.Drawing.GraphicsEx.FromHwnd(System.IntPtr)">
+            <summary>
+            Creates a new <see cref="T:OpenNETCF.Drawing.GraphicsEx"/> object from the specified handle to a window.  
+            </summary>
+            <param name="hwnd">Handle to a window.</param>
+            <returns>This method returns a new <see cref="T:OpenNETCF.Drawing.GraphicsEx"/> object for the specified window handle.  </returns>
+        </member>
+        <member name="M:OpenNETCF.Drawing.GraphicsEx.FromControl(System.Windows.Forms.Control)">
+            <summary>
+            Creates a new <see cref="T:OpenNETCF.Drawing.GraphicsEx"/> object from the specified <see cref="T:System.Windows.Forms.Control"/> object.  
+            </summary>
+            <param name="ctl"><see cref="T:System.Windows.Forms.Control"/> object</param>
+            <returns>This method returns a new OpenNETCF.Drawing.GraphicsEx object for the specified specified Control object.</returns>
+        </member>
+        <member name="M:OpenNETCF.Drawing.GraphicsEx.CompatibleGraphics(System.Windows.Forms.Control)">
+            <summary>
+            Creates a new copy of <see cref="T:OpenNETCF.Drawing.GraphicsEx"/> object from the specified Control object.  
+            </summary>
+            <param name="ctl"><see cref="T:System.Windows.Forms.Control"/> object.</param>
+            <returns>This method returns a new <see cref="T:OpenNETCF.Drawing.GraphicsEx"/> object for the specified specified Control object.</returns>
+        </member>
+        <member name="M:OpenNETCF.Drawing.GraphicsEx.CompatibleGraphics">
+            <summary>
+            Creates a new copy of <see cref="T:OpenNETCF.Drawing.GraphicsEx"/> object from the existing <see cref="T:OpenNETCF.Drawing.GraphicsEx"/> objec.
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:OpenNETCF.Drawing.GraphicsEx.CopyGraphics(System.Windows.Forms.Control,System.Drawing.Rectangle)">
+            <summary>
+            Copies the graphics.
+            </summary>
+            <param name="ctl"></param>
+            <param name="rc"></param>
+        </member>
+        <member name="M:OpenNETCF.Drawing.GraphicsEx.CopyGraphics(OpenNETCF.Drawing.GraphicsEx,System.Drawing.Rectangle)">
+            <summary>
+            Copies the graphics.
+            </summary>
+            <param name="gx"></param>
+            <param name="rc"></param>
+        </member>
+        <member name="M:OpenNETCF.Drawing.GraphicsEx.CopyGraphics(System.Windows.Forms.Control,System.Drawing.Rectangle,System.Drawing.Color)">
+            <summary>
+            Copies graphics from <see cref="T:System.Windows.Forms.Control"/> with transparent color.
+            </summary>
+            <param name="ctl">Control to copy graphics from</param>
+            <param name="rc">Rectangle to copy.</param>
+            <param name="transpColor">Transaprent color.</param>
+        </member>
+        <member name="M:OpenNETCF.Drawing.GraphicsEx.DrawRectangle(OpenNETCF.Drawing.PenEx,System.Drawing.Rectangle)">
+            <summary>
+            Draws a rectangle specified by a <see cref="T:System.Drawing.Rectangle"/> structure. 
+            </summary>
+            <param name="pen">A <see cref="T:OpenNETCF.Drawing.PenEx"/> object that determines the color, width, and style of the rectangle. </param>
+            <param name="rc">A <see cref="T:System.Drawing.Rectangle"/> structure that represents the rectangle to draw. </param>
+        </member>
+        <member name="M:OpenNETCF.Drawing.GraphicsEx.DrawRectangle(OpenNETCF.Drawing.PenEx,System.Int32,System.Int32,System.Int32,System.Int32)">
+            <summary>
+            Draws a rectangle.
+            </summary>
+            <param name="pen">A <see cref="T:OpenNETCF.Drawing.PenEx"/> object that determines the color, width, and style of the rectangle. </param>
+            <param name="x">x: x-coordinate of the upper-left corner of the rectangle to draw. </param>
+            <param name="y"> y: y-coordinate of the upper-left corner of the rectangle to draw.  </param>
+            <param name="cx">width: width of the rectangle to draw. </param>
+            <param name="cy">height: Height of the rectangle to draw. </param>
+        </member>
+        <member name="M:OpenNETCF.Drawing.GraphicsEx.MeasureString(System.String,OpenNETCF.Drawing.FontEx,System.Int32)">
+            <summary>
+            Measures the specified string when drawn with the specified <see cref="T:OpenNETCF.Drawing.FontEx"/> object.  
+            </summary>
+            <param name="text">String to measure.</param>
+            <param name="font"><see cref="T:OpenNETCF.Drawing.FontEx"/> object that defines the text format of the string.</param>
+            <param name="width">Width to fit the string.</param>
+            <returns></returns>
+        </member>
+        <member name="M:OpenNETCF.Drawing.GraphicsEx.MeasureString(System.String,OpenNETCF.Drawing.FontEx)">
+            <summary>
+            Measures the specified string when drawn with the specified <see cref="T:OpenNETCF.Drawing.FontEx"/> object.  
+            </summary>
+            <param name="text"><see cref="T:System.String"/> to measure.</param>
+            <param name="font"><see cref="T:OpenNETCF.Drawing.FontEx"/> object that defines the text format of the string.</param>
+            <returns></returns>
+        </member>
+        <member name="M:OpenNETCF.Drawing.GraphicsEx.FillRectangle(System.Drawing.Color,System.Drawing.Rectangle)">
+            <summary>
+            Fills the interior of a rectangle specified by a <see cref="T:System.Drawing.Rectangle"/> structure.  
+            </summary>
+            <param name="color">The <see cref="T:System.Drawing.Color"/> to fill.</param>
+            <param name="rc"><see cref="T:System.Drawing.Rectangle"/> structure that represents the rectangle to fill. </param>
+        </member>
+        <member name="M:OpenNETCF.Drawing.GraphicsEx.DrawString(System.String,OpenNETCF.Drawing.FontEx,System.Drawing.Color,System.Drawing.Rectangle)">
+            <summary>
+            Draws the specified text string at the specified location with the specified <see cref="T:System.Drawing.Color"/> and <see cref="T:OpenNETCF.Drawing.FontEx"/> objects.
+            </summary>
+            <param name="text">String to draw</param>
+            <param name="font"><see cref="T:OpenNETCF.Drawing.FontEx"/> object that defines the text format of the string</param>
+            <param name="textColor">The <see cref="T:System.Drawing.Color"/> of text draw.</param>
+            <param name="rc">Rectangle structure that specifies the location of the drawn text</param>
+        </member>
+        <member name="M:OpenNETCF.Drawing.GraphicsEx.DrawRoundRectangle(OpenNETCF.Drawing.PenEx,System.Drawing.Rectangle,System.Drawing.Size)">
+            <summary>
+            Draws a rectangle with rounded corners.
+            </summary>
+            <param name="pen">A <see cref="T:OpenNETCF.Drawing.PenEx"/> object that determines the color, width, and style of the rectangle</param>
+            <param name="rc">A <see cref="T:System.Drawing.Rectangle"/> structure that represents the rectangle to draw.</param>
+            <param name="size">A <see cref="T:System.Drawing.Size"/> structre that defines the corner radius.</param>
+        </member>
+        <member name="M:OpenNETCF.Drawing.GraphicsEx.DrawEllipse(OpenNETCF.Drawing.PenEx,System.Drawing.Rectangle)">
+            <summary>
+            Draws an ellipse specified by a bounding <see cref="T:System.Drawing.Rectangle"/> structure.
+            </summary>
+            <param name="pen">A <see cref="T:OpenNETCF.Drawing.PenEx"/> object that determines the color, width, and style of the ellipse.</param>
+            <param name="rc">A <see cref="T:System.Drawing.Rectangle"/> structure that represents the rectangle to draw.</param>
+        </member>
+        <member name="M:OpenNETCF.Drawing.GraphicsEx.DrawEllipse(OpenNETCF.Drawing.PenEx,System.Int32,System.Int32,System.Int32,System.Int32)">
+            <summary>
+            Draws an ellipse defined by a bounding rectangle specified by a pair of coordinates, a height, and a width.
+            </summary>
+            <param name="pen">A <see cref="T:OpenNETCF.Drawing.PenEx"/> object that determines the color, width, and style of the ellipse.</param>
+            <param name="x">x-coordinate of the upper-left corner of the bounding rectangle that defines the ellipse.</param>
+            <param name="y">y-coordinate of the upper-left corner of the bounding rectangle that defines the ellipse.</param>
+            <param name="width">Width of the bounding rectangle that defines the ellipse.</param>
+            <param name="height">Height of the bounding rectangle that defines the ellipse.</param>
+        </member>
+        <member name="M:OpenNETCF.Drawing.GraphicsEx.DrawImage(OpenNETCF.Drawing.BitmapEx,System.Int32,System.Int32)">
+            <summary>
+            Draws the specified <see cref="T:OpenNETCF.Drawing.BitmapEx"/> object at the specified location and with the original size.  
+            </summary>
+            <param name="image"><see cref="T:OpenNETCF.Drawing.BitmapEx"/> object to draw.</param>
+            <param name="x">x-coordinate of the upper-left corner of the drawn image.</param>
+            <param name="y">y-coordinate of the upper-top corner of the drawn image.</param>
+        </member>
+        <member name="M:OpenNETCF.Drawing.GraphicsEx.DrawImage(OpenNETCF.Drawing.BitmapEx,System.Drawing.Rectangle,System.Drawing.Rectangle)">
+            <summary>
+            Draws the specified portion of the specified System.Drawing.Image object at the specified location and with the specified size.  
+            </summary>
+            <param name="image"><see cref="T:OpenNETCF.Drawing.BitmapEx"/> object to draw.</param>
+            <param name="destRect"><see cref="T:System.Drawing.Rectangle"/> structure that specifies the location and size of the drawn image.
+            The image is scaled to fit the rectangle.</param>
+            <param name="srcRect"><see cref="T:System.Drawing.Rectangle"/> structure that specifies the portion of the image object to draw.</param>
+        </member>
+        <member name="M:OpenNETCF.Drawing.GraphicsEx.DrawLine(OpenNETCF.Drawing.PenEx,System.Int32,System.Int32,System.Int32,System.Int32)">
+            <summary>
+            Draws a line connecting the two points specified by coordinate pairs.  
+            </summary>
+            <param name="pen">PenEx object that determines the color, width, and style of the line.</param>
+            <param name="xStart">x-coordinate of the first point.</param>
+            <param name="yStart">y-coordinate of the first point.</param>
+            <param name="xEnd">x-coordinate of the second point.</param>
+            <param name="yEnd">x-coordinate of the seconf point.</param>
+        </member>
+        <member name="M:OpenNETCF.Drawing.GraphicsEx.GetHdc">
+            <summary>
+            Gets the handle to the device context associated with this <see cref="T:OpenNETCF.Drawing.GraphicsEx"/> object.
+            </summary>
+            <returns>Handle to the device context associated with this <see cref="T:OpenNETCF.Drawing.GraphicsEx"/> object</returns>
+        </member>
+        <member name="M:OpenNETCF.Drawing.GraphicsEx.CopyFromScreen(System.Int32,System.Int32,System.Int32,System.Int32,System.Drawing.Size)">
+            <summary>
+            Performs a bit-block transfer of the color data, corresponding to a rectangle of pixels, from the screen to the drawing surface of the GraphicsEx. 
+            </summary>
+            <param name="sourceX">The x-coordinate of the point at the upper-left corner of the source rectangle.</param>
+            <param name="sourceY">The y-coordinate of the point at the upper-left corner of the source rectangle</param>
+            <param name="destinationX">The x-coordinate of the point at the upper-left corner of the destination rectangle.</param>
+            <param name="destinationY">The y-coordinate of the point at the upper-left corner of the destination rectangle.</param>
+            <param name="blockRegionSize">The size of the area to be transferred.</param>
+        </member>
+        <member name="M:OpenNETCF.Drawing.GraphicsEx.CopyFromScreen(System.Int32,System.Int32,System.Int32,System.Int32,System.Drawing.Size,OpenNETCF.Drawing.CopyPixelOperation)">
+            <summary>
+            Performs a bit-block transfer of the color data, corresponding to a rectangle of pixels, from the screen to the drawing surface of the GraphicsEx.
+            </summary>
+            <param name="sourceX">The x-coordinate of the point at the upper-left corner of the source rectangle.</param>
+            <param name="sourceY">The y-coordinate of the point at the upper-left corner of the source rectangle</param>
+            <param name="destinationX">The x-coordinate of the point at the upper-left corner of the destination rectangle.</param>
+            <param name="destinationY">The y-coordinate of the point at the upper-left corner of the destination rectangle.</param>
+            <param name="blockRegionSize">The size of the area to be transferred.</param>
+            <param name="copyPixelOperation">One of the <c>CopyPixelOperation</c> values.</param>
+        </member>
+        <member name="T:OpenNETCF.Drawing.Drawing2D.DashStyle">
+            <summary>
+            Specifies the style of dashed lines drawn with a <see cref="T:OpenNETCF.Drawing.PenEx"/> object.
+            </summary>
+        </member>
+        <member name="F:OpenNETCF.Drawing.Drawing2D.DashStyle.Dash">
+            <summary>
+            Specifies a line consisting of dashes.
+            </summary>
+        </member>
+        <member name="F:OpenNETCF.Drawing.Drawing2D.DashStyle.Solid">
+            <summary>
+            Specifies a solid line.
+            </summary>
+        </member>
+        <member name="T:OpenNETCF.Runtime.InteropServices.ComTypes.FILETIME">
+            <summary>
+            This structure is a 64-bit value representing the number of 100-nanosecond intervals since January 1, 1601.
+            </summary>
+        </member>
+        <member name="F:OpenNETCF.Runtime.InteropServices.ComTypes.FILETIME.dwLowDateTime">
+            <summary>
+            Specifies the low 32 bits of the FILETIME.
+            </summary>
+        </member>
+        <member name="F:OpenNETCF.Runtime.InteropServices.ComTypes.FILETIME.dwHighDateTime">
+            <summary>
+            Specifies the high 32 bits of the FILETIME.
+            </summary>
+        </member>
         <member name="T:OpenNETCF.Drawing.ColorTranslator">
             <summary>
             Translates colors to and from <see cref="T:System.Drawing.Color"/> structures.
@@ -2893,11 +2853,6 @@
             </summary>
             <param name="c">The <see cref="T:System.Drawing.Color"/> structure to translate.</param>
             <returns>The OLE color value.</returns>
-        </member>
-        <member name="T:OpenNETCF.Drawing.Imaging.ImagingFactory">
-            <summary>
-            This interface is used to create bitmaps and images and to manage image encoders and decoders.
-            </summary>
         </member>
         <member name="T:OpenNETCF.Drawing.Imaging.ImagingFactoryClass">
             <summary>
@@ -3015,149 +2970,209 @@
             <param name="flags"></param>
             <returns></returns>
         </member>
-        <member name="T:OpenNETCF.Drawing.Imaging.ImageCodecInfo">
+        <member name="T:OpenNETCF.Drawing.Imaging.Rational">
             <summary>
-            Describes Imaging codec
+            Holds a Rational number used by imaging properties
             </summary>
         </member>
-        <member name="P:OpenNETCF.Drawing.Imaging.ImageCodecInfo.CodecName">
+        <member name="T:OpenNETCF.Drawing.Imaging.SRational">
             <summary>
-            Codec name
+            Holds a Signed Rational number used by imaging properties
             </summary>
         </member>
-        <member name="P:OpenNETCF.Drawing.Imaging.ImageCodecInfo.DllName">
+        <member name="T:OpenNETCF.Drawing.Imaging.IBasicBitmapOps">
             <summary>
-            Codec Dll name
+            
             </summary>
         </member>
-        <member name="P:OpenNETCF.Drawing.Imaging.ImageCodecInfo.FormatDescription">
+        <member name="M:OpenNETCF.Drawing.Imaging.IBasicBitmapOps.Clone(OpenNETCF.Drawing.Imaging.RECT,OpenNETCF.Drawing.Imaging.IBitmapImage@,System.Boolean)">
             <summary>
-            Codec format description
+            Clone an area of the bitmap image
+            </summary>
+            <param name="rect"></param>
+            <param name="outbmp"></param>
+            <param name="bNeedCloneProperty"></param>
+            <returns></returns>
+        </member>
+        <member name="M:OpenNETCF.Drawing.Imaging.IBasicBitmapOps.Flip(System.Boolean,System.Boolean,OpenNETCF.Drawing.Imaging.IBitmapImage@)">
+            <summary>
+            Flip the bitmap image in x- and/or y-direction
+            </summary>
+            <param name="flipX"></param>
+            <param name="flipY"></param>
+            <param name="outbmp"></param>
+            <returns></returns>
+        </member>
+        <member name="M:OpenNETCF.Drawing.Imaging.IBasicBitmapOps.Resize(System.UInt32,System.UInt32,System.Drawing.Imaging.PixelFormat,OpenNETCF.Drawing.Imaging.InterpolationHint,OpenNETCF.Drawing.Imaging.IBitmapImage@)">
+            <summary>
+            Resize the bitmap image
+            </summary>
+            <param name="newWidth"></param>
+            <param name="newHeight"></param>
+            <param name="pixelFormat"></param>
+            <param name="hints"></param>
+            <param name="outbmp"></param>
+            <returns></returns>
+        </member>
+        <member name="M:OpenNETCF.Drawing.Imaging.IBasicBitmapOps.Rotate(System.Single,OpenNETCF.Drawing.Imaging.InterpolationHint,OpenNETCF.Drawing.Imaging.IBitmapImage@)">
+            <summary>
+            Rotate the bitmap image by the specified angle
+            </summary>
+            <param name="angle"></param>
+            <param name="hints"></param>
+            <param name="outbmp"></param>
+            <returns></returns>
+        </member>
+        <member name="M:OpenNETCF.Drawing.Imaging.IBasicBitmapOps.AdjustBrightness(System.Single)">
+            <summary>
+            Adjust the brightness of the bitmap image
+            </summary>
+            <param name="percent"></param>
+            <returns></returns>
+        </member>
+        <member name="M:OpenNETCF.Drawing.Imaging.IBasicBitmapOps.AdjustContrast(System.Single,System.Single)">
+            <summary>
+            This method adjusts the contrast of an image by rescaling the pixel values in the range from 0 to 1 to the new range from shadow to highlight.
+            The old pixel value 0 is mapped to the new pixel value of shadow and the old pixel value 1 is mapped to the new pixel value of highlight. All other old pixel values are mapped into the new range through linear interpolation.
+            </summary>
+            <param name="shadow">A FLOAT value that defines the value for pixels that are currently 0.</param>
+            <param name="highlight">A FLOAT value that defines the value for pixels that are currently 1.</param>
+            <returns></returns>
+        </member>
+        <member name="M:OpenNETCF.Drawing.Imaging.IBasicBitmapOps.AdjustGamma(System.Single)">
+            <summary>
+            Adjust the gamma of the bitmap image
+            </summary>
+            <param name="gamma"></param>
+            <returns></returns>
+        </member>
+        <member name="T:OpenNETCF.Drawing.ContentAlignment2">
+            <summary>
+            Specifies alignment of content on the drawing surface.
             </summary>
         </member>
-        <member name="P:OpenNETCF.Drawing.Imaging.ImageCodecInfo.FilenameExtension">
+        <member name="F:OpenNETCF.Drawing.ContentAlignment2.BottomCenter">
             <summary>
-            Codec's file's extension (e.g. BMP)
+            Content is vertically aligned at the bottom, and horizontally aligned at the center.
             </summary>
         </member>
-        <member name="P:OpenNETCF.Drawing.Imaging.ImageCodecInfo.MimeType">
+        <member name="F:OpenNETCF.Drawing.ContentAlignment2.BottomLeft">
             <summary>
-            Codec's image MIME type
+            Content is vertically aligned at the bottom, and horizontally aligned on the left.
             </summary>
         </member>
-        <member name="P:OpenNETCF.Drawing.Imaging.ImageCodecInfo.Flags">
+        <member name="F:OpenNETCF.Drawing.ContentAlignment2.BottomRight">
             <summary>
-            Codec flags
+            Content is vertically aligned at the bottom, and horizontally aligned on the right.
             </summary>
         </member>
-        <member name="P:OpenNETCF.Drawing.Imaging.ImageCodecInfo.Version">
+        <member name="F:OpenNETCF.Drawing.ContentAlignment2.MiddleCenter">
             <summary>
-            Codec version
+            Content is vertically aligned in the middle, and horizontally aligned at the center.
             </summary>
         </member>
-        <member name="T:OpenNETCF.Drawing.Drawing2D.DashStyle">
+        <member name="F:OpenNETCF.Drawing.ContentAlignment2.MiddleLeft">
             <summary>
-            Specifies the style of dashed lines drawn with a <see cref="T:OpenNETCF.Drawing.PenEx"/> object.
+            Content is vertically aligned in the middle, and horizontally aligned on the left.
             </summary>
         </member>
-        <member name="F:OpenNETCF.Drawing.Drawing2D.DashStyle.Dash">
+        <member name="F:OpenNETCF.Drawing.ContentAlignment2.MiddleRight">
             <summary>
-            Specifies a line consisting of dashes.
+            Content is vertically aligned in the middle, and horizontally aligned on the right.
             </summary>
         </member>
-        <member name="F:OpenNETCF.Drawing.Drawing2D.DashStyle.Solid">
+        <member name="F:OpenNETCF.Drawing.ContentAlignment2.TopCenter">
             <summary>
-            Specifies a solid line.
+            Content is vertically aligned at the top, and horizontally aligned at the center.
             </summary>
         </member>
-        <member name="T:OpenNETCF.Drawing.CopyPixelOperation">
+        <member name="F:OpenNETCF.Drawing.ContentAlignment2.TopLeft">
             <summary>
-            Determines how the source color in a copy pixel operation is combined with the destination color to result in a final color.
+            Content is vertically aligned at the top, and horizontally aligned on the left.
             </summary>
         </member>
-        <member name="F:OpenNETCF.Drawing.CopyPixelOperation.Blackness">
+        <member name="F:OpenNETCF.Drawing.ContentAlignment2.TopRight">
             <summary>
-            The destination area is filled by using the color associated with index 0 in the physical palette. (This color is black for the default physical palette.)
+            Content is vertically aligned at the top, and horizontally aligned on the right.
             </summary>
         </member>
-        <member name="F:OpenNETCF.Drawing.CopyPixelOperation.CaptureBlt">
+        <member name="T:OpenNETCF.Drawing.BitmapEx">
             <summary>
-            Windows that are layered on top of your window are included in the resulting image. By default, the image contains only your window. Note that this generally cannot be used for printing device contexts.
+            Encapsulates a GDI+ bitmap, which consists of the pixel data for a graphics image and its attributes. A BitmapEx object is an object used to work with images defined by pixel data. 
             </summary>
         </member>
-        <member name="F:OpenNETCF.Drawing.CopyPixelOperation.DestinationInvert">
+        <member name="M:OpenNETCF.Drawing.BitmapEx.#ctor(System.Int32,System.Int32)">
             <summary>
-            The destination area is inverted.
+            Initializes a new instance of the BitmapEx class with the specified size.  
+            </summary>
+            <param name="width"></param>
+            <param name="height"></param>
+        </member>
+        <member name="M:OpenNETCF.Drawing.BitmapEx.#ctor(System.String)">
+            <summary>
+            Initializes a new instance of the System.Drawing.Bitmap class from the specified file.  
+            </summary>
+            <param name="filename"></param>
+        </member>
+        <member name="M:OpenNETCF.Drawing.BitmapEx.GetHbitmap">
+            <summary>
+            Creates a GDI bitmap object from this BitmapEx object.  
+            </summary>
+            <returns>A handle to the GDI bitmap object that this method creates.</returns>
+        </member>
+        <member name="M:OpenNETCF.Drawing.BitmapEx.LockBits(System.Drawing.Rectangle,System.Int32,System.Drawing.Imaging.PixelFormat)">
+            <summary>
+            BitmapEx object into system memory.  
+            </summary>
+            <param name="rect">A System.Drawing.Rectangle structure specifying the portion of the BitmapEx to lock.  </param>
+            <param name="flags">Access level (read and write) for the BitmapEx object. ></param>
+            <param name="format">PixelFormat enumeration specifying the data format of this BitmapEx object.</param>
+            <returns>BitmapData object containing information about this lock operation.  </returns>
+        </member>
+        <member name="M:OpenNETCF.Drawing.BitmapEx.UnlockBits(OpenNETCF.Drawing.Imaging.BitmapData)">
+            <summary>
+            Unlocks this BitmapEx from system memory.  
+            </summary>
+            <param name="data"></param>
+        </member>
+        <member name="P:OpenNETCF.Drawing.BitmapEx.Width">
+            <summary>
+            Gets the width of this BitmapEx object.
             </summary>
         </member>
-        <member name="F:OpenNETCF.Drawing.CopyPixelOperation.MergeCopy">
+        <member name="P:OpenNETCF.Drawing.BitmapEx.Height">
             <summary>
-            The colors of the source area are merged with the colors of the selected brush of the destination device context using the Boolean AND operator.
+            Gets the height of this BitmapEx object.
             </summary>
         </member>
-        <member name="F:OpenNETCF.Drawing.CopyPixelOperation.MergePaint">
+        <member name="T:OpenNETCF.Drawing.Imaging.BitmapData">
             <summary>
-            The colors of the inverted source area are merged with the colors of the destination area by using the Boolean OR operator.
+            Specifies the attributes of a bitmap image. The BitmapData class is used by the LockBits and UnlockBits methods of the BitmapEx class.
             </summary>
         </member>
-        <member name="F:OpenNETCF.Drawing.CopyPixelOperation.NoMirrorBitmap">
+        <member name="P:OpenNETCF.Drawing.Imaging.BitmapData.PixelFormat">
             <summary>
-            The bitmap is not mirrored.
+            Gets or sets the format of the pixel information.
             </summary>
         </member>
-        <member name="F:OpenNETCF.Drawing.CopyPixelOperation.NotSourceCopy">
+        <member name="P:OpenNETCF.Drawing.Imaging.BitmapData.Scan0">
             <summary>
-            The inverted source area is copied to the destination.
+            Gets or sets the address of the first pixel data in the bitmap.
             </summary>
         </member>
-        <member name="F:OpenNETCF.Drawing.CopyPixelOperation.NotSourceErase">
+        <member name="P:OpenNETCF.Drawing.Imaging.BitmapData.Stride">
             <summary>
-            The source and destination colors are combined using the Boolean OR operator, and then resultant color is then inverted.
+            Gets or sets the stride width (also called scan width) of the bitmap object.  
             </summary>
         </member>
-        <member name="F:OpenNETCF.Drawing.CopyPixelOperation.PatCopy">
+        <member name="P:OpenNETCF.Drawing.Imaging.BitmapData.Width">
             <summary>
-            The brush currently selected in the destination device context is copied to the destination bitmap.
+            Gets or sets the pixel width of the BitmapEx object. This can also be thought of as the number of pixels in one scan line.  
             </summary>
         </member>
-        <member name="F:OpenNETCF.Drawing.CopyPixelOperation.PatInvert">
+        <member name="P:OpenNETCF.Drawing.Imaging.BitmapData.Height">
             <summary>
-            The colors of the brush currently selected in the destination device context are combined with the colors of the destination are using the Boolean XOR operator.
-            </summary>
-        </member>
-        <member name="F:OpenNETCF.Drawing.CopyPixelOperation.PatPaint">
-            <summary>
-            The colors of the brush currently selected in the destination device context are combined with the colors of the inverted source area using the Boolean OR operator. The result of this operation is combined with the colors of the destination area using the Boolean OR operator.
-            </summary>
-        </member>
-        <member name="F:OpenNETCF.Drawing.CopyPixelOperation.SourceAnd">
-            <summary>
-            The colors of the source and destination areas are combined using the Boolean AND operator.
-            </summary>
-        </member>
-        <member name="F:OpenNETCF.Drawing.CopyPixelOperation.SourceCopy">
-            <summary>
-            The source area is copied directly to the destination area.
-            </summary>
-        </member>
-        <member name="F:OpenNETCF.Drawing.CopyPixelOperation.SourceErase">
-            <summary>
-            The inverted colors of the destination area are combined with the colors of the source area using the Boolean AND operator.
-            </summary>
-        </member>
-        <member name="F:OpenNETCF.Drawing.CopyPixelOperation.SourceInvert">
-            <summary>
-            The colors of the source and destination areas are combined using the Boolean XOR operator.
-            </summary>
-        </member>
-        <member name="F:OpenNETCF.Drawing.CopyPixelOperation.SourcePaint">
-            <summary>
-            The colors of the source and destination areas are combined using the Boolean OR operator.
-            </summary>
-        </member>
-        <member name="F:OpenNETCF.Drawing.CopyPixelOperation.Whiteness">
-            <summary>
-            The destination area is filled by using the color associated with index 1 in the physical palette. (This color is white for the default physical palette.)
+            Gets or sets the pixel height of the BitmapEx object. 
             </summary>
         </member>
     </members>

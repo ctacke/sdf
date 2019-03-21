@@ -4,59 +4,105 @@
         <name>OpenNETCF.WindowsCE</name>
     </assembly>
     <members>
-        <member name="T:OpenNETCF.WindowsCE.Notification.NotificationStatus">
+        <member name="T:OpenNETCF.WindowsCE.TimeZoneCollection">
             <summary>
-            The status of the notification.
+            Define a TimeZoneCollection which can return a list of all
+            of the TimeZones known to the OS.  This should help make
+            time zone picker controls, etc.
             </summary>
         </member>
-        <member name="F:OpenNETCF.WindowsCE.Notification.NotificationStatus.Inactive">
+        <member name="F:OpenNETCF.WindowsCE.TimeZoneCollection.ALL_TIMEZONES_LIST">
             <summary>
-            The notification is not currently active.
+            All timezones
             </summary>
         </member>
-        <member name="F:OpenNETCF.WindowsCE.Notification.NotificationStatus.Signalled">
+        <member name="M:OpenNETCF.WindowsCE.TimeZoneCollection.#ctor">
             <summary>
-            The notification is currently active.
+            Creates a new instance of TimeZoneCollection
             </summary>
         </member>
-        <member name="T:OpenNETCF.WindowsCE.MemoryManagement">
+        <member name="M:OpenNETCF.WindowsCE.TimeZoneCollection.Refresh">
             <summary>
-            This class is used for general memory management of CE-based devices
+            Refreshes the contents of the TimeZoneCollection
             </summary>
         </member>
-        <member name="P:OpenNETCF.WindowsCE.MemoryManagement.SystemStorageMemory">
+        <member name="M:OpenNETCF.WindowsCE.TimeZoneCollection.Initialize">
             <summary>
-            Gets or sets the amount of allocated memory for Storage, in kilobytes
+            The Initialize() method is equivalent to calling
+            Initialize( ALL_TIMEZONES_LIST ).  It populates the
+            collection with all OS-known timezones.
             </summary>
         </member>
-        <member name="P:OpenNETCF.WindowsCE.MemoryManagement.SystemProgramMemory">
+        <member name="M:OpenNETCF.WindowsCE.TimeZoneCollection.Initialize(System.Int32)">
             <summary>
-            Gets or sets the amount of allocated memory for Programs, in kilobytes
+            Use the Initialize method with the gmtOffset parameter
+            to create a list of timezones which have a specific
+            offset value.  For example, for all timezones at 
+            GMT-5:00, pass -300 (minutes).  To get all of the time
+            zones known to the OS, pass ALL_TIMEZONES_LIST or call
+            the method with no parameters.
+            </summary>
+            <param name="gmtOffset">Offset of the target timezones
+            from GMT (in minutes).</param>
+        </member>
+        <member name="T:OpenNETCF.WindowsCE.PowerManagement">
+            <summary>
+            This class provides power-related functions for CE-based devices
             </summary>
         </member>
-        <member name="P:OpenNETCF.WindowsCE.MemoryManagement.MemoryLoad">
+        <member name="M:OpenNETCF.WindowsCE.PowerManagement.SoftReset">
             <summary>
-            Specifies a number between zero and 100 that gives a general idea of current memory utilization, in which zero indicates no memory use and 100 indicates full memory use.
+            Soft resets the device
             </summary>
         </member>
-        <member name="P:OpenNETCF.WindowsCE.MemoryManagement.TotalPhysicalMemory">
+        <member name="M:OpenNETCF.WindowsCE.PowerManagement.HardReset">
             <summary>
-            Indicates the total number of bytes of physical memory.
+            Hard-resets the device.  <b>Use with caution.</b>
             </summary>
         </member>
-        <member name="P:OpenNETCF.WindowsCE.MemoryManagement.TotalVirtualMemory">
+        <member name="M:OpenNETCF.WindowsCE.PowerManagement.Suspend">
             <summary>
-            Indicates the total number of bytes that can be described in the user mode portion of the virtual address space of the calling process.
+            Suspends the device (puts it into sleep mode)
             </summary>
         </member>
-        <member name="P:OpenNETCF.WindowsCE.MemoryManagement.AvailablePhysicalMemory">
+        <member name="M:OpenNETCF.WindowsCE.PowerManagement.SetIdleState">
             <summary>
-            Indicates the number of bytes of physical memory available.
+            Forces the device into Idle state.  For many devices, this will power down the backlight.
             </summary>
         </member>
-        <member name="P:OpenNETCF.WindowsCE.MemoryManagement.AvailableVirtualMemory">
+        <member name="M:OpenNETCF.WindowsCE.PowerManagement.SetOnState">
             <summary>
-            Indicates the number of bytes of unreserved and uncommitted memory in the user mode portion of the virtual address space of the calling process.
+            Forces the device into On state.  Useful for forcing a suspended device to stay on
+            </summary>
+        </member>
+        <member name="M:OpenNETCF.WindowsCE.PowerManagement.ResetSystemIdleTimer">
+            <summary>
+            Resets the system inactivity timer, preventing it from entering Idle state
+            </summary>
+        </member>
+        <member name="E:OpenNETCF.WindowsCE.PowerManagement.PowerUp">
+            <summary>
+            Fired when the device receives a notification that it has been powered up/wakes
+            </summary>
+        </member>
+        <member name="E:OpenNETCF.WindowsCE.PowerManagement.PowerDown">
+            <summary>
+            Fired when the device receives a notification that it has been powered down/suspends
+            </summary>
+        </member>
+        <member name="E:OpenNETCF.WindowsCE.PowerManagement.Boot">
+            <summary>
+            Fired when the device receives a notification that it has booted
+            </summary>
+        </member>
+        <member name="E:OpenNETCF.WindowsCE.PowerManagement.PowerCritical">
+            <summary>
+            Fired when the device receives a notification that a critical power state has been reached
+            </summary>
+        </member>
+        <member name="E:OpenNETCF.WindowsCE.PowerManagement.PowerIdle">
+            <summary>
+            Fired when the device receives a notification that it has entered an idle power state
             </summary>
         </member>
         <member name="T:OpenNETCF.WindowsCE.DeviceClass">
@@ -149,234 +195,85 @@
             A Serial Port device
             </summary>
         </member>
-        <member name="T:OpenNETCF.WindowsCE.PowerManagement">
+        <member name="T:OpenNETCF.WindowsCE.Notification.NotificationCommandLine">
             <summary>
-            This class provides power-related functions for CE-based devices
+            Strings passed on the command line when an event occurs that the app has requested via CeRunAppAtEvent.  
+            </summary>
+            <remarks>Note that some of these strings will be used as the command line *prefix*, since the rest of the command line will be used as a parameter.</remarks>
+        </member>
+        <member name="F:OpenNETCF.WindowsCE.Notification.NotificationCommandLine.AppRunAtTime">
+            <summary>
+            String passed on the command line when an app is run as the result of a call to <see cref="M:OpenNETCF.Win32.Notify.Notify.RunAppAtTime"/>.
             </summary>
         </member>
-        <member name="M:OpenNETCF.WindowsCE.PowerManagement.SoftReset">
+        <member name="F:OpenNETCF.WindowsCE.Notification.NotificationCommandLine.AppRunToHandleNotification">
             <summary>
-            Soft resets the device
+            Prefix of the command line when the user requests to run the application that "owns" a notification.  It is followed by a space, and the stringized version of the notification handle.
             </summary>
         </member>
-        <member name="M:OpenNETCF.WindowsCE.PowerManagement.HardReset">
+        <member name="F:OpenNETCF.WindowsCE.Notification.NotificationCommandLine.AppRunAfterTimeChange">
             <summary>
-            Hard-resets the device.  <b>Use with caution.</b>
+            Prefix of the command line when the user requests to run the application when the system time settings are changed.
             </summary>
         </member>
-        <member name="M:OpenNETCF.WindowsCE.PowerManagement.Suspend">
+        <member name="F:OpenNETCF.WindowsCE.Notification.NotificationCommandLine.AppRunAfterSync">
             <summary>
-            Suspends the device (puts it into sleep mode)
+            Prefix of the command line when the user requests to run the application after synchronisation.
             </summary>
         </member>
-        <member name="M:OpenNETCF.WindowsCE.PowerManagement.SetIdleState">
+        <member name="F:OpenNETCF.WindowsCE.Notification.NotificationCommandLine.AppRunAtAcPowerOn">
             <summary>
-            Forces the device into Idle state.  For many devices, this will power down the backlight.
+            Prefix of the command line when the user requests to run the application when the device is connected to AC power.
             </summary>
         </member>
-        <member name="M:OpenNETCF.WindowsCE.PowerManagement.SetOnState">
+        <member name="F:OpenNETCF.WindowsCE.Notification.NotificationCommandLine.AppRunAtAcPowerOff">
             <summary>
-            Forces the device into On state.  Useful for forcing a suspended device to stay on
+            Prefix of the command line when the user requests to run the application when the AC power is disconnected.
             </summary>
         </member>
-        <member name="M:OpenNETCF.WindowsCE.PowerManagement.ResetSystemIdleTimer">
+        <member name="F:OpenNETCF.WindowsCE.Notification.NotificationCommandLine.AppRunAtNetConnect">
             <summary>
-            Resets the system inactivity timer, preventing it from entering Idle state
+            Prefix of the command line when the user requests to run the application when the device connects to a LAN.
             </summary>
         </member>
-        <member name="E:OpenNETCF.WindowsCE.PowerManagement.PowerUp">
+        <member name="F:OpenNETCF.WindowsCE.Notification.NotificationCommandLine.AppRunAtNetDisconnect">
             <summary>
-            Fired when the device receives a notification that it has been powered up/wakes
+            Prefix of the command line when the user requests to run the application when the device disconnects from a LAN.
             </summary>
         </member>
-        <member name="E:OpenNETCF.WindowsCE.PowerManagement.PowerDown">
+        <member name="F:OpenNETCF.WindowsCE.Notification.NotificationCommandLine.AppRunAtDeviceChange">
             <summary>
-            Fired when the device receives a notification that it has been powered down/suspends
+            Prefix of the command line when the user requests to run the application that "owns" a notification.  It is followed by a space, and the stringized version of the notification handle.
             </summary>
         </member>
-        <member name="E:OpenNETCF.WindowsCE.PowerManagement.Boot">
+        <member name="F:OpenNETCF.WindowsCE.Notification.NotificationCommandLine.AppRunAtIrDiscovery">
             <summary>
-            Fired when the device receives a notification that it has booted
+            Prefix of the command line when the user requests to run the application when another device is discovered using IR.
             </summary>
         </member>
-        <member name="E:OpenNETCF.WindowsCE.PowerManagement.PowerCritical">
+        <member name="F:OpenNETCF.WindowsCE.Notification.NotificationCommandLine.AppRunAtRs232Detect">
             <summary>
-            Fired when the device receives a notification that a critical power state has been reached
+            Prefix of the command line when the user requests to run the application when a serial port connection is attempted.
             </summary>
         </member>
-        <member name="E:OpenNETCF.WindowsCE.PowerManagement.PowerIdle">
+        <member name="F:OpenNETCF.WindowsCE.Notification.NotificationCommandLine.AppRunAfterRestore">
             <summary>
-            Fired when the device receives a notification that it has entered an idle power state
+            Prefix of the command line when the user requests to run the application after a system restore.
             </summary>
         </member>
-        <member name="T:OpenNETCF.WindowsCE.Notification.UserNotificationTrigger">
+        <member name="F:OpenNETCF.WindowsCE.Notification.NotificationCommandLine.AppRunAfterWakeup">
             <summary>
-            Defines what event activates a notification.
+            Prefix of the command line when the user requests to run the application when the device wakes up from standby.
             </summary>
         </member>
-        <member name="M:OpenNETCF.WindowsCE.Notification.UserNotificationTrigger.#ctor">
+        <member name="F:OpenNETCF.WindowsCE.Notification.NotificationCommandLine.AppRunAfterTzChange">
             <summary>
-            Create a new instance of <see cref="T:OpenNETCF.WindowsCE.Notification.UserNotificationTrigger"/>
+            Prefix of the command line when the user requests to run the application when the device time-zone is changed.
             </summary>
         </member>
-        <member name="P:OpenNETCF.WindowsCE.Notification.UserNotificationTrigger.Type">
+        <member name="F:OpenNETCF.WindowsCE.Notification.NotificationCommandLine.AppRunAfterExtendedEvent">
             <summary>
-            Specifies the type of notification.
-            </summary>
-        </member>
-        <member name="P:OpenNETCF.WindowsCE.Notification.UserNotificationTrigger.Event">
-            <summary>
-            Specifies the type of event should Type = Event.
-            </summary>
-        </member>
-        <member name="P:OpenNETCF.WindowsCE.Notification.UserNotificationTrigger.Application">
-            <summary>
-            Name of the application to execute.
-            </summary>
-        </member>
-        <member name="P:OpenNETCF.WindowsCE.Notification.UserNotificationTrigger.Arguments">
-            <summary>
-            Command line (without the application name). 
-            </summary>
-        </member>
-        <member name="P:OpenNETCF.WindowsCE.Notification.UserNotificationTrigger.StartTime">
-            <summary>
-            Specifies the beginning of the notification period.
-            </summary>
-        </member>
-        <member name="P:OpenNETCF.WindowsCE.Notification.UserNotificationTrigger.EndTime">
-            <summary>
-            Specifies the end of the notification period. 
-            </summary>
-        </member>
-        <member name="T:OpenNETCF.WindowsCE.TZREG">
-            <summary>
-            Time-Zone
-            </summary>
-        </member>
-        <member name="T:OpenNETCF.WindowsCE.DeviceStatusMonitor">
-            <summary>
-            Class for receiving device notifications of all sorts (storage card
-            insertions/removals, etc.)  When a change is detected, an event is 
-            fired to all interested parties.  The parameters of the event 
-            indicate the GUID of the device interface that changed, whether the
-            device is now connected or disconnected from the system, and the
-            name of the device (COM1:, for example), which changed.
-            </summary>
-        </member>
-        <member name="M:OpenNETCF.WindowsCE.DeviceStatusMonitor.#ctor(System.Guid,System.Boolean)">
-            <summary>
-            Constructor for DeviceStatusMonitor.  Specifies
-            the class of notifications desired and whether
-            notifications should be fired for already-attached
-            devices.
-            </summary>
-            <param name="devclass">
-            GUID of device class to monitor (or Guid.Empty to 
-            monitor *all* device notifications).
-            </param>
-            <param name="notifyAlreadyConnectedDevices">
-            Set to true to receive notifiations for devices
-            which were attached before we started monitoring;
-            set to false to see new events only.
-            </param>
-        </member>
-        <member name="M:OpenNETCF.WindowsCE.DeviceStatusMonitor.#ctor(OpenNETCF.WindowsCE.DeviceClass,System.Boolean)">
-            <summary>
-            Constructor for DeviceStatusMonitor.  Specifies
-            the class of notifications desired and whether
-            notifications should be fired for already-attached
-            devices.
-            </summary>
-            <param name="deviceClass">
-            Device class to monitor.
-            </param>
-            <param name="notifyAlreadyConnectedDevices">
-            Set to true to receive notifiations for devices
-            which were attached before we started monitoring;
-            set to false to see new events only.
-            </param>
-        </member>
-        <member name="M:OpenNETCF.WindowsCE.DeviceStatusMonitor.Finalize">
-            <summary>
-            Destructor stops status monitoring.
-            </summary>
-        </member>
-        <member name="M:OpenNETCF.WindowsCE.DeviceStatusMonitor.StopStatusMonitoring">
-            <summary>
-            Stops the worker thread which monitors for changes of status
-            of the adapter.  This must be done, if monitoring has been
-            started, before the object is destroyed.
-            </summary>
-        </member>
-        <member name="M:OpenNETCF.WindowsCE.DeviceStatusMonitor.StartStatusMonitoring">
-            <summary>
-            Initiates a worker thread to listen for reports of device
-            changes.  Listeners can register for notification of these 
-            changes, which the thread will send.
-            </summary>
-        </member>
-        <member name="M:OpenNETCF.WindowsCE.DeviceStatusMonitor.OnDeviceNotification(OpenNETCF.WindowsCE.DeviceNotificationArgs)">
-            <summary>
-            Raises the DeviceNotification event.
-            </summary>
-            <param name="e">
-            An EventArgs that contains the event data.
-            </param>
-        </member>
-        <member name="M:OpenNETCF.WindowsCE.DeviceStatusMonitor.Dispose">
-            <summary>
-            Disposes resources used by the class instance
-            </summary>
-        </member>
-        <member name="F:OpenNETCF.WindowsCE.DeviceStatusMonitor.BLOCK_DRIVER_GUID">
-            <summary>
-            Fired when the block driver for a Storage Manager
-            device is loaded.
-            </summary>
-        </member>
-        <member name="F:OpenNETCF.WindowsCE.DeviceStatusMonitor.STORE_MOUNT_GUID">
-            <summary>
-            Fired when the store, managed by the Storage
-            Manager is ready.
-            </summary>
-        </member>
-        <member name="F:OpenNETCF.WindowsCE.DeviceStatusMonitor.FATFS_MOUNT_GUID">
-            <summary>
-            Fired when a FAT filesystem is loaded for a device.
-            </summary>
-        </member>
-        <member name="F:OpenNETCF.WindowsCE.DeviceStatusMonitor.CDFS_MOUNT_GUID">
-            <summary>
-            Fired when a CDFS filesystem is loaded.
-            </summary>
-        </member>
-        <member name="F:OpenNETCF.WindowsCE.DeviceStatusMonitor.UDFS_MOUNT_GUID">
-            <summary>
-            Fired when a UDFS filesystem is loaded.
-            </summary>
-        </member>
-        <member name="F:OpenNETCF.WindowsCE.DeviceStatusMonitor.CDDA_MOUNT_GUID">
-            <summary>
-            Fired when a CDDA filesystem is loaded.
-            </summary>
-        </member>
-        <member name="E:OpenNETCF.WindowsCE.DeviceStatusMonitor.DeviceNotification">
-            <summary>
-            Event fired when some aspect of the device's connected status
-            has changed.
-            </summary>
-        </member>
-        <member name="P:OpenNETCF.WindowsCE.DeviceStatusMonitor.Active">
-            <summary>
-            The Active property is true when the status is
-            being monitored.  If status monitoring is not
-            occurring, Active is false.
-            </summary>
-        </member>
-        <member name="P:OpenNETCF.WindowsCE.DeviceStatusMonitor.IsDisposed">
-            <summary>
-            Returns <b>true</b> if the instance has been disposed, otherwise <b>false</b>.
+            Prefix of the command line when the user requests to run the application after an extended event.
             </summary>
         </member>
         <member name="T:OpenNETCF.WindowsCE.Notification.Led">
@@ -422,6 +319,51 @@
             LED cycles between On and Off
             </summary>
         </member>
+        <member name="T:OpenNETCF.WindowsCE.TZREG">
+            <summary>
+            Time-Zone
+            </summary>
+        </member>
+        <member name="T:OpenNETCF.WindowsCE.Notification.UserNotificationTrigger">
+            <summary>
+            Defines what event activates a notification.
+            </summary>
+        </member>
+        <member name="M:OpenNETCF.WindowsCE.Notification.UserNotificationTrigger.#ctor">
+            <summary>
+            Create a new instance of <see cref="T:OpenNETCF.WindowsCE.Notification.UserNotificationTrigger"/>
+            </summary>
+        </member>
+        <member name="P:OpenNETCF.WindowsCE.Notification.UserNotificationTrigger.Type">
+            <summary>
+            Specifies the type of notification.
+            </summary>
+        </member>
+        <member name="P:OpenNETCF.WindowsCE.Notification.UserNotificationTrigger.Event">
+            <summary>
+            Specifies the type of event should Type = Event.
+            </summary>
+        </member>
+        <member name="P:OpenNETCF.WindowsCE.Notification.UserNotificationTrigger.Application">
+            <summary>
+            Name of the application to execute.
+            </summary>
+        </member>
+        <member name="P:OpenNETCF.WindowsCE.Notification.UserNotificationTrigger.Arguments">
+            <summary>
+            Command line (without the application name). 
+            </summary>
+        </member>
+        <member name="P:OpenNETCF.WindowsCE.Notification.UserNotificationTrigger.StartTime">
+            <summary>
+            Specifies the beginning of the notification period.
+            </summary>
+        </member>
+        <member name="P:OpenNETCF.WindowsCE.Notification.UserNotificationTrigger.EndTime">
+            <summary>
+            Specifies the end of the notification period. 
+            </summary>
+        </member>
         <member name="T:OpenNETCF.WindowsCE.DateTimeHelper">
             <summary>
             Provides additional <see cref="T:System.DateTime"/> functions
@@ -451,56 +393,6 @@
             Sets or gets the device's system time
             </summary>
         </member>
-        <member name="T:OpenNETCF.WindowsCE.Notification.UserNotificationInfoHeader">
-            <summary>
-            Contains information about notification events.
-            </summary>
-        </member>
-        <member name="F:OpenNETCF.WindowsCE.Notification.UserNotificationInfoHeader.hNotification">
-            <summary>
-            Notification handle
-            </summary>
-        </member>
-        <member name="F:OpenNETCF.WindowsCE.Notification.UserNotificationInfoHeader.dwStatus">
-            <summary>
-            Status
-            </summary>
-        </member>
-        <member name="F:OpenNETCF.WindowsCE.Notification.UserNotificationInfoHeader.pcent">
-            <summary>
-            Notification trigger
-            </summary>
-        </member>
-        <member name="F:OpenNETCF.WindowsCE.Notification.UserNotificationInfoHeader.pceun">
-            <summary>
-            Notification object
-            </summary>
-        </member>
-        <member name="M:OpenNETCF.WindowsCE.Notification.UserNotificationInfoHeader.#ctor">
-            <summary>
-            Create a new instance of UserNotificationInfoHeader
-            </summary>
-        </member>
-        <member name="P:OpenNETCF.WindowsCE.Notification.UserNotificationInfoHeader.Handle">
-            <summary>
-            Handle to the notification.
-            </summary>
-        </member>
-        <member name="P:OpenNETCF.WindowsCE.Notification.UserNotificationInfoHeader.Status">
-            <summary>
-            Indicates current state of the notification.
-            </summary>
-        </member>
-        <member name="P:OpenNETCF.WindowsCE.Notification.UserNotificationInfoHeader.UserNotificationTrigger">
-            <summary>
-            The <see cref="P:OpenNETCF.WindowsCE.Notification.UserNotificationInfoHeader.UserNotificationTrigger"/> object
-            </summary>
-        </member>
-        <member name="P:OpenNETCF.WindowsCE.Notification.UserNotificationInfoHeader.UserNotification">
-            <summary>
-            The <see cref="P:OpenNETCF.WindowsCE.Notification.UserNotificationInfoHeader.UserNotification"/> object.
-            </summary>
-        </member>
         <member name="T:OpenNETCF.WindowsCE.Notification.NotificationType">
             <summary>
             Specifies the type of notification.
@@ -525,266 +417,6 @@
             <summary>
             Equivalent to using the SetUserNotification function.
             The standard command line is supplied.
-            </summary>
-        </member>
-        <member name="T:OpenNETCF.WindowsCE.Notification.Notify">
-            <summary>
-            Contains Notification related Methods.
-            </summary>
-        </member>
-        <member name="M:OpenNETCF.WindowsCE.Notification.Notify.RunAppAtEvent(System.String,OpenNETCF.WindowsCE.Notification.NotificationEvent)">
-            <summary>   
-            This function starts running an application when a specified event occurs.   
-            </summary>   
-            <param name="appName">Name of the application to be started.</param>   
-            <param name="whichEvent">Event at which the application is to be started.</param>   
-            <seealso cref="T:OpenNETCF.WindowsCE.Notification.NotificationEvent"/>   
-        </member>
-        <member name="M:OpenNETCF.WindowsCE.Notification.Notify.RunAppAtTime(System.String,System.DateTime)">
-            <summary>   
-            This function prompts the system to start running a specified application at a specified time.   
-            </summary>   
-            <param name="appName">Name of the application to be started.</param>   
-            <param name="time">DateTime at which to run application.</param>
-            <remarks>To cancel an existing RunAppATime request pass the application name and DateTime.MinValue</remarks>
-        </member>
-        <member name="M:OpenNETCF.WindowsCE.Notification.Notify.SetNamedEventAtTime(System.String,System.DateTime)">
-            <summary>
-            This function will cause a named system event to be set at the given time.
-            </summary>
-            <remarks>If suspended, the device will wake to fulfill this notification</remarks>
-            <param name="eventName">String name of the event to set</param>
-            <param name="eventTime">Time at which to set the event</param>
-        </member>
-        <member name="M:OpenNETCF.WindowsCE.Notification.Notify.SetNamedEventAtTime(System.String,System.TimeSpan)">
-            <summary>
-            This function will cause a named system event to be set at the given time.
-            </summary>
-            <remarks>If suspended, the device will wake to fulfill this notification</remarks>
-            <param name="eventName">String name of the event to set</param>
-            <param name="timeFromNow">TimeSpan from Now for the event to be set</param>
-        </member>
-        <member name="M:OpenNETCF.WindowsCE.Notification.Notify.SetUserNotification(System.String,System.DateTime,OpenNETCF.WindowsCE.Notification.UserNotification)">
-            <summary>
-            Creates a new user notification.
-            </summary>
-            <param name="application">String that specifies the name of the application that owns this notification.</param>
-            <param name="time">The time when the notification should occur.</param>
-            <param name="notify">Notification object that describes the events that are to occur when the notification time is reached.</param>
-            <returns>The handle to the notification indicates success.</returns>
-        </member>
-        <member name="M:OpenNETCF.WindowsCE.Notification.Notify.SetUserNotification(System.Int32,System.String,System.DateTime,OpenNETCF.WindowsCE.Notification.UserNotification)">
-            <summary>
-            Edit an existing user notification.
-            </summary>
-            <param name="handle">Handle to the notification to overwrite.</param>
-            <param name="application">String that specifies the name of the application that owns this notification.</param>
-            <param name="time">The time when the notification should occur.</param>
-            <param name="notify">Notification object that describes the events that are to occur when the notification time is reached.</param>
-            <returns>The handle to the notification indicates success.</returns>
-        </member>
-        <member name="M:OpenNETCF.WindowsCE.Notification.Notify.SetUserNotification(OpenNETCF.WindowsCE.Notification.UserNotificationTrigger,OpenNETCF.WindowsCE.Notification.UserNotification)">
-            <summary>
-            This function creates a new user notification.
-            </summary>
-            <param name="trigger">A UserNotificationTrigger that defines what event activates a notification.</param>
-            <param name="notification">A UserNotification that defines how the system should respond when a notification occurs.</param>
-            <returns>Handle to the notification event if successful.</returns>
-        </member>
-        <member name="M:OpenNETCF.WindowsCE.Notification.Notify.SetUserNotification(System.Int32,OpenNETCF.WindowsCE.Notification.UserNotificationTrigger,OpenNETCF.WindowsCE.Notification.UserNotification)">
-            <summary>
-            This function modifies an existing user notification.
-            </summary>
-            <param name="handle">Handle of the Notification to be modified</param>
-            <param name="trigger">A UserNotificationTrigger that defines what event activates a notification.</param>
-            <param name="notification">A UserNotification that defines how the system should respond when a notification occurs.</param>
-            <returns>Handle to the notification event if successful.</returns>
-        </member>
-        <member name="M:OpenNETCF.WindowsCE.Notification.Notify.ClearUserNotification(System.Int32)">
-            <summary>
-            Deletes a registered user notification that was created by a previous call to the SetUserNotification function.
-            </summary>
-            <param name="handle">Handle to the user notification to delete.</param>
-            <returns>TRUE indicates success. FALSE indicates failure.</returns>
-            <remarks>ClearNotification does not operate on notifications that have occurred.</remarks>
-        </member>
-        <member name="M:OpenNETCF.WindowsCE.Notification.Notify.GetUserNotification(System.Int32)">
-            <summary>
-            Retrieves notification information associated with a handle.
-            </summary>
-            <param name="handle">Handle to the user notification to retrieve.</param>
-            <returns>The requested <see cref="T:OpenNETCF.WindowsCE.Notification.UserNotificationInfoHeader"/>.</returns>
-        </member>
-        <member name="M:OpenNETCF.WindowsCE.Notification.Notify.GetUserNotificationHandles">
-            <summary>
-            Returns an array of currently stored notifications.
-            </summary>
-            <returns>Array of currently stored notifications.</returns>
-        </member>
-        <member name="M:OpenNETCF.WindowsCE.Notification.Notify.GetUserNotificationPreferences(System.IntPtr)">
-            <summary>
-            This function queries the user for notification settings by displaying a dialog box showing options that are valid for the current hardware platform.
-            </summary>
-            <param name="hWnd">Handle to the parent window for the notification settings dialog box.</param>
-            <returns>A UserNotification structure containing the user's notification settings.</returns>
-        </member>
-        <member name="M:OpenNETCF.WindowsCE.Notification.Notify.GetUserNotificationPreferences(System.IntPtr,OpenNETCF.WindowsCE.Notification.UserNotification)">
-            <summary>
-            This function queries the user for notification settings by displaying a dialog box showing options that are valid for the current hardware platform.
-            </summary>
-            <param name="hWnd">Handle to the parent window for the notification settings dialog box.</param>
-            <param name="template">UserNotification structure used to populate the default settings.</param>
-            <returns>A UserNotification structure containing the user's notification settings.</returns>
-        </member>
-        <member name="M:OpenNETCF.WindowsCE.Notification.Notify.HandleAppNotifications(System.String)">
-            <summary>
-            This function marks as "handled" all notifications previously registered by the given application that have occurred.
-            </summary>
-            <param name="application">The name of the application whose events are to be marked as "handled".
-            This must be the name that was passed in to <see cref="M:OpenNETCF.WindowsCE.Notification.Notify.SetUserNotification(System.String,System.DateTime,OpenNETCF.WindowsCE.Notification.UserNotification)"/> as the owner of the notification.</param>
-        </member>
-        <member name="T:OpenNETCF.WindowsCE.TZData">
-            <summary>
-            Timezone Data
-            </summary>
-        </member>
-        <member name="M:OpenNETCF.WindowsCE.TZData.#ctor(System.IntPtr)">
-            <summary>
-            Creates a TZData instance
-            </summary>
-            <param name="pData"></param>
-        </member>
-        <member name="F:OpenNETCF.WindowsCE.TZData.Name">
-            <summary>
-            Timezone's full name
-            </summary>
-        </member>
-        <member name="F:OpenNETCF.WindowsCE.TZData.DSTName">
-            <summary>
-            Timezone's DST name
-            </summary>
-        </member>
-        <member name="F:OpenNETCF.WindowsCE.TZData.ShortName">
-            <summary>
-            Timezone's short name
-            </summary>
-        </member>
-        <member name="F:OpenNETCF.WindowsCE.TZData.GMTOffset">
-            <summary>
-            Timezone's offset from GMT (in minutes)
-            </summary>
-        </member>
-        <member name="F:OpenNETCF.WindowsCE.TZData.DSTOffset">
-            <summary>
-            Timezone's DST offset (in minutes)
-            </summary>
-        </member>
-        <member name="M:OpenNETCF.WindowsCE.TZData.ToString">
-            <summary>
-            Returns the timezone's short name
-            </summary>
-            <returns></returns>
-        </member>
-        <member name="T:OpenNETCF.WindowsCE.TimeZoneInformation">
-            <summary>
-            Time Zone information
-            </summary>
-            <remarks>Wraps the native <b>TIME_ZONE_INFORMATION</b> structure.</remarks>
-        </member>
-        <member name="M:OpenNETCF.WindowsCE.TimeZoneInformation.#ctor">
-            <summary>
-            Create a new instance of the <b>TimeZoneInformation</b> class.
-            </summary>
-        </member>
-        <member name="M:OpenNETCF.WindowsCE.TimeZoneInformation.#ctor(System.Byte[])">
-            <summary>
-            Create a new instance of the TimeZoneInformation class based on data in the supplied Byte Array.
-            </summary>
-            <param name="bytes">Byte Array containing <b>TIME_ZONE_INFORMATION</b> data.</param>
-        </member>
-        <member name="M:OpenNETCF.WindowsCE.TimeZoneInformation.#ctor(System.Byte[],System.Int32)">
-            <summary>
-            Creates a TimeZoneInformation instance
-            </summary>
-            <param name="bytes"></param>
-            <param name="offset"></param>
-        </member>
-        <member name="M:OpenNETCF.WindowsCE.TimeZoneInformation.ToString">
-            <summary>
-            Returns a String representing this instance of <b>TimeZoneInformation</b>.
-            </summary>
-            <returns>A string containing the name of the Time Zone.</returns>
-        </member>
-        <member name="M:OpenNETCF.WindowsCE.TimeZoneInformation.ToByteArray">
-            <summary>
-            Returns the raw structure in a <see cref="T:System.Byte[]"/>.
-            </summary>
-            <returns>Byte array containing the <b>SYSTEMTIME</b> data.</returns>
-        </member>
-        <member name="M:OpenNETCF.WindowsCE.TimeZoneInformation.op_Implicit(OpenNETCF.WindowsCE.TimeZoneInformation)~System.Byte[]">
-            <summary>
-            Provides a native-code supported byte array representation of a TimeZoneInformation
-            </summary>
-            <param name="tzi"></param>
-            <returns></returns>
-        </member>
-        <member name="M:OpenNETCF.WindowsCE.TimeZoneInformation.op_Implicit(System.Byte[])~OpenNETCF.WindowsCE.TimeZoneInformation">
-            <summary>
-            Creates a TimeZoneInformation instance from a byte array representation
-            </summary>
-            <param name="data"></param>
-            <returns></returns>
-        </member>
-        <member name="P:OpenNETCF.WindowsCE.TimeZoneInformation.DisplayName">
-            <summary>
-            Name used to describe the Time Zone.
-            </summary>
-        </member>
-        <member name="P:OpenNETCF.WindowsCE.TimeZoneInformation.Bias">
-            <summary>
-            Specifies the current bias, in minutes, for local time translation on this computer.
-            </summary>
-            <remarks>The bias is the difference, in minutes, between Coordinated Universal Time (UTC) and local time.
-            All translations between UTC and local time are based on the following formula:
-            <para>UTC = local time + bias</para></remarks>
-        </member>
-        <member name="P:OpenNETCF.WindowsCE.TimeZoneInformation.StandardName">
-            <summary>
-            Name associated with standard time on this device.
-            </summary>
-            <remarks>For example, this member could contain “EST” to indicate Eastern Standard Time.</remarks>
-        </member>
-        <member name="P:OpenNETCF.WindowsCE.TimeZoneInformation.StandardDate">
-            <summary>
-            The date and local time when the transition from Daylight time to Standard time occurs.
-            </summary>
-            <remarks>This member supports two date formats.
-            Absolute format specifies an exact date and time when standard time begins.
-            In this form, the wYear, wMonth, wDay, wHour, wMinute, wSecond, and wMilliseconds members of the SYSTEMTIME structure are used to specify an exact date.
-            <para>Day-in-month format is specified by setting the wYear member to zero, setting the wDayOfWeek member to an appropriate weekday, and using a wDay value in the range 1 through 5 to select the correct day in the month.
-            Using this notation, the first Sunday in April can be specified, as can the last Thursday in October (5 is equal to “the last”).</para></remarks>
-        </member>
-        <member name="P:OpenNETCF.WindowsCE.TimeZoneInformation.StandardBias">
-            <summary>
-            Specifies a bias value to be used during local time translations that occur during standard time.
-            </summary>
-            <remarks>This member is ignored if a value for the StandardDate member is not supplied.
-            This value is added to the value of the Bias member to form the bias used during standard time.
-            In most time zones, the value of this member is zero.</remarks>
-        </member>
-        <member name="P:OpenNETCF.WindowsCE.TimeZoneInformation.DaylightName">
-            <summary>
-            Specifies a string associated with daylight time.
-            </summary>
-        </member>
-        <member name="P:OpenNETCF.WindowsCE.TimeZoneInformation.DaylightDate">
-            <summary>
-            Specifies a date and local time when the transition from standard time to daylight time occurs. 
-            </summary>
-        </member>
-        <member name="P:OpenNETCF.WindowsCE.TimeZoneInformation.DaylightBias">
-            <summary>
-            Specifies a bias value to be used during local time translations that occur during daylight time.
             </summary>
         </member>
         <member name="F:OpenNETCF.WindowsCE.NativeMethods.BatteryPercentageUnknown">
@@ -967,101 +599,270 @@
             Indicates the number of bytes of unreserved and uncommitted memory in the user mode portion of the virtual address space of the calling process.
             </summary>
         </member>
-        <member name="T:OpenNETCF.WindowsCE.TimeZoneCollection">
+        <member name="T:OpenNETCF.WindowsCE.LargeIntervalTimer">
             <summary>
-            Define a TimeZoneCollection which can return a list of all
-            of the TimeZones known to the OS.  This should help make
-            time zone picker controls, etc.
+            This class encapsulates a low resolution Timer that is designed to be fired on large intervals (from seconds to even days).
+            <remarks>Unlike the Forms or Threading Timers, if the device is asleep when the Tick occurs, the device will wake and the Tick handler will run.</remarks>
             </summary>
         </member>
-        <member name="F:OpenNETCF.WindowsCE.TimeZoneCollection.ALL_TIMEZONES_LIST">
+        <member name="M:OpenNETCF.WindowsCE.LargeIntervalTimer.#ctor">
             <summary>
-            All timezones
+            Creates an instance of a LargeIntervalTimer with a default interval of 60 seconds
             </summary>
         </member>
-        <member name="M:OpenNETCF.WindowsCE.TimeZoneCollection.#ctor">
+        <member name="M:OpenNETCF.WindowsCE.LargeIntervalTimer.Finalize">
             <summary>
-            Creates a new instance of TimeZoneCollection
+            Finalizes the LargeIntervalTimer 
             </summary>
         </member>
-        <member name="M:OpenNETCF.WindowsCE.TimeZoneCollection.Refresh">
+        <member name="M:OpenNETCF.WindowsCE.LargeIntervalTimer.Dispose">
             <summary>
-            Refreshes the contents of the TimeZoneCollection
+            When overridden in a derived class, releases the unmanaged resources used by the LargeIntervalTimer, and optionally releases the managed resources.
             </summary>
         </member>
-        <member name="M:OpenNETCF.WindowsCE.TimeZoneCollection.Initialize">
+        <member name="E:OpenNETCF.WindowsCE.LargeIntervalTimer.Tick">
             <summary>
-            The Initialize() method is equivalent to calling
-            Initialize( ALL_TIMEZONES_LIST ).  It populates the
-            collection with all OS-known timezones.
+            Raised when the LargeIntervalTimer period has elapsed
             </summary>
         </member>
-        <member name="M:OpenNETCF.WindowsCE.TimeZoneCollection.Initialize(System.Int32)">
+        <member name="P:OpenNETCF.WindowsCE.LargeIntervalTimer.OneShot">
             <summary>
-            Use the Initialize method with the gmtOffset parameter
-            to create a list of timezones which have a specific
-            offset value.  For example, for all timezones at 
-            GMT-5:00, pass -300 (minutes).  To get all of the time
-            zones known to the OS, pass ALL_TIMEZONES_LIST or call
-            the method with no parameters.
-            </summary>
-            <param name="gmtOffset">Offset of the target timezones
-            from GMT (in minutes).</param>
-        </member>
-        <member name="T:OpenNETCF.WindowsCE.SystemInfo">
-            <summary>
-            This structure contains information about the current computer system. This includes the processor type, page size, memory addresses, and OEM identifier.
-            </summary>
-            <seealso cref="M:OpenNETCF.WindowsCE.NativeMethods.GetSystemInfo(OpenNETCF.WindowsCE.SystemInfo@)"/>
-        </member>
-        <member name="F:OpenNETCF.WindowsCE.SystemInfo.ProcessorArchitecture">
-            <summary>
-            The system's processor architecture.
+            If set, the Timer will automatically disable itself after each Tick event is raised
             </summary>
         </member>
-        <member name="F:OpenNETCF.WindowsCE.SystemInfo.PageSize">
+        <member name="P:OpenNETCF.WindowsCE.LargeIntervalTimer.Enabled">
             <summary>
-            The page size and the granularity of page protection and commitment.
+            Gets or sets whether the Timer is currently running
             </summary>
         </member>
-        <member name="F:OpenNETCF.WindowsCE.SystemInfo.MinimumApplicationAddress">
+        <member name="P:OpenNETCF.WindowsCE.LargeIntervalTimer.Interval">
             <summary>
-            Pointer to the lowest memory address accessible to applications and dynamic-link libraries (DLLs). 
+            Gets or sets the TimeSpan interval between ticks.
+            </summary>
+            <remarks>
+            Note that the resolution of the underlying notification timer used is not conducive to millisecond accuracy so any sub-second portion of the Interval is ignored.
+            The Interval also cannot be less than 15 seconds.
+            </remarks>
+        </member>
+        <member name="P:OpenNETCF.WindowsCE.LargeIntervalTimer.FirstEventTime">
+            <summary>
+            Sets or get the absolute time for the first Tick event.  This is useful when setting up a periodic tick starting at a fixed time
+            </summary>
+            <remarks>
+            The first tick cannot be less than 15 seconds into the future or it will either fire immediately or never fire.
+            </remarks>
+        </member>
+        <member name="T:OpenNETCF.WindowsCE.Notification.NotificationEvent">
+            <summary>   
+            System Event Flags   
+            </summary>   
+        </member>
+        <member name="F:OpenNETCF.WindowsCE.Notification.NotificationEvent.None">
+            <summary>   
+            No events—remove all event registrations for this application.   
+            </summary>   
+        </member>
+        <member name="F:OpenNETCF.WindowsCE.Notification.NotificationEvent.TimeChange">
+            <summary>   
+            When the system time is changed.   
+            </summary>   
+        </member>
+        <member name="F:OpenNETCF.WindowsCE.Notification.NotificationEvent.SyncEnd">
+            <summary>   
+            When data synchronization finishes.   
+            </summary>   
+        </member>
+        <member name="F:OpenNETCF.WindowsCE.Notification.NotificationEvent.OnACPower">
+            <summary>
+            The user turned the AC power on.
             </summary>
         </member>
-        <member name="F:OpenNETCF.WindowsCE.SystemInfo.MaximumApplicationAddress">
+        <member name="F:OpenNETCF.WindowsCE.Notification.NotificationEvent.OffACPower">
             <summary>
-            Pointer to the highest memory address accessible to applications and DLLs.
+            The user turned the alternating current (AC) power off.
             </summary>
         </member>
-        <member name="F:OpenNETCF.WindowsCE.SystemInfo.ActiveProcessorMask">
+        <member name="F:OpenNETCF.WindowsCE.Notification.NotificationEvent.NetConnect">
             <summary>
-            Specifies a mask representing the set of processors configured into the system. Bit 0 is processor 0; bit 31 is processor 31. 
+            The device connected to a network.
             </summary>
         </member>
-        <member name="F:OpenNETCF.WindowsCE.SystemInfo.NumberOfProcessors">
+        <member name="F:OpenNETCF.WindowsCE.Notification.NotificationEvent.NetDisconnect">
             <summary>
-            Specifies the number of processors in the system.
+            The device disconnected from a network.
             </summary>
         </member>
-        <member name="F:OpenNETCF.WindowsCE.SystemInfo.ProcessorType">
+        <member name="F:OpenNETCF.WindowsCE.Notification.NotificationEvent.DeviceChange">
+            <summary>   
+            When a PC Card device is changed.   
+            </summary>   
+        </member>
+        <member name="F:OpenNETCF.WindowsCE.Notification.NotificationEvent.IRDiscovered">
             <summary>
-            Specifies the type of processor in the system.
+            The device discovered a server by using infrared communications.
             </summary>
         </member>
-        <member name="F:OpenNETCF.WindowsCE.SystemInfo.AllocationGranularity">
+        <member name="F:OpenNETCF.WindowsCE.Notification.NotificationEvent.RS232Detected">
+            <summary>   
+            When an RS232 connection is made.   
+            </summary>   
+        </member>
+        <member name="F:OpenNETCF.WindowsCE.Notification.NotificationEvent.RestoreEnd">
+            <summary>   
+            When a full device data restore completes.   
+            </summary>   
+        </member>
+        <member name="F:OpenNETCF.WindowsCE.Notification.NotificationEvent.Wakeup">
+            <summary>   
+            When the device wakes up.   
+            </summary>   
+        </member>
+        <member name="F:OpenNETCF.WindowsCE.Notification.NotificationEvent.TimeZoneChange">
+            <summary>   
+            When the time zone is changed.   
+            </summary>   
+        </member>
+        <member name="F:OpenNETCF.WindowsCE.Notification.NotificationEvent.MachineNameChange">
             <summary>
-            Specifies the granularity with which virtual memory is allocated.
+            When the machines name changes.
+            Requires Windows CE.NET 4.2.
             </summary>
         </member>
-        <member name="F:OpenNETCF.WindowsCE.SystemInfo.ProcessorLevel">
+        <member name="F:OpenNETCF.WindowsCE.Notification.NotificationEvent.RndisFNDetected">
             <summary>
-            Specifies the system’s architecture-dependent processor level.
+            RNDISFN interface is instantiated.
+            Requires Windows CE 5.0.
             </summary>
         </member>
-        <member name="F:OpenNETCF.WindowsCE.SystemInfo.ProcessorRevision">
+        <member name="F:OpenNETCF.WindowsCE.Notification.NotificationEvent.InternetProxyChange">
             <summary>
-            Specifies an architecture-dependent processor revision.
+            The Internet Proxy used by the device has changed.
+            Requires Windows CE 5.0.
+            </summary>
+        </member>
+        <member name="T:OpenNETCF.WindowsCE.DeviceStatusMonitor">
+            <summary>
+            Class for receiving device notifications of all sorts (storage card
+            insertions/removals, etc.)  When a change is detected, an event is 
+            fired to all interested parties.  The parameters of the event 
+            indicate the GUID of the device interface that changed, whether the
+            device is now connected or disconnected from the system, and the
+            name of the device (COM1:, for example), which changed.
+            </summary>
+        </member>
+        <member name="M:OpenNETCF.WindowsCE.DeviceStatusMonitor.#ctor(System.Guid,System.Boolean)">
+            <summary>
+            Constructor for DeviceStatusMonitor.  Specifies
+            the class of notifications desired and whether
+            notifications should be fired for already-attached
+            devices.
+            </summary>
+            <param name="devclass">
+            GUID of device class to monitor (or Guid.Empty to 
+            monitor *all* device notifications).
+            </param>
+            <param name="notifyAlreadyConnectedDevices">
+            Set to true to receive notifiations for devices
+            which were attached before we started monitoring;
+            set to false to see new events only.
+            </param>
+        </member>
+        <member name="M:OpenNETCF.WindowsCE.DeviceStatusMonitor.#ctor(OpenNETCF.WindowsCE.DeviceClass,System.Boolean)">
+            <summary>
+            Constructor for DeviceStatusMonitor.  Specifies
+            the class of notifications desired and whether
+            notifications should be fired for already-attached
+            devices.
+            </summary>
+            <param name="deviceClass">
+            Device class to monitor.
+            </param>
+            <param name="notifyAlreadyConnectedDevices">
+            Set to true to receive notifiations for devices
+            which were attached before we started monitoring;
+            set to false to see new events only.
+            </param>
+        </member>
+        <member name="M:OpenNETCF.WindowsCE.DeviceStatusMonitor.Finalize">
+            <summary>
+            Destructor stops status monitoring.
+            </summary>
+        </member>
+        <member name="M:OpenNETCF.WindowsCE.DeviceStatusMonitor.StopStatusMonitoring">
+            <summary>
+            Stops the worker thread which monitors for changes of status
+            of the adapter.  This must be done, if monitoring has been
+            started, before the object is destroyed.
+            </summary>
+        </member>
+        <member name="M:OpenNETCF.WindowsCE.DeviceStatusMonitor.StartStatusMonitoring">
+            <summary>
+            Initiates a worker thread to listen for reports of device
+            changes.  Listeners can register for notification of these 
+            changes, which the thread will send.
+            </summary>
+        </member>
+        <member name="M:OpenNETCF.WindowsCE.DeviceStatusMonitor.OnDeviceNotification(OpenNETCF.WindowsCE.DeviceNotificationArgs)">
+            <summary>
+            Raises the DeviceNotification event.
+            </summary>
+            <param name="e">
+            An EventArgs that contains the event data.
+            </param>
+        </member>
+        <member name="M:OpenNETCF.WindowsCE.DeviceStatusMonitor.Dispose">
+            <summary>
+            Disposes resources used by the class instance
+            </summary>
+        </member>
+        <member name="F:OpenNETCF.WindowsCE.DeviceStatusMonitor.BLOCK_DRIVER_GUID">
+            <summary>
+            Fired when the block driver for a Storage Manager
+            device is loaded.
+            </summary>
+        </member>
+        <member name="F:OpenNETCF.WindowsCE.DeviceStatusMonitor.STORE_MOUNT_GUID">
+            <summary>
+            Fired when the store, managed by the Storage
+            Manager is ready.
+            </summary>
+        </member>
+        <member name="F:OpenNETCF.WindowsCE.DeviceStatusMonitor.FATFS_MOUNT_GUID">
+            <summary>
+            Fired when a FAT filesystem is loaded for a device.
+            </summary>
+        </member>
+        <member name="F:OpenNETCF.WindowsCE.DeviceStatusMonitor.CDFS_MOUNT_GUID">
+            <summary>
+            Fired when a CDFS filesystem is loaded.
+            </summary>
+        </member>
+        <member name="F:OpenNETCF.WindowsCE.DeviceStatusMonitor.UDFS_MOUNT_GUID">
+            <summary>
+            Fired when a UDFS filesystem is loaded.
+            </summary>
+        </member>
+        <member name="F:OpenNETCF.WindowsCE.DeviceStatusMonitor.CDDA_MOUNT_GUID">
+            <summary>
+            Fired when a CDDA filesystem is loaded.
+            </summary>
+        </member>
+        <member name="E:OpenNETCF.WindowsCE.DeviceStatusMonitor.DeviceNotification">
+            <summary>
+            Event fired when some aspect of the device's connected status
+            has changed.
+            </summary>
+        </member>
+        <member name="P:OpenNETCF.WindowsCE.DeviceStatusMonitor.Active">
+            <summary>
+            The Active property is true when the status is
+            being monitored.  If status monitoring is not
+            occurring, Active is false.
+            </summary>
+        </member>
+        <member name="P:OpenNETCF.WindowsCE.DeviceStatusMonitor.IsDisposed">
+            <summary>
+            Returns <b>true</b> if the instance has been disposed, otherwise <b>false</b>.
             </summary>
         </member>
         <member name="T:OpenNETCF.WindowsCE.DeviceNotification">
@@ -1202,6 +1003,119 @@
             Returns OEM specific information from the device. This may include Model number
             </summary>
         </member>
+        <member name="T:OpenNETCF.WindowsCE.TZData">
+            <summary>
+            Timezone Data
+            </summary>
+        </member>
+        <member name="M:OpenNETCF.WindowsCE.TZData.#ctor(System.IntPtr)">
+            <summary>
+            Creates a TZData instance
+            </summary>
+            <param name="pData"></param>
+        </member>
+        <member name="F:OpenNETCF.WindowsCE.TZData.Name">
+            <summary>
+            Timezone's full name
+            </summary>
+        </member>
+        <member name="F:OpenNETCF.WindowsCE.TZData.DSTName">
+            <summary>
+            Timezone's DST name
+            </summary>
+        </member>
+        <member name="F:OpenNETCF.WindowsCE.TZData.ShortName">
+            <summary>
+            Timezone's short name
+            </summary>
+        </member>
+        <member name="F:OpenNETCF.WindowsCE.TZData.GMTOffset">
+            <summary>
+            Timezone's offset from GMT (in minutes)
+            </summary>
+        </member>
+        <member name="F:OpenNETCF.WindowsCE.TZData.StdOffset">
+            <summary>
+            StandardBias (in minutes)
+            </summary>
+        </member>
+        <member name="F:OpenNETCF.WindowsCE.TZData.DSTOffset">
+            <summary>
+            Timezone's DST offset (in minutes)
+            </summary>
+        </member>
+        <member name="F:OpenNETCF.WindowsCE.TZData.StdDate">
+            <summary>
+            StandardDate
+            </summary>
+        </member>
+        <member name="F:OpenNETCF.WindowsCE.TZData.DSTDate">
+            <summary>
+            DaylightDate
+            </summary>
+        </member>
+        <member name="M:OpenNETCF.WindowsCE.TZData.ToString">
+            <summary>
+            Returns the timezone's short name
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="T:OpenNETCF.WindowsCE.SystemInfo">
+            <summary>
+            This structure contains information about the current computer system. This includes the processor type, page size, memory addresses, and OEM identifier.
+            </summary>
+            <seealso cref="M:OpenNETCF.WindowsCE.NativeMethods.GetSystemInfo(OpenNETCF.WindowsCE.SystemInfo@)"/>
+        </member>
+        <member name="F:OpenNETCF.WindowsCE.SystemInfo.ProcessorArchitecture">
+            <summary>
+            The system's processor architecture.
+            </summary>
+        </member>
+        <member name="F:OpenNETCF.WindowsCE.SystemInfo.PageSize">
+            <summary>
+            The page size and the granularity of page protection and commitment.
+            </summary>
+        </member>
+        <member name="F:OpenNETCF.WindowsCE.SystemInfo.MinimumApplicationAddress">
+            <summary>
+            Pointer to the lowest memory address accessible to applications and dynamic-link libraries (DLLs). 
+            </summary>
+        </member>
+        <member name="F:OpenNETCF.WindowsCE.SystemInfo.MaximumApplicationAddress">
+            <summary>
+            Pointer to the highest memory address accessible to applications and DLLs.
+            </summary>
+        </member>
+        <member name="F:OpenNETCF.WindowsCE.SystemInfo.ActiveProcessorMask">
+            <summary>
+            Specifies a mask representing the set of processors configured into the system. Bit 0 is processor 0; bit 31 is processor 31. 
+            </summary>
+        </member>
+        <member name="F:OpenNETCF.WindowsCE.SystemInfo.NumberOfProcessors">
+            <summary>
+            Specifies the number of processors in the system.
+            </summary>
+        </member>
+        <member name="F:OpenNETCF.WindowsCE.SystemInfo.ProcessorType">
+            <summary>
+            Specifies the type of processor in the system.
+            </summary>
+        </member>
+        <member name="F:OpenNETCF.WindowsCE.SystemInfo.AllocationGranularity">
+            <summary>
+            Specifies the granularity with which virtual memory is allocated.
+            </summary>
+        </member>
+        <member name="F:OpenNETCF.WindowsCE.SystemInfo.ProcessorLevel">
+            <summary>
+            Specifies the system’s architecture-dependent processor level.
+            </summary>
+        </member>
+        <member name="F:OpenNETCF.WindowsCE.SystemInfo.ProcessorRevision">
+            <summary>
+            Specifies an architecture-dependent processor revision.
+            </summary>
+        </member>
         <member name="T:OpenNETCF.WindowsCE.Notification.UserNotification">
             <summary>
             Contains information used for a user notification.
@@ -1234,92 +1148,261 @@
             Sound string as supplied to PlaySound.
             </summary>
         </member>
-        <member name="T:OpenNETCF.WindowsCE.Notification.NotificationEvent">
-            <summary>   
-            System Event Flags   
-            </summary>   
-        </member>
-        <member name="F:OpenNETCF.WindowsCE.Notification.NotificationEvent.None">
-            <summary>   
-            No events—remove all event registrations for this application.   
-            </summary>   
-        </member>
-        <member name="F:OpenNETCF.WindowsCE.Notification.NotificationEvent.TimeChange">
-            <summary>   
-            When the system time is changed.   
-            </summary>   
-        </member>
-        <member name="F:OpenNETCF.WindowsCE.Notification.NotificationEvent.SyncEnd">
-            <summary>   
-            When data synchronization finishes.   
-            </summary>   
-        </member>
-        <member name="F:OpenNETCF.WindowsCE.Notification.NotificationEvent.OnACPower">
+        <member name="T:OpenNETCF.WindowsCE.Notification.UserNotificationInfoHeader">
             <summary>
-            The user turned the AC power on.
+            Contains information about notification events.
             </summary>
         </member>
-        <member name="F:OpenNETCF.WindowsCE.Notification.NotificationEvent.OffACPower">
+        <member name="F:OpenNETCF.WindowsCE.Notification.UserNotificationInfoHeader.hNotification">
             <summary>
-            The user turned the alternating current (AC) power off.
+            Notification handle
             </summary>
         </member>
-        <member name="F:OpenNETCF.WindowsCE.Notification.NotificationEvent.NetConnect">
+        <member name="F:OpenNETCF.WindowsCE.Notification.UserNotificationInfoHeader.dwStatus">
             <summary>
-            The device connected to a network.
+            Status
             </summary>
         </member>
-        <member name="F:OpenNETCF.WindowsCE.Notification.NotificationEvent.NetDisconnect">
+        <member name="F:OpenNETCF.WindowsCE.Notification.UserNotificationInfoHeader.pcent">
             <summary>
-            The device disconnected from a network.
+            Notification trigger
             </summary>
         </member>
-        <member name="F:OpenNETCF.WindowsCE.Notification.NotificationEvent.DeviceChange">
+        <member name="F:OpenNETCF.WindowsCE.Notification.UserNotificationInfoHeader.pceun">
+            <summary>
+            Notification object
+            </summary>
+        </member>
+        <member name="M:OpenNETCF.WindowsCE.Notification.UserNotificationInfoHeader.#ctor">
+            <summary>
+            Create a new instance of UserNotificationInfoHeader
+            </summary>
+        </member>
+        <member name="P:OpenNETCF.WindowsCE.Notification.UserNotificationInfoHeader.Handle">
+            <summary>
+            Handle to the notification.
+            </summary>
+        </member>
+        <member name="P:OpenNETCF.WindowsCE.Notification.UserNotificationInfoHeader.Status">
+            <summary>
+            Indicates current state of the notification.
+            </summary>
+        </member>
+        <member name="P:OpenNETCF.WindowsCE.Notification.UserNotificationInfoHeader.UserNotificationTrigger">
+            <summary>
+            The <see cref="P:OpenNETCF.WindowsCE.Notification.UserNotificationInfoHeader.UserNotificationTrigger"/> object
+            </summary>
+        </member>
+        <member name="P:OpenNETCF.WindowsCE.Notification.UserNotificationInfoHeader.UserNotification">
+            <summary>
+            The <see cref="P:OpenNETCF.WindowsCE.Notification.UserNotificationInfoHeader.UserNotification"/> object.
+            </summary>
+        </member>
+        <member name="T:OpenNETCF.WindowsCE.MemoryManagement">
+            <summary>
+            This class is used for general memory management of CE-based devices
+            </summary>
+        </member>
+        <member name="P:OpenNETCF.WindowsCE.MemoryManagement.SystemStorageMemory">
+            <summary>
+            Gets or sets the amount of allocated memory for Storage, in kilobytes
+            </summary>
+        </member>
+        <member name="P:OpenNETCF.WindowsCE.MemoryManagement.SystemProgramMemory">
+            <summary>
+            Gets or sets the amount of allocated memory for Programs, in kilobytes
+            </summary>
+        </member>
+        <member name="P:OpenNETCF.WindowsCE.MemoryManagement.MemoryLoad">
+            <summary>
+            Specifies a number between zero and 100 that gives a general idea of current memory utilization, in which zero indicates no memory use and 100 indicates full memory use.
+            </summary>
+        </member>
+        <member name="P:OpenNETCF.WindowsCE.MemoryManagement.TotalPhysicalMemory">
+            <summary>
+            Indicates the total number of bytes of physical memory.
+            </summary>
+        </member>
+        <member name="P:OpenNETCF.WindowsCE.MemoryManagement.TotalVirtualMemory">
+            <summary>
+            Indicates the total number of bytes that can be described in the user mode portion of the virtual address space of the calling process.
+            </summary>
+        </member>
+        <member name="P:OpenNETCF.WindowsCE.MemoryManagement.AvailablePhysicalMemory">
+            <summary>
+            Indicates the number of bytes of physical memory available.
+            </summary>
+        </member>
+        <member name="P:OpenNETCF.WindowsCE.MemoryManagement.AvailableVirtualMemory">
+            <summary>
+            Indicates the number of bytes of unreserved and uncommitted memory in the user mode portion of the virtual address space of the calling process.
+            </summary>
+        </member>
+        <member name="T:OpenNETCF.WindowsCE.Notification.Notify">
+            <summary>
+            Contains Notification related Methods.
+            </summary>
+        </member>
+        <member name="M:OpenNETCF.WindowsCE.Notification.Notify.RunAppAtEvent(System.String,OpenNETCF.WindowsCE.Notification.NotificationEvent)">
             <summary>   
-            When a PC Card device is changed.   
+            This function starts running an application when a specified event occurs.   
             </summary>   
+            <param name="appName">Name of the application to be started.</param>   
+            <param name="whichEvent">Event at which the application is to be started.</param>   
+            <seealso cref="T:OpenNETCF.WindowsCE.Notification.NotificationEvent"/>   
         </member>
-        <member name="F:OpenNETCF.WindowsCE.Notification.NotificationEvent.IRDiscovered">
+        <member name="M:OpenNETCF.WindowsCE.Notification.Notify.RunAppAtTime(System.String,System.DateTime)">
+            <summary>   
+            This function prompts the system to start running a specified application at a specified time.   
+            </summary>   
+            <param name="appName">Name of the application to be started.</param>   
+            <param name="time">DateTime at which to run application.</param>
+            <remarks>To cancel an existing RunAppATime request pass the application name and DateTime.MinValue</remarks>
+        </member>
+        <member name="M:OpenNETCF.WindowsCE.Notification.Notify.SetNamedEventAtTime(System.String,System.DateTime)">
             <summary>
-            The device discovered a server by using infrared communications.
+            This function will cause a named system event to be set at the given time.
+            </summary>
+            <remarks>If suspended, the device will wake to fulfill this notification</remarks>
+            <param name="eventName">String name of the event to set</param>
+            <param name="eventTime">Time at which to set the event</param>
+        </member>
+        <member name="M:OpenNETCF.WindowsCE.Notification.Notify.SetNamedEventAtTime(System.String,System.TimeSpan)">
+            <summary>
+            This function will cause a named system event to be set at the given time.
+            </summary>
+            <remarks>If suspended, the device will wake to fulfill this notification</remarks>
+            <param name="eventName">String name of the event to set</param>
+            <param name="timeFromNow">TimeSpan from Now for the event to be set</param>
+        </member>
+        <member name="M:OpenNETCF.WindowsCE.Notification.Notify.SetUserNotification(System.String,System.DateTime,OpenNETCF.WindowsCE.Notification.UserNotification)">
+            <summary>
+            Creates a new user notification.
+            </summary>
+            <param name="application">String that specifies the name of the application that owns this notification.</param>
+            <param name="time">The time when the notification should occur.</param>
+            <param name="notify">Notification object that describes the events that are to occur when the notification time is reached.</param>
+            <returns>The handle to the notification indicates success.</returns>
+        </member>
+        <member name="M:OpenNETCF.WindowsCE.Notification.Notify.SetUserNotification(System.Int32,System.String,System.DateTime,OpenNETCF.WindowsCE.Notification.UserNotification)">
+            <summary>
+            Edit an existing user notification.
+            </summary>
+            <param name="handle">Handle to the notification to overwrite.</param>
+            <param name="application">String that specifies the name of the application that owns this notification.</param>
+            <param name="time">The time when the notification should occur.</param>
+            <param name="notify">Notification object that describes the events that are to occur when the notification time is reached.</param>
+            <returns>The handle to the notification indicates success.</returns>
+        </member>
+        <member name="M:OpenNETCF.WindowsCE.Notification.Notify.SetUserNotification(OpenNETCF.WindowsCE.Notification.UserNotificationTrigger,OpenNETCF.WindowsCE.Notification.UserNotification)">
+            <summary>
+            This function creates a new user notification.
+            </summary>
+            <param name="trigger">A UserNotificationTrigger that defines what event activates a notification.</param>
+            <param name="notification">A UserNotification that defines how the system should respond when a notification occurs.</param>
+            <returns>Handle to the notification event if successful.</returns>
+        </member>
+        <member name="M:OpenNETCF.WindowsCE.Notification.Notify.SetUserNotification(System.Int32,OpenNETCF.WindowsCE.Notification.UserNotificationTrigger,OpenNETCF.WindowsCE.Notification.UserNotification)">
+            <summary>
+            This function modifies an existing user notification.
+            </summary>
+            <param name="handle">Handle of the Notification to be modified</param>
+            <param name="trigger">A UserNotificationTrigger that defines what event activates a notification.</param>
+            <param name="notification">A UserNotification that defines how the system should respond when a notification occurs.</param>
+            <returns>Handle to the notification event if successful.</returns>
+        </member>
+        <member name="M:OpenNETCF.WindowsCE.Notification.Notify.ClearUserNotification(System.Int32)">
+            <summary>
+            Deletes a registered user notification that was created by a previous call to the SetUserNotification function.
+            </summary>
+            <param name="handle">Handle to the user notification to delete.</param>
+            <returns>TRUE indicates success. FALSE indicates failure.</returns>
+            <remarks>ClearNotification does not operate on notifications that have occurred.</remarks>
+        </member>
+        <member name="M:OpenNETCF.WindowsCE.Notification.Notify.GetUserNotification(System.Int32)">
+            <summary>
+            Retrieves notification information associated with a handle.
+            </summary>
+            <param name="handle">Handle to the user notification to retrieve.</param>
+            <returns>The requested <see cref="T:OpenNETCF.WindowsCE.Notification.UserNotificationInfoHeader"/>.</returns>
+        </member>
+        <member name="M:OpenNETCF.WindowsCE.Notification.Notify.GetUserNotificationHandles">
+            <summary>
+            Returns an array of currently stored notifications.
+            </summary>
+            <returns>Array of currently stored notifications.</returns>
+        </member>
+        <member name="M:OpenNETCF.WindowsCE.Notification.Notify.GetUserNotificationPreferences(System.IntPtr)">
+            <summary>
+            This function queries the user for notification settings by displaying a dialog box showing options that are valid for the current hardware platform.
+            </summary>
+            <param name="hWnd">Handle to the parent window for the notification settings dialog box.</param>
+            <returns>A UserNotification structure containing the user's notification settings.</returns>
+        </member>
+        <member name="M:OpenNETCF.WindowsCE.Notification.Notify.GetUserNotificationPreferences(System.IntPtr,OpenNETCF.WindowsCE.Notification.UserNotification)">
+            <summary>
+            This function queries the user for notification settings by displaying a dialog box showing options that are valid for the current hardware platform.
+            </summary>
+            <param name="hWnd">Handle to the parent window for the notification settings dialog box.</param>
+            <param name="template">UserNotification structure used to populate the default settings.</param>
+            <returns>A UserNotification structure containing the user's notification settings.</returns>
+        </member>
+        <member name="M:OpenNETCF.WindowsCE.Notification.Notify.HandleAppNotifications(System.String)">
+            <summary>
+            This function marks as "handled" all notifications previously registered by the given application that have occurred.
+            </summary>
+            <param name="application">The name of the application whose events are to be marked as "handled".
+            This must be the name that was passed in to <see cref="M:OpenNETCF.WindowsCE.Notification.Notify.SetUserNotification(System.String,System.DateTime,OpenNETCF.WindowsCE.Notification.UserNotification)"/> as the owner of the notification.</param>
+        </member>
+        <member name="T:OpenNETCF.WindowsCE.Notification.NotificationStatus">
+            <summary>
+            The status of the notification.
             </summary>
         </member>
-        <member name="F:OpenNETCF.WindowsCE.Notification.NotificationEvent.RS232Detected">
-            <summary>   
-            When an RS232 connection is made.   
-            </summary>   
-        </member>
-        <member name="F:OpenNETCF.WindowsCE.Notification.NotificationEvent.RestoreEnd">
-            <summary>   
-            When a full device data restore completes.   
-            </summary>   
-        </member>
-        <member name="F:OpenNETCF.WindowsCE.Notification.NotificationEvent.Wakeup">
-            <summary>   
-            When the device wakes up.   
-            </summary>   
-        </member>
-        <member name="F:OpenNETCF.WindowsCE.Notification.NotificationEvent.TimeZoneChange">
-            <summary>   
-            When the time zone is changed.   
-            </summary>   
-        </member>
-        <member name="F:OpenNETCF.WindowsCE.Notification.NotificationEvent.MachineNameChange">
+        <member name="F:OpenNETCF.WindowsCE.Notification.NotificationStatus.Inactive">
             <summary>
-            When the machines name changes.
-            Requires Windows CE.NET 4.2.
+            The notification is not currently active.
             </summary>
         </member>
-        <member name="F:OpenNETCF.WindowsCE.Notification.NotificationEvent.RndisFNDetected">
+        <member name="F:OpenNETCF.WindowsCE.Notification.NotificationStatus.Signalled">
             <summary>
-            RNDISFN interface is instantiated.
-            Requires Windows CE 5.0.
+            The notification is currently active.
             </summary>
         </member>
-        <member name="F:OpenNETCF.WindowsCE.Notification.NotificationEvent.InternetProxyChange">
+        <member name="T:OpenNETCF.WindowsCE.Notification.NotificationAction">
             <summary>
-            The Internet Proxy used by the device has changed.
-            Requires Windows CE 5.0.
+            Specifies the action to take when a notification event occurs.
+            </summary>
+        </member>
+        <member name="F:OpenNETCF.WindowsCE.Notification.NotificationAction.Led">
+            <summary>
+            Flashes the LED.
+            </summary>
+        </member>
+        <member name="F:OpenNETCF.WindowsCE.Notification.NotificationAction.Vibrate">
+            <summary>
+            Vibrates the device.
+            </summary>
+        </member>
+        <member name="F:OpenNETCF.WindowsCE.Notification.NotificationAction.Dialog">
+            <summary>
+            Displays the user notification dialog box.
+            </summary>
+        </member>
+        <member name="F:OpenNETCF.WindowsCE.Notification.NotificationAction.Sound">
+            <summary>
+            Plays the sound specified.
+            </summary>
+        </member>
+        <member name="F:OpenNETCF.WindowsCE.Notification.NotificationAction.Repeat">
+            <summary>
+            Repeats the sound for 10–15 seconds.
+            </summary>
+        </member>
+        <member name="F:OpenNETCF.WindowsCE.Notification.NotificationAction.Private">
+            <summary>
+            Dialog box z-order flag.
+            Set if the notification dialog box should come up behind the password.
             </summary>
         </member>
         <member name="T:OpenNETCF.WindowsCE.DeviceNotificationEventHandler">
@@ -1363,6 +1446,108 @@
             be a stream driver name like COM1:, or something
             more descriptive like Power Manager, depending
             on the GUID.
+            </summary>
+        </member>
+        <member name="T:OpenNETCF.WindowsCE.TimeZoneInformation">
+            <summary>
+            Time Zone information
+            </summary>
+            <remarks>Wraps the native <b>TIME_ZONE_INFORMATION</b> structure.</remarks>
+        </member>
+        <member name="M:OpenNETCF.WindowsCE.TimeZoneInformation.#ctor">
+            <summary>
+            Create a new instance of the <b>TimeZoneInformation</b> class.
+            </summary>
+        </member>
+        <member name="M:OpenNETCF.WindowsCE.TimeZoneInformation.#ctor(System.Byte[])">
+            <summary>
+            Create a new instance of the TimeZoneInformation class based on data in the supplied Byte Array.
+            </summary>
+            <param name="bytes">Byte Array containing <b>TIME_ZONE_INFORMATION</b> data.</param>
+        </member>
+        <member name="M:OpenNETCF.WindowsCE.TimeZoneInformation.#ctor(System.Byte[],System.Int32)">
+            <summary>
+            Creates a TimeZoneInformation instance
+            </summary>
+            <param name="bytes"></param>
+            <param name="offset"></param>
+        </member>
+        <member name="M:OpenNETCF.WindowsCE.TimeZoneInformation.ToString">
+            <summary>
+            Returns a String representing this instance of <b>TimeZoneInformation</b>.
+            </summary>
+            <returns>A string containing the name of the Time Zone.</returns>
+        </member>
+        <member name="M:OpenNETCF.WindowsCE.TimeZoneInformation.ToByteArray">
+            <summary>
+            Returns the raw structure in a <see cref="T:System.Byte[]"/>.
+            </summary>
+            <returns>Byte array containing the <b>SYSTEMTIME</b> data.</returns>
+        </member>
+        <member name="M:OpenNETCF.WindowsCE.TimeZoneInformation.op_Implicit(OpenNETCF.WindowsCE.TimeZoneInformation)~System.Byte[]">
+            <summary>
+            Provides a native-code supported byte array representation of a TimeZoneInformation
+            </summary>
+            <param name="tzi"></param>
+            <returns></returns>
+        </member>
+        <member name="M:OpenNETCF.WindowsCE.TimeZoneInformation.op_Implicit(System.Byte[])~OpenNETCF.WindowsCE.TimeZoneInformation">
+            <summary>
+            Creates a TimeZoneInformation instance from a byte array representation
+            </summary>
+            <param name="data"></param>
+            <returns></returns>
+        </member>
+        <member name="P:OpenNETCF.WindowsCE.TimeZoneInformation.DisplayName">
+            <summary>
+            Name used to describe the Time Zone.
+            </summary>
+        </member>
+        <member name="P:OpenNETCF.WindowsCE.TimeZoneInformation.Bias">
+            <summary>
+            Specifies the current bias, in minutes, for local time translation on this computer.
+            </summary>
+            <remarks>The bias is the difference, in minutes, between Coordinated Universal Time (UTC) and local time.
+            All translations between UTC and local time are based on the following formula:
+            <para>UTC = local time + bias</para></remarks>
+        </member>
+        <member name="P:OpenNETCF.WindowsCE.TimeZoneInformation.StandardName">
+            <summary>
+            Name associated with standard time on this device.
+            </summary>
+            <remarks>For example, this member could contain “EST” to indicate Eastern Standard Time.</remarks>
+        </member>
+        <member name="P:OpenNETCF.WindowsCE.TimeZoneInformation.StandardDate">
+            <summary>
+            The date and local time when the transition from Daylight time to Standard time occurs.
+            </summary>
+            <remarks>This member supports two date formats.
+            Absolute format specifies an exact date and time when standard time begins.
+            In this form, the wYear, wMonth, wDay, wHour, wMinute, wSecond, and wMilliseconds members of the SYSTEMTIME structure are used to specify an exact date.
+            <para>Day-in-month format is specified by setting the wYear member to zero, setting the wDayOfWeek member to an appropriate weekday, and using a wDay value in the range 1 through 5 to select the correct day in the month.
+            Using this notation, the first Sunday in April can be specified, as can the last Thursday in October (5 is equal to “the last”).</para></remarks>
+        </member>
+        <member name="P:OpenNETCF.WindowsCE.TimeZoneInformation.StandardBias">
+            <summary>
+            Specifies a bias value to be used during local time translations that occur during standard time.
+            </summary>
+            <remarks>This member is ignored if a value for the StandardDate member is not supplied.
+            This value is added to the value of the Bias member to form the bias used during standard time.
+            In most time zones, the value of this member is zero.</remarks>
+        </member>
+        <member name="P:OpenNETCF.WindowsCE.TimeZoneInformation.DaylightName">
+            <summary>
+            Specifies a string associated with daylight time.
+            </summary>
+        </member>
+        <member name="P:OpenNETCF.WindowsCE.TimeZoneInformation.DaylightDate">
+            <summary>
+            Specifies a date and local time when the transition from standard time to daylight time occurs. 
+            </summary>
+        </member>
+        <member name="P:OpenNETCF.WindowsCE.TimeZoneInformation.DaylightBias">
+            <summary>
+            Specifies a bias value to be used during local time translations that occur during daylight time.
             </summary>
         </member>
         <member name="T:OpenNETCF.WindowsCE.StdIoStream">
@@ -1835,176 +2020,6 @@
             <summary>
             The system is operating in the range covered by the DaylightDate member of the <see cref="T:OpenNETCF.WindowsCE.TimeZoneInformation"/> structure.
             </summary>
-        </member>
-        <member name="T:OpenNETCF.WindowsCE.Notification.NotificationCommandLine">
-            <summary>
-            Strings passed on the command line when an event occurs that the app has requested via CeRunAppAtEvent.  
-            </summary>
-            <remarks>Note that some of these strings will be used as the command line *prefix*, since the rest of the command line will be used as a parameter.</remarks>
-        </member>
-        <member name="F:OpenNETCF.WindowsCE.Notification.NotificationCommandLine.AppRunAtTime">
-            <summary>
-            String passed on the command line when an app is run as the result of a call to <see cref="M:OpenNETCF.Win32.Notify.Notify.RunAppAtTime"/>.
-            </summary>
-        </member>
-        <member name="F:OpenNETCF.WindowsCE.Notification.NotificationCommandLine.AppRunToHandleNotification">
-            <summary>
-            Prefix of the command line when the user requests to run the application that "owns" a notification.  It is followed by a space, and the stringized version of the notification handle.
-            </summary>
-        </member>
-        <member name="F:OpenNETCF.WindowsCE.Notification.NotificationCommandLine.AppRunAfterTimeChange">
-            <summary>
-            Prefix of the command line when the user requests to run the application when the system time settings are changed.
-            </summary>
-        </member>
-        <member name="F:OpenNETCF.WindowsCE.Notification.NotificationCommandLine.AppRunAfterSync">
-            <summary>
-            Prefix of the command line when the user requests to run the application after synchronisation.
-            </summary>
-        </member>
-        <member name="F:OpenNETCF.WindowsCE.Notification.NotificationCommandLine.AppRunAtAcPowerOn">
-            <summary>
-            Prefix of the command line when the user requests to run the application when the device is connected to AC power.
-            </summary>
-        </member>
-        <member name="F:OpenNETCF.WindowsCE.Notification.NotificationCommandLine.AppRunAtAcPowerOff">
-            <summary>
-            Prefix of the command line when the user requests to run the application when the AC power is disconnected.
-            </summary>
-        </member>
-        <member name="F:OpenNETCF.WindowsCE.Notification.NotificationCommandLine.AppRunAtNetConnect">
-            <summary>
-            Prefix of the command line when the user requests to run the application when the device connects to a LAN.
-            </summary>
-        </member>
-        <member name="F:OpenNETCF.WindowsCE.Notification.NotificationCommandLine.AppRunAtNetDisconnect">
-            <summary>
-            Prefix of the command line when the user requests to run the application when the device disconnects from a LAN.
-            </summary>
-        </member>
-        <member name="F:OpenNETCF.WindowsCE.Notification.NotificationCommandLine.AppRunAtDeviceChange">
-            <summary>
-            Prefix of the command line when the user requests to run the application that "owns" a notification.  It is followed by a space, and the stringized version of the notification handle.
-            </summary>
-        </member>
-        <member name="F:OpenNETCF.WindowsCE.Notification.NotificationCommandLine.AppRunAtIrDiscovery">
-            <summary>
-            Prefix of the command line when the user requests to run the application when another device is discovered using IR.
-            </summary>
-        </member>
-        <member name="F:OpenNETCF.WindowsCE.Notification.NotificationCommandLine.AppRunAtRs232Detect">
-            <summary>
-            Prefix of the command line when the user requests to run the application when a serial port connection is attempted.
-            </summary>
-        </member>
-        <member name="F:OpenNETCF.WindowsCE.Notification.NotificationCommandLine.AppRunAfterRestore">
-            <summary>
-            Prefix of the command line when the user requests to run the application after a system restore.
-            </summary>
-        </member>
-        <member name="F:OpenNETCF.WindowsCE.Notification.NotificationCommandLine.AppRunAfterWakeup">
-            <summary>
-            Prefix of the command line when the user requests to run the application when the device wakes up from standby.
-            </summary>
-        </member>
-        <member name="F:OpenNETCF.WindowsCE.Notification.NotificationCommandLine.AppRunAfterTzChange">
-            <summary>
-            Prefix of the command line when the user requests to run the application when the device time-zone is changed.
-            </summary>
-        </member>
-        <member name="F:OpenNETCF.WindowsCE.Notification.NotificationCommandLine.AppRunAfterExtendedEvent">
-            <summary>
-            Prefix of the command line when the user requests to run the application after an extended event.
-            </summary>
-        </member>
-        <member name="T:OpenNETCF.WindowsCE.Notification.NotificationAction">
-            <summary>
-            Specifies the action to take when a notification event occurs.
-            </summary>
-        </member>
-        <member name="F:OpenNETCF.WindowsCE.Notification.NotificationAction.Led">
-            <summary>
-            Flashes the LED.
-            </summary>
-        </member>
-        <member name="F:OpenNETCF.WindowsCE.Notification.NotificationAction.Vibrate">
-            <summary>
-            Vibrates the device.
-            </summary>
-        </member>
-        <member name="F:OpenNETCF.WindowsCE.Notification.NotificationAction.Dialog">
-            <summary>
-            Displays the user notification dialog box.
-            </summary>
-        </member>
-        <member name="F:OpenNETCF.WindowsCE.Notification.NotificationAction.Sound">
-            <summary>
-            Plays the sound specified.
-            </summary>
-        </member>
-        <member name="F:OpenNETCF.WindowsCE.Notification.NotificationAction.Repeat">
-            <summary>
-            Repeats the sound for 10–15 seconds.
-            </summary>
-        </member>
-        <member name="F:OpenNETCF.WindowsCE.Notification.NotificationAction.Private">
-            <summary>
-            Dialog box z-order flag.
-            Set if the notification dialog box should come up behind the password.
-            </summary>
-        </member>
-        <member name="T:OpenNETCF.WindowsCE.LargeIntervalTimer">
-            <summary>
-            This class encapsulates a low resolution Timer that is designed to be fired on large intervals (from seconds to even days).
-            <remarks>Unlike the Forms or Threading Timers, if the device is asleep when the Tick occurs, the device will wake and the Tick handler will run.</remarks>
-            </summary>
-        </member>
-        <member name="M:OpenNETCF.WindowsCE.LargeIntervalTimer.#ctor">
-            <summary>
-            Creates an instance of a LargeIntervalTimer with a default interval of 60 seconds
-            </summary>
-        </member>
-        <member name="M:OpenNETCF.WindowsCE.LargeIntervalTimer.Finalize">
-            <summary>
-            Finalizes the LargeIntervalTimer 
-            </summary>
-        </member>
-        <member name="M:OpenNETCF.WindowsCE.LargeIntervalTimer.Dispose">
-            <summary>
-            When overridden in a derived class, releases the unmanaged resources used by the LargeIntervalTimer, and optionally releases the managed resources.
-            </summary>
-        </member>
-        <member name="E:OpenNETCF.WindowsCE.LargeIntervalTimer.Tick">
-            <summary>
-            Raised when the LargeIntervalTimer period has elapsed
-            </summary>
-        </member>
-        <member name="P:OpenNETCF.WindowsCE.LargeIntervalTimer.OneShot">
-            <summary>
-            If set, the Timer will automatically disable itself after each Tick event is raised
-            </summary>
-        </member>
-        <member name="P:OpenNETCF.WindowsCE.LargeIntervalTimer.Enabled">
-            <summary>
-            Gets or sets whether the Timer is currently running
-            </summary>
-        </member>
-        <member name="P:OpenNETCF.WindowsCE.LargeIntervalTimer.Interval">
-            <summary>
-            Gets or sets the TimeSpan interval between ticks.
-            </summary>
-            <remarks>
-            Note that the resolution of the underlying notification timer used is not conducive to millisecond accuracy so any sub-second portion of the Interval is ignored.
-            The Interval also cannot be less than 15 seconds.
-            </remarks>
-        </member>
-        <member name="P:OpenNETCF.WindowsCE.LargeIntervalTimer.FirstEventTime">
-            <summary>
-            Sets or get the absolute time for the first Tick event.  This is useful when setting up a periodic tick starting at a fixed time
-            </summary>
-            <remarks>
-            The first tick cannot be less than 15 seconds into the future or it will either fire immediately or never fire.
-            </remarks>
         </member>
     </members>
 </doc>
