@@ -1,0 +1,150 @@
+<html dir="LTR">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=Windows-1252" />
+    <meta name="vs_targetSchema" content="http://schemas.microsoft.com/intellisense/ie5" />
+    <title>NotificationCommandLine Enumeration</title>
+    <xml>
+    </xml>
+    <link rel="stylesheet" type="text/css" href="MSDN.css" />
+  </head>
+  <body id="bodyID" class="dtBODY">
+    <div id="nsbanner">
+      <div id="bannerrow1">
+        <table class="bannerparthead" cellspacing="0">
+          <tr id="hdr">
+            <td class="runninghead">OpenNETCF Smart Device Framework 2.0</td>
+            <td class="product">
+            </td>
+          </tr>
+        </table>
+      </div>
+      <div id="TitleRow">
+        <h1 class="dtH1">NotificationCommandLine Enumeration</h1>
+      </div>
+    </div>
+    <div id="nstext">
+      <p class="topicstatus">[This is preliminary documentation and subject to change.]</p>
+      <p> Strings passed on the command line when an event occurs that the app has requested via CeRunAppAtEvent. </p>
+      <div class="syntax">
+        <span class="lang">[Visual Basic]</span>
+        <br />Public Enum NotificationCommandLine</div>
+      <div class="syntax">
+        <span class="lang">[C#]</span>
+        <div>public enum NotificationCommandLine</div>
+      </div>
+      <h4 class="dtH4">Remarks</h4>
+      <p>Note that some of these strings will be used as the command line *prefix*, since the rest of the command line will be used as a parameter.</p>
+      <h4 class="dtH4">Members</h4>
+      <div class="tablediv">
+        <table class="dtTABLE" cellspacing="0">
+          <tr valign="top">
+            <th width="50%">Member Name</th>
+            <th width="50%">Description</th>
+          </tr>
+<tr valign="top"><td><b>AppRunAtTime</b></td><td> String passed on the command line when an app is run as the result of a call to <b>RunAppAtTime</b>. </td></tr>
+<tr valign="top"><td><b>AppRunToHandleNotification</b></td><td> Prefix of the command line when the user requests to run the application that "owns" a notification. It is followed by a space, and the stringized version of the notification handle. </td></tr>
+<tr valign="top"><td><b>AppRunAfterTimeChange</b></td><td> Prefix of the command line when the user requests to run the application when the system time settings are changed. </td></tr>
+<tr valign="top"><td><b>AppRunAfterSync</b></td><td> Prefix of the command line when the user requests to run the application after synchronisation. </td></tr>
+<tr valign="top"><td><b>AppRunAtAcPowerOn</b></td><td> Prefix of the command line when the user requests to run the application when the device is connected to AC power. </td></tr>
+<tr valign="top"><td><b>AppRunAtAcPowerOff</b></td><td> Prefix of the command line when the user requests to run the application when the AC power is disconnected. </td></tr>
+<tr valign="top"><td><b>AppRunAtNetConnect</b></td><td> Prefix of the command line when the user requests to run the application when the device connects to a LAN. </td></tr>
+<tr valign="top"><td><b>AppRunAtNetDisconnect</b></td><td> Prefix of the command line when the user requests to run the application when the device disconnects from a LAN. </td></tr>
+<tr valign="top"><td><b>AppRunAtDeviceChange</b></td><td> Prefix of the command line when the user requests to run the application that "owns" a notification. It is followed by a space, and the stringized version of the notification handle. </td></tr>
+<tr valign="top"><td><b>AppRunAtIrDiscovery</b></td><td> Prefix of the command line when the user requests to run the application when another device is discovered using IR. </td></tr>
+<tr valign="top"><td><b>AppRunAtRs232Detect</b></td><td> Prefix of the command line when the user requests to run the application when a serial port connection is attempted. </td></tr>
+<tr valign="top"><td><b>AppRunAfterRestore</b></td><td> Prefix of the command line when the user requests to run the application after a system restore. </td></tr>
+<tr valign="top"><td><b>AppRunAfterWakeup</b></td><td> Prefix of the command line when the user requests to run the application when the device wakes up from standby. </td></tr>
+<tr valign="top"><td><b>AppRunAfterTzChange</b></td><td> Prefix of the command line when the user requests to run the application when the device time-zone is changed. </td></tr>
+<tr valign="top"><td><b>AppRunAfterExtendedEvent</b></td><td> Prefix of the command line when the user requests to run the application after an extended event. </td></tr></table>
+      </div>
+      <h4 class="dtH4">Requirements</h4>
+      <p>
+        <b>Namespace: </b>
+        <a href="OpenNETCF.WindowsCE.Notification.html">OpenNETCF.WindowsCE.Notification</a>
+      </p>
+      <p>
+        <b>Assembly: </b>OpenNETCF.WindowsCE (in OpenNETCF.WindowsCE.dll)
+					</p>
+      <h4 class="dtH4">See Also</h4>
+      <p>
+        <a href="OpenNETCF.WindowsCE.Notification.html">OpenNETCF.WindowsCE.Notification Namespace</a>
+      </p>
+      <object type="application/x-oleobject" classid="clsid:1e2a7bd0-dab9-11d0-b93a-00c04fc99f9e" viewastext="true" style="display: none;">
+        <param name="Keyword" value="NotificationCommandLine enumeration">
+        </param>
+        <param name="Keyword" value="OpenNETCF.WindowsCE.Notification.NotificationCommandLine enumeration">
+        </param>
+        <param name="Keyword" value="AppRunAtTime enumeration member">
+        </param>
+        <param name="Keyword" value="NotificationCommandLine.AppRunAtTime enumeration member">
+        </param>
+        <param name="Keyword" value="AppRunToHandleNotification enumeration member">
+        </param>
+        <param name="Keyword" value="NotificationCommandLine.AppRunToHandleNotification enumeration member">
+        </param>
+        <param name="Keyword" value="AppRunAfterTimeChange enumeration member">
+        </param>
+        <param name="Keyword" value="NotificationCommandLine.AppRunAfterTimeChange enumeration member">
+        </param>
+        <param name="Keyword" value="AppRunAfterSync enumeration member">
+        </param>
+        <param name="Keyword" value="NotificationCommandLine.AppRunAfterSync enumeration member">
+        </param>
+        <param name="Keyword" value="AppRunAtAcPowerOn enumeration member">
+        </param>
+        <param name="Keyword" value="NotificationCommandLine.AppRunAtAcPowerOn enumeration member">
+        </param>
+        <param name="Keyword" value="AppRunAtAcPowerOff enumeration member">
+        </param>
+        <param name="Keyword" value="NotificationCommandLine.AppRunAtAcPowerOff enumeration member">
+        </param>
+        <param name="Keyword" value="AppRunAtNetConnect enumeration member">
+        </param>
+        <param name="Keyword" value="NotificationCommandLine.AppRunAtNetConnect enumeration member">
+        </param>
+        <param name="Keyword" value="AppRunAtNetDisconnect enumeration member">
+        </param>
+        <param name="Keyword" value="NotificationCommandLine.AppRunAtNetDisconnect enumeration member">
+        </param>
+        <param name="Keyword" value="AppRunAtDeviceChange enumeration member">
+        </param>
+        <param name="Keyword" value="NotificationCommandLine.AppRunAtDeviceChange enumeration member">
+        </param>
+        <param name="Keyword" value="AppRunAtIrDiscovery enumeration member">
+        </param>
+        <param name="Keyword" value="NotificationCommandLine.AppRunAtIrDiscovery enumeration member">
+        </param>
+        <param name="Keyword" value="AppRunAtRs232Detect enumeration member">
+        </param>
+        <param name="Keyword" value="NotificationCommandLine.AppRunAtRs232Detect enumeration member">
+        </param>
+        <param name="Keyword" value="AppRunAfterRestore enumeration member">
+        </param>
+        <param name="Keyword" value="NotificationCommandLine.AppRunAfterRestore enumeration member">
+        </param>
+        <param name="Keyword" value="AppRunAfterWakeup enumeration member">
+        </param>
+        <param name="Keyword" value="NotificationCommandLine.AppRunAfterWakeup enumeration member">
+        </param>
+        <param name="Keyword" value="AppRunAfterTzChange enumeration member">
+        </param>
+        <param name="Keyword" value="NotificationCommandLine.AppRunAfterTzChange enumeration member">
+        </param>
+        <param name="Keyword" value="AppRunAfterExtendedEvent enumeration member">
+        </param>
+        <param name="Keyword" value="NotificationCommandLine.AppRunAfterExtendedEvent enumeration member">
+        </param>
+      </object>
+      <hr />
+      <div id="footer">
+        <p>
+          <a href="mailto:docs@opennetcf.org?subject=OpenNETCF%20Smart%20Device%20Framework%202.0%20Documentation%20Feedback:%20NotificationCommandLine%20Enumeration">Send comments on this topic.</a>
+        </p>
+        <p>
+          <a href="http://www.opennetcf.org">Copyright © 2003-2006 OpenNETCF Consulting LLC</a>
+        </p>
+        <p>Generated from assembly OpenNETCF.WindowsCE [2.0.0.0]</p>
+      </div>
+    </div>
+  </body>
+</html>

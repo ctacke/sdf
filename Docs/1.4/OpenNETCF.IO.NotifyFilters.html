@@ -1,0 +1,118 @@
+<html dir="LTR">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=Windows-1252" />
+    <meta name="vs_targetSchema" content="http://schemas.microsoft.com/intellisense/ie5" />
+    <title>NotifyFilters Enumeration</title>
+    <xml>
+    </xml>
+    <link rel="stylesheet" type="text/css" href="MSDN.css" />
+  </head>
+  <body id="bodyID" class="dtBODY">
+    <div id="nsbanner">
+      <div id="bannerrow1">
+        <table class="bannerparthead" cellspacing="0">
+          <tr id="hdr">
+            <td class="runninghead">OpenNETCF Smart Device Framework 2.0</td>
+            <td class="product">
+            </td>
+          </tr>
+        </table>
+      </div>
+      <div id="TitleRow">
+        <h1 class="dtH1">NotifyFilters Enumeration</h1>
+      </div>
+    </div>
+    <div id="nstext">
+      <p class="topicstatus">[This is preliminary documentation and subject to change.]</p>
+      <p> Specifies changes to watch for in a file or folder. </p>
+      <p>This enumeration has a <a href="http://msdn.microsoft.com/library/default.asp?url=/library/en-us/cpref/html/frlrfSystemFlagsAttributeClassTopic.asp">
+						FlagsAttribute</a>
+						attribute that allows a bitwise combination of its member values.</p>
+      <div class="syntax">
+        <span class="lang">[Visual Basic]</span>
+        <br />Public Enum NotifyFilters</div>
+      <div class="syntax">
+        <span class="lang">[C#]</span>
+        <div>public enum NotifyFilters</div>
+      </div>
+      <h4 class="dtH4">Remarks</h4>
+      <p>You can combine the members of this enumeration to watch for more than one kind of change. For example, you can watch for changes in the size of a file or folder, and for changes in security settings. This raises an event anytime there is a change in size or security settings of a file or folder.</p>
+      <h4 class="dtH4">Members</h4>
+      <div class="tablediv">
+        <table class="dtTABLE" cellspacing="0">
+          <tr valign="top">
+            <th width="40%">Member Name</th>
+            <th width="40%">Description</th>
+            <th width="20%">Value</th>
+          </tr>
+<tr valign="top"><td><b>Attributes</b></td><td> The attributes of the file or folder. </td><td>4</td></tr>
+<tr valign="top"><td><b>CreationTime</b></td><td> The time the file or folder was created. </td><td>64</td></tr>
+<tr valign="top"><td><b>DirectoryName</b></td><td> The name of the directory. </td><td>2</td></tr>
+<tr valign="top"><td><b>FileName</b></td><td> The name of the file. </td><td>1</td></tr>
+<tr valign="top"><td><b>LastAccess</b></td><td> The date the file or folder was last opened. </td><td>32</td></tr>
+<tr valign="top"><td><b>LastWrite</b></td><td> The date the file or folder last had anything written to it. </td><td>16</td></tr>
+<tr valign="top"><td><b>Security</b></td><td> The security settings of the file or folder. </td><td>256</td></tr>
+<tr valign="top"><td><b>Size</b></td><td> The size of the file or folder. </td><td>8</td></tr></table>
+      </div>
+      <h4 class="dtH4">Requirements</h4>
+      <p>
+        <b>Namespace: </b>
+        <a href="OpenNETCF.IO.html">OpenNETCF.IO</a>
+      </p>
+      <p>
+        <b>Assembly: </b>OpenNETCF (in OpenNETCF.dll)
+					</p>
+      <h4 class="dtH4">See Also</h4>
+      <p>
+        <a href="OpenNETCF.IO.html">OpenNETCF.IO Namespace</a> | <a href="OpenNETCF.IO.FileSystemWatcher.html">FileSystemWatcher</a> | <a href="OpenNETCF.IO.FileSystemEventArgs.html">FileSystemEventArgs</a> | <a href="OpenNETCF.IO.FileSystemEventHandler.html">FileSystemEventHandler</a> | <a href="OpenNETCF.IO.RenamedEventArgs.html">RenamedEventArgs</a> | <a href="OpenNETCF.IO.RenamedEventHandler.html">RenamedEventHandler</a> | <a href="OpenNETCF.IO.WatcherChangeTypes.html">WatcherChangeTypes</a></p>
+      <object type="application/x-oleobject" classid="clsid:1e2a7bd0-dab9-11d0-b93a-00c04fc99f9e" viewastext="true" style="display: none;">
+        <param name="Keyword" value="NotifyFilters enumeration">
+        </param>
+        <param name="Keyword" value="OpenNETCF.IO.NotifyFilters enumeration">
+        </param>
+        <param name="Keyword" value="Attributes enumeration member">
+        </param>
+        <param name="Keyword" value="NotifyFilters.Attributes enumeration member">
+        </param>
+        <param name="Keyword" value="CreationTime enumeration member">
+        </param>
+        <param name="Keyword" value="NotifyFilters.CreationTime enumeration member">
+        </param>
+        <param name="Keyword" value="DirectoryName enumeration member">
+        </param>
+        <param name="Keyword" value="NotifyFilters.DirectoryName enumeration member">
+        </param>
+        <param name="Keyword" value="FileName enumeration member">
+        </param>
+        <param name="Keyword" value="NotifyFilters.FileName enumeration member">
+        </param>
+        <param name="Keyword" value="LastAccess enumeration member">
+        </param>
+        <param name="Keyword" value="NotifyFilters.LastAccess enumeration member">
+        </param>
+        <param name="Keyword" value="LastWrite enumeration member">
+        </param>
+        <param name="Keyword" value="NotifyFilters.LastWrite enumeration member">
+        </param>
+        <param name="Keyword" value="Security enumeration member">
+        </param>
+        <param name="Keyword" value="NotifyFilters.Security enumeration member">
+        </param>
+        <param name="Keyword" value="Size enumeration member">
+        </param>
+        <param name="Keyword" value="NotifyFilters.Size enumeration member">
+        </param>
+      </object>
+      <hr />
+      <div id="footer">
+        <p>
+          <a href="mailto:docs@opennetcf.org?subject=OpenNETCF%20Smart%20Device%20Framework%202.0%20Documentation%20Feedback:%20NotifyFilters%20Enumeration">Send comments on this topic.</a>
+        </p>
+        <p>
+          <a href="http://www.opennetcf.org">Copyright © 2003-2006 OpenNETCF Consulting LLC</a>
+        </p>
+        <p>Generated from assembly OpenNETCF [2.0.0.0]</p>
+      </div>
+    </div>
+  </body>
+</html>

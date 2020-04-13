@@ -1,0 +1,95 @@
+<html dir="LTR">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=Windows-1252" />
+    <meta name="vs_targetSchema" content="http://schemas.microsoft.com/intellisense/ie5" />
+    <title>BitmapInfoHeader Members</title>
+    <xml>
+    </xml>
+    <link rel="stylesheet" type="text/css" href="MSDN.css" />
+  </head>
+  <body id="bodyID" class="dtBODY">
+    <div id="nsbanner">
+      <div id="bannerrow1">
+        <table class="bannerparthead" cellspacing="0">
+          <tr id="hdr">
+            <td class="runninghead">OpenNETCF Smart Device Framework 2.0</td>
+            <td class="product">
+            </td>
+          </tr>
+        </table>
+      </div>
+      <div id="TitleRow">
+        <h1 class="dtH1">BitmapInfoHeader Members
+					</h1>
+      </div>
+    </div>
+    <div id="nstext">
+      <p>
+        <a href="OpenNETCF.Win32.BitmapInfoHeader.html">BitmapInfoHeader overview</a>
+      </p>
+      <h4 class="dtH4">Public Instance Constructors</h4>
+      <div class="tablediv">
+        <table class="dtTABLE" cellspacing="0">
+          <tr VALIGN="top">
+            <td width="50%">
+              <img src="pubmethod.gif" />
+              <a href="OpenNETCF.Win32.BitmapInfoHeaderConstructor.html">BitmapInfoHeader Constructor</a>
+            </td>
+            <td width="50%">Initializes a new instance of the <a href="OpenNETCF.Win32.BitmapInfoHeader.html">BitmapInfoHeader</a> class.</td>
+          </tr>
+        </table>
+      </div>
+      <h4 class="dtH4">Public Instance Properties</h4>
+      <div class="tablediv">
+        <table class="dtTABLE" cellspacing="0">
+<tr VALIGN="top"><td width="50%"><img src="pubproperty.gif"></img><a href="OpenNETCF.Win32.BitmapInfoHeader.BitCount.html">BitCount</a></td><td width="50%"> Specifies the number of bits per pixel. The biBitCount member determines the number of bits that define each pixel and the maximum number of colors in the bitmap. </td></tr>
+<tr VALIGN="top"><td width="50%"><img src="pubproperty.gif"></img><a href="OpenNETCF.Win32.BitmapInfoHeader.ClrImportant.html">ClrImportant</a></td><td width="50%"> Specifies the number of color indexes required for displaying the bitmap. If this value is zero, all colors are required. </td></tr>
+<tr VALIGN="top"><td width="50%"><img src="pubproperty.gif"></img><a href="OpenNETCF.Win32.BitmapInfoHeader.ClrUsed.html">ClrUsed</a></td><td width="50%"> Specifies the number of color indexes in the color table that are actually used by the bitmap. If this value is zero, the bitmap uses the maximum number of colors corresponding to the value of the biBitCount member for the compression mode specified by biCompression. </td></tr>
+<tr VALIGN="top"><td width="50%"><img src="pubproperty.gif"></img><a href="OpenNETCF.Win32.BitmapInfoHeader.Compression.html">Compression</a></td><td width="50%"> Specifies the type of compression for a compressed bottom-up bitmap (top-down DIBs cannot be compressed). </td></tr>
+<tr VALIGN="top"><td width="50%"><img src="pubproperty.gif"></img><a href="OpenNETCF.Win32.BitmapInfoHeader.Data.html">Data</a></td><td width="50%"> </td></tr>
+<tr VALIGN="top"><td width="50%"><img src="pubproperty.gif"></img><a href="OpenNETCF.Win32.BitmapInfoHeader.Height.html">Height</a></td><td width="50%"> Specifies the height of the bitmap, in pixels. If biHeight is positive, the bitmap is a bottom-up DIB and its origin is the lower-left corner. If biHeight is negative, the bitmap is a top-down DIB and its origin is the upper-left corner. If biHeight is negative, indicating a top-down DIB, biCompression must be either BI_RGB or BI_BITFIELDS. Top-down DIBs cannot be compressed. </td></tr>
+<tr VALIGN="top"><td width="50%"><img src="pubproperty.gif"></img><a href="OpenNETCF.Win32.BitmapInfoHeader.Planes.html">Planes</a></td><td width="50%"> Specifies the number of planes for the target device. This value must be set to 1. </td></tr>
+<tr VALIGN="top"><td width="50%"><img src="pubproperty.gif"></img><a href="OpenNETCF.Win32.BitmapInfoHeader.Size.html">Size</a></td><td width="50%"> Specifies the number of bytes required by the structure. </td></tr>
+<tr VALIGN="top"><td width="50%"><img src="pubproperty.gif"></img><a href="OpenNETCF.Win32.BitmapInfoHeader.SizeImage.html">SizeImage</a></td><td width="50%"> Specifies the size, in bytes, of the image. This may be set to zero for BI_RGB bitmaps. </td></tr>
+<tr VALIGN="top"><td width="50%"><img src="pubproperty.gif"></img><a href="OpenNETCF.Win32.BitmapInfoHeader.Width.html">Width</a></td><td width="50%"> Specifies the width of the bitmap, in pixels. </td></tr>
+<tr VALIGN="top"><td width="50%"><img src="pubproperty.gif"></img><a href="OpenNETCF.Win32.BitmapInfoHeader.XPelsPerMeter.html">XPelsPerMeter</a></td><td width="50%"> Specifies the horizontal resolution, in pixels per meter, of the target device for the bitmap. An application can use this value to select a bitmap from a resource group that best matches the characteristics of the current device. </td></tr>
+<tr VALIGN="top"><td width="50%"><img src="pubproperty.gif"></img><a href="OpenNETCF.Win32.BitmapInfoHeader.YPelsPerMeter.html">YPelsPerMeter</a></td><td width="50%"> Specifies the vertical resolution, in pixels per meter, of the target device for the bitmap </td></tr></table>
+      </div>
+      <h4 class="dtH4">Public Instance Methods</h4>
+      <div class="tablediv">
+        <table class="dtTABLE" cellspacing="0">
+<tr VALIGN="top"><td width="50%"><img src="pubmethod.gif"></img><a href="http://msdn.microsoft.com/library/default.asp?url=/library/en-us/cpref/html/frlrfSystemObjectClassEqualsTopic.asp">Equals</a> (inherited from <b>Object</b>)</td><td width="50%">Determines whether the specified <a href="http://msdn.microsoft.com/library/default.asp?url=/library/en-us/cpref/html/frlrfSystemObjectClassTopic.asp">Object</a> is equal to the current <a href="http://msdn.microsoft.com/library/default.asp?url=/library/en-us/cpref/html/frlrfSystemObjectClassTopic.asp">Object</a>.</td></tr>
+<tr VALIGN="top"><td width="50%"><img src="pubmethod.gif"></img><a href="http://msdn.microsoft.com/library/default.asp?url=/library/en-us/cpref/html/frlrfSystemObjectClassGetHashCodeTopic.asp">GetHashCode</a> (inherited from <b>Object</b>)</td><td width="50%">Serves as a hash function for a particular type. <b>GetHashCode</b> is suitable for use in hashing algorithms and data structures like a hash table.</td></tr>
+<tr VALIGN="top"><td width="50%"><img src="pubmethod.gif"></img><a href="http://msdn.microsoft.com/library/default.asp?url=/library/en-us/cpref/html/frlrfSystemObjectClassGetTypeTopic.asp">GetType</a> (inherited from <b>Object</b>)</td><td width="50%">Gets the <a href="http://msdn.microsoft.com/library/default.asp?url=/library/en-us/cpref/html/frlrfSystemTypeClassTopic.asp">Type</a> of the current instance.</td></tr>
+<tr VALIGN="top"><td width="50%"><img src="pubmethod.gif"></img><a href="http://msdn.microsoft.com/library/default.asp?url=/library/en-us/cpref/html/frlrfSystemObjectClassToStringTopic.asp">ToString</a> (inherited from <b>Object</b>)</td><td width="50%">Returns a <a href="http://msdn.microsoft.com/library/default.asp?url=/library/en-us/cpref/html/frlrfSystemStringClassTopic.asp">String</a> that represents the current <a href="http://msdn.microsoft.com/library/default.asp?url=/library/en-us/cpref/html/frlrfSystemObjectClassTopic.asp">Object</a>.</td></tr></table>
+      </div>
+      <h4 class="dtH4">Protected Instance Methods</h4>
+      <div class="tablediv">
+        <table class="dtTABLE" cellspacing="0">
+<tr VALIGN="top"><td width="50%"><img src="protmethod.gif"></img><a href="http://msdn.microsoft.com/library/default.asp?url=/library/en-us/cpref/html/frlrfSystemObjectClassFinalizeTopic.asp">Finalize</a> (inherited from <b>Object</b>)</td><td width="50%">Allows an <a href="http://msdn.microsoft.com/library/default.asp?url=/library/en-us/cpref/html/frlrfSystemObjectClassTopic.asp">Object</a> to attempt to free resources and perform other cleanup operations before the <a href="http://msdn.microsoft.com/library/default.asp?url=/library/en-us/cpref/html/frlrfSystemObjectClassTopic.asp">Object</a> is reclaimed by garbage collection.</td></tr>
+<tr VALIGN="top"><td width="50%"><img src="protmethod.gif"></img><a href="http://msdn.microsoft.com/library/default.asp?url=/library/en-us/cpref/html/frlrfSystemObjectClassMemberwiseCloneTopic.asp">MemberwiseClone</a> (inherited from <b>Object</b>)</td><td width="50%">Creates a shallow copy of the current <a href="http://msdn.microsoft.com/library/default.asp?url=/library/en-us/cpref/html/frlrfSystemObjectClassTopic.asp">Object</a>.</td></tr></table>
+      </div>
+      <h4 class="dtH4">See Also</h4>
+      <p>
+        <a href="OpenNETCF.Win32.BitmapInfoHeader.html">BitmapInfoHeader Class</a> | <a href="OpenNETCF.Win32.html">OpenNETCF.Win32 Namespace</a></p>
+      <object type="application/x-oleobject" classid="clsid:1e2a7bd0-dab9-11d0-b93a-00c04fc99f9e" viewastext="true" style="display: none;">
+        <param name="Keyword" value="BitmapInfoHeader class">
+        </param>
+        <param name="Keyword" value="OpenNETCF.Win32.BitmapInfoHeader class">
+        </param>
+        <param name="Keyword" value="BitmapInfoHeader class, all members">
+        </param>
+      </object>
+      <hr />
+      <div id="footer">
+        <p>
+          <a href="mailto:docs@opennetcf.org?subject=OpenNETCF%20Smart%20Device%20Framework%202.0%20Documentation%20Feedback:%20BitmapInfoHeader%20Members&#xD;&#xA;						">Send comments on this topic.</a>
+        </p>
+        <p>
+          <a href="http://www.opennetcf.org">Copyright © 2003-2006 OpenNETCF Consulting LLC</a>
+        </p>
+        <p>Generated from assembly OpenNETCF.Drawing [2.0.0.0]</p>
+      </div>
+    </div>
+  </body>
+</html>

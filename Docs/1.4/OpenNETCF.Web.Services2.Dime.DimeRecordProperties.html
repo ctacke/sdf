@@ -1,0 +1,58 @@
+<html dir="LTR">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=Windows-1252" />
+    <meta name="vs_targetSchema" content="http://schemas.microsoft.com/intellisense/ie5" />
+    <title>DimeRecord Properties</title>
+    <xml>
+    </xml>
+    <link rel="stylesheet" type="text/css" href="MSDN.css" />
+  </head>
+  <body id="bodyID" class="dtBODY">
+    <div id="nsbanner">
+      <div id="bannerrow1">
+        <table class="bannerparthead" cellspacing="0">
+          <tr id="hdr">
+            <td class="runninghead">OpenNETCF Smart Device Framework 2.0</td>
+            <td class="product">
+            </td>
+          </tr>
+        </table>
+      </div>
+      <div id="TitleRow">
+        <h1 class="dtH1">DimeRecord Properties</h1>
+      </div>
+    </div>
+    <div id="nstext">
+      <p>The properties of the <b>DimeRecord</b> class are listed below. For a complete list of <b>DimeRecord</b> class members, see the <a href="OpenNETCF.Web.Services2.Dime.DimeRecordMembers.html">DimeRecord Members</a> topic.</p>
+      <h4 class="dtH4">Public Instance Properties</h4>
+      <div class="tablediv">
+        <table class="dtTABLE" cellspacing="0">
+<tr VALIGN="top"><td width="50%"><img src="pubproperty.gif"></img><a href="OpenNETCF.Web.Services2.Dime.DimeRecord.BodyStream.html">BodyStream</a></td><td width="50%"> A stream for reading or writing the payload data of the DIME record. This stream will read from or write to the stream passed to the DimeReader or DimeWriter. However it is a different Stream instance because it has a different position, open/closed state, etc. When writing chunked messages the stream may be partially buffered, otherwise the writes will go directly to the underlying stream. </td></tr>
+<tr VALIGN="top"><td width="50%"><img src="pubproperty.gif"></img><a href="OpenNETCF.Web.Services2.Dime.DimeRecord.Chunked.html">Chunked</a></td><td width="50%"> When reading a record this property indicates that this record is chunked. </td></tr>
+<tr VALIGN="top"><td width="50%"><img src="pubproperty.gif"></img><a href="OpenNETCF.Web.Services2.Dime.DimeRecord.ChunkSize.html">ChunkSize</a></td><td width="50%"> Specifies the minimum size of a chunk when writing chunked payload DIME records. Essentially this is the amount of buffering that will occur before the chunked payload is written to the underlying stream, the actual chunk size may be greater. The default value for ChunkSize is specified by DimeWriter.DefaultChunkSize. </td></tr>
+<tr VALIGN="top"><td width="50%"><img src="pubproperty.gif"></img><a href="OpenNETCF.Web.Services2.Dime.DimeRecord.ContentLength.html">ContentLength</a></td><td width="50%"> When writing specifies the payload length in bytes of the DIME record or -1 if the record is chunked. When reading indicates the length of the payload as specified in the DIME record header. </td></tr>
+<tr VALIGN="top"><td width="50%"><img src="pubproperty.gif"></img><a href="OpenNETCF.Web.Services2.Dime.DimeRecord.EndOfMessage.html">EndOfMessage</a></td><td width="50%"> When reading a record this property indicates that this record is the last one in the message. When writing a record the message end flag is automatically set when the DimeWriter is closed. </td></tr>
+<tr VALIGN="top"><td width="50%"><img src="pubproperty.gif"></img><a href="OpenNETCF.Web.Services2.Dime.DimeRecord.Id.html">Id</a></td><td width="50%"> The id of the DIME record. Should be unique for all DIME records </td></tr>
+<tr VALIGN="top"><td width="50%"><img src="pubproperty.gif"></img><a href="OpenNETCF.Web.Services2.Dime.DimeRecord.Type.html">Type</a></td><td width="50%"> Specifies the type of the data in the payload. The TypeFormat property should be used to interpret the Type property. For example if TypeFormat is TypeFormatEnum.MediaType then a valid Type would be "plain/text; charset=utf-8" or "image/jpeg". </td></tr>
+<tr VALIGN="top"><td width="50%"><img src="pubproperty.gif"></img><a href="OpenNETCF.Web.Services2.Dime.DimeRecord.TypeFormat.html">TypeFormat</a></td><td width="50%"> Specifies what format the Type property is so that the format of the payload can be understood. </td></tr></table>
+      </div>
+      <h4 class="dtH4">See Also</h4>
+      <p>
+        <a href="OpenNETCF.Web.Services2.Dime.DimeRecord.html">DimeRecord Class</a> | <a href="OpenNETCF.Web.Services2.Dime.html">OpenNETCF.Web.Services2.Dime Namespace</a></p>
+      <object type="application/x-oleobject" classid="clsid:1e2a7bd0-dab9-11d0-b93a-00c04fc99f9e" viewastext="true" style="display: none;">
+        <param name="Keyword" value="DimeRecord class, properties">
+        </param>
+      </object>
+      <hr />
+      <div id="footer">
+        <p>
+          <a href="mailto:docs@opennetcf.org?subject=OpenNETCF%20Smart%20Device%20Framework%202.0%20Documentation%20Feedback:%20DimeRecord Properties">Send comments on this topic.</a>
+        </p>
+        <p>
+          <a href="http://www.opennetcf.org">Copyright © 2003-2006 OpenNETCF Consulting LLC</a>
+        </p>
+        <p>Generated from assembly OpenNETCF.Web.Services2 [2.0.0.0]</p>
+      </div>
+    </div>
+  </body>
+</html>

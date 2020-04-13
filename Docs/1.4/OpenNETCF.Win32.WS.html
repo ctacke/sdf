@@ -1,0 +1,167 @@
+<html dir="LTR">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=Windows-1252" />
+    <meta name="vs_targetSchema" content="http://schemas.microsoft.com/intellisense/ie5" />
+    <title>WS Enumeration</title>
+    <xml>
+    </xml>
+    <link rel="stylesheet" type="text/css" href="MSDN.css" />
+  </head>
+  <body id="bodyID" class="dtBODY">
+    <div id="nsbanner">
+      <div id="bannerrow1">
+        <table class="bannerparthead" cellspacing="0">
+          <tr id="hdr">
+            <td class="runninghead">OpenNETCF Smart Device Framework 2.0</td>
+            <td class="product">
+            </td>
+          </tr>
+        </table>
+      </div>
+      <div id="TitleRow">
+        <h1 class="dtH1">WS Enumeration</h1>
+      </div>
+    </div>
+    <div id="nstext">
+      <p class="topicstatus">[This is preliminary documentation and subject to change.]</p>
+      <p> Window style flags. </p>
+      <p>This enumeration has a <a href="http://msdn.microsoft.com/library/default.asp?url=/library/en-us/cpref/html/frlrfSystemFlagsAttributeClassTopic.asp">
+						FlagsAttribute</a>
+						attribute that allows a bitwise combination of its member values.</p>
+      <div class="syntax">
+        <span class="lang">[Visual Basic]</span>
+        <br />Public Enum WS</div>
+      <div class="syntax">
+        <span class="lang">[C#]</span>
+        <div>public enum WS</div>
+      </div>
+      <h4 class="dtH4">Members</h4>
+      <div class="tablediv">
+        <table class="dtTABLE" cellspacing="0">
+          <tr valign="top">
+            <th width="40%">Member Name</th>
+            <th width="40%">Description</th>
+            <th width="20%">Value</th>
+          </tr>
+<tr valign="top"><td><b>BORDER</b></td><td> Creates a window that has a thin-line border. </td><td>8388608</td></tr>
+<tr valign="top"><td><b>CAPTION</b></td><td> Creates a window that has a title bar (includes the BORDER style). </td><td>12582912</td></tr>
+<tr valign="top"><td><b>CHILD</b></td><td> Creates a child window. This style cannot be used with the POPUP style. </td><td>1073741824</td></tr>
+<tr valign="top"><td><b>CLIPSIBLINGS</b></td><td> Clips child windows relative to each other; that is, when a particular child window receives a WM_PAINT message, the CLIPSIBLINGS style clips all other overlapping child windows out of the region of the child window to be updated. If CLIPSIBLINGS is not specified and child windows overlap, it is possible, when drawing within the client area of a child window, to draw within the client area of a neighboring child window. </td><td>67108864</td></tr>
+<tr valign="top"><td><b>CLIPCHILDREN</b></td><td> </td><td>33554432</td></tr>
+<tr valign="top"><td><b>DISABLED</b></td><td> Creates a window that is initially disabled. A disabled window cannot receive input from the user. </td><td>134217728</td></tr>
+<tr valign="top"><td><b>DLGFRAME</b></td><td> Creates a window that has a border of a style typically used with dialog boxes. A window with this style cannot have a title bar. </td><td>4194304</td></tr>
+<tr valign="top"><td><b>GROUP</b></td><td> Specifies the first control of a group of controls. The group consists of this first control and all controls defined after it, up to the next control with the GROUP style. The first control in each group usually has the TABSTOP style so that the user can move from group to group. The user can subsequently change the keyboard focus from one control in the group to the next control in the group by using the direction keys. </td><td>131072</td></tr>
+<tr valign="top"><td><b>HSCROLL</b></td><td> Creates a window that has a horizontal scroll bar. </td><td>1048576</td></tr>
+<tr valign="top"><td><b>MAXIMIZEBOX</b></td><td> Creates a window that has a Maximize button. Cannot be combined with the EX_CONTEXTHELP style. </td><td>131072</td></tr>
+<tr valign="top"><td><b>MINIMIZEBOX</b></td><td> Creates a window that has a Minimize button. Cannot be combined with the EX_CONTEXTHELP style. </td><td>65536</td></tr>
+<tr valign="top"><td><b>OVERLAPPED</b></td><td> Creates an overlapped window. An overlapped window has a title bar and a border. Same as the TILED style. </td><td>12582912</td></tr>
+<tr valign="top"><td><b>POPUP</b></td><td> Creates a pop-up window. This style cannot be used with the CHILD style. </td><td>-2147483648</td></tr>
+<tr valign="top"><td><b>SYSMENU</b></td><td> Creates a window that has a Close (X) button in the non-client area. </td><td>524288</td></tr>
+<tr valign="top"><td><b>TABSTOP</b></td><td> Specifies a control that can receive the keyboard focus when the user presses the TAB key. Pressing the TAB key changes the keyboard focus to the next control with the TABSTOP style. </td><td>65536</td></tr>
+<tr valign="top"><td><b>THICKFRAME</b></td><td> Creates a window that has a sizing border. Same as the SIZEBOX style. </td><td>262144</td></tr>
+<tr valign="top"><td><b>VISIBLE</b></td><td> Creates a window that is initially visible. </td><td>268435456</td></tr>
+<tr valign="top"><td><b>VSCROLL</b></td><td> Creates a window that has a vertical scroll bar. </td><td>2097152</td></tr></table>
+      </div>
+      <h4 class="dtH4">Requirements</h4>
+      <p>
+        <b>Namespace: </b>
+        <a href="OpenNETCF.Win32.html">OpenNETCF.Win32</a>
+      </p>
+      <p>
+        <b>Assembly: </b>OpenNETCF.Windows.Forms (in OpenNETCF.Windows.Forms.dll)
+					</p>
+      <h4 class="dtH4">See Also</h4>
+      <p>
+        <a href="OpenNETCF.Win32.html">OpenNETCF.Win32 Namespace</a>
+      </p>
+      <object type="application/x-oleobject" classid="clsid:1e2a7bd0-dab9-11d0-b93a-00c04fc99f9e" viewastext="true" style="display: none;">
+        <param name="Keyword" value="WS enumeration">
+        </param>
+        <param name="Keyword" value="OpenNETCF.Win32.WS enumeration">
+        </param>
+        <param name="Keyword" value="BORDER enumeration member">
+        </param>
+        <param name="Keyword" value="WS.BORDER enumeration member">
+        </param>
+        <param name="Keyword" value="CAPTION enumeration member">
+        </param>
+        <param name="Keyword" value="WS.CAPTION enumeration member">
+        </param>
+        <param name="Keyword" value="CHILD enumeration member">
+        </param>
+        <param name="Keyword" value="WS.CHILD enumeration member">
+        </param>
+        <param name="Keyword" value="CLIPSIBLINGS enumeration member">
+        </param>
+        <param name="Keyword" value="WS.CLIPSIBLINGS enumeration member">
+        </param>
+        <param name="Keyword" value="CLIPCHILDREN enumeration member">
+        </param>
+        <param name="Keyword" value="WS.CLIPCHILDREN enumeration member">
+        </param>
+        <param name="Keyword" value="DISABLED enumeration member">
+        </param>
+        <param name="Keyword" value="WS.DISABLED enumeration member">
+        </param>
+        <param name="Keyword" value="DLGFRAME enumeration member">
+        </param>
+        <param name="Keyword" value="WS.DLGFRAME enumeration member">
+        </param>
+        <param name="Keyword" value="GROUP enumeration member">
+        </param>
+        <param name="Keyword" value="WS.GROUP enumeration member">
+        </param>
+        <param name="Keyword" value="HSCROLL enumeration member">
+        </param>
+        <param name="Keyword" value="WS.HSCROLL enumeration member">
+        </param>
+        <param name="Keyword" value="MAXIMIZEBOX enumeration member">
+        </param>
+        <param name="Keyword" value="WS.MAXIMIZEBOX enumeration member">
+        </param>
+        <param name="Keyword" value="MINIMIZEBOX enumeration member">
+        </param>
+        <param name="Keyword" value="WS.MINIMIZEBOX enumeration member">
+        </param>
+        <param name="Keyword" value="OVERLAPPED enumeration member">
+        </param>
+        <param name="Keyword" value="WS.OVERLAPPED enumeration member">
+        </param>
+        <param name="Keyword" value="POPUP enumeration member">
+        </param>
+        <param name="Keyword" value="WS.POPUP enumeration member">
+        </param>
+        <param name="Keyword" value="SYSMENU enumeration member">
+        </param>
+        <param name="Keyword" value="WS.SYSMENU enumeration member">
+        </param>
+        <param name="Keyword" value="TABSTOP enumeration member">
+        </param>
+        <param name="Keyword" value="WS.TABSTOP enumeration member">
+        </param>
+        <param name="Keyword" value="THICKFRAME enumeration member">
+        </param>
+        <param name="Keyword" value="WS.THICKFRAME enumeration member">
+        </param>
+        <param name="Keyword" value="VISIBLE enumeration member">
+        </param>
+        <param name="Keyword" value="WS.VISIBLE enumeration member">
+        </param>
+        <param name="Keyword" value="VSCROLL enumeration member">
+        </param>
+        <param name="Keyword" value="WS.VSCROLL enumeration member">
+        </param>
+      </object>
+      <hr />
+      <div id="footer">
+        <p>
+          <a href="mailto:docs@opennetcf.org?subject=OpenNETCF%20Smart%20Device%20Framework%202.0%20Documentation%20Feedback:%20WS%20Enumeration">Send comments on this topic.</a>
+        </p>
+        <p>
+          <a href="http://www.opennetcf.org">Copyright © 2003-2006 OpenNETCF Consulting LLC</a>
+        </p>
+        <p>Generated from assembly OpenNETCF.Windows.Forms [2.0.0.0]</p>
+      </div>
+    </div>
+  </body>
+</html>

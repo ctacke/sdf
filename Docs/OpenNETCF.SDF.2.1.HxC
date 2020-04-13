@@ -1,0 +1,26 @@
+﻿<?xml version="1.0"?>
+<!DOCTYPE HelpCollection>
+<HelpCollection
+  DTDVersion="1.0"
+  Id=""
+  FileVersion="1.0.0.0"
+  LangId="1033"
+  Font=""
+  FontSize=""
+  Charset=""
+  Title="OpenNETCF Smart Device Framework 2.1"
+  Copyright="Copyright © 2007 OpenNETCF Consulting LLC">
+
+  <!--AttributeDef File="OpenNETCF.Telephony.HxA"/-->
+
+  <TOCDef File="OpenNETCF.SDF.2.1.HxT"/>
+
+
+  <ItemMoniker Name="!DefaultFullTextSearch" ProgId="HxDs.HxFullTextSearch" InitData="FTS"/>
+  <ItemMoniker Name="!DefaultTOC" ProgId="HxDs.HxHierarchy" InitData="OpenNETCF.SDF.2.1"/>
+
+  <ToolData Name="MSVHWLogLevel" Value="3"/>
+  <ToolData Name="MSVHWLogFile" Value="OpenNETCF.SDF.2.1.log"/>
+  <ToolData Name="MSVHWNamespace" Value="OpenNETCF.SDF.2.1"/>
+  <ToolData Name="FAR.NamespaceDesc" Value="OpenNETCF Smart Device Framework 2.1"/>
+</HelpCollection>

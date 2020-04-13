@@ -1,0 +1,98 @@
+<html dir="LTR">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=Windows-1252" />
+    <meta name="vs_targetSchema" content="http://schemas.microsoft.com/intellisense/ie5" />
+    <title>FileCreateDisposition Enumeration</title>
+    <xml>
+    </xml>
+    <link rel="stylesheet" type="text/css" href="MSDN.css" />
+  </head>
+  <body id="bodyID" class="dtBODY">
+    <div id="nsbanner">
+      <div id="bannerrow1">
+        <table class="bannerparthead" cellspacing="0">
+          <tr id="hdr">
+            <td class="runninghead">OpenNETCF Smart Device Framework 2.0</td>
+            <td class="product">
+            </td>
+          </tr>
+        </table>
+      </div>
+      <div id="TitleRow">
+        <h1 class="dtH1">FileCreateDisposition Enumeration</h1>
+      </div>
+    </div>
+    <div id="nstext">
+      <p class="topicstatus">[This is preliminary documentation and subject to change.]</p>
+      <p> Specifies which action to take on files that exist, and which action to take when files do not exist. </p>
+      <div class="syntax">
+        <span class="lang">[Visual Basic]</span>
+        <br />Public Enum FileCreateDisposition</div>
+      <div class="syntax">
+        <span class="lang">[C#]</span>
+        <div>public enum FileCreateDisposition</div>
+      </div>
+      <h4 class="dtH4">Members</h4>
+      <div class="tablediv">
+        <table class="dtTABLE" cellspacing="0">
+          <tr valign="top">
+            <th width="50%">Member Name</th>
+            <th width="50%">Description</th>
+          </tr>
+<tr valign="top"><td><b>CreateNew</b></td><td> Creates a new file. The function fails if the specified file already exists. </td></tr>
+<tr valign="top"><td><b>CreateAlways</b></td><td> Creates a new file. If the file exists, the function overwrites the file and clears the existing attributes. </td></tr>
+<tr valign="top"><td><b>OpenExisting</b></td><td> Opens the file. The function fails if the file does not exist. </td></tr>
+<tr valign="top"><td><b>OpenAlways</b></td><td> Opens the file, if it exists. If the file does not exist, the function creates the file as if dwCreationDisposition were <b>CreateNew</b>. </td></tr>
+<tr valign="top"><td><b>TruncateExisting</b></td><td> Opens the file. Once opened, the file is truncated so that its size is zero bytes. The calling process must open the file with at least Write access. </td></tr></table>
+      </div>
+      <h4 class="dtH4">Requirements</h4>
+      <p>
+        <b>Namespace: </b>
+        <a href="OpenNETCF.IO.html">OpenNETCF.IO</a>
+      </p>
+      <p>
+        <b>Assembly: </b>OpenNETCF (in OpenNETCF.dll)
+					</p>
+      <h4 class="dtH4">See Also</h4>
+      <p>
+        <a href="OpenNETCF.IO.html">OpenNETCF.IO Namespace</a>
+      </p>
+      <object type="application/x-oleobject" classid="clsid:1e2a7bd0-dab9-11d0-b93a-00c04fc99f9e" viewastext="true" style="display: none;">
+        <param name="Keyword" value="FileCreateDisposition enumeration">
+        </param>
+        <param name="Keyword" value="OpenNETCF.IO.FileCreateDisposition enumeration">
+        </param>
+        <param name="Keyword" value="CreateNew enumeration member">
+        </param>
+        <param name="Keyword" value="FileCreateDisposition.CreateNew enumeration member">
+        </param>
+        <param name="Keyword" value="CreateAlways enumeration member">
+        </param>
+        <param name="Keyword" value="FileCreateDisposition.CreateAlways enumeration member">
+        </param>
+        <param name="Keyword" value="OpenExisting enumeration member">
+        </param>
+        <param name="Keyword" value="FileCreateDisposition.OpenExisting enumeration member">
+        </param>
+        <param name="Keyword" value="OpenAlways enumeration member">
+        </param>
+        <param name="Keyword" value="FileCreateDisposition.OpenAlways enumeration member">
+        </param>
+        <param name="Keyword" value="TruncateExisting enumeration member">
+        </param>
+        <param name="Keyword" value="FileCreateDisposition.TruncateExisting enumeration member">
+        </param>
+      </object>
+      <hr />
+      <div id="footer">
+        <p>
+          <a href="mailto:docs@opennetcf.org?subject=OpenNETCF%20Smart%20Device%20Framework%202.0%20Documentation%20Feedback:%20FileCreateDisposition%20Enumeration">Send comments on this topic.</a>
+        </p>
+        <p>
+          <a href="http://www.opennetcf.org">Copyright © 2003-2006 OpenNETCF Consulting LLC</a>
+        </p>
+        <p>Generated from assembly OpenNETCF [2.0.0.0]</p>
+      </div>
+    </div>
+  </body>
+</html>

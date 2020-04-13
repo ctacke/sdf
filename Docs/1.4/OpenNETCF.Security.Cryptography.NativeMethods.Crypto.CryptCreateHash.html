@@ -1,0 +1,59 @@
+<html dir="LTR">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=Windows-1252" />
+    <meta name="vs_targetSchema" content="http://schemas.microsoft.com/intellisense/ie5" />
+    <title>Crypto.CryptCreateHash Method</title>
+    <xml>
+    </xml>
+    <link rel="stylesheet" type="text/css" href="MSDN.css" />
+  </head>
+  <body id="bodyID" class="dtBODY">
+    <div id="nsbanner">
+      <div id="bannerrow1">
+        <table class="bannerparthead" cellspacing="0">
+          <tr id="hdr">
+            <td class="runninghead">OpenNETCF Smart Device Framework 2.0</td>
+            <td class="product">
+            </td>
+          </tr>
+        </table>
+      </div>
+      <div id="TitleRow">
+        <h1 class="dtH1">Crypto.CryptCreateHash Method </h1>
+      </div>
+    </div>
+    <div id="nstext">
+      <p class="topicstatus">[This is preliminary documentation and subject to change.]</p>
+      <p> This function initiates the hashing of a stream of data. It creates and returns to the calling application a handle to a cryptographic service provider (CSP) hash object. This handle is used in subsequent calls to the CryptHashData function and CryptHashSessionKey function to hash streams of data and session keys. </p>
+      <div class="syntax">
+        <span class="lang">[Visual Basic]</span>
+        <br />Public Shared Function CryptCreateHash( _<br />   ByVal <i>hProv</i> As <a href="http://msdn.microsoft.com/library/default.asp?url=/library/en-us/cpref/html/frlrfSystemIntPtrClassTopic.asp">IntPtr</a>, _<br />   ByVal <i>Algid</i> As <a href="http://msdn.microsoft.com/library/default.asp?url=/library/en-us/cpref/html/frlrfSystemUInt32ClassTopic.asp">UInt32</a>, _<br />   ByVal <i>hKey</i> As <a href="http://msdn.microsoft.com/library/default.asp?url=/library/en-us/cpref/html/frlrfSystemIntPtrClassTopic.asp">IntPtr</a>, _<br />   ByVal <i>dwFlags</i> As <a href="http://msdn.microsoft.com/library/default.asp?url=/library/en-us/cpref/html/frlrfSystemUInt32ClassTopic.asp">UInt32</a>, _<br />   ByRef <i>phHash</i> As <a href="http://msdn.microsoft.com/library/default.asp?url=/library/en-us/cpref/html/frlrfSystemIntPtrClassTopic.asp">IntPtr</a> _<br />) As <a href="http://msdn.microsoft.com/library/default.asp?url=/library/en-us/cpref/html/frlrfSystemBooleanClassTopic.asp">Boolean</a></div>
+      <div class="syntax">
+        <span class="lang">[C#]</span>
+        <br />public static <a href="http://msdn.microsoft.com/library/default.asp?url=/library/en-us/cpref/html/frlrfSystemBooleanClassTopic.asp">bool</a> CryptCreateHash(<br />   <a href="http://msdn.microsoft.com/library/default.asp?url=/library/en-us/cpref/html/frlrfSystemIntPtrClassTopic.asp">IntPtr</a> <i>hProv</i>,<br />   <a href="http://msdn.microsoft.com/library/default.asp?url=/library/en-us/cpref/html/frlrfSystemUInt32ClassTopic.asp">uint</a> <i>Algid</i>,<br />   <a href="http://msdn.microsoft.com/library/default.asp?url=/library/en-us/cpref/html/frlrfSystemIntPtrClassTopic.asp">IntPtr</a> <i>hKey</i>,<br />   <a href="http://msdn.microsoft.com/library/default.asp?url=/library/en-us/cpref/html/frlrfSystemUInt32ClassTopic.asp">uint</a> <i>dwFlags</i>,<br />   out <a href="http://msdn.microsoft.com/library/default.asp?url=/library/en-us/cpref/html/frlrfSystemIntPtrClassTopic.asp">IntPtr</a> <i>phHash</i><br />);</div>
+      <h4 class="dtH4">Remarks</h4>
+      <p> raCrypto, mca / worked on smartPhone </p>
+      <h4 class="dtH4">See Also</h4>
+      <p>
+        <a href="OpenNETCF.Security.Cryptography.NativeMethods.Crypto.html">Crypto Class</a> | <a href="OpenNETCF.Security.Cryptography.NativeMethods.html">OpenNETCF.Security.Cryptography.NativeMethods Namespace</a></p>
+      <object type="application/x-oleobject" classid="clsid:1e2a7bd0-dab9-11d0-b93a-00c04fc99f9e" viewastext="true" style="display: none;">
+        <param name="Keyword" value="CryptCreateHash method">
+        </param>
+        <param name="Keyword" value="CryptCreateHash method, Crypto class">
+        </param>
+        <param name="Keyword" value="Crypto.CryptCreateHash method">
+        </param>
+      </object>
+      <hr />
+      <div id="footer">
+        <p>
+          <a href="mailto:docs@opennetcf.org?subject=OpenNETCF%20Smart%20Device%20Framework%202.0%20Documentation%20Feedback:%20Crypto.CryptCreateHash Method ">Send comments on this topic.</a>
+        </p>
+        <p>
+          <a href="http://www.opennetcf.org">Copyright © 2003-2006 OpenNETCF Consulting LLC</a>
+        </p>
+        <p>Generated from assembly OpenNETCF [2.0.0.0]</p>
+      </div>
+    </div>
+  </body>
+</html>

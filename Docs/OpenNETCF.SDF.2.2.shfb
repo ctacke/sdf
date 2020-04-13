@@ -1,0 +1,62 @@
+﻿<project schemaVersion="1.3.3.1">
+    <assemblies>
+        <assembly assemblyPath="..\Release\2.2\OpenNETCF.dll" xmlCommentsPath="..\Release\2.2\OpenNETCF.xml" commentsOnly="False" />
+        <assembly assemblyPath="..\Release\2.2\OpenNETCF.AppSettings.dll" xmlCommentsPath="..\Release\2.2\OpenNETCF.AppSettings.xml" commentsOnly="False" />
+        <assembly assemblyPath="..\Release\2.2\OpenNETCF.Data.dll" xmlCommentsPath="..\Release\2.2\OpenNETCF.Data.xml" commentsOnly="False" />
+        <assembly assemblyPath="..\Release\2.2\OpenNETCF.Drawing.dll" xmlCommentsPath="..\Release\2.2\OpenNETCF.Drawing.xml" commentsOnly="False" />
+        <assembly assemblyPath="..\Release\2.2\OpenNETCF.Net.dll" xmlCommentsPath="..\Release\2.2\OpenNETCF.Net.xml" commentsOnly="False" />
+        <assembly assemblyPath="..\Release\2.2\OpenNETCF.Phone.dll" xmlCommentsPath="..\Release\2.2\OpenNETCF.Phone.xml" commentsOnly="False" />
+        <assembly assemblyPath="..\Release\2.2\OpenNETCF.Rss.dll" xmlCommentsPath="..\Release\2.2\OpenNETCF.Rss.xml" commentsOnly="False" />
+        <assembly assemblyPath="..\Release\2.2\OpenNETCF.VisualBasic.dll" xmlCommentsPath="..\Release\2.2\OpenNETCF.VisualBasic.xml" commentsOnly="False" />
+        <assembly assemblyPath="..\Release\2.2\OpenNETCF.Web.Services2.dll" xmlCommentsPath="..\Release\2.2\OpenNETCF.Web.Services2.xml" commentsOnly="False" />
+        <assembly assemblyPath="..\Release\2.2\OpenNETCF.Windows.Forms.dll" xmlCommentsPath="..\Release\2.2\OpenNETCF.Windows.Forms.xml" commentsOnly="False" />
+        <assembly assemblyPath="..\Release\2.2\OpenNETCF.WindowsCE.dll" xmlCommentsPath="..\Release\2.2\OpenNETCF.WindowsCE.xml" commentsOnly="False" />
+        <assembly assemblyPath="..\Release\2.2\OpenNETCF.WindowsCE.Messaging.dll" xmlCommentsPath="..\Release\2.2\OpenNETCF.WindowsCE.Messaging.xml" commentsOnly="False" />
+        <assembly assemblyPath="..\Release\2.2\OpenNETCF.WindowsCE.Services.dll" xmlCommentsPath="..\Release\2.2\OpenNETCF.WindowsCE.Services.xml" commentsOnly="False" />
+        <assembly assemblyPath="..\Release\2.2\OpenNETCF.WindowsMobile.dll" xmlCommentsPath="..\Release\2.2\OpenNETCF.WindowsMobile.xml" commentsOnly="False" />
+    </assemblies>
+    <namespaceSummaries>
+        <namespaceSummaryItem name="" isDocumented="False" />
+        <namespaceSummaryItem name="OpenNETCF" isDocumented="True">The &lt;b>OpenNETCF&lt;/b> namespace contains fundamental classes and base classes that define commonly-used value and reference data types, events and event handlers, interfaces, attributes, and processing exceptions.&lt;br/>&lt;br/>
+
+Other classes provide services supporting data type conversion, method parameter manipulation, mathematics, remote and local program invocation, application environment management, and supervision of managed and unmanaged applications.</namespaceSummaryItem>
+        <namespaceSummaryItem name="OpenNETCF.ComponentModel" isDocumented="True"></namespaceSummaryItem>
+        <namespaceSummaryItem name="OpenNETCF.Data.Text" isDocumented="True"></namespaceSummaryItem>
+        <namespaceSummaryItem name="OpenNETCF.Diagnostics" isDocumented="True"></namespaceSummaryItem>
+        <namespaceSummaryItem name="OpenNETCF.Drawing" isDocumented="True"></namespaceSummaryItem>
+        <namespaceSummaryItem name="OpenNETCF.Phone" isDocumented="True"></namespaceSummaryItem>
+    </namespaceSummaries>
+    <contentPlacement>AboveNamespaces</contentPlacement>
+    <dependencies>
+        <dependencyItem depPath="C:\Program Files\Microsoft.NET\SDK\CompactFramework\v2.0\WindowsCE\*.*" />
+        <dependencyItem depPath="..\Release\2.2\*.*" />
+    </dependencies>
+    <projectSummary>The Smart Device Framework extends the .NET Compact Framework and allows the developer to concentrate on building the core application functionality instead of worrying about the intricacies of Windows Mobile or Windows CE.</projectSummary>
+    <sandcastlePath>C:\Program Files\Sandcastle\</sandcastlePath>
+    <hhcPath />
+    <hxcompPath />
+    <outputPath>.\Help\</outputPath>
+    <helpFileFormat>Help2xAndWebsite</helpFileFormat>
+    <cleanIntermediates>True</cleanIntermediates>
+    <purgeDuplicateTopics>True</purgeDuplicateTopics>
+    <cppCommentsFixup>False</cppCommentsFixup>
+    <frameworkVersion>2.0.50727</frameworkVersion>
+    <binaryTOC>True</binaryTOC>
+    <includeFavorites>False</includeFavorites>
+    <preliminary>False</preliminary>
+    <rootNSContainer>False</rootNSContainer>
+    <helpTitle>OpenNETCF Smart Device Framework 2.2</helpTitle>
+    <htmlHelpName>OpenNETCF.SDF.2.2</htmlHelpName>
+    <language>en-US</language>
+    <copyrightHref>http://www.opennetcf.com/</copyrightHref>
+    <copyrightText>Copyright (c) OpenNETCF Consulting, LLC</copyrightText>
+    <feedbackEMailAddress>support@opennetcf.com</feedbackEMailAddress>
+    <headerText>OpenNETCF Smart Device Framework 2.2</headerText>
+    <projectLinks>Local</projectLinks>
+    <sdkLinks>Msdn</sdkLinks>
+    <presentationStyle>VS2005</presentationStyle>
+    <namingMethod>Guid</namingMethod>
+    <syntaxFilters>All</syntaxFilters>
+    <missingTags>AutoDocumentCtors</missingTags>
+    <visibleItems>InheritedMembers, InheritedFrameworkMembers, Protected, SealedProtected</visibleItems>
+</project>

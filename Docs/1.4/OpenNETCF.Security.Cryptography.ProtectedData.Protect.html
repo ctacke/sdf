@@ -1,0 +1,76 @@
+<html dir="LTR">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=Windows-1252" />
+    <meta name="vs_targetSchema" content="http://schemas.microsoft.com/intellisense/ie5" />
+    <title>ProtectedData.Protect Method</title>
+    <xml>
+    </xml>
+    <link rel="stylesheet" type="text/css" href="MSDN.css" />
+  </head>
+  <body id="bodyID" class="dtBODY">
+    <div id="nsbanner">
+      <div id="bannerrow1">
+        <table class="bannerparthead" cellspacing="0">
+          <tr id="hdr">
+            <td class="runninghead">OpenNETCF Smart Device Framework 2.0</td>
+            <td class="product">
+            </td>
+          </tr>
+        </table>
+      </div>
+      <div id="TitleRow">
+        <h1 class="dtH1">ProtectedData.Protect Method </h1>
+      </div>
+    </div>
+    <div id="nstext">
+      <p class="topicstatus">[This is preliminary documentation and subject to change.]</p>
+      <p> Protects the <code>userData</code> parameter and returns a byte array. </p>
+      <div class="syntax">
+        <span class="lang">[Visual Basic]</span>
+        <br />Public Shared Function Protect( _<br />   ByVal <i>userData</i> As <a href="http://msdn.microsoft.com/library/default.asp?url=/library/en-us/cpref/html/frlrfSystemByteClassTopic.asp">Byte()</a>, _<br />   ByVal <i>optionalEntropy</i> As <a href="http://msdn.microsoft.com/library/default.asp?url=/library/en-us/cpref/html/frlrfSystemByteClassTopic.asp">Byte()</a>, _<br />   ByVal <i>scope</i> As <a href="OpenNETCF.Security.Cryptography.DataProtectionScope.html">DataProtectionScope</a> _<br />) As <a href="http://msdn.microsoft.com/library/default.asp?url=/library/en-us/cpref/html/frlrfSystemByteClassTopic.asp">Byte()</a></div>
+      <div class="syntax">
+        <span class="lang">[C#]</span>
+        <br />public static <a href="http://msdn.microsoft.com/library/default.asp?url=/library/en-us/cpref/html/frlrfSystemByteClassTopic.asp">byte[]</a> Protect(<br />   <a href="http://msdn.microsoft.com/library/default.asp?url=/library/en-us/cpref/html/frlrfSystemByteClassTopic.asp">byte[]</a> <i>userData</i>,<br />   <a href="http://msdn.microsoft.com/library/default.asp?url=/library/en-us/cpref/html/frlrfSystemByteClassTopic.asp">byte[]</a> <i>optionalEntropy</i>,<br />   <a href="OpenNETCF.Security.Cryptography.DataProtectionScope.html">DataProtectionScope</a> <i>scope</i><br />);</div>
+      <h4 class="dtH4">Parameters</h4>
+      <dl>
+        <dt>
+          <i>userData</i>
+        </dt>
+        <dd>Byte array containing data to be protected.</dd>
+        <dt>
+          <i>optionalEntropy</i>
+        </dt>
+        <dd>Additional byte array used to encrypt the data.</dd>
+        <dt>
+          <i>scope</i>
+        </dt>
+        <dd>Value from the <a href="OpenNETCF.Security.Cryptography.DataProtectionScope.html">DataProtectionScope</a> enumeration.</dd>
+      </dl>
+      <h4 class="dtH4">Return Value</h4>
+      <p>A byte array representing the encrypted data.</p>
+      <h4 class="dtH4">Remarks</h4>
+      <p> This method can be used to protect data such as passwords, keys, or connection strings. The <code>optionalEntropy</code> parameter enables you to use additional information to protect the data. This information must also be used when unprotecting the data using the <a href="OpenNETCF.Security.Cryptography.ProtectedData.Unprotect.html">Unprotect</a> method. </p>
+      <h4 class="dtH4">See Also</h4>
+      <p>
+        <a href="OpenNETCF.Security.Cryptography.ProtectedData.html">ProtectedData Class</a> | <a href="OpenNETCF.Security.Cryptography.html">OpenNETCF.Security.Cryptography Namespace</a></p>
+      <object type="application/x-oleobject" classid="clsid:1e2a7bd0-dab9-11d0-b93a-00c04fc99f9e" viewastext="true" style="display: none;">
+        <param name="Keyword" value="Protect method">
+        </param>
+        <param name="Keyword" value="Protect method, ProtectedData class">
+        </param>
+        <param name="Keyword" value="ProtectedData.Protect method">
+        </param>
+      </object>
+      <hr />
+      <div id="footer">
+        <p>
+          <a href="mailto:docs@opennetcf.org?subject=OpenNETCF%20Smart%20Device%20Framework%202.0%20Documentation%20Feedback:%20ProtectedData.Protect Method ">Send comments on this topic.</a>
+        </p>
+        <p>
+          <a href="http://www.opennetcf.org">Copyright © 2003-2006 OpenNETCF Consulting LLC</a>
+        </p>
+        <p>Generated from assembly OpenNETCF [2.0.0.0]</p>
+      </div>
+    </div>
+  </body>
+</html>

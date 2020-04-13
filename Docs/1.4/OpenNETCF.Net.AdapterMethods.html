@@ -1,0 +1,76 @@
+<html dir="LTR">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=Windows-1252" />
+    <meta name="vs_targetSchema" content="http://schemas.microsoft.com/intellisense/ie5" />
+    <title>Adapter Methods</title>
+    <xml>
+    </xml>
+    <link rel="stylesheet" type="text/css" href="MSDN.css" />
+  </head>
+  <body id="bodyID" class="dtBODY">
+    <div id="nsbanner">
+      <div id="bannerrow1">
+        <table class="bannerparthead" cellspacing="0">
+          <tr id="hdr">
+            <td class="runninghead">OpenNETCF Smart Device Framework 2.0</td>
+            <td class="product">
+            </td>
+          </tr>
+        </table>
+      </div>
+      <div id="TitleRow">
+        <h1 class="dtH1">Adapter Methods</h1>
+      </div>
+    </div>
+    <div id="nstext">
+      <p>The methods of the <b>Adapter</b> class are listed below. For a complete list of <b>Adapter</b> class members, see the <a href="OpenNETCF.Net.AdapterMembers.html">Adapter Members</a> topic.</p>
+      <h4 class="dtH4">Public Instance Methods</h4>
+      <div class="tablediv">
+        <table class="dtTABLE" cellspacing="0">
+<tr VALIGN="top"><td width="50%"><img src="pubmethod.gif"></img><a href="OpenNETCF.Net.Adapter.BindAdapter.html">BindAdapter</a></td><td width="50%"> Method called on unbound adapter (maybe when handling changing *both* the IP/subnet/gateway *and* the wireless settings). This method notifies NDIS to bind the adapter to all protocols indicated in the registry, in effect causing the current registry settings to be applied rather than those which the adapter is currently using. Since we are binding, not *re*-binding the protocols, we are implying that the adapter is not currently bound to anything. When making this call, we must refresh any adapter list that we might have, to retrieve the current state of all adapters. Changes to things like the IP address, subnet mask, etc. are not immediately returned. </td></tr>
+<tr VALIGN="top"><td width="50%"><img src="pubmethod.gif"></img><a href="OpenNETCF.Net.Adapter.DhcpRelease.html">DhcpRelease</a></td><td width="50%"> Releases the Adapter's DHCP lease </td></tr>
+<tr VALIGN="top"><td width="50%"><img src="pubmethod.gif"></img><a href="OpenNETCF.Net.Adapter.DhcpRenew.html">DhcpRenew</a></td><td width="50%"> Renews the Adapter's DHCP lease </td></tr>
+<tr VALIGN="top"><td width="50%"><img src="pubmethod.gif"></img><a href="OpenNETCF.IO.StreamInterfaceDriver.Dispose.html">Dispose</a> (inherited from <b>StreamInterfaceDriver</b>)</td><td width="50%"> Dispose </td></tr>
+<tr VALIGN="top"><td width="50%"><img src="pubmethod.gif"></img><a href="http://msdn.microsoft.com/library/default.asp?url=/library/en-us/cpref/html/frlrfSystemObjectClassEqualsTopic.asp">Equals</a> (inherited from <b>Object</b>)</td><td width="50%">Determines whether the specified <a href="http://msdn.microsoft.com/library/default.asp?url=/library/en-us/cpref/html/frlrfSystemObjectClassTopic.asp">Object</a> is equal to the current <a href="http://msdn.microsoft.com/library/default.asp?url=/library/en-us/cpref/html/frlrfSystemObjectClassTopic.asp">Object</a>.</td></tr>
+<tr VALIGN="top"><td width="50%"><img src="pubmethod.gif"></img><a href="http://msdn.microsoft.com/library/default.asp?url=/library/en-us/cpref/html/frlrfSystemObjectClassGetHashCodeTopic.asp">GetHashCode</a> (inherited from <b>Object</b>)</td><td width="50%">Serves as a hash function for a particular type. <b>GetHashCode</b> is suitable for use in hashing algorithms and data structures like a hash table.</td></tr>
+<tr VALIGN="top"><td width="50%"><img src="pubmethod.gif"></img><a href="http://msdn.microsoft.com/library/default.asp?url=/library/en-us/cpref/html/frlrfSystemObjectClassGetTypeTopic.asp">GetType</a> (inherited from <b>Object</b>)</td><td width="50%">Gets the <a href="http://msdn.microsoft.com/library/default.asp?url=/library/en-us/cpref/html/frlrfSystemTypeClassTopic.asp">Type</a> of the current instance.</td></tr>
+<tr VALIGN="top"><td width="50%"><img src="pubmethod.gif"></img><a href="OpenNETCF.Net.Adapter.RebindAdapter.html">RebindAdapter</a></td><td width="50%"> Method called after making some changes to the current IP address, subnet mask, etc. This method notifies NDIS to rebind the adapter to all protocols, in effect causing the current registry settings to be applied rather than those which the current configuration represents. Once you have rebound an adapter, to get its new configuration, you must regenerate the list of adapters. Changes to things like the IP address, subnet mask, etc. are not immediately returned. </td></tr>
+<tr VALIGN="top"><td width="50%"><img src="pubmethod.gif"></img><a href="OpenNETCF.Net.Adapter.SetWirelessSettings_overloads.html">SetWirelessSettings</a></td><td width="50%">Overloaded.  Modifies wireless settings associated with a given interface and AP </td></tr>
+<tr VALIGN="top"><td width="50%"><img src="pubmethod.gif"></img><a href="OpenNETCF.Net.Adapter.SetWirelessSettingsEx_overloads.html">SetWirelessSettingsEx</a></td><td width="50%">Overloaded.  Sets wireless settings associated with a given interface and AP. This version of the method is designed for the case where *all* of the options are going to be set, where no initial configuration exists at all. </td></tr>
+<tr VALIGN="top"><td width="50%"><img src="pubmethod.gif"></img><a href="OpenNETCF.Net.Adapter.ToString.html">ToString</a></td><td width="50%"> Converts the Adapter to a string representation. We use the adapter's name for this. </td></tr>
+<tr VALIGN="top"><td width="50%"><img src="pubmethod.gif"></img><a href="OpenNETCF.Net.Adapter.UnbindAdapter.html">UnbindAdapter</a></td><td width="50%"> Method called to unbind a given adapter. You might perform this operation before attempting to change *both* the protocol configuration of an adapter (IP, subnet, gateway), *and* the wireless configuration of the same adapter (WEP, SSID, etc.) To do that, first unbind the adapter, then change the settings, then bind the adapter (UnbindAdapter(), make changes, BindAdapter()). Once you have bound/unbound an adapter, to get its new configuration, you must regenerate the list of adapters. Changes to things like the IP address, subnet mask, etc. are not immediately returned. </td></tr></table>
+      </div>
+      <h4 class="dtH4">Protected Instance Methods</h4>
+      <div class="tablediv">
+        <table class="dtTABLE" cellspacing="0">
+<tr VALIGN="top"><td width="50%"><img src="protmethod.gif"></img><a href="OpenNETCF.IO.StreamInterfaceDriver.Close.html">Close</a> (inherited from <b>StreamInterfaceDriver</b>)</td><td width="50%"> Close the driver </td></tr>
+<tr VALIGN="top"><td width="50%"><img src="protmethod.gif"></img><a href="OpenNETCF.IO.StreamInterfaceDriver.DeviceIoControl.html">DeviceIoControl</a> (inherited from <b>StreamInterfaceDriver</b>)</td><td width="50%"> Call a device specific IOControl </td></tr>
+<tr VALIGN="top"><td width="50%"><img src="protmethod.gif"></img><a href="OpenNETCF.IO.StreamInterfaceDriver.Finalize.html">Finalize</a> (inherited from <b>StreamInterfaceDriver</b>)</td><td width="50%"> Destructor </td></tr>
+<tr VALIGN="top"><td width="50%"><img src="protmethod.gif"></img><a href="http://msdn.microsoft.com/library/default.asp?url=/library/en-us/cpref/html/frlrfSystemObjectClassMemberwiseCloneTopic.asp">MemberwiseClone</a> (inherited from <b>Object</b>)</td><td width="50%">Creates a shallow copy of the current <a href="http://msdn.microsoft.com/library/default.asp?url=/library/en-us/cpref/html/frlrfSystemObjectClassTopic.asp">Object</a>.</td></tr>
+<tr VALIGN="top"><td width="50%"><img src="protmethod.gif"></img><a href="OpenNETCF.IO.StreamInterfaceDriver.Open.html">Open</a> (inherited from <b>StreamInterfaceDriver</b>)</td><td width="50%"> Open the driver <a href="OpenNETCF.IO.FileAccess2.html">FileAccess2</a>		
+            </td></tr>
+<tr VALIGN="top"><td width="50%"><img src="protmethod.gif"></img><a href="OpenNETCF.IO.StreamInterfaceDriver.Read.html">Read</a> (inherited from <b>StreamInterfaceDriver</b>)</td><td width="50%"> Read data from the driver </td></tr>
+<tr VALIGN="top"><td width="50%"><img src="protmethod.gif"></img><a href="OpenNETCF.IO.StreamInterfaceDriver.Seek.html">Seek</a> (inherited from <b>StreamInterfaceDriver</b>)</td><td width="50%"> This function moves the file pointer of an open file <seealso cref="M:OpenNETCF.IO.File2.Move(System.String,System.String)"></seealso>
+            </td></tr>
+<tr VALIGN="top"><td width="50%"><img src="protmethod.gif"></img><a href="OpenNETCF.IO.StreamInterfaceDriver.Write_overloads.html">Write</a> (inherited from <b>StreamInterfaceDriver</b>)</td><td width="50%">Overloaded.  Write data to the driver </td></tr></table>
+      </div>
+      <h4 class="dtH4">See Also</h4>
+      <p>
+        <a href="OpenNETCF.Net.Adapter.html">Adapter Class</a> | <a href="OpenNETCF.Net.html">OpenNETCF.Net Namespace</a></p>
+      <object type="application/x-oleobject" classid="clsid:1e2a7bd0-dab9-11d0-b93a-00c04fc99f9e" viewastext="true" style="display: none;">
+        <param name="Keyword" value="Adapter class, methods">
+        </param>
+      </object>
+      <hr />
+      <div id="footer">
+        <p>
+          <a href="mailto:docs@opennetcf.org?subject=OpenNETCF%20Smart%20Device%20Framework%202.0%20Documentation%20Feedback:%20Adapter Methods">Send comments on this topic.</a>
+        </p>
+        <p>
+          <a href="http://www.opennetcf.org">Copyright © 2003-2006 OpenNETCF Consulting LLC</a>
+        </p>
+        <p>Generated from assembly OpenNETCF.Net [2.0.0.0]</p>
+      </div>
+    </div>
+  </body>
+</html>

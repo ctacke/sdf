@@ -1,0 +1,323 @@
+<html dir="LTR">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=Windows-1252" />
+    <meta name="vs_targetSchema" content="http://schemas.microsoft.com/intellisense/ie5" />
+    <title>OpenNETCF.Net</title>
+    <xml>
+    </xml>
+    <link rel="stylesheet" type="text/css" href="MSDN.css" />
+  </head>
+  <body id="bodyID" class="dtBODY">
+    <div id="nsbanner">
+      <div id="bannerrow1">
+        <table class="bannerparthead" cellspacing="0">
+          <tr id="hdr">
+            <td class="runninghead">OpenNETCF Smart Device Framework 2.0</td>
+            <td class="product">
+            </td>
+          </tr>
+        </table>
+      </div>
+      <div id="TitleRow">
+        <h1 class="dtH1">OpenNETCF.Net Namespace</h1>
+      </div>
+    </div>
+    <div id="nstext">
+      <p>
+        <a href="OpenNETCF.NetHierarchy.html">Namespace hierarchy</a>
+      </p>
+      <h3 class="dtH3">Classes</h3>
+      <div class="tablediv">
+        <table class="dtTABLE" cellspacing="0">
+          <tr valign="top">
+            <th width="50%">Class</th>
+            <th width="50%">Description</th>
+          </tr>
+          <tr valign="top">
+            <td width="50%">
+              <a href="OpenNETCF.Net.AccessPoint.html">AccessPoint</a>
+            </td>
+            <td width="50%"> The SSID class represents a single SSID value which an adapter might be receiving data from. It can be queried for SSID-specific information for the associated adapter such as signal strength. </td>
+          </tr>
+          <tr valign="top">
+            <td width="50%">
+              <a href="OpenNETCF.Net.AccessPointCollection.html">AccessPointCollection</a>
+            </td>
+            <td width="50%"> Class that represents a collection of the SSID values that a given network adapter can hear over the airwaves. For each SSID, you can get the signal strength and random other information. </td>
+          </tr>
+          <tr valign="top">
+            <td width="50%">
+              <a href="OpenNETCF.Net.Adapter.html">Adapter</a>
+            </td>
+            <td width="50%"> Class representing a single instance of a network adapter, which might include PCMCIA cards, USB network cards, built-in Ethernet chips, etc. </td>
+          </tr>
+          <tr valign="top">
+            <td width="50%">
+              <a href="OpenNETCF.Net.AdapterCollection.html">AdapterCollection</a>
+            </td>
+            <td width="50%"> Class that represents a collection of network adapters connected to the Windows CE device. Each adapter can be queried for information such as the signal strength (RF only), the activity state, etc. </td>
+          </tr>
+          <tr valign="top">
+            <td width="50%">
+              <a href="OpenNETCF.Net.AdapterException.html">AdapterException</a>
+            </td>
+            <td width="50%"> The AdapterException class indicates an exception during an adapter query, modification, or other operation. </td>
+          </tr>
+          <tr valign="top">
+            <td width="50%">
+              <a href="OpenNETCF.Net.AdapterInfo.html">AdapterInfo</a>
+            </td>
+            <td width="50%">
+              <FONT color="red">
+                <B>Obsolete. </B>
+              </FONT> Class that provides information about a specific network adapter </td>
+          </tr>
+          <tr valign="top">
+            <td width="50%">
+              <a href="OpenNETCF.Net.AdapterNotificationArgs.html">AdapterNotificationArgs</a>
+            </td>
+            <td width="50%">
+            
+            </td>
+          </tr>
+          <tr valign="top">
+            <td width="50%">
+              <a href="OpenNETCF.Net.AdapterStatusMonitor.html">AdapterStatusMonitor</a>
+            </td>
+            <td width="50%"> Class giving the ability to monitor NDIS adapters for changes in their state. When a change is detected, an event is fired to all interested parties. The parameters of the event indicate the type of status change and the name of the adapter which changed. </td>
+          </tr>
+          <tr valign="top">
+            <td width="50%">
+              <a href="OpenNETCF.Net.ConnectionManager.html">ConnectionManager</a>
+            </td>
+            <td width="50%"> A class that handles opening and closing of network connections. <p> It is important to remember that when connecting asynchronous, you must poll the connection status in your code. </p>
+            <example>
+            <pre class="code">bool connected = false;
+ConnectionManger connMgr = new ConnectionManager();
+connMgr.Connect(true, ConnectionMode.Asynchronous);
+while(!connected)
+{
+    if(connMgr.Status != ConnectionStatus.Connected)
+    {
+        Thread.Sleep(1000);
+        continue;
+    }
+    connected = true;
+}
+// Now we are connected and can do something... 
+</pre>
+            </example>
+            <p> It is also important to note that creating a non-exclusive connection will result in your application being unable to programmatically disconnect. </p>
+            </td>
+          </tr>
+          <tr valign="top">
+            <td width="50%">
+              <a href="OpenNETCF.Net.DestinationInfo.html">DestinationInfo</a>
+            </td>
+            <td width="50%"> Contains information about a specific network. </td>
+          </tr>
+          <tr valign="top">
+            <td width="50%">
+              <a href="OpenNETCF.Net.DestinationInfoCollection.html">DestinationInfoCollection</a>
+            </td>
+            <td width="50%"> Summary description for DestinationInfoCollection. </td>
+          </tr>
+          <tr valign="top">
+            <td width="50%">
+              <a href="OpenNETCF.Net.DestinationInfoCollection.Enumerator.html">DestinationInfoCollection.Enumerator</a>
+            </td>
+            <td width="50%"> </td>
+          </tr>
+          <tr valign="top">
+            <td width="50%">
+              <a href="OpenNETCF.Net.DeviceNotificationArgs.html">DeviceNotificationArgs</a>
+            </td>
+            <td width="50%"> DeviceNotificationArgs passed to interested parties when a device notification is fired. Contains the device class GUID, a flag indicating whether the device is attached or detached, and the device name. </td>
+          </tr>
+          <tr valign="top">
+            <td width="50%">
+              <a href="OpenNETCF.Net.DeviceStatusMonitor.html">DeviceStatusMonitor</a>
+            </td>
+            <td width="50%"> Class for receiving device notifications of all sorts (storage card insertions/removals, etc.) When a change is detected, an event is fired to all interested parties. The parameters of the event indicate the GUID of the device interface that changed, whether the device is now connected or disconnected from the system, and the name of the device (COM1:, for example), which changed. </td>
+          </tr>
+          <tr valign="top">
+            <td width="50%">
+              <a href="OpenNETCF.Net.Network.html">Network</a>
+            </td>
+            <td width="50%"> Summary description for Network. </td>
+          </tr>
+          <tr valign="top">
+            <td width="50%">
+              <a href="OpenNETCF.Net.NetworkAdapter.html">NetworkAdapter</a>
+            </td>
+            <td width="50%">
+              <FONT color="red">
+                <B>Obsolete. </B>
+              </FONT> Exposes methods for network adapter identification </td>
+          </tr>
+          <tr valign="top">
+            <td width="50%">
+              <a href="OpenNETCF.Net.Networking.html">Networking</a>
+            </td>
+            <td width="50%">
+            
+            </td>
+          </tr>
+          <tr valign="top">
+            <td width="50%">
+              <a href="OpenNETCF.Net.NetworkResource.html">NetworkResource</a>
+            </td>
+            <td width="50%"> Implements NetworkResouce class </td>
+          </tr>
+          <tr valign="top">
+            <td width="50%">
+              <a href="OpenNETCF.Net.PointToPointMsgQueue.html">PointToPointMsgQueue</a>
+            </td>
+            <td width="50%">
+              <FONT color="red">
+                <B>Obsolete. </B>
+              </FONT> The PointToPointMsgQueue class wraps the Windows CE point-to- point message queue object type. It is used primarily for interprocess communication between device drivers, who send notifications of change of status, etc. and applications, who might display status information or take action when the status changes. </td>
+          </tr>
+          <tr valign="top">
+            <td width="50%">
+              <a href="OpenNETCF.Net.SignalStrength.html">SignalStrength</a>
+            </td>
+            <td width="50%"> The SignalStrength class provides a repository for the signal strength indication from an RF Ethernet network adapter. From an instance of this class, you can get the signal strength in dB, an enumerated value of type StrengthType indicating the relative strength, or a string representing the relative strength. </td>
+          </tr>
+        </table>
+      </div>
+      <h3 class="dtH3">Delegates</h3>
+      <div class="tablediv">
+        <table class="dtTABLE" cellspacing="0">
+          <tr valign="top">
+            <th width="50%">Delegate</th>
+            <th width="50%">Description</th>
+          </tr>
+          <tr valign="top">
+            <td width="50%">
+              <a href="OpenNETCF.Net.AdapaterNotificationEventHandler.html">AdapaterNotificationEventHandler</a>
+            </td>
+            <td width="50%">
+            
+            </td>
+          </tr>
+          <tr valign="top">
+            <td width="50%">
+              <a href="OpenNETCF.Net.DeviceNotificationEventHandler.html">DeviceNotificationEventHandler</a>
+            </td>
+            <td width="50%">
+            
+            </td>
+          </tr>
+        </table>
+      </div>
+      <h3 class="dtH3">Enumerations</h3>
+      <div class="tablediv">
+        <table class="dtTABLE" cellspacing="0">
+          <tr valign="top">
+            <th width="50%">Enumeration</th>
+            <th width="50%">Description</th>
+          </tr>
+          <tr valign="top">
+            <td width="50%">
+              <a href="OpenNETCF.Net.AdapterType.html">AdapterType</a>
+            </td>
+            <td width="50%"> Different NIC adapter types </td>
+          </tr>
+          <tr valign="top">
+            <td width="50%">
+              <a href="OpenNETCF.Net.AuthenticationMode.html">AuthenticationMode</a>
+            </td>
+            <td width="50%"> Define authentication types for an adapter. </td>
+          </tr>
+          <tr valign="top">
+            <td width="50%">
+              <a href="OpenNETCF.Net.ConnectionManagerState.html">ConnectionManagerState</a>
+            </td>
+            <td width="50%">
+              <FONT color="red">
+                <B>Obsolete. </B>
+              </FONT> Specifies the network connection state. </td>
+          </tr>
+          <tr valign="top">
+            <td width="50%">
+              <a href="OpenNETCF.Net.ConnectionMode.html">ConnectionMode</a>
+            </td>
+            <td width="50%"> </td>
+          </tr>
+          <tr valign="top">
+            <td width="50%">
+              <a href="OpenNETCF.Net.ConnectionPriority.html">ConnectionPriority</a>
+            </td>
+            <td width="50%"> </td>
+          </tr>
+          <tr valign="top">
+            <td width="50%">
+              <a href="OpenNETCF.Net.ConnectionStatus.html">ConnectionStatus</a>
+            </td>
+            <td width="50%"> Describes the current status of the connection </td>
+          </tr>
+          <tr valign="top">
+            <td width="50%">
+              <a href="OpenNETCF.Net.InfrastructureMode.html">InfrastructureMode</a>
+            </td>
+            <td width="50%"> Define the general network infrastructure mode in which the selected network is presently operating. </td>
+          </tr>
+          <tr valign="top">
+            <td width="50%">
+              <a href="OpenNETCF.Net.NdisNotificationType.html">NdisNotificationType</a>
+            </td>
+            <td width="50%"> The NdisNotificationType enumeration defines the types of notifications which can be requested from NDIS. </td>
+          </tr>
+          <tr valign="top">
+            <td width="50%">
+              <a href="OpenNETCF.Net.Network.NetworkErrors.html">Network.NetworkErrors</a>
+            </td>
+            <td width="50%"> Possible network errors </td>
+          </tr>
+          <tr valign="top">
+            <td width="50%">
+              <a href="OpenNETCF.Net.NetworkType.html">NetworkType</a>
+            </td>
+            <td width="50%"> Enumeration returned in the NetworkTypeInUse property. Indicates the general type of radio network in use. </td>
+          </tr>
+          <tr valign="top">
+            <td width="50%">
+              <a href="OpenNETCF.Net.PointToPointMsgQueueFlags.html">PointToPointMsgQueueFlags</a>
+            </td>
+            <td width="50%"> The PointToPointMsgQueueFlags enumeration gives the values which can be passed in the flags parameter when creating a PointToPointMsgQueue instance. </td>
+          </tr>
+          <tr valign="top">
+            <td width="50%">
+              <a href="OpenNETCF.Net.StrengthType.html">StrengthType</a>
+            </td>
+            <td width="50%"> The StrengthType enumeration provides a list of relative RF Ethernet signal strength values that correspond to the strengths displayed by Windows CE itself. </td>
+          </tr>
+          <tr valign="top">
+            <td width="50%">
+              <a href="OpenNETCF.Net.WEPStatus.html">WEPStatus</a>
+            </td>
+            <td width="50%"> Define WEP authentication state for the adapter. </td>
+          </tr>
+          <tr valign="top">
+            <td width="50%">
+              <a href="OpenNETCF.Net.WZCCTL.html">WZCCTL</a>
+            </td>
+            <td width="50%"> Control flags for Windows Zero Config </td>
+          </tr>
+        </table>
+      </div>
+      <hr />
+      <div id="footer">
+        <p>
+          <a href="mailto:docs@opennetcf.org?subject=OpenNETCF%20Smart%20Device%20Framework%202.0%20Documentation%20Feedback:%20OpenNETCF.Net%20Namespace">Send comments on this topic.</a>
+        </p>
+        <p>
+          <a href="http://www.opennetcf.org">Copyright © 2003-2006 OpenNETCF Consulting LLC</a>
+        </p>
+        <p>
+        </p>
+      </div>
+    </div>
+  </body>
+</html>
